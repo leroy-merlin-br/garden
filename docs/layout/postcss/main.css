@@ -9,4 +9,5 @@
 @import "molecules/nav.css";
 
 @import "organisms/header.css";
+@import "organisms/footer.css";
 @import "organisms/banner.css";

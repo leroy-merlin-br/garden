@@ -1,4 +1,28 @@
 .banner {
   background-color: $color-green;
   height: 300px;
+  padding-top: 3em;
+
+  .title {
+    color: $color-white;
+    font-size: 1.875em;
+    line-height: 1.3em;
+    max-width: 700px;
+  }
+
+  .button {
+    border: 1px solid $color-white;
+    border-radius: 3px;
+    color: $color-white;
+    font-size: 1.4em;
+    font-weight: 200;
+    float: left;
+    margin-top: 1.875em;
+    padding: 0.625em 1.25em;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-green;
+    }
+  }
 }
