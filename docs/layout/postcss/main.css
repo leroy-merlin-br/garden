@@ -1,7 +1,12 @@
-@import "reset.css";
+@import "base/reset.css";
+@import "base/colors.css";
+@import "base/typography.css";
 
-@import "colors.css";
+@import "atoms/container.css";
+@import "atoms/link.css";
+@import "atoms/logo.css";
 
-.header {
-  background-color: $green;
-}
+@import "molecules/nav.css";
+
+@import "organisms/header.css";
+@import "organisms/banner.css";

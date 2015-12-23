@@ -1,5 +1,10 @@
 {
-  "use": ["postcss-import", "postcss-simple-vars"],
+  "use": [
+    "postcss-import",
+    "postcss-simple-vars",
+    "postcss-color-function",
+    "postcss-nested"
+  ],
   "input": "./docs/layout/postcss/main.css",
   "output": "./public/style.css"
 }

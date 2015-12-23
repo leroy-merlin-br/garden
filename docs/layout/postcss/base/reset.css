@@ -26,3 +26,7 @@ time, mark, audio, video {
   outline: 0;
   vertical-align: baseline;
 }
+
+a {
+  text-decoration: none;
+}

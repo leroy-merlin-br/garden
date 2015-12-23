@@ -1,0 +1,13 @@
+.nav {
+  float: right;
+  margin-top: 0.625em;
+
+  .link {
+    color: color($color-white a(50%));
+    margin-left: 1.25em;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
