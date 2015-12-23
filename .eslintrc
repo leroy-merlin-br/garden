@@ -1,8 +1,9 @@
 {
+  "parser": "babel-eslint",
   "rules": {
     "indent": [
       2,
-      4
+      2
     ],
     "quotes": [
       2,
