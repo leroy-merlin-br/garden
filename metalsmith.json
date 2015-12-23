@@ -1,0 +1,12 @@
+{
+  "source": "docs",
+  "destination": "public",
+  "plugins": {
+    "metalsmith-markdown": true,
+    "metalsmith-layouts": {
+      "engine": "jade",
+      "directory": "docs/layout"
+    },
+    "metalsmith-ignore": "layout/**"
+  }
+}

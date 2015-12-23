@@ -1,10 +1,11 @@
 {
   "name": "garden",
   "version": "0.0.1",
-  "description": "",
+  "description": "A styleguide based on Leroy Merlin needs",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "docs": "./node_modules/.bin/metalsmith"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,11 @@
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
+    "metalsmith": "^2.1.0",
+    "metalsmith-ignore": "^0.1.2",
+    "metalsmith-jade": "^2.0.2",
+    "metalsmith-layouts": "^1.4.2",
+    "metalsmith-markdown": "^0.2.1",
     "nyc": "^5.0.1",
     "postcss-cli": "^2.3.2"
   },
