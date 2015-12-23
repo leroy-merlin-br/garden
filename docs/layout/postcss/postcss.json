@@ -3,6 +3,7 @@
     "postcss-import",
     "postcss-simple-vars",
     "postcss-color-function",
+    "postcss-custom-media",
     "postcss-nested"
   ],
   "input": "./docs/layout/postcss/main.css",

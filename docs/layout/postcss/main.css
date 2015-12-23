@@ -1,5 +1,6 @@
 @import "base/reset.css";
 @import "base/colors.css";
+@import "base/breakpoints.css";
 @import "base/typography.css";
 
 @import "atoms/container.css";
