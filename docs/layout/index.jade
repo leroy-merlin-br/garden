@@ -1,7 +1,11 @@
 doctype html
-html(lang="en")
+html(lang="pt-BR")
   head
     meta(charset="UTF-8")
-    title= title 
+    title Garden
+    link(rel="stylesheet", href="style.css")
     
-  body!= contents
+  body
+    include _partials/header.jade
+    
+    include _partials/footer.jade

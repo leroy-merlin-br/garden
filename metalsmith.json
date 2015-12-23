@@ -5,8 +5,7 @@
     "metalsmith-markdown": true,
     "metalsmith-layouts": {
       "engine": "jade",
-      "directory": "docs/layout",
-      "partials": "docs/layout/_partials"
+      "directory": "docs/layout"
     },
     "metalsmith-ignore": "layout/**"
   }

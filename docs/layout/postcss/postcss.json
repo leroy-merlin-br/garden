@@ -1,5 +1,5 @@
 {
-  "use": ["postcss-simple-vars"],
+  "use": ["postcss-import", "postcss-simple-vars"],
   "input": "./docs/layout/postcss/main.css",
   "output": "./public/style.css"
 }
