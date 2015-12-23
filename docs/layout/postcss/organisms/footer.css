@@ -1,5 +1,14 @@
 .footer {
   color: $color-gray;
+  font-size: 0.8em;
   line-height: 1.4em;
   margin-top: 20px;
+  text-align: center;
+}
+
+@media (--tablet) {
+  .footer {
+    text-align: left;
+    font-size: 1em;
+  }
 }

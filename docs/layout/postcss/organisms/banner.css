@@ -1,7 +1,7 @@
 .banner {
   background-color: $color-green;
   height: 300px;
-  padding-top: 3em;
+  text-align: center;
 
   .title {
     color: $color-white;
@@ -14,15 +14,26 @@
     border: 1px solid $color-white;
     border-radius: 3px;
     color: $color-white;
+    display: block;
     font-size: 1.4em;
     font-weight: 200;
-    float: left;
     margin-top: 1.875em;
     padding: 0.625em 1.25em;
 
     &:hover {
       background-color: $color-white;
       color: $color-green;
+    }
+  }
+}
+
+@media (--tablet) {
+  .banner {
+    padding-top: 3em;
+    text-align: left;
+
+    .button {
+      float: left;
     }
   }
 }
