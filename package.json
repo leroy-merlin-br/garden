@@ -4,10 +4,10 @@
   "description": "A styleguide based on Leroy Merlin needs",
   "main": "index.js",
   "scripts": {
-    "test": "ava",
-    "docs:pages": "./node_modules/.bin/metalsmith",
-    "docs:postcss": "./node_modules/.bin/postcss -c ./docs/layout/postcss/postcss.json",
-    "docs:postcss-watch": "./node_modules/.bin/postcss -w -c ./docs/layout/postcss/postcss.json",
+    "test": "ava test/unit/*spec.js --tap | tnyan",
+    "docs:pages": "metalsmith",
+    "docs:postcss": "postcss -c ./docs/layout/postcss/config.json",
+    "docs:postcss-watch": "postcss -w -c ./docs/layout/postcss/config.json",
     "docs": "npm run docs:pages && npm run docs:postcss"
   },
   "repository": {
@@ -21,23 +21,24 @@
   },
   "homepage": "https://github.com/leroy-merlin-br/garden#readme",
   "devDependencies": {
-    "ava": "^0.8.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
-    "http-server": "^0.8.5",
+    "jade": "^1.11.0",
     "metalsmith": "^2.1.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jade": "^2.0.2",
     "metalsmith-layouts": "^1.4.2",
     "metalsmith-markdown": "^0.2.1",
-    "nyc": "^5.0.1",
     "postcss-cli": "^2.3.2",
     "postcss-color-function": "^2.0.0",
     "postcss-custom-media": "^5.0.0",
     "postcss-import": "^7.1.3",
     "postcss-nested": "^1.0.0",
-    "postcss-simple-vars": "^1.2.0"
+    "postcss-simple-vars": "^1.2.0",
+    "tap-notify": "0.0.3",
+    "tap-nyan": "0.0.2"
   },
   "dependencies": {
     "jquery": "^2.1.4"
