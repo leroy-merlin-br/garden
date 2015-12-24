@@ -6,8 +6,8 @@
   "scripts": {
     "test": "babel-tape-runner test/unit/*spec.js | faucet",
     "docs:pages": "metalsmith",
-    "docs:postcss": "postcss -c ./docs/layout/postcss/config.json",
-    "docs:postcss-watch": "postcss -w -c ./docs/layout/postcss/config.json",
+    "docs:postcss": "postcss -c ./docs/css/config.json",
+    "docs:postcss-watch": "postcss -w -c ./docs/css/config.json",
     "docs": "npm run docs:pages && npm run docs:postcss"
   },
   "repository": {

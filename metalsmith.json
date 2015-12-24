@@ -9,7 +9,8 @@
     },
     "metalsmith-ignore": [
       "**/.DS_Store",
-      "layout/**"
+      "layout/**",
+      "css/**"
     ]
   }
 }

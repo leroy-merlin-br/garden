@@ -6,6 +6,6 @@
     "postcss-custom-media",
     "postcss-nested"
   ],
-  "input": "./docs/layout/postcss/main.css",
+  "input": "./docs/css/main.css",
   "output": "./public/style.css"
 }
