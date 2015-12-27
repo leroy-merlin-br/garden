@@ -39,7 +39,7 @@ These are the types of commits we can use.
 - `refactor` A code change that neither fixes a bug nor adds a feature
 - `test` Adding missing tests
 - `chore` Changes to the build process or auxiliary tools and libraries such as documentation generation
-- `refert` revert previous commit (hope not use this)
+- `revert` revert previous commit (hope not use this)
 
 > we also provide `wip` type, but commits with `wip` type, should be rewrited using rebase when open a pull request
 
@@ -55,7 +55,6 @@ git commit -m 'feat(form): Add new radio button component
 The subject contains succinct description of the change:
 
 - use the imperative, present tense: "change" not "changed" nor "changes"
-- don't capitalize first letter
 - no dot (.) at the end
 
 ## Message Body
