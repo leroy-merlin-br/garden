@@ -1,4 +1,5 @@
 *.log
 node_modules/
 public/
+coverage/
 **/.DS_Store

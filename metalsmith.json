@@ -7,6 +7,10 @@
       "engine": "jade",
       "directory": "docs/layout"
     },
-    "metalsmith-ignore": "layout/**"
+    "metalsmith-ignore": [
+      "**/.DS_Store",
+      "layout/**",
+      "css/**"
+    ]
   }
 }
