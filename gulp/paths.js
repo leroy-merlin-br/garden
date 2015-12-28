@@ -13,5 +13,6 @@ export default {
     pages: {
       glob: 'docs/**/*.md'
     }
-  }
+  },
+  public: 'public'
 };

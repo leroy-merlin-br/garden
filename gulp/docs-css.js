@@ -1,7 +1,8 @@
 import gulp from 'gulp';
-import paths from './paths';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
+
+import paths from './paths';
 
 import external from 'postcss-import';
 import vars from 'postcss-simple-vars';
@@ -20,7 +21,7 @@ export default function() {
     cssnano
   ];
 
-  gulp.src(paths.docs.css.main)
+  return gulp.src(paths.docs.css.main)
     .pipe(postcss(processors))
     .pipe(rename('style.css'))
     .pipe(gulp.dest(paths.docs.css.dest));
