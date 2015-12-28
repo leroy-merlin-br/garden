@@ -1,0 +1,17 @@
+doctype html
+html(lang="pt-BR")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title #{title} | Garden
+    link(rel="stylesheet", href="style.css")
+    
+  body
+    include _partials/header.jade
+    
+    main.content
+      .container
+        if sidebar
+          nav.sidebar
+    
+    include _partials/footer.jade

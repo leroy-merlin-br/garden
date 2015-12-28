@@ -1,27 +1,12 @@
 .sidebar {
-  border: 1px solid $color-gray;
+  border: 1px solid $color-gray-light;
   border-radius: 3px;
-  display: block;
-  overflow: hidden;
-  width: 100%;
 
   .link {
-    border-bottom: 1px solid $color-gray;
+    border-bottom: 1px solid $color-gray-light;
+    border-left: 2px solid transparent;
     display: block;
     padding: 8px 10px;
-    position: relative;
-    transition: background-color .3s ease;
-
-    &:before {
-      background-color: transparent;
-      content: " ";
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      transition: background-color .3s ease-in-out;
-      width: 2px;
-    }
 
     &:last-child {
       border-bottom: 0;
@@ -29,18 +14,17 @@
 
     &:hover,
     &:focus {
-      background-color: color($color-gray l(95%));
+      background-color: color($color-gray-light l(95%));
     }
 
-    &--selected {
+    &--active {
+      border-left-color: $color-green;
+      color: $color-black;
+      font-weight: bold;
 
       &:hover,
       &:focus {
         background-color: $color-white;
-      }
-
-      &:before {
-        background-color: $color-green;
       }
     }
   }
