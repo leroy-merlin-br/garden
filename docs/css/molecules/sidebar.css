@@ -1,0 +1,47 @@
+.sidebar {
+  border: 1px solid $color-gray;
+  border-radius: 3px;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+
+  .link {
+    border-bottom: 1px solid $color-gray;
+    display: block;
+    padding: 8px 10px;
+    position: relative;
+    transition: background-color .3s ease;
+
+    &:before {
+      background-color: transparent;
+      content: " ";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: background-color .3s ease-in-out;
+      width: 2px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: color($color-gray l(95%));
+    }
+
+    &--selected {
+
+      &:hover,
+      &:focus {
+        background-color: $color-white;
+      }
+
+      &:before {
+        background-color: $color-green;
+      }
+    }
+  }
+}
