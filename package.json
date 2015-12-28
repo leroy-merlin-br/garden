@@ -25,6 +25,7 @@
     "babel-plugin-transform-es2015-modules-umd": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
     "chai": "^3.4.1",
+    "gulp": "^3.9.0",
     "isparta": "^4.0.0",
     "istanbul": "gotwarlost/istanbul.git#source-map",
     "karma": "^0.13.16",
