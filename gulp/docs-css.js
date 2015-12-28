@@ -1,3 +1,5 @@
+'use strict';
+
 import gulp from 'gulp';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
@@ -11,7 +13,7 @@ import media from 'postcss-custom-media';
 import nested from 'postcss-nested';
 import cssnano from 'cssnano';
 
-export default function() {
+export default () => {
   let processors = [
     external,
     vars,

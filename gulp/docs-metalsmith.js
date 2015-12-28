@@ -2,6 +2,6 @@
 
 import {exec} from 'child_process';
 
-export default function(done) {
+export default (done) => {
   return exec('./node_modules/.bin/metalsmith', () => done());
 }
