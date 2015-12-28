@@ -2,6 +2,7 @@
   "source": "docs",
   "destination": "public",
   "plugins": {
+    "metalsmith-collections": {},
     "metalsmith-markdown": true,
     "metalsmith-layouts": {
       "engine": "jade",

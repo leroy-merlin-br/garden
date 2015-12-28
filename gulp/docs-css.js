@@ -8,6 +8,8 @@ import paths from './paths';
 
 import external from 'postcss-import';
 import vars from 'postcss-simple-vars';
+import extend from 'postcss-extend';
+import lost from 'lost';
 import color from 'postcss-color-function';
 import media from 'postcss-custom-media';
 import nested from 'postcss-nested';
@@ -17,6 +19,8 @@ export default () => {
   let processors = [
     external,
     vars,
+    extend,
+    lost,
     color,
     media,
     nested,

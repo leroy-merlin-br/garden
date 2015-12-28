@@ -4,6 +4,8 @@
   text-align: center;
 
   .title {
+    lost-utility: clearfix;
+
     color: $color-white;
     font-size: 1.875em;
     line-height: 1.3em;

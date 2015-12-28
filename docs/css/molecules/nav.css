@@ -8,6 +8,10 @@
     &:hover {
       color: $color-white;
     }
+
+    &--active {
+      color: $color-white;  
+    }
   }
 }
 

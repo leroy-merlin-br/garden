@@ -1,0 +1,18 @@
+.docs {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+@media (--tablet) {
+  .docs {
+    lost-utility: clearfix;
+
+    .sidebar {
+      lost-column: 4/12;
+    }
+
+    .sidebar + .content {
+      lost-column: 8/12;
+    }
+  }
+}

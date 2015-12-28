@@ -1,3 +1,48 @@
+%heading {
+  border-bottom: 1px solid $color-gray-light;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin-bottom: .8em;
+  padding-bottom: .2em;
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  @extend %heading;
+  font-size: 2.25em;
+}
+
+h2 {
+  @extend %heading;
+  font-size: 1.75em;
+}
+
+h3 {
+  @extend %heading;
+  border-bottom: 0;
+  font-size: 1.5em;
+  line-height: 1.4em;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+p {
+  color: color($color-black l(20%));
+  line-height: 1.4em;
+  margin-bottom: 1em;
+
+  &:first-of-type {
+    font-size: 1.3em;
+  }
+
+  a {
+    color: $color-green;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

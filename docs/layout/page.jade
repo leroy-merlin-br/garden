@@ -9,9 +9,12 @@ html(lang="pt-BR")
   body
     include _partials/header.jade
     
-    main.content
+    main.docs
       .container
         if sidebar
           nav.sidebar
+            each page in collections[collection]
+              a.link(href="", class=title === page.title ? "link--active" : undefined) #{page.title}
+        .content!= contents
     
     include _partials/footer.jade
