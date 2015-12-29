@@ -1,0 +1,50 @@
+%heading-margin {
+  margin-bottom: .625rem;
+}
+
+%heading-font {
+  font-family: inherit;
+  font-weight: 500;
+}
+
+h1,
+.heading-1 {
+  font-size: 3.75rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h2,
+.heading-2 {
+  font-size: 3.125rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h3,
+.heading-3 {
+  font-size: 2.5rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h4,
+.heading-4 {
+  font-size: 1.875rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h5,
+.heading-5 {
+  font-size: 1.25rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h6,
+.heading-6 {
+  font-size: 1rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}

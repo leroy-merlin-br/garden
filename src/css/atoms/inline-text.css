@@ -1,0 +1,15 @@
+strong,
+b,
+.strong {
+  font-weight: bold;
+}
+
+em,
+i,
+.italic {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}

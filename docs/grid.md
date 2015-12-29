@@ -3,10 +3,11 @@ title: Grid
 layout: page.jade
 sidebar: true
 collection: css
+path: grid
 ---
 
 # Grid
-The grid is responsible for basic element positioning.
+<p class="lead">The grid is responsible for basic element positioning.</p>
 
 ### How to use
 The grid is a third party [postCSS plugin](https://github.com/corysimmons/lost).

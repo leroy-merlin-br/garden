@@ -12,5 +12,7 @@
 @import "organisms/footer";
 @import "organisms/banner";
 @import "organisms/docs";
+@import "organisms/content";
+@import "organisms/example";
 
 @import "vendor/prism"

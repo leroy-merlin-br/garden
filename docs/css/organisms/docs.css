@@ -9,11 +9,11 @@
     lost-utility: clearfix;
 
     .sidebar {
-      lost-column: 4/12;
+      lost-column: 3/12;
     }
 
     .sidebar + .content {
-      lost-column: 8/12;
+      lost-column: 9/12;
     }
   }
 }
