@@ -17,9 +17,4 @@
   .heading-6 {
     margin: 10px 0;
   }
-
-  .example-item {
-    border-bottom: 1px solid $color-gray-light;
-    padding-bottom: 10px;
-  }
 }

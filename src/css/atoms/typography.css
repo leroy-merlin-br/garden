@@ -10,6 +10,13 @@ a {
   text-decoration: none;
 }
 
+hr {
+  background-color: #eee;
+  border: 0;
+  height: 1px;
+  width: 100%;
+}
+
 @import "atoms/text/heading";
 @import "atoms/text/paragraph";
 @import "atoms/text/style";
