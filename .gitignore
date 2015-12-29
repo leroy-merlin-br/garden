@@ -3,4 +3,4 @@ node_modules/
 public/
 coverage/
 **/.DS_Store
-dist
+dist/

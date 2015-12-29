@@ -1,22 +1,22 @@
 .text {
 
-  &--center {
+  &-center {
     text-align: center;
   }
 
-  &--left {
+  &-left {
     text-align: left;
   }
 
-  &--justify {
+  &-justify {
     text-align: justify;
   }
 
-  &--nowrap {
+  &-nowrap {
     white-space: nowrap;
   }
 
-  &--right {
+  &-right {
     text-align: right;
   }
 }
