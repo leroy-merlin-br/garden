@@ -10,6 +10,7 @@ i,
   font-style: italic;
 }
 
-a {
-  text-decoration: none;
+u,
+.underlined {
+  text-decoration: underline;
 }
