@@ -1,3 +1,16 @@
-.content > *:first-child {
-  margin-top: 0 !important;
+.content {
+
+  & > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  p code {
+    border: 1px solid $color-gray-light;
+    border-radius: 2px;
+    color: $color-green;
+    display: inline-block;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 }

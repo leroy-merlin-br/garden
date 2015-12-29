@@ -45,3 +45,17 @@ Paragraphs `<p>` uses `font-size: .875rem (14px)`, `line-height: 1.5rem(24px)`, 
 <p>Paragraph tag</p>
 <div class="paragraph">Paragraph class</div>
 ```
+
+#### Inline text
+
+Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. You can also use `.strong` and `.italic`, `.underlined` to mimic their styles.
+
+<div class="example">
+  <p class="example-item">Paragraph tag</p>
+  <div class="paragraph">Paragraph class</div>
+</div>
+
+```html
+<p>Paragraph tag</p>
+<div class="paragraph">Paragraph class</div>
+```
