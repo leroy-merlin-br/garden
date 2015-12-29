@@ -28,14 +28,8 @@ renderer.code = function(code, lang, escaped) {
 var extensions = {
   js: 'javascript',
   scss: 'css',
-  sass: 'css',
   html: 'markup',
-  svg: 'markup',
-  xml: 'markup',
-  py: 'python',
-  rb: 'ruby',
-  ps1: 'powershell',
-  psm1: 'powershell'
+  svg: 'markup'
 };
 
 metalsmith(__dirname)

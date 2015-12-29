@@ -9,7 +9,7 @@ import paths from './paths';
 import processors from './postcss-processors';
 
 export default () => {
-  return gulp.src(paths.docs.css.glob)
+  return gulp.src(paths.docs.css.main)
     .pipe(postcss(processors))
     .pipe(rename('style.css'))
     .pipe(gulp.dest(paths.docs.css.dest));

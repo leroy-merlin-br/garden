@@ -1,18 +1,16 @@
-@import "base/reset.css";
-@import "base/colors.css";
-@import "base/breakpoints.css";
-@import "base/typography.css";
+@import "atoms/colors";
+@import "atoms/breakpoints";
 
-@import "atoms/container.css";
-@import "atoms/link.css";
-@import "atoms/logo.css";
+@import "atoms/container";
+@import "atoms/link";
+@import "atoms/logo";
 
-@import "molecules/nav.css";
-@import "molecules/sidebar.css";
+@import "molecules/nav";
+@import "molecules/sidebar";
 
-@import "organisms/header.css";
-@import "organisms/footer.css";
-@import "organisms/banner.css";
-@import "organisms/docs.css";
+@import "organisms/header";
+@import "organisms/footer";
+@import "organisms/banner";
+@import "organisms/docs";
 
-@import "vendor/prism.css"
+@import "vendor/prism"

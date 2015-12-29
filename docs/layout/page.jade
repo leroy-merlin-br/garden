@@ -4,6 +4,8 @@ html(lang="pt-BR")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title #{title} | Garden
+    
+    link(rel="stylesheet", href="garden.min.css")
     link(rel="stylesheet", href="style.css")
     link(rel="stylesheet", href="http://yandex.st/highlightjs/8.0/styles/default.min.css")
     
@@ -15,7 +17,7 @@ html(lang="pt-BR")
         if sidebar
           nav.sidebar
             each page in collections[collection]
-              a.link(href="", class=title === page.title ? "link--active" : undefined) #{page.title}
+              a.link(href="/#{page.path}", class=title === page.title ? "link--active" : undefined) #{page.title}
         .content!= contents
     
     include _partials/footer.jade

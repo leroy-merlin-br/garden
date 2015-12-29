@@ -9,8 +9,9 @@ import processors from './postcss-processors';
 
 export default () => {
 
-  return gulp.src(paths.src.css.glob)
+  return gulp.src(paths.src.css.main)
     .pipe(postcss(processors))
     .pipe(rename('garden.min.css'))
-    .pipe(gulp.dest(paths.src.css.dest));
+    .pipe(gulp.dest(paths.src.css.dest))
+    .pipe(gulp.dest(paths.docs.css.dest));
 };

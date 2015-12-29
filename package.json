@@ -52,6 +52,7 @@
     "metalsmith-layouts": "^1.4.2",
     "metalsmith-markdown": "^0.2.1",
     "mocha": "^2.3.4",
+    "normalize.css": "^3.0.3",
     "phantomjs": "^1.9.19",
     "postcss-cli": "^2.3.2",
     "postcss-color-function": "^2.0.0",
@@ -66,6 +67,5 @@
   },
   "dependencies": {
     "jquery": "^2.1.4"
-  },
-  "stylelint": {}
+  }
 }
