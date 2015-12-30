@@ -35,7 +35,7 @@ These are the types of commits we can use.
 - `feat` New features
 - `fix` Bug fixes
 - `docs` Documentation Changes
-- `lint?` Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- `lint` Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - `refactor` A code change that neither fixes a bug nor adds a feature
 - `test` Adding missing tests
 - `chore` Changes to the build process or auxiliary tools and libraries such as documentation generation
@@ -48,7 +48,7 @@ These are the types of commits we can use.
 Scope is what you're pretending to change, ex:
 
 ```
-git commit -m 'feat(form): Add new radio button component
+git commit -m 'feat(form): add new radio button component
 ```
 
 ## Message Subject
@@ -110,6 +110,5 @@ git merge --ff-only feat/new-radio-component
 Commit Guidelines is based in:
 
 > - [Angular commit pattern](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit).
-> - [Netshoes SCM](https://github.com/netshoes/styleguide/blob/master/scm/README.md)
 > - [Thoughtbot Git Guide](https://github.com/thoughtbot/guides/tree/master/protocol/git)
 > - [5 Useful tips for a better commit message](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message)
