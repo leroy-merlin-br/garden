@@ -10,17 +10,17 @@ var renderer = new marked.Renderer();
 
 // Change the code method to output the same as Prism.js would.
 renderer.code = function(code, lang, escaped) {
-  code = this.options.highlight(code, lang);
+  codeHighlighted = this.options.highlight(code, lang);
 
   if (!lang) {
-    return '<pre><code>' + code + '\n</code></pre>';
+    return '<pre><code>' + codeHighlighted + '\n</code></pre>';
   }
 
   // e.g. "language-js"
   var langClass = this.options.langPrefix + lang;
 
-  return '<pre class="' + langClass + '"><code class="' + langClass + '">' +
-    code +
+  return '<pre class="' + langClass + '"><button data-copy>Copy</button><code class="' + langClass + '">' +
+    codeHighlighted +
     '</code></pre>\n';
 };
 

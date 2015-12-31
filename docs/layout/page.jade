@@ -21,3 +21,11 @@ html(lang="pt-BR")
         .content!= contents
     
     include _partials/footer.jade
+    
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js")
+    script.
+      new Clipboard('[data-copy]', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }  
+      });
