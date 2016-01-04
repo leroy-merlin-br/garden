@@ -13,7 +13,6 @@
     border-radius: 2px;
     color: $color-green;
     display: inline-block;
-    font-weight: bold;
   }
 
   .example-item {

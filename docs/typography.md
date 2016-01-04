@@ -7,7 +7,9 @@ path: typography
 ---
 
 # Typography
-All typography tags/classes uses `rem` in order to set size. The `$default-font-size` variable uses `16px`. In case you use Garden css components individually (bundling with PostCSS), you can provide your own `$default-font-size` to change it.
+All typography tags/classes uses `rem` in order to set size. The `$default-font-size` variable uses `16px`.
+
+In case you use Garden css components individually (bundling with PostCSS), you can provide your own `$default-font-size` to change it.
 We provide both markup tags and classes in order to handle text styling with flexibility.
 
 ## Headings

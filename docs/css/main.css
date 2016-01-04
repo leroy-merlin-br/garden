@@ -15,4 +15,4 @@
 @import "organisms/content";
 @import "organisms/example";
 
-@import "vendor/prism";
+@import "../../node_modules/prismjs/themes/prism-okaidia.css";
