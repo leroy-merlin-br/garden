@@ -4,3 +4,4 @@ public/
 coverage/
 **/.DS_Store
 dist/
+.publish/

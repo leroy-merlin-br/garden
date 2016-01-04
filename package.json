@@ -27,6 +27,7 @@
     "chai": "^3.4.1",
     "cssnano": "^3.4.0",
     "gulp": "^3.9.0",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-notify": "^2.2.0",
     "gulp-postcss": "^6.0.1",
     "gulp-rename": "^1.2.2",

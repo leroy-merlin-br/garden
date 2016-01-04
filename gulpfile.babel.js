@@ -11,6 +11,8 @@ import buildCSS from './gulp/build-css';
 
 import server from './gulp/server';
 
+import docsDeploy from './gulp/docs-deploy';
+
 gulp.task('build:css', buildCSS);
 
 gulp.task('docs:metalsmith', docsMetalsmith);
@@ -22,6 +24,8 @@ gulp.task('docs', (done) => sequence(
   done
   )
 );
+
+gulp.task('docs:deploy', ['docs'], docsDeploy);
 
 gulp.task('watch', ['docs'], () => {
   gulp.watch([paths.docs.layout.glob, paths.docs.pages.glob], ['docs']);
