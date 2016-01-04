@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Typography | Garden</title><link rel="stylesheet" href="garden.min.css"><link rel="stylesheet" href="style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo">Garden</a><nav class="nav"><a href="/grid.html" class="link link--active">CSS</a></nav></div></header><main class="docs"><div class="container"><nav class="sidebar"><a href="/grid.html" class="link">Grid</a><a href="/typography.html" class="link link--active">Typography</a></nav><div class="content"><h3 id="typography">Typography</h3>
+<p>All typography tags/classes uses <code>rem</code> in order to set size. The <code>$default-font-size</code> variable uses <code>16px</code>. In case you use Garden css components individually (bundling with PostCSS), you can provide your own <code>$default-font-size</code> to change it.
+We provide both markup tags and classes in order to handle text styling with flexbility.</p>
+<h4 id="headings">Headings</h4>
+<p>In alternative to using directly <code>&lt;h[1-6]&gt;</code>, you can use <code>.heading-[1-6]</code> classes for the same style of a heading tag.</p>
+<div class="example">
+  <h1>Heading 1</h1>
+
+  <hr />
+
+  <h2>Heading 2</h2>
+
+  <hr />
+
+  <h3>Heading 3</h3>
+
+  <hr />
+
+  <h4>Heading 4</h4>
+
+  <hr />
+
+  <h5>Heading 5</h5>
+
+  <hr />
+
+  <h6>Heading 6</h6>
+</div>
+
+<pre class="language-html"><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Heading 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Heading 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span><span class="token punctuation" >></span></span>Heading 3<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h4</span><span class="token punctuation" >></span></span>Heading 4<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h4</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h5</span><span class="token punctuation" >></span></span>Heading 5<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h5</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span><span class="token punctuation" >></span></span>Heading 6<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="paragraphs">Paragraphs</h4>
+<p>Paragraphs <code>&lt;p&gt;</code> uses <code>font-size: .875rem (14px)</code>, <code>line-height: 1.5rem(24px)</code>, and <code>margin-top-bottom: .875em (14px)</code>. You can mimic a paragraph style with the <code>.paragraph</code> class.</p>
+<div class="example">
+  <p>Paragraph tag</p>
+
+  <hr />
+
+  <div class="paragraph">Paragraph class</div>
+</div>
+
+<pre class="language-html"><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Paragraph tag<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>paragraph<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Paragraph class<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="inline-text">Inline text</h4>
+<p>Tags such as <code>&lt;strong&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code> are by default stylized. You can also use <code>.strong</code> and <code>.italic</code>, <code>.underlined</code> to mimic their styles.</p>
+<div class="example">
+  <strong>strong text</strong> <br>
+  <b>also strong text</b> <br>
+  <div class="strong">also also strong</div>
+
+  <hr />
+
+<p>  <em>italic text</em> <br>
+  <i>also italic text</i> <br>
+  <div class="italic">also also italic</div></p>
+  <hr />
+
+<p>  <u>underlined text</u> <br>
+  <div class="underlined">also underlined</div>
+</div></p>
+<pre class="language-html"><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>strong</span><span class="token punctuation" >></span></span>strong text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>strong</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>b</span><span class="token punctuation" >></span></span>also strong text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>b</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>strong<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>also also strong<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>em</span><span class="token punctuation" >></span></span>italic text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>em</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>i</span><span class="token punctuation" >></span></span>also italic text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>i</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>italic<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>also also italic<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>u</span><span class="token punctuation" >></span></span>underlined text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>u</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>underlined<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>also underlined<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="text-transformation">Text transformation</h4>
+<div class="example">
+  <div class="text-capitalize">capitalized text</div>
+
+  <hr />
+
+  <div class="text-uppercase">uppercase text</div>
+
+  <hr />
+
+  <div class="text-lowercase">UPPERCASE TEXT</div>
+</div>
+
+<pre class="language-html"><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-capitalize<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>capitalized text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-uppercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>uppercase text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-lowercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>UPPERCASE TEXT<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="text-alignment">Text alignment</h4>
+<div class="example">
+  <div class="text-left">Left alignment</div>
+
+  <hr />
+
+  <div class="text-right">Right alignment</div>
+
+  <hr />
+
+  <div class="text-center">Center alignment</div>
+
+  <hr />
+
+  <div class="text-justify">Justified text</div>
+
+  <hr />
+
+  <div class="text-nowrap">No wrap</div>
+</div>
+
+<pre class="language-html"><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-left<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Left alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-right<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Right alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-center<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Center alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-justify<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Justified<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text-nowrap<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>No wrap<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+</div></div></main><footer class="footer"> <div class="container"> 
+Copyright Leroy Merlin 2016 <br>
+Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer></body></html>
