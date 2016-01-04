@@ -4,13 +4,20 @@
     margin-top: 0 !important;
   }
 
+  & > h2 {
+    margin-top: 60px;
+  }
+
   p code {
-    border: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-gray-light;
     border-radius: 2px;
     color: $color-green;
     display: inline-block;
     font-weight: bold;
-    padding-left: 3px;
-    padding-right: 3px;
+  }
+
+  .example-item {
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }

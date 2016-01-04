@@ -1,6 +1,7 @@
 .sidebar {
   border: 1px solid $color-gray-light;
   border-radius: 3px;
+  margin-bottom: 10px;
 
   .link {
     border-bottom: 1px solid $color-gray-light;

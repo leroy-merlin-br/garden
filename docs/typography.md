@@ -12,7 +12,7 @@ We provide both markup tags and classes in order to handle text styling with fle
 
 ## Headings
 
-In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-4]` classes for the same style of a heading tag.
+In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-6]` classes for the same style of a heading tag.
 
 <div class="example">
   <h1>Heading 1</h1>
@@ -27,7 +27,15 @@ In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-4]` classe
 
   <hr />
 
-  <h4>Heading 4, Heading 5, Heading 6</h4>
+  <h4>Heading 4</h4>
+
+  <hr />
+
+  <h5>Heading 5</h5>
+
+  <hr />
+
+  <h6>Heading 6</h6>
 </div>
 
 ```html
@@ -41,7 +49,7 @@ In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-4]` classe
 
 ## Paragraphs
 
-Paragraphs `<p>` uses `font-size: .875rem (14px)`, `line-height: 1.5rem(24px)`, and `margin-top-bottom: .875em (14px)`. You can mimic a paragraph style with the `.paragraph` class.
+Tag `<p>` is styled by default. You can also use the `.paragraph` class.
 
 <div class="example">
   <p>Paragraph tag</p>
@@ -93,49 +101,37 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ## Text transformation
 
 <div class="example">
-  <div class="text-capitalize">capitalized text</div>
+  <p class="capitalize">capitalized text</p>
 
-  <hr />
+  <p class="uppercase">uppercase text</p>
 
-  <div class="text-uppercase">uppercase text</div>
-
-  <hr />
-
-  <div class="text-lowercase">UPPERCASE TEXT</div>
+  <p class="lowercase">LOWERCASE TEXT</p>
 </div>
 
 ```html
-  <div class="text-capitalize">capitalized text</div>
-  <div class="text-uppercase">uppercase text</div>
-  <div class="text-lowercase">UPPERCASE TEXT</div>
+  <p class="capitalize">capitalized text</p>
+  <p class="uppercase">uppercase text</p>
+  <p class="lowercase">LOWERCASE TEXT</p>
 ```
 
 ## Text alignment
 
 <div class="example">
-  <div class="text-left">Left alignment</div>
+  <p class="align-left">Left alignment</p>
 
-  <hr />
+  <p class="align-right">Right alignment</p>
 
-  <div class="text-right">Right alignment</div>
+  <p class="align-center">Center alignment</p>
 
-  <hr />
+  <p class="align-justify">Justified text</p>
 
-  <div class="text-center">Center alignment</div>
-
-  <hr />
-
-  <div class="text-justify">Justified text</div>
-
-  <hr />
-
-  <div class="text-nowrap">No wrap</div>
+  <p class="align-nowrap">No wrap</p>
 </div>
 
 ```html
-  <div class="text-left">Left alignment</div>
-  <div class="text-right">Right alignment</div>
-  <div class="text-center">Center alignment</div>
-  <div class="text-justify">Justified</div>
-  <div class="text-nowrap">No wrap</div>
+  <p class="align-left">Left alignment</p>
+  <p class="align-right">Right alignment</p>
+  <p class="align-center">Center alignment</p>
+  <p class="align-justify">Justified</p>
+  <p class="align-nowrap">No wrap</p>
 ```

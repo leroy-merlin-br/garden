@@ -23,16 +23,29 @@ h2,
 
 h3,
 .heading-3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   @extend %heading-font;
   @extend %heading-margin;
 }
 
 h4,
-h5,
-h6,
 .heading-4 {
+  font-size: 1.25rem;
+  @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h5,
+.heading-5 {
   font-size: 1rem;
   @extend %heading-font;
+  @extend %heading-margin;
+}
+
+h6,
+.heading-6 {
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 300;
   @extend %heading-margin;
 }
