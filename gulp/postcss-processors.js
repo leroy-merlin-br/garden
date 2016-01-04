@@ -9,8 +9,6 @@ import lost from 'lost';
 import cssnano from 'cssnano';
 import stylelint from 'stylelint';
 
-import paths from './paths';
-
 export default [
   postcssImport,
   postcssSimpleVars,
@@ -18,7 +16,7 @@ export default [
   postcssColorFunction,
   postcssCustomMedia,
   postcssNested,
-  stylelint({ ignoreFiles: paths.docs.css.vendor }),
+  stylelint,
   postcssReporter({ clearMessages: true }),
   lost,
   cssnano

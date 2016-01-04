@@ -1,14 +1,11 @@
-.text {
+.capitalize {
+  text-transform: capitalize;
+}
 
-  &-capitalize {
-    text-transform: capitalize;
-  }
+.lowercase {
+  text-transform: lowercase;
+}
 
-  &-lowercase {
-    text-transform: lowercase;
-  }
-
-  &-uppercase {
-    text-transform: uppercase;
-  }
+.uppercase {
+  text-transform: uppercase;
 }

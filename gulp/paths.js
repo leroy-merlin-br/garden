@@ -12,8 +12,7 @@ export default {
       src: 'docs/css/',
       main: 'docs/css/main.css',
       glob: 'docs/css/**/*.css',
-      dest: 'public/',
-      vendor: 'docs/css/vendor/*.css'
+      dest: 'public/'
     },
     layout: {
       src: 'docs/layout/',
