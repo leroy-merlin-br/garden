@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="logo.svg">
+	<img src="docs/images/garden.png">
 </p>
 
 # Garden
