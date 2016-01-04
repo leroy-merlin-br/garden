@@ -1,7 +1,7 @@
 .content {
 
   & > *:first-child {
-    margin-top: 0 !important;
+    margin-top: 0;
   }
 
   & > h2 {
@@ -9,9 +9,9 @@
   }
 
   p code {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-default-light;
     border-radius: 2px;
-    color: $color-green;
+    color: $color-primary;
     display: inline-block;
   }
 

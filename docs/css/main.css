@@ -1,4 +1,3 @@
-@import "atoms/colors";
 @import "atoms/breakpoints";
 
 @import "atoms/container";
@@ -7,6 +6,7 @@
 
 @import "molecules/nav";
 @import "molecules/sidebar";
+@import "molecules/palette";
 
 @import "organisms/header";
 @import "organisms/footer";
@@ -15,4 +15,4 @@
 @import "organisms/content";
 @import "organisms/example";
 
-@import "../../node_modules/prismjs/themes/prism-okaidia.css";
+@import "prismjs/themes/prism-okaidia.css";

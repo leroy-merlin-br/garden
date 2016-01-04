@@ -1,0 +1,39 @@
+/* explicit colors */
+$color-gray: #a6a6a6;
+$color-gray-darker: #666666;
+$color-gray-darkest: #333333;
+$color-gray-lighter: #e5e5e5;
+$color-gray-lightest: #f8f8f8;
+
+$color-green: #72bf44;
+$color-green-darker: #391615;
+$color-green-lighter: #cae4b8;
+$color-green-lightest: #f1f8ec;
+
+$color-green-secondary: #bada2e;
+
+$color-red: #ed1c24;
+$color-red-darker: #d32928;
+$color-red-lightest: #fde8e9;
+
+$color-white: #ffffff;
+
+$color-yellow: #fae800;
+
+/* utils */
+$color-text: $color-gray-darkest;
+$color-error: $color-yellow;
+$color-warning: $color-red;
+
+$color-default: $color-gray;
+$color-default-darker: $color-gray-darker;
+$color-default-darkest: $color-gray-darker;
+$color-default-lighter: $color-gray-lighter;
+$color-default-lightest: $color-gray-lightest;
+
+$color-primary: $color-green;
+$color-primary-darker: $color-green-darker;
+$color-primary-lighter: $color-green-lighter;
+$color-primary-lightest: $color-green-lightest;
+
+$color-secondary: $color-green-secondary;

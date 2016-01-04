@@ -1,5 +1,5 @@
 .nav {
-  margin-top: 0.625em;
+  margin-top: .625em;
 
   .link {
     color: color($color-white a(50%));
@@ -10,12 +10,13 @@
     }
 
     &--active {
-      color: $color-white;  
+      color: $color-white;
     }
   }
 }
 
 @media (--tablet) {
+
   .nav {
     float: right;
 

@@ -9,9 +9,13 @@ import lost from 'lost';
 import cssnano from 'cssnano';
 import stylelint from 'stylelint';
 
+import defaults from '../src/css/defaults.json';
+
 export default [
   postcssImport,
-  postcssSimpleVars,
+  postcssSimpleVars({
+    variables: defaults
+  }),
   postcssExtend,
   postcssColorFunction,
   postcssCustomMedia,

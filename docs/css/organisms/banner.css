@@ -1,14 +1,13 @@
 .banner {
-  background-color: $color-green;
+  background-color: $color-primary;
   height: 300px;
   text-align: center;
 
   .title {
-    lost-utility: clearfix;
-
     color: $color-white;
     font-size: 1.875em;
     line-height: 1.3em;
+    lost-utility: clearfix;
     max-width: 700px;
   }
 
@@ -20,16 +19,17 @@
     font-size: 1.4em;
     font-weight: 200;
     margin-top: 1.875em;
-    padding: 0.625em 1.25em;
+    padding: .625em 1.25em;
 
     &:hover {
       background-color: $color-white;
-      color: $color-green;
+      color: $color-primary;
     }
   }
 }
 
 @media (--tablet) {
+
   .banner {
     padding-top: 3em;
     text-align: left;

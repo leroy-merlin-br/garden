@@ -1,0 +1,22 @@
+{
+  "color-text": "#333333",
+  "color-white": "#ffffff",
+  "color-error": "#ed1c24",
+  "color-warning": "#fae800",
+
+  "color-default": "#a6a6a6",
+  "color-default-dark": "#666666",
+  "color-default-darker": "#333333",
+  "color-default-light": "#e5e5e5",
+  "color-default-lighter": "#f1f8ec",
+
+  "color-primary": "#72bf44",
+  "color-primary-dark": "#397615",
+  "color-primary-light": "#cae4b8",
+  "color-primary-lighter": "#f1f8ec",
+
+  "color-secondary": "#bada2e",
+
+  "default-font-size": "16px",
+  "default-font-family": "Helvetica, Arial, sans-serif"
+}

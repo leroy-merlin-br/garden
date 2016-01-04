@@ -1,10 +1,10 @@
 .sidebar {
-  border: 1px solid $color-gray-light;
+  border: 1px solid $color-default-light;
   border-radius: 3px;
   margin-bottom: 10px;
 
   .link {
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-default-light;
     border-left: 2px solid transparent;
     display: block;
     padding: 8px 10px;
@@ -15,12 +15,12 @@
 
     &:hover,
     &:focus {
-      background-color: color($color-gray-light l(95%));
+      background-color: color($color-default-light l(95%));
     }
 
     &--active {
-      border-left-color: $color-green;
-      color: $color-black;
+      border-left-color: $color-primary;
+      color: $color-text;
       font-weight: bold;
 
       &:hover,
