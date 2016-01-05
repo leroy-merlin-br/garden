@@ -1,7 +1,6 @@
 {
   "ignoreFiles": [
-    'node_modules/normalize.css/normalize.css',
-    'docs/css/vendor/**/*.css'
+    'node_modules/**/*.css',
   ],
   "rules": {
     "string-quotes": "double",
