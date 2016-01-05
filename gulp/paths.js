@@ -2,7 +2,7 @@ export default {
   src: {
     css: {
       src: 'src/css/',
-      main: 'src/css/main.css',
+      main: 'src/css/garden.css',
       glob: 'src/css/**/*.css',
       dest: 'dist/css/'
     }
