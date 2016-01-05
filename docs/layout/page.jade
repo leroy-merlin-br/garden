@@ -30,4 +30,14 @@ html(lang="pt-BR")
         }  
       });
       
-      new Clipboard('[data-clipboard-text]');
+      var text = new Clipboard('[data-clipboard-text]');
+      
+      text.on('success', function(e) {
+        if (e.trigger.classList.contains('color')) {
+          e.trigger.classList.add('copied');
+          
+          setTimeout(function() {
+            e.trigger.classList.remove('copied');
+          }, 2000)
+        }
+      });

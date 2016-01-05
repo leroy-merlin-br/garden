@@ -6,9 +6,35 @@
     cursor: pointer;
     font-size: .9rem;
     font-weight: bold;
-    padding-bottom: 1.3rem;
-    padding-top: 1.3rem;
+    overflow: hidden;
+    position: relative;
     text-align: center;
+
+    &::before {
+      content: "Copied!";
+      position: absolute;
+      transform: translateY(100%);
+    }
+
+    &::after,
+    &::before {
+      display: inline-block;
+      padding-bottom: 1.3rem;
+      padding-top: 1.3rem;
+      transition: transform .3s ease-in-out;
+      width: 100%;
+    }
+  }
+
+  .copied {
+
+    &::after {
+      transform: translateY(-100%);
+    }
+
+    &::before {
+      transform: translateY(0%);
+    }
   }
 
   .color-primary {
@@ -21,9 +47,9 @@
 
   .color-primary-dark {
     background-color: $color-primary-dark;
+    color: $color-neutral;
 
     &::after {
-      color: $color-neutral;
       content: "color-primary-dark: $(color-primary-dark)";
     }
   }
@@ -54,27 +80,27 @@
 
   .color-default {
     background-color: $color-default;
+    color: $color-neutral;
 
     &::after {
-      color: $color-neutral;
       content: "color-default: $(color-default)";
     }
   }
 
   .color-default-dark {
     background-color: $color-default-dark;
+    color: $color-neutral;
 
     &::after {
-      color: $color-neutral;
       content: "color-default-dark: $(color-default-dark)";
     }
   }
 
   .color-default-darker {
     background-color: $color-default-darker;
+    color: $color-neutral;
 
     &::after {
-      color: $color-neutral;
       content: "color-default-darker: $(color-default-darker)";
     }
   }
@@ -105,18 +131,18 @@
 
   .color-text {
     background-color: $color-text;
+    color: $color-neutral;
 
     &::after {
-      color: $color-neutral;
       content: "color-text: $(color-text)";
     }
   }
 
   .color-error {
     background-color: $color-error;
+    color: $color-neutral;
 
     &::after {
-      color: $color-neutral;
       content: "color-error: $(color-error)";
     }
   }
