@@ -2,107 +2,122 @@
 <p>All typography tags/classes uses <code>rem</code> in order to set size. The <code>$default-font-size</code> variable uses <code>16px</code>.</p>
 <p>In case you use Garden css components individually (bundling with PostCSS), you can provide your own <code>$default-font-size</code> to change it.
 We provide both markup tags and classes in order to handle text styling with flexibility.</p>
+<h2 id="defaults">Defaults</h2>
+<p>Check out our <a href="scaffolding.md">scaffolding section</a> for more info on providing your own defaults for typography.</p>
 <h2 id="headings">Headings</h2>
 <p>In alternative to using directly <code>&lt;h[1-6]&gt;</code>, you can use <code>.heading-[1-6]</code> classes for the same style of a heading tag.</p>
 <div class="example">
-  <h1>Heading 1</h1>
+  <div class="heading-1">Heading 1</div>
 
   <hr />
 
-  <h2>Heading 2</h2>
+  <div class="heading-2">Heading 2</div>
 
   <hr />
 
-  <h3>Heading 3</h3>
+  <div class="heading-3">Heading 3</div>
 
   <hr />
 
-  <h4>Heading 4</h4>
+  <div class="heading-4">Heading 4</div>
 
   <hr />
 
-  <h5>Heading 5</h5>
+  <div class="heading-5">Heading 5</div>
 
   <hr />
 
-  <h6>Heading 6</h6>
+  <div class="heading-6">Heading 6</div>
 </div>
 
-<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Heading 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Heading 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span><span class="token punctuation" >></span></span>Heading 3<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h4</span><span class="token punctuation" >></span></span>Heading 4<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h4</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h5</span><span class="token punctuation" >></span></span>Heading 5<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h5</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span><span class="token punctuation" >></span></span>Heading 6<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span></code></pre>
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>heading-1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>heading-2<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>heading-3<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>heading-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>heading-5<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>heading-6<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
 <h2 id="paragraphs">Paragraphs</h2>
 <p>Tag <code>&lt;p&gt;</code> is styled by default. You can also use the <code>.paragraph</code> class.</p>
 <div class="example">
-  <p>Paragraph tag</p>
-
-  <hr />
-
   <div class="paragraph">Paragraph class</div>
 </div>
 
-<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Paragraph tag<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>paragraph<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Paragraph class<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
-<h2 id="inline-text">Inline text</h2>
-<p>Tags such as <code>&lt;strong&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code> are by default stylized. You can also use <code>.strong</code> and <code>.italic</code>, <code>.underlined</code> to mimic their styles.</p>
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>paragraph<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h2 id="links">Links</h2>
+<p><code>&lt;a&gt;</code> tags are styled by default. You can also use the <code>.link</code> class.</p>
 <div class="example">
-  <strong>strong text</strong> <br>
-  <b>also strong text</b> <br>
-  <div class="strong">also also strong</div>
+  <div class="link">Link</div>
+</div>
 
-  <hr />
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>link<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h2 id="inline-text">Inline text</h2>
+<p>Tags such as <code>&lt;strong&gt;</code>, <code>&lt;b&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code> are by default stylized. You can also use <code>.strong</code> and <code>.italic</code>, <code>.underlined</code> to reuse their styles.</p>
+<div class="example">
+  <div class="strong">strong</div>
 
-<p>  <em>italic text</em> <br>
-  <i>also italic text</i> <br>
-  <div class="italic">also also italic</div></p>
-  <hr />
+  <hr>
 
-<p>  <u>underlined text</u> <br>
-  <div class="underlined">also underlined</div>
-</div></p>
-<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>strong</span><span class="token punctuation" >></span></span>strong text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>strong</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>b</span><span class="token punctuation" >></span></span>also strong text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>b</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>strong<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>also also strong<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <div class="italic">italic</div>
 
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>em</span><span class="token punctuation" >></span></span>italic text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>em</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>i</span><span class="token punctuation" >></span></span>also italic text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>i</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>italic<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>also also italic<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <hr>
 
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>u</span><span class="token punctuation" >></span></span>underlined text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>u</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>underlined<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>also underlined<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+  <div class="underlined">underlined</div>
+</div>
+
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>strong<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>italic<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>underlined<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
 <h2 id="text-transformation">Text transformation</h2>
+<h4 id="capitalized">Capitalized</h4>
 <div class="example">
   <p class="capitalize">capitalized text</p>
+</div>
 
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>capitalize<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="uppercase">Uppercase</h4>
+<div class="example">
   <p class="uppercase">uppercase text</p>
+</div>
 
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>uppercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="lowercase">Lowercase</h4>
+<div class="example">
   <p class="lowercase">LOWERCASE TEXT</p>
 </div>
 
-<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>capitalize<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>capitalized text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>uppercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>uppercase text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>lowercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>LOWERCASE TEXT<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>lowercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
 <h2 id="text-alignment">Text alignment</h2>
+<h4 id="left-alignment">Left alignment</h4>
 <div class="example">
   <p class="align-left">Left alignment</p>
 
+</div>
+
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-left<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="right-alignment">Right alignment</h4>
+<div class="example">
   <p class="align-right">Right alignment</p>
+</div>
 
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-right<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="center-alignment">Center alignment</h4>
+<div class="example">
   <p class="align-center">Center alignment</p>
+</div>
 
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-center<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="justified-text">Justified text</h4>
+<div class="example">
   <p class="align-justify">Justified text</p>
+</div>
 
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-justify<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<h4 id="no-wrap">No wrap</h4>
+<div class="example">
   <p class="align-nowrap">No wrap</p>
 </div>
 
-<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-left<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Left alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-right<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Right alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-center<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Center alignment<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-justify<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Justified<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-nowrap<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>No wrap<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
+<pre class="language-html"><button data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>align-nowrap<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
