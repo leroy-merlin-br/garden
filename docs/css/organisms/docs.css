@@ -5,6 +5,22 @@
   [data-copy] {
     display: none;
   }
+
+
+  section {
+    background-color: $color-default-light;
+    lost-utility: clearfix;
+    width: 100%;
+
+    div {
+      background-color: $color-primary;
+      color: $color-neutral;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+  }
 }
 
 @media (--tablet) {
