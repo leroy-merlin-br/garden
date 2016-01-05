@@ -37,7 +37,7 @@ We highly encourage the usage of color interfaces rather than color names. Color
 In order to customize our color interfaces, there are a couple ways of doing it:
 
 ### Defaults
-Check out our [scaffolding section](scaffolding.md) for more info on providing your own defaults.
+Check out our [scaffolding section](scaffolding.md) for more info on providing your own defaults for colors.
 
 ### Override
 Since they are just plain variables you can override it any moment before garden css is processed:
