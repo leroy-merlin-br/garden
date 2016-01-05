@@ -1,27 +1,47 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Colors | Garden</title><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="garden.min.css"><link rel="stylesheet" href="style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/grid.html" class="link link--active">CSS</a></nav></div></header><main class="docs"><div class="container"><nav class="sidebar"><a href="colors.html" class="link link--active">Colors</a><a href="grid.html" class="link">Grid</a><a href="typography.html" class="link">Typography</a></nav><div class="content"><h1 id="colors">Colors</h1>
-<p>The colors atom works a bit differently than most css helpers out here. While we do provide helpers as <code>.color-primary</code>, <code>.color-default</code>, as in right now we do not provide common dark/light scales since Leroy Merlin’s brand colors aren’t proper scales as well.</p>
+<p>The colors atom works a bit differently than most css helpers out here. While we do provide helpers as <code>.color-primary</code>, <code>.color-default</code>, as in right now we do not provide common dark/light scales since Leroy Merlin’s brand colors aren’t proper color scales as well.</p>
 <h2 id="usage">Usage</h2>
-<p>We provide a few color interfaces that directly uses <code>#hexadecimals</code>:</p>
+<p>We highly encourage the usage of color interfaces rather than color names. Color interfaces represents a purpose, not a color itself. While you can and should use your own color scheme, using color names on this project such as <code>$color-green</code> makes theming a hard task. The color palette grows as our own needs on interfaces grows as well (Click on the color to copy the interface name):</p>
 <div class="palette">
-  <div class="color color-primary-dark"></div>
-  <div class="color color-primary"></div>
-  <div class="color color-primary-light"></div>
-  <div class="color color-primary-lighter"></div>
+  <div class="color color-primary-dark" data-clipboard-text="$color-primary-dark"></div>
+  <div class="color color-primary" data-clipboard-text="$color-primary"></div>
+  <div class="color color-primary-light" data-clipboard-text="$color-primary-light"></div>
+  <div class="color color-primary-lighter" data-clipboard-text="$color-primary-lighter"></div>
 
-  <div class="color color-secondary"></div>
+  <div class="color color-secondary" data-clipboard-text="$color-secondary"></div>
 
-  <div class="color color-default-darker"></div>
-  <div class="color color-default-dark"></div>
-  <div class="color color-default"></div>
-  <div class="color color-default-light"></div>
-  <div class="color color-default-lighter"></div>
+  <div class="color color-default-darker" data-clipboard-text="$color-default-darker"></div>
+  <div class="color color-default-dark" data-clipboard-text="$color-default-dark"></div>
+  <div class="color color-default" data-clipboard-text="$color-default"></div>
+  <div class="color color-default-light" data-clipboard-text="$color-default-light"></div>
+  <div class="color color-default-lighter" data-clipboard-text="$color-default-lighter"></div>
 
-  <div class="color color-white"></div>
-  <div class="color color-text"></div>
-  <div class="color color-warning"></div>
-  <div class="color color-error"></div>
+  <div class="color color-neutral" data-clipboard-text="$color-neutral"></div>
+  <div class="color color-text" data-clipboard-text="$color-text"></div>
+  <div class="color color-warning" data-clipboard-text="$color-warning"></div>
+  <div class="color color-error" data-clipboard-text="$color-error"></div>
 </div>
 
 <h2 id="customization">Customization</h2>
+<p>In order to customize our color interfaces, there are a couple ways of doing it:</p>
+<h3 id="defaults">Defaults</h3>
+<p>Check out our <a href="scaffolding.md">scaffolding section</a> for more info on providing your own defaults.</p>
+<h3 id="override">Override</h3>
+<p>Since they are just plain variables you can override it any moment before garden css is processed:</p>
+<pre class="language-scss"><button data-copy>Copy</button><code class="language-scss">  <span class="token comment" spellcheck="true">/* your css */</span>
+
+  $<span class="token property" >color-primary</span><span class="token punctuation" >:</span> #ffffff<span class="token punctuation" >;</span>
+
+  <span class="token atrule" ><span class="token rule" >@import</span> <span class="token string" >"garden/buttons"</span><span class="token punctuation" >;</span></span>
+
+  <span class="token comment" spellcheck="true">/* or */</span>
+
+  <span class="token atrule" ><span class="token rule" >@import</span> <span class="token string" >"garden"</span><span class="token punctuation" >;</span></span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
-Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer></body></html>
+Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }  
+});
+
+new Clipboard('[data-clipboard-text]');</script></body></html>
