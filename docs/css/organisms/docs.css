@@ -1,6 +1,10 @@
 .docs {
   margin-bottom: 20px;
   margin-top: 20px;
+
+  [data-copy] {
+    display: none;
+  }
 }
 
 @media (--tablet) {
