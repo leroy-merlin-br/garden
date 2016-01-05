@@ -17,4 +17,25 @@
   .heading-6 {
     margin: 10px 0;
   }
+
+  .row {
+    lost-utility: clearfix;
+
+    div {
+      background-color: $color-primary;
+      height: 30px;
+    }
+
+    .two {
+      lost-column: 2/12;
+    }
+
+    .three {
+      lost-column: 3/12;
+    }
+
+    .four {
+      lost-column: 4/12;
+    }
+  }
 }
