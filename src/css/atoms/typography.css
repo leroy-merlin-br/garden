@@ -3,15 +3,12 @@ html {
 }
 
 body {
+  color: $color-text;
   font-family: $default-font-family;
 }
 
-a {
-  text-decoration: none;
-}
-
 hr {
-  background-color: #eee;
+  background-color: $color-default-light;
   border: 0;
   height: 1px;
   width: 100%;
@@ -22,3 +19,4 @@ hr {
 @import "atoms/text/style";
 @import "atoms/text/alignment";
 @import "atoms/text/transform";
+@import "atoms/text/link";
