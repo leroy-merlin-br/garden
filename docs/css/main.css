@@ -2,7 +2,6 @@
 
 @import "atoms/container";
 @import "atoms/link";
-@import "atoms/logo";
 
 @import "molecules/nav";
 @import "molecules/sidebar";

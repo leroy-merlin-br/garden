@@ -4,7 +4,7 @@
   text-align: center;
 
   .title {
-    color: $color-white;
+    color: $color-neutral;
     font-size: 1.875em;
     line-height: 1.3em;
     lost-utility: clearfix;
@@ -12,9 +12,9 @@
   }
 
   .button {
-    border: 1px solid $color-white;
+    border: 1px solid $color-neutral;
     border-radius: 3px;
-    color: $color-white;
+    color: $color-neutral;
     display: block;
     font-size: 1.4em;
     font-weight: 200;
@@ -22,7 +22,7 @@
     padding: .625em 1.25em;
 
     &:hover {
-      background-color: $color-white;
+      background-color: $color-neutral;
       color: $color-primary;
     }
   }

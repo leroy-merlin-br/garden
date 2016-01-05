@@ -3,6 +3,7 @@
 
   .color {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
+    cursor: pointer;
     font-size: .9rem;
     font-weight: bold;
     padding-bottom: 1.3rem;
@@ -22,7 +23,7 @@
     background-color: $color-primary-dark;
 
     &::after {
-      color: $color-white;
+      color: $color-neutral;
       content: "color-primary-dark: $(color-primary-dark)";
     }
   }
@@ -55,7 +56,7 @@
     background-color: $color-default;
 
     &::after {
-      color: $color-white;
+      color: $color-neutral;
       content: "color-default: $(color-default)";
     }
   }
@@ -64,7 +65,7 @@
     background-color: $color-default-dark;
 
     &::after {
-      color: $color-white;
+      color: $color-neutral;
       content: "color-default-dark: $(color-default-dark)";
     }
   }
@@ -73,7 +74,7 @@
     background-color: $color-default-darker;
 
     &::after {
-      color: $color-white;
+      color: $color-neutral;
       content: "color-default-darker: $(color-default-darker)";
     }
   }
@@ -94,11 +95,11 @@
     }
   }
 
-  .color-white {
-    background-color: $color-white;
+  .color-neutral {
+    background-color: $color-neutral;
 
     &::after {
-      content: "color-white: $(color-white)";
+      content: "color-neutral: $(color-neutral)";
     }
   }
 
@@ -106,7 +107,7 @@
     background-color: $color-text;
 
     &::after {
-      color: $color-white;
+      color: $color-neutral;
       content: "color-text: $(color-text)";
     }
   }
@@ -115,7 +116,7 @@
     background-color: $color-error;
 
     &::after {
-      color: $color-white;
+      color: $color-neutral;
       content: "color-error: $(color-error)";
     }
   }

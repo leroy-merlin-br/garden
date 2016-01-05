@@ -44,8 +44,8 @@ h5,
 
 h6,
 .heading-6 {
-  font-size: 1rem;
   font-family: inherit;
+  font-size: 1rem;
   font-weight: 300;
   @extend %heading-margin;
 }

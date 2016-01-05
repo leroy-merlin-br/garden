@@ -25,7 +25,7 @@
 
       &:hover,
       &:focus {
-        background-color: $color-white;
+        background-color: $color-neutral;
       }
     }
   }
