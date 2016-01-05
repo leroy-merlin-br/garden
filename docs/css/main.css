@@ -1,7 +1,6 @@
 @import "atoms/breakpoints";
 
 @import "atoms/container";
-@import "atoms/link";
 
 @import "molecules/nav";
 @import "molecules/sidebar";
