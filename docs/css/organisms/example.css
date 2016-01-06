@@ -38,4 +38,9 @@
       lost-column: 4/12;
     }
   }
+
+  .button {
+    display: inline-block;
+    margin-right: 15px;
+  }
 }

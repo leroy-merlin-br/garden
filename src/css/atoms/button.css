@@ -1,0 +1,50 @@
+.button {
+  background-color: $color-default;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 2px 8px 0 rgba(0, 0, 0, .12);
+  color: $color-neutral;
+  font-size: 1rem;
+  padding: 11px 13px;
+  transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, .18), 0 4px 13px 0 rgba(0, 0, 0, .15);
+    transform: translateY(-1px);
+  }
+
+  &:focus{
+    outline: none;
+  }
+
+  &-disabled,
+  &[disabled] {
+    background-color: $color-default-light;
+    box-shadow: none;
+    color: $color-neutral;
+
+    &:hover {
+      box-shadow: none;
+      cursor: not-allowed;
+      transform: translateY(0);
+    }
+  }
+
+  &-primary {
+    background-color: $color-primary;
+  }
+
+  &-secondary {
+    background-color: $color-secondary;
+  }
+
+  &-neutral {
+    background-color: $color-neutral;
+    color: $color-text;
+  }
+
+  &-danger {
+    background-color: $color-danger;
+  }
+}
