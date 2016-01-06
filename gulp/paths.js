@@ -5,6 +5,10 @@ export default {
       main: 'src/css/garden.css',
       glob: 'src/css/**/*.css',
       dest: 'dist/css/'
+    },
+    js: {
+      src: 'src/js',
+      glob: 'src/js/**/*.js'
     }
   },
   docs: {

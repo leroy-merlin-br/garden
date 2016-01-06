@@ -4,14 +4,17 @@ import gulp from 'gulp';
 import sequence from 'run-sequence';
 import paths from './gulp/paths';
 
-import docsMetalsmith from './gulp/docs-metalsmith';
-import docsCSS from './gulp/docs-css';
+import lintJS from './gulp/lint-js';
 
 import buildCSS from './gulp/build-css';
 
+import docsMetalsmith from './gulp/docs-metalsmith';
+import docsCSS from './gulp/docs-css';
+import docsDeploy from './gulp/docs-deploy';
+
 import server from './gulp/server';
 
-import docsDeploy from './gulp/docs-deploy';
+gulp.task('lint:js', lintJS);
 
 gulp.task('build:css', buildCSS);
 
