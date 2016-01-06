@@ -1,7 +1,4 @@
 {
-  "ignoreFiles": [
-    'node_modules/**/*.css',
-  ],
   "rules": {
     "string-quotes": "double",
     "color-hex-case": "lower",
