@@ -31,6 +31,7 @@ We highly encourage the usage of color interfaces rather than color names. Color
   <div class="color color-text" data-clipboard-text="$color-text"></div>
   <div class="color color-warning" data-clipboard-text="$color-warning"></div>
   <div class="color color-error" data-clipboard-text="$color-error"></div>
+  <div class="color color-danger" data-clipboard-text="$color-danger"></div>
 </div>
 
 ## Customization

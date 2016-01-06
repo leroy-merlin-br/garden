@@ -154,6 +154,15 @@
       content: "color-warning: $(color-warning)";
     }
   }
+
+  .color-danger {
+    background-color: $color-danger;
+    color: $color-neutral;
+
+    &::after {
+      content: "color-danger: $(color-danger)";
+    }
+  }
 }
 
 @media (--tablet) {

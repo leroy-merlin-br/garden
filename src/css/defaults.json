@@ -3,6 +3,7 @@
   "color-neutral": "#ffffff",
   "color-error": "#ed1c24",
   "color-warning": "#fae800",
+  "color-danger": "#ed1c24",
 
   "color-default": "#a6a6a6",
   "color-default-dark": "#666666",
