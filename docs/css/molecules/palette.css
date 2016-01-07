@@ -138,15 +138,6 @@
     }
   }
 
-  .color-error {
-    background-color: $color-error;
-    color: $color-neutral;
-
-    &::after {
-      content: "color-error: $(color-error)";
-    }
-  }
-
   .color-warning {
     background-color: $color-warning;
 

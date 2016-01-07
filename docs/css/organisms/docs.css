@@ -3,7 +3,21 @@
   margin-top: 20px;
 
   [data-copy] {
-    display: none;
+    border-radius: .1em;
+    font-family: $default-font-family;
+    font-size: .7em;
+    padding: .5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:hover {
+      transform: translateY(0);
+    }
+  }
+
+  pre {
+    position: relative;
   }
 }
 
