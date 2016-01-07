@@ -3,6 +3,7 @@ title: Typography
 layout: page.jade
 sidebar: true
 collection: css
+priority: 5
 path: typography
 ---
 

@@ -3,8 +3,8 @@ title: Grid
 layout: page.jade
 sidebar: true
 collection: css
+priority: 3
 path: grid
-class: grid
 ---
 
 # Grid

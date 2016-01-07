@@ -34,7 +34,12 @@ var extensions = {
 
 metalsmith(__dirname)
   .source('./docs')
-  .use(collections())
+  .use(collections({
+    css: {
+      sortBy: 'priority',
+      reverse: true
+    }
+  }))
   .use(markdown({
     gfm: true,
     smartypants: true,

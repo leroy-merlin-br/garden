@@ -3,6 +3,7 @@ title: Colors
 layout: page.jade
 sidebar: true
 collection: css
+priority: 4
 path: colors
 ---
 
