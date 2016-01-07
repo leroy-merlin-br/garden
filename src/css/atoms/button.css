@@ -4,6 +4,7 @@
   border-radius: 4px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 2px 8px 0 rgba(0, 0, 0, .12);
   color: $color-neutral;
+  display: inline-block;
   font-size: 1rem;
   padding: 11px 13px;
   transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
