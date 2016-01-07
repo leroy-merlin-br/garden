@@ -1,7 +1,59 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Form | Garden</title><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="garden.min.css"><link rel="stylesheet" href="style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/grid.html" class="link link--active">CSS</a></nav></div></header><main class="docs"><div class="container"><nav class="sidebar"><a href="button.html" class="link">Buttons</a><a href="colors.html" class="link">Colors</a><a href="form.html" class="link link--active">Form</a><a href="grid.html" class="link">Grid</a><a href="typography.html" class="link">Typography</a></nav><div class="content"><h1 id="form">Form</h1>
+<h3 id="input">Input</h3>
 <div class="example">
   <input type="text" class="input" />
 </div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span></code></pre>
+<p>disabled:</p>
+<p><code>&lt;input disabled&gt;</code> should be used always with <code>&lt;fieldset&gt;</code> molecule.</p>
+<div class="example">
+  <input type="text" class="input" disabled/>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >disabled</span><span class="token punctuation" >/></span></span></code></pre>
+<h3 id="label">Label</h3>
+<div class="example">
+  <label class="label">Example</label>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span></code></pre>
+<h3 id="helper">helper</h3>
+<p><code>.helper</code> is used to display additional info as small description or validation text.</p>
+<div class="example">
+  <span class="helper">take care of your garden</span>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>helper<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span></code></pre>
+<h3 id="select">Select</h3>
+<div class="example">
+  <select class="select">
+    <option>Select your Garden</option>
+    <option value="garden-1">Garden 1</option>
+    <option value="garden-2">Garden 2</option>
+    <option value="garden-3">Garden 3</option>
+  </select>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>select</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>select<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>select</span><span class="token punctuation" >></span></span></code></pre>
+<p>disabled:</p>
+<p><code>&lt;select disabled&gt;</code> should be used always with <code>&lt;fieldset&gt;</code> molecule.</p>
+<div class="example">
+  <select class="select" disabled>
+    <option></option>
+    <option value="garden-1">Garden 1</option>
+    <option value="garden-2">Garden 2</option>
+    <option value="garden-3">Garden 3</option>
+  </select>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>select</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>select<span class="token punctuation" >"</span></span> <span class="token attr-name" >disabled</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>select</span><span class="token punctuation" >></span></span></code></pre>
+<h3 id="radio">Radio</h3>
+<h3 id="checkbox">Checkbox</h3>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
