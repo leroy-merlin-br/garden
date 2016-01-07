@@ -19,7 +19,7 @@ renderer.code = function(code, lang, escaped) {
   // e.g. "language-js"
   var langClass = this.options.langPrefix + lang;
 
-  return '<pre class="' + langClass + '"><button data-copy>Copy</button><code class="' + langClass + '">' +
+  return '<pre class="' + langClass + '"><button class="button button-primary uppercase" data-copy>Copy</button><code class="' + langClass + '">' +
     codeHighlighted +
     '</code></pre>\n';
 };
