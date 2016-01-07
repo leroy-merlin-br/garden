@@ -4,6 +4,7 @@ import postcssExtend from 'postcss-extend';
 import postcssColorFunction from 'postcss-color-function';
 import postcssCustomMedia from 'postcss-custom-media';
 import postcssNested from 'postcss-nested';
+import autoprefixer from 'autoprefixer';
 import lost from 'lost';
 import cssnano from 'cssnano';
 
@@ -19,5 +20,6 @@ export default [
   postcssCustomMedia,
   postcssNested,
   lost,
+  autoprefixer({ browsers: ['last 3 versions'] }),
   cssnano
 ];
