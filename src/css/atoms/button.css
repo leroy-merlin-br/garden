@@ -25,7 +25,8 @@
     box-shadow: none;
     color: $color-neutral;
 
-    &:hover {
+    &:hover,
+    &:focus {
       box-shadow: none;
       cursor: not-allowed;
       transform: translateY(0);
