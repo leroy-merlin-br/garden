@@ -51,5 +51,10 @@
     .sidebar + .content {
       lost-column: 9/12;
     }
+
+    .input,
+    .select {
+      width: 30%;
+    }
   }
 }

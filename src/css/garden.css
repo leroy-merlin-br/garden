@@ -3,3 +3,8 @@
 @import "atoms/box-sizing";
 @import "atoms/typography";
 @import "atoms/button";
+
+@import "atoms/form/input";
+@import "atoms/form/label";
+@import "atoms/form/helper";
+@import "atoms/form/select";
