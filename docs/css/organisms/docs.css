@@ -5,8 +5,8 @@
   [data-copy] {
     border-radius: .1em;
     font-family: $default-font-family;
-    font-size: .7em;
-    padding: .5rem;
+    font-size: .6em;
+    padding: .2rem .3rem;
     position: absolute;
     right: 0;
     top: 0;

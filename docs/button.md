@@ -58,5 +58,5 @@ Using `<a>` element:
 </div>
 
 ```html
-<a href="#" role="button" class="button button-disabled">Default button</a>
+<a href="#" role="button" class="button button-disabled"></a>
 ```
