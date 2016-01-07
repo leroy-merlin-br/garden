@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Form | Garden</title><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="garden.min.css"><link rel="stylesheet" href="style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/grid.html" class="link link--active">CSS</a></nav></div></header><main class="docs"><div class="container"><nav class="sidebar"><a href="button.html" class="link">Buttons</a><a href="colors.html" class="link">Colors</a><a href="form.html" class="link link--active">Form</a><a href="grid.html" class="link">Grid</a><a href="typography.html" class="link">Typography</a></nav><div class="content"><h1 id="form">Form</h1>
+<div class="example">
+  <input type="text" class="input" />
+</div>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }  
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList && e.trigger.classList.contains('color')) {
+    e.trigger.classList.add('copied');
+    
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 2000)
+  }
+});</script></body></html>
