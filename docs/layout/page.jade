@@ -33,7 +33,7 @@ html(lang="pt-BR")
       var text = new Clipboard('[data-clipboard-text]');
       
       text.on('success', function(e) {
-        if (e.trigger.classList.contains('color')) {
+        if (e.trigger.classList && e.trigger.classList.contains('color')) {
           e.trigger.classList.add('copied');
           
           setTimeout(function() {
