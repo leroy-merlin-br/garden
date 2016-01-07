@@ -20,6 +20,7 @@
   <div class="color color-text" data-clipboard-text="$color-text"></div>
   <div class="color color-warning" data-clipboard-text="$color-warning"></div>
   <div class="color color-error" data-clipboard-text="$color-error"></div>
+  <div class="color color-danger" data-clipboard-text="$color-danger"></div>
 </div>
 
 <h2 id="customization">Customization</h2>
@@ -28,7 +29,7 @@
 <p>Check out our <a href="scaffolding.md">scaffolding section</a> for more info on providing your own defaults for colors.</p>
 <h3 id="override">Override</h3>
 <p>Since they are just plain variables you can override it any moment before garden css is processed:</p>
-<pre class="language-scss"><button data-copy>Copy</button><code class="language-scss">  <span class="token comment" spellcheck="true">/* your css */</span>
+<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss">  <span class="token comment" spellcheck="true">/* your css */</span>
 
   $<span class="token property" >color-primary</span><span class="token punctuation" >:</span> #ffffff<span class="token punctuation" >;</span>
 
