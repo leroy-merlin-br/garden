@@ -39,7 +39,7 @@ Using `<a>` element:
 
 To disable a button, use `disabled` attribute or `.button-disabled` class simulate disabled prop.
 
-_**Obs**: when a button is **disabled**, button style will be the same of all types._
+_**Obs**: when a button is **disabled**, button style will be the same for all types._
 
 Using `<button>` element:
 
