@@ -1,5 +1,3 @@
-/* globals module */
-
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -16,7 +14,12 @@ module.exports = function(config) {
       'test/**/*.js': ['browserify']
     },
     browserify: {
-      transform: ['babelify', 'browserify-istanbul']
+      transform: [
+        'babelify',
+        require('browserify-istanbul')({
+          instrumenterConfig: { embedSource: true }
+        })
+      ]
     },
     reporters: ['notify', 'nyan', 'coverage'],
     port: 9876,
