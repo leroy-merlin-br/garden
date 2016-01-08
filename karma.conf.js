@@ -1,31 +1,24 @@
+/* globals module */
+
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'chai', 'sinon'],
+    frameworks: ['browserify', 'mocha', 'chai', 'sinon'],
     files: [
       'src/js/**/*.js',
-      'test/unit/*-spec.js'
+      'test/**/*.spec.js',
+      'node_modules/jquery/dist/jquery.min.js'
     ],
     exclude: [
     ],
     preprocessors: {
-      'src/js/**/*.js': ['babel'],
-      'test/unit/*.js': ['babel']
+      'src/js/**/*.js': ['browserify'],
+      'test/**/*.js': ['browserify']
     },
-    coverageReporter: {
-      instrumenters: {
-        isparta : require('isparta')
-      },
-      instrumenter: {
-        '*.js': 'isparta'
-      }
+    browserify: {
+      transform: ['babelify', 'browserify-istanbul']
     },
-    babelPreprocessor: {
-      options: {
-        sourceMap: 'inline'
-      }
-    },
-    reporters: ['notify', 'nyan'],
+    reporters: ['notify', 'nyan', 'coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
