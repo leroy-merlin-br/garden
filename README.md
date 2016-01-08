@@ -1,8 +1,9 @@
-<p align="center">
-	<img src="docs/images/garden.png">
-</p>
+<img src="docs/images/garden.png" alt="Garden">
 
-# Garden
+[![Build Status](https://img.shields.io/travis/leroy-merlin-br/garden.svg)](https://travis-ci.org/leroy-merlin-br/garden)
+
+[![Coverage Status](	https://img.shields.io/coveralls/leroy-merlin-br/garden.svg](https://coveralls.io/github/leroy-merlin-br/garden?branch=master)
+
 A front end library to help you make *​your*​ grass greener than the other side
 
 [Read Garden documentation](http://styleguide.leroymerlin.com.br/) to learn more about our grass :)
