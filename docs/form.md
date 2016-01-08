@@ -10,10 +10,12 @@ path: form
 
 ## Atoms
 
-As Garden is using atomic design to build your components, in this page you'll see all available atoms to create your form molecule.
-Each form atom has your own style, you're able to use them by them selves, but we advise to always use with `<fieldset>` to work as a molecule.
+As Garden use atomic design to build your components, in this page you'll see all available atoms to create your form molecule.
+
+Each form atom has it's own style and you're able to use them individually, but we advise to always use with `.fieldset` molecule.
 
 ### Input
+
 
 <div class="example">
   <input type="text" class="input" />
@@ -23,9 +25,9 @@ Each form atom has your own style, you're able to use them by them selves, but w
 <input type="text" class="input" />
 ```
 
-disabled:
+Disabled `.input` add `cursor: not-allowed` in hover state.
 
-**Always** use `<input disabled>` with `<fieldset>` molecule.
+**Always** use `.input:disabled` with `.fieldset` molecule.
 
 <div class="example">
   <input type="text" class="input" disabled/>
@@ -48,7 +50,7 @@ disabled:
 
 ### helper
 
-`.helper` is used to display additional info as small description or validation text.
+`.helper` is used to display additional info as a small description or validation text.
 
 <div class="example">
   <span class="helper">take care of your garden</span>
@@ -60,7 +62,7 @@ disabled:
 
 ### Select
 
-Garden don't use custom `<select>`, add `.select` to get basic garden style.
+Tag `<select>` is styled by default. You can use the `.select` class.
 
 <div class="example">
   <select class="select">
@@ -77,9 +79,9 @@ Garden don't use custom `<select>`, add `.select` to get basic garden style.
 </select>
 ```
 
-disabled:
+Disabled `.select` add `cursor: not-allowed` in hover state.
 
-**Always** use `<select disabled>` with `<fieldset>` molecule.
+**Always** use `.select:disabled` with `.fieldset` molecule.
 
 <div class="example">
   <select class="select" disabled>
