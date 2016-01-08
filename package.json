@@ -4,8 +4,10 @@
   "description": "A styleguide based on Leroy Merlin needs",
   "main": "index.js",
   "scripts": {
-    "test": "karma start --single-run && eslint src/**/*.js test/**/*.spec.js",
-    "test:watch": "karma start"
+    "test": "karma start --single-run && npm run lint:js && npm run lint:css",
+    "test:watch": "karma start",
+    "lint:js": "eslint src/**/*.js test/**/*.spec.js",
+    "lint:css": "stylelint 'src/**/*.css' 'docs/**/*.css'"
   },
   "repository": {
     "type": "git",
@@ -76,7 +78,7 @@
     "prismjs": "^1.3.0",
     "run-sequence": "^1.1.5",
     "sinon": "^1.17.2",
-    "stylelint": "^3.1.4"
+    "stylelint": "^3.2.1"
   },
   "dependencies": {
     "jquery": "^2.1.4"
