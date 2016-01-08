@@ -21,6 +21,13 @@ module.exports = function(config) {
         })
       ]
     },
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [
+        {type: 'lcov'},
+        {type: 'html'}
+      ]
+    },
     reporters: ['notify', 'nyan', 'coverage'],
     port: 9876,
     colors: true,
