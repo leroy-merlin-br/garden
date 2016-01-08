@@ -20,7 +20,7 @@ Check out our [scaffolding section](scaffolding.md) for more info on providing y
 
 In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-6]` classes for the same style of a heading tag.
 
-<div class="example">
+<div class="example example-code">
   <div class="heading-1">Heading 1</div>
 
   <hr />
@@ -57,7 +57,7 @@ In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-6]` classe
 
 Tag `<p>` is styled by default. You can also use the `.paragraph` class.
 
-<div class="example">
+<div class="example example-code">
   <div class="paragraph">Paragraph class</div>
 </div>
 
@@ -69,7 +69,7 @@ Tag `<p>` is styled by default. You can also use the `.paragraph` class.
 
 `<a>` tags are styled by default. You can also use the `.link` class.
 
-<div class="example">
+<div class="example example-code">
   <div class="link">Link</div>
 </div>
 
@@ -81,7 +81,7 @@ Tag `<p>` is styled by default. You can also use the `.paragraph` class.
 
 Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. You can also use `.strong` and `.italic`, `.underlined` to reuse their styles.
 
-<div class="example">
+<div class="example example-code">
   <div class="strong">strong</div>
 
   <hr>
@@ -103,7 +103,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 
 
 #### Capitalized
-<div class="example">
+<div class="example example-code">
   <p class="capitalize">capitalized text</p>
 </div>
 
@@ -112,7 +112,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ```
 
 #### Uppercase
-<div class="example">
+<div class="example example-code">
   <p class="uppercase">uppercase text</p>
 </div>
 
@@ -121,7 +121,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ```
 
 #### Lowercase
-<div class="example">
+<div class="example example-code">
   <p class="lowercase">LOWERCASE TEXT</p>
 </div>
 
@@ -132,7 +132,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ## Text alignment
 
 #### Left alignment
-<div class="example">
+<div class="example example-code">
   <p class="align-left">Left alignment</p>
 
 </div>
@@ -142,7 +142,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ```
 
 #### Right alignment
-<div class="example">
+<div class="example example-code">
   <p class="align-right">Right alignment</p>
 </div>
 
@@ -151,7 +151,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ```
 
 #### Center alignment
-<div class="example">
+<div class="example example-code">
   <p class="align-center">Center alignment</p>
 </div>
 
@@ -160,7 +160,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ```
 
 #### Justified text
-<div class="example">
+<div class="example example-code">
   <p class="align-justify">Justified text</p>
 </div>
 
@@ -169,7 +169,7 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 ```
 
 #### No wrap
-<div class="example">
+<div class="example example-code">
   <p class="align-nowrap">No wrap</p>
 </div>
 

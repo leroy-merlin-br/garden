@@ -16,7 +16,7 @@ Default buttons use these colors interface: `.button-primary`, `.button-secondar
 
 Using `<button>` element:
 
-<div class="example">
+<div class="example example-code">
   <button type="button" class="button">Default</button>
   <button type="button" class="button button-primary">Primary</button>
   <button type="button" class="button button-secondary">Secondary</button>
@@ -30,7 +30,7 @@ Using `<button>` element:
 
 Using `<a>` element:
 
-<div class="example">
+<div class="example example-code">
   <a href="#" role="button" class="button">Default</a>
 </div>
 
@@ -44,7 +44,7 @@ _**Obs**: when a button is **disabled**, button style will be the same for all t
 
 Using `<button>` element:
 
-<div class="example">
+<div class="example example-code">
   <button disabled type="button" class="button">Default</button>
 </div>
 
@@ -54,7 +54,7 @@ Using `<button>` element:
 
 Using `<a>` element:
 
-<div class="example">
+<div class="example example-code">
   <a href="#" role="button" class="button button-disabled">Default</a>
 </div>
 

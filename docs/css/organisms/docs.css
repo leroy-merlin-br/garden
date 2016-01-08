@@ -5,7 +5,7 @@
   [data-copy] {
     border-radius: .1em;
     font-family: $default-font-family;
-    font-size: .6em;
+    font-size: .8em;
     padding: .2rem .3rem;
     position: absolute;
     right: 0;
@@ -16,8 +16,26 @@
     }
   }
 
+  .example {
+
+    &-code{
+      border-bottom: 0;
+      border-radius: .18rem .18rem 0 0;
+    }
+
+    & + pre {
+      border-radius: 0 0 .18rem .18rem;
+      margin-top: 0;
+    }
+  }
+
   pre {
     position: relative;
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: .8rem;
   }
 }
 
