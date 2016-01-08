@@ -4,7 +4,7 @@
   "description": "A styleguide based on Leroy Merlin needs",
   "main": "index.js",
   "scripts": {
-    "test": "karma start --single-run && npm run lint:js && npm run lint:css",
+    "test": "karma start --single-run --reporters dots,coverage,coveralls && npm run lint:js && npm run lint:css",
     "test:watch": "karma start",
     "lint:js": "eslint src/**/*.js test/**/*.spec.js",
     "lint:css": "stylelint 'src/**/*.css' 'docs/**/*.css'"
@@ -48,6 +48,7 @@
     "karma-browserify": "^4.4.2",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.5.3",
+    "karma-coveralls": "^1.1.2",
     "karma-mocha": "^0.2.1",
     "karma-notify-reporter": "^0.1.1",
     "karma-nyan-reporter": "^0.2.3",
