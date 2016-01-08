@@ -1,0 +1,5 @@
+.helper {
+  color: $color-default-dark;
+  font-size: .75rem;
+  font-style: italic;
+}
