@@ -9,7 +9,7 @@
       color: $color-neutral;
     }
 
-    &--active {
+    &-active {
       color: $color-neutral;
     }
   }
