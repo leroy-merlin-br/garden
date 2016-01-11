@@ -42,4 +42,4 @@ import file from 'node_modules/garden/src/js/file.js';
 JavaScript components rely on jQuery to work, most of the time. Please note `garden.min.js` *does not* comes with jQuery. You have to add your own version of it.
 
 
-Checkout the **<a href="https://github.com/leroy-merlin-br/garden" target="_blank" title="Garden Readme">README</a>** of the project in order how to build the project locally.
+##### Checkout the **<a href="https://github.com/leroy-merlin-br/garden" target="_blank" title="Garden Readme">README</a>** of the project in order how to build the project locally.
