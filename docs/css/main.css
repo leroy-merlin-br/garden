@@ -1,8 +1,10 @@
 @import "atoms/breakpoints";
 
 @import "atoms/container";
+@import "atoms/img";
 
 @import "molecules/nav";
+@import "molecules/highlight";
 @import "molecules/sidebar";
 @import "molecules/palette";
 
