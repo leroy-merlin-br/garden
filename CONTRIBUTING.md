@@ -11,6 +11,7 @@
 - [Fetching](#fetching)
 - [Pull Request](#pull-request)
 - [Merging](#mergin)
+- [Code Guideline](#code-guideline)
 
 This is our commits messages standard. We use these standard to easily identify and differentiate which type of commit is. This pattern is to have a better and understandable messages.
 
@@ -82,7 +83,16 @@ Prefer to use `git pull --rebase` to update you local branch
 
 ## Pull Request
 
-When submit a pull request, doesn't matter if it's a fix/feature/refactor. We usually add `lint`, `jshint`, `jslint`, `coverage`, `layout` (for visual things), `tests log` prints-screen to show that's everthing ok before add tag `should-review`.
+New pull requests should follow this structure:
+
+1. Work on a fork
+2. Create a new branch based on the [branch guideline](#branches)
+3. Write the code based on our [code guideline](#code-guideline)
+4. If the feature involves JS, be sure to unit test the feature.
+5. The coverage should not be lowered.  
+6. Be sure to rebase your branch with the origin/master.
+7. If the feature involves directly layout, be sure to provide some visual info of it.
+8. The name of the pull request should match the name of the branch.
 
 ## Merging
 
@@ -105,6 +115,16 @@ git checkout develop
 git merge --ff-only feat/new-radio-component
 
 ```
+
+## Code Guideline
+
+### JS
+Check our [.eslintrc file](https://github.com/leroy-merlin-br/garden/blob/master/.eslintrc) for more info on our rules
+
+### CSS
+
+Check our [.stylelintrc file](https://github.com/leroy-merlin-br/garden/blob/master/.stylelintrc) for more info on our rules
+
 --
 
 Commit Guidelines is based in:
