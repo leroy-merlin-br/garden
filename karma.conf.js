@@ -14,19 +14,17 @@ module.exports = function(config) {
       'test/**/*.js': ['browserify']
     },
     browserify: {
+      debug: true,
       transform: [
-        'babelify',
         require('browserify-istanbul')({
-          instrumenterConfig: { embedSource: true }
-        })
+          instrumenter: require('isparta')
+        }),
+        'babelify'
       ]
     },
     coverageReporter: {
-      dir: 'coverage/',
-      reporters: [
-        {type: 'lcov'},
-        {type: 'html'}
-      ]
+      type: 'lcov',
+      dir: 'coverage/'
     },
     reporters: ['notify', 'nyan', 'coverage'],
     port: 9876,

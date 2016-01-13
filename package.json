@@ -42,7 +42,7 @@
     "gulp-stylelint": "0.0.4",
     "gulp-stylelint-console-reporter": "0.0.2",
     "gulp-webserver": "^0.9.1",
-    "istanbul": "^1.0.0-alpha.2",
+    "isparta": "^4.0.0",
     "karma": "^0.13.16",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-browserify": "^4.4.2",
