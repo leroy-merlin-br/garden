@@ -29,7 +29,7 @@
     &:focus {
       box-shadow: none;
       cursor: not-allowed;
-      transform: translateY(0);
+      transform: none;
     }
   }
 
