@@ -3,7 +3,10 @@
   border-radius: 4px;
   color: $color-text;
   outline: 0;
-  padding: .6rem 1.4rem .6rem .4rem;
+  padding-botom: .6rem;
+  padding-left: .4rem;
+  padding-right: 1.4rem;
+  padding-top: .6rem;
   resize: none;
   transition: border-color .3s ease-in-out;
   width: 100%;
