@@ -1,6 +1,6 @@
 @import "normalize.css";
 
-@import "placeholders";
+@import "utils/placeholders";
 
 @import "atoms/box-sizing";
 @import "atoms/typography";
