@@ -1,0 +1,5 @@
+@define-placeholder reset-border-color-input {
+  border-left-color: $color-neutral;
+  border-right-color: $color-neutral;
+  border-top-color: $color-neutral;
+}
