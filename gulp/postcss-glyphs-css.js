@@ -70,7 +70,7 @@ export default (glyphs, options) => {
   glyphs.forEach((glyph) => {
 
     let currentGlyph = postcss.rule({
-      selector: `.glyph-${glyph.name}::after`
+      selector: `.glyph-${glyph.name}::before`
     });
 
     currentGlyph.append({

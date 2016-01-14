@@ -10,30 +10,12 @@
     position: relative;
     text-align: center;
 
-    &::before {
-      content: "Copied!";
-      position: absolute;
-      transform: translateY(100%);
-    }
-
-    &::after,
-    &::before {
+    &::after {
       display: inline-block;
       padding-bottom: 1.3rem;
       padding-top: 1.3rem;
       transition: transform .3s ease-in-out;
       width: 100%;
-    }
-  }
-
-  .copied {
-
-    &::after {
-      transform: translateY(-100%);
-    }
-
-    &::before {
-      transform: translateY(0%);
     }
   }
 

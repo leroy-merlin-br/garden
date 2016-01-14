@@ -16,6 +16,28 @@
     }
   }
 
+  [data-clipboard-text] {
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      background-color: $color-default-dark;
+      color: $color-neutral;
+      content: "copied";
+      font-weight: bold;
+      left: 0;
+      padding: .3rem;
+      position: absolute;
+      top: 0;
+      transform: translateY(-100%);
+      transition: transform .3s ease-in-out;
+    }
+
+    &.copied::before {
+      transform: none;
+    }
+  }
+
   .example {
 
     &-code{

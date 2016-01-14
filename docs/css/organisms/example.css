@@ -49,6 +49,10 @@
       margin-bottom: 0;
     }
   }
+
+  .glyph {
+    font-size: 2rem;
+  }
 }
 
 @media (--tablet) {
