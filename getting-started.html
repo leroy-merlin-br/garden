@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make ​your​ grass greener than the other side"><title>Getting Started | Garden</title><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="garden.min.css"><link rel="stylesheet" href="style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link link-active">Getting Started</a><a href="/scaffolding.html" class="link">CSS</a></nav></div></header><main class="docs"><div class="container"><div class="content"><h2 id="install">Install</h2>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make ​your​ grass greener than the other side"><title>Getting Started | Garden</title><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="css/garden.min.css"><link rel="stylesheet" href="css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link link-active">Getting Started</a><a href="/scaffolding.html" class="link">CSS</a></nav></div></header><main class="docs"><div class="container"><div class="content"><h2 id="install">Install</h2>
 <p>We provide some ways to use Garden. You can install using npm, bower or manually (downloading our <a href="#latest-release-link">latest release</a>):</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js">npm install garden</code></pre>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js">bower install garden</code></pre>
@@ -29,11 +29,11 @@ Built with love by <a href="https://github.com/leroy-merlin-br" class="link" tar
 var text = new Clipboard('[data-clipboard-text]');
 
 text.on('success', function(e) {
-  if (e.trigger.classList && e.trigger.classList.contains('color')) {
+  if (e.trigger.classList) {
     e.trigger.classList.add('copied');
     
     setTimeout(function() {
       e.trigger.classList.remove('copied');
-    }, 2000)
+    }, 1000)
   }
 });</script></body></html>

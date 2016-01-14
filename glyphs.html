@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make ​your​ grass greener than the other side"><title>Glyphs | Garden</title><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="css/garden.min.css"><link rel="stylesheet" href="css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/scaffolding.html" class="link link-active">CSS</a></nav></div></header><main class="docs"><div class="container"><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link link-active">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="grid.html" class="link">Grid</a><a href="form.html" class="link">Form</a><a href="button.html" class="link">Buttons</a></nav><div class="content"><h1 id="glyphs">Glyphs</h1>
+<p>Garden provides a set of glyphs based on or own font-face:</p>
+<div class="glyphs">
+  <div class="glyph-container" data-clipboard-text=".glyph-arrow-left">
+    <div class="glyph glyph-arrow-left"></div>
+    glyph-arrow-left
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-arrow-right">
+    <div class="glyph glyph-arrow-right"></div>
+    glyph-arrow-right
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-camera">
+    <div class="glyph glyph-camera"></div>
+    glyph-camera
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-cart">
+    <div class="glyph glyph-cart"></div>
+    glyph-cart
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-clock">
+    <div class="glyph glyph-clock"></div>
+    glyph-clock
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-dollar-sign">
+    <div class="glyph glyph-dollar-sign"></div>
+    glyph-dollar-sign
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-envelope">
+    <div class="glyph glyph-envelope"></div>
+    glyph-envelope
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-exclamation-mark">
+    <div class="glyph glyph-exclamation-mark"></div>
+    glyph-exclamation-mark
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-eye">
+    <div class="glyph glyph-eye"></div>
+    glyph-eye
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-heart">
+    <div class="glyph glyph-heart"></div>
+    glyph-heart
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-location">
+    <div class="glyph glyph-location"></div>
+    glyph-location
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-magnifier">
+    <div class="glyph glyph-magnifier"></div>
+    glyph-magnifier
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-question-mark">
+    <div class="glyph glyph-question-mark"></div>
+    glyph-question-mark
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-silhouette">
+    <div class="glyph glyph-silhouette"></div>
+    glyph-silhouette
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-trash-can">
+    <div class="glyph glyph-trash-can"></div>
+    glyph-trash-can
+  </div>
+</div>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with love by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }  
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList) {
+    e.trigger.classList.add('copied');
+    
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 1000)
+  }
+});</script></body></html>
