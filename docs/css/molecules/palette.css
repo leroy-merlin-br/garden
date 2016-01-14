@@ -136,6 +136,15 @@
       content: "color-danger: $(color-danger)";
     }
   }
+
+  .color-success {
+    background-color: $color-success;
+    color: $color-neutral;
+
+    &::after {
+      content: "color-success: $(color-success)";
+    }
+  }
 }
 
 @media (--tablet) {
