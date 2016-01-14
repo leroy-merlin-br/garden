@@ -1,22 +1,3 @@
 .input {
-  border: 1px solid $color-default-light;
-  border-radius: 4px;
-  color: $color-text;
-  outline: 0;
-  padding: .6rem .4rem;
-  transition: border-color .3s ease-in-out;
-  width: 100%;
-
-  &:focus {
-    border-bottom-color: $color-primary-dark;
-    @extend reset-border-color-input;
-  }
-
-  &[disabled] {
-    background-color: $color-neutral;
-
-    &:hover {
-      cursor: not-allowed;
-    }
-  }
+  @mixin form-component default-light, primary-dark;
 }

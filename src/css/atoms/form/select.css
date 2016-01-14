@@ -1,25 +1,7 @@
 .select {
-  background-color: $color-neutral;
-  border: 1px solid $color-default-light;
-  border-radius: 4px;
-  color: $color-text;
-  font-size: 1.1rem;
-  height: 2.5rem;
-  outline: 0;
-  transition: border-color .3s ease-in-out;
-  width: 100%;
-
-  &:focus {
-    border-bottom-color: $color-primary-dark;
-    @extend reset-border-color-input;
-  }
-
-  &[disabled] {
+  @mixin form-component default-light, primary-dark {
     background-color: $color-neutral;
-
-    &:hover {
-      border-color: $color-default-light;
-      cursor: not-allowed;
-    }
+    font-size: 1.1rem;
+    height: 2.5rem;
   }
 }
