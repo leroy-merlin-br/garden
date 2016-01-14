@@ -1,4 +1,5 @@
 {
+  "ignoreFiles": "src/css/atoms/glyph.css",
   "rules": {
     "string-quotes": "double",
     "color-hex-case": "lower",
