@@ -14,10 +14,9 @@
 
   input[type="checkbox"],
   input[type="radio"] {
-    bottom: .9rem;
+    bottom: 1rem;
     left: .75rem;
     position: absolute;
-    z-index: 10;
 
     &:checked + .label{
       background-color: $color-primary;
@@ -36,7 +35,6 @@
     background-color: $color-neutral;
     border: 1px solid $color-default;
     border-radius: 4px;
-    color: $color-default;
     display: inline-block;
     padding: .68rem .81rem .68rem 2rem;
     transition: all .3s ease-in-out;
