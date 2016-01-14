@@ -1,0 +1,18 @@
+@define-mixin field-validation $color-name {
+
+  &::after {
+    background-color: $color-$(color-name);
+  }
+
+  .input,
+  .select,
+  .textarea {
+    border-bottom-color: $color-$(color-name);
+    @extend reset-border-color-input;
+  }
+
+  .label,
+  .helper {
+    color: $color-$(color-name);
+  }
+}

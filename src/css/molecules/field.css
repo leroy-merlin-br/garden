@@ -83,40 +83,10 @@ fieldset {
   }
 
   &.invalid {
-
-    &::after {
-      background-color: $color-danger;
-    }
-
-    .input,
-    .select,
-    .textarea {
-      border-bottom-color: $color-danger;
-      @extend reset-border-color-input;
-    }
-
-    .label,
-    .helper {
-      color: $color-danger;
-    }
+    @mixin field-validation danger;
   }
 
   &.valid {
-
-    &::after {
-      background-color: $color-success;
-    }
-
-    .input,
-    .select,
-    .textarea {
-      border-bottom-color: $color-success;
-      @extend reset-border-color-input;
-    }
-
-    .label,
-    .helper {
-      color: $color-success;
-    }
+    @mixin field-validation success;
   }
 }
