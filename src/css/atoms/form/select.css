@@ -2,25 +2,20 @@
   background-color: $color-neutral;
   border: 1px solid $color-default-light;
   border-radius: 4px;
-  color: $color-default;
-  height: 2.46rem;
-  padding: .6rem .4rem;
+  color: $color-text;
+  font-size: 1.1rem;
+  height: 2.5rem;
+  outline: 0;
   transition: border-color .3s ease-in-out;
   width: 100%;
 
-  &:hover {
-    border-color: $color-primary-light;
-  }
-
   &:focus {
-    border-left-color: $color-neutral;
-    border-radius: 0;
-    border-right-color: $color-neutral;
-    border-top-color: $color-neutral;
-    outline: none;
+    border-bottom-color: $color-primary-dark;
+    @extend reset-border-color-input;
   }
 
   &[disabled] {
+    background-color: $color-neutral;
 
     &:hover {
       border-color: $color-default-light;
