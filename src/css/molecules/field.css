@@ -1,0 +1,122 @@
+fieldset {
+  border: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.field {
+  padding-top: .5rem;
+  position: relative;
+
+  &::after {
+    border-radius: 1rem;
+    content: " ";
+    height: 1.12rem;
+    position: absolute;
+    right: .12rem;
+    top: 1rem;
+    width: 1.12rem;
+  }
+
+  &-select {
+
+    &::after {
+      right: 1.56rem;
+    }
+  }
+
+  .input,
+  .select,
+  .textarea {
+
+    & + .label {
+      left: .45rem;
+      position: absolute;
+      top: 1rem;
+    }
+
+    &:focus + .label {
+      font-size: .8rem;
+      transform: translateY(-130%);
+    }
+
+    &[disabled] + .label {
+      color: $color-default-lighter;
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: .31rem;
+
+    & + .label {
+      font-size: .9rem;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:checked + .label{
+      color: $color-text;
+    }
+
+    &[disabled] + .label {
+      color: $color-default-light;
+    }
+  }
+
+  .label {
+    transition: all .2s ease-in-out;
+
+    &.active {
+      font-size: .8rem;
+      transform: translateY(-130%);
+    }
+  }
+
+  .helper {
+    display: block;
+    margin-left: .4rem;
+    margin-top: .4rem;
+  }
+
+  &.invalid {
+
+    &::after {
+      background-color: $color-danger;
+    }
+
+    .input,
+    .select,
+    .textarea {
+      border-bottom-color: $color-danger;
+      @extend reset-border-color-input;
+    }
+
+    .label,
+    .helper {
+      color: $color-danger;
+    }
+  }
+
+  &.valid {
+
+    &::after {
+      background-color: $color-success;
+    }
+
+    .input,
+    .select,
+    .textarea {
+      border-bottom-color: $color-success;
+      @extend reset-border-color-input;
+    }
+
+    .label,
+    .helper {
+      color: $color-success;
+    }
+  }
+}
