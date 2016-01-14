@@ -26,7 +26,10 @@
   },
   "globals": {
     "expect": true,
-    "sinon": true
+    "sinon": true,
+    "jQuery": true,
+    "$": true,
+    "fixture": true
   },
   "extends": "eslint:recommended"
 }

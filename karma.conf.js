@@ -1,15 +1,19 @@
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['browserify', 'mocha', 'chai', 'sinon'],
+    frameworks: ['mocha', 'chai', 'sinon', 'browserify', 'fixture'],
     files: [
-      'src/js/**/*.js',
+      'node_modules/jquery/dist/jquery.min.js',
+      'test/fixture/**/*.html',
       'test/**/*.spec.js',
-      'node_modules/jquery/dist/jquery.min.js'
+      {
+        pattern: 'src/js/**/*.js'
+      }
     ],
     exclude: [
     ],
     preprocessors: {
+      '**/*.html': ['html2js'],
       'src/js/**/*.js': ['browserify'],
       'test/**/*.js': ['browserify']
     },
@@ -31,7 +35,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS2'],
     singleRun: false,
     concurrency: Infinity
   });
