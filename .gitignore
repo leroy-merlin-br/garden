@@ -5,3 +5,4 @@ coverage/
 **/.DS_Store
 dist/
 .publish/
+src/css/atoms/glyph.css

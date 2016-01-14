@@ -8,6 +8,7 @@ import lintCSS from './gulp/lint-css';
 import lintJS from './gulp/lint-js';
 
 import buildCSS from './gulp/build-css';
+import buildGlyphs from './gulp/build-glyphs';
 
 import docsMetalsmith from './gulp/docs-metalsmith';
 import docsCSS from './gulp/docs-css';
@@ -19,6 +20,7 @@ gulp.task('lint:css', lintCSS);
 gulp.task('lint:js', lintJS);
 
 gulp.task('build:css', buildCSS);
+gulp.task('build:glyphs', buildGlyphs);
 
 gulp.task('docs:metalsmith', docsMetalsmith);
 gulp.task('docs:css', docsCSS);

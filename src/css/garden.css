@@ -2,6 +2,7 @@
 
 @import "atoms/box-sizing";
 @import "atoms/typography";
+@import "atoms/glyph";
 @import "atoms/button";
 
 @import "atoms/form/input";

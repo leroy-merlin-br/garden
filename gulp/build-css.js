@@ -4,7 +4,7 @@ import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import sourcemaps from 'gulp-sourcemaps';
 
-import errorHandler from './error-handler';
+import errorHandler from './postcss-error-handler';
 
 import paths from './paths';
 

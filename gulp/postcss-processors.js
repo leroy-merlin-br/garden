@@ -20,6 +20,8 @@ export default [
   postcssCustomMedia,
   postcssNested,
   lost,
-  autoprefixer({ browsers: ['last 3 versions'] }),
+  autoprefixer({
+    browsers: ['last 3 versions']
+  }),
   cssnano
 ];

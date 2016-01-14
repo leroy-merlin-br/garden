@@ -6,6 +6,12 @@ export default {
       glob: 'src/css/**/*.css',
       dest: 'dist/css/'
     },
+    glyphs: {
+      src: 'src/glyphs/',
+      glob: 'src/glyphs/**/*.svg',
+      dest: 'dist/fonts',
+      public: 'public/fonts'
+    },
     js: {
       src: 'src/js',
       glob: 'src/js/**/*.js'
@@ -16,7 +22,7 @@ export default {
       src: 'docs/css/',
       main: 'docs/css/main.css',
       glob: 'docs/css/**/*.css',
-      dest: 'public/'
+      dest: 'public/css/'
     },
     layout: {
       src: 'docs/layout/',
