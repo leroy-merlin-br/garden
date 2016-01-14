@@ -15,10 +15,10 @@ export default [
   postcssSimpleVars({
     variables: defaults
   }),
+  postcssNested,
   postcssExtend,
   postcssColorFunction,
   postcssCustomMedia,
-  postcssNested,
   lost,
   autoprefixer({
     browsers: ['last 3 versions']
