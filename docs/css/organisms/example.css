@@ -62,5 +62,9 @@
     .button {
       margin-bottom: 0;
     }
+
+    .field {
+      width: 40%;
+    }
   }
 }
