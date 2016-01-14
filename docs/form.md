@@ -20,27 +20,16 @@ As Garden use atomic design to build your components, in this page you'll see al
 
 Each form atom has it's own style and you're able to use them individually, but we advise to always use with `.field` molecule.
 
-### Input
+Disabled `.input`, `.textarea`, `.select` add `cursor: not-allowed` in hover state
 
-<div class="example example-code">
-  <input type="text" class="input" />
-</div>
-
-```html
-<input type="text" class="input" />
-```
-
-Disabled `.input` add `cursor: not-allowed` in hover state.
-
-**Always** use `.input:disabled` with `.field` molecule.
-
-<div class="example example-code">
-  <input type="text" class="input" disabled/>
-</div>
-
-```html
-<input type="text" class="input" disabled/>
-```
+### Summary
+- [Label](#label)
+- [Input](#input)
+- [Textarea](#textarea)
+- [Select](#select)
+- [Checkbox](#checkbox)
+- [Radio](#radio)
+- [Helper](#helper)
 
 ### Label
 
@@ -52,17 +41,34 @@ Disabled `.input` add `cursor: not-allowed` in hover state.
 <label class="label"></label>
 ```
 
-
-### helper
-
-`.helper` is used to display additional info as a small description or validation text.
+### Input
 
 <div class="example example-code">
-  <span class="helper">take care of your garden</span>
+  <input type="text" class="input" />
 </div>
 
 ```html
-<span class="helper"></span>
+<input type="text" class="input" />
+```
+
+<div class="example example-code">
+  <input type="text" class="input" disabled/>
+</div>
+
+```html
+<input type="text" class="input" disabled/>
+```
+
+### Textarea
+
+<div class="example example-code">
+  <div class="field">
+    <textarea class="textarea"></textarea>
+  </div>
+</div>
+
+```html
+<textarea class="textarea"></textarea>
 ```
 
 ### Select
@@ -84,10 +90,6 @@ Tag `<select>` is styled by default. You can use the `.select` class.
 </select>
 ```
 
-Disabled `.select` add `cursor: not-allowed` in hover state.
-
-**Always** use `.select:disabled` with `.field` molecule.
-
 <div class="example example-code">
   <select class="select" disabled>
     <option></option>
@@ -103,16 +105,6 @@ Disabled `.select` add `cursor: not-allowed` in hover state.
 </select>
 ```
 
-### Radio
-
-<div class="example example-code">
-  <input type="radio" />
-</div>
-
-```html
-<input type="radio" />
-```
-
 ### Checkbox
 
 <div class="example example-code">
@@ -123,20 +115,29 @@ Disabled `.select` add `cursor: not-allowed` in hover state.
 <input type="checkbox" />
 ```
 
-### Textarea
+### Radio
 
 <div class="example example-code">
-  <div class="field">
-    <textarea class="textarea"></textarea>
-  </div>
+  <input type="radio" />
 </div>
 
 ```html
-<textarea class="textarea"></textarea>
+<input type="radio" />
+```
+
+### Helper
+
+`.helper` is used to display additional info as a small description or validation text.
+
+<div class="example example-code">
+  <span class="helper">take care of your garden</span>
+</div>
+
+```html
+<span class="helper"></span>
 ```
 
 ## Molecules
-
 
 _**Obs:** When using `.helper`, don't forget to add `aria-describedby` indicate which field the description refers._
 
