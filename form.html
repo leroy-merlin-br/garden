@@ -3,6 +3,13 @@
 
 <h2 id="controls">Controls</h2>
 <p>Form controls are by default styled with <code>width: 100%</code>, and use a smooth border transition on <code>focus</code> event.</p>
+<h3 id="label">Label</h3>
+<p>Tag <code>&lt;label&gt;</code> is not styled by default. If you want to use as the context of <code>label</code> + <code>control</code>, use the <code>.label</code> class.</p>
+<div class="example example-code">
+  <label class="label">Example</label>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span></code></pre>
 <h3 id="input">Input</h3>
 <p>Tag <code>&lt;input&gt;</code> is not styled by default. You must use <code>.input</code> in order to style it:</p>
 <div class="example example-code">
@@ -31,6 +38,13 @@
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>select</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>select<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>select</span><span class="token punctuation" >></span></span></code></pre>
+<h3 id="helper">Helper</h3>
+<p><code>.helper</code> is used to display additional info as a small description or validation feedback.</p>
+<div class="example example-code">
+  <span class="helper">Helper text</span>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>helper<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span></code></pre>
 <h2 id="molecules">Molecules</h2>
 <p>Molecules by default are composition of atoms, providing unique styles to them as well.</p>
 <h3 id="field">Field</h3>
@@ -42,12 +56,6 @@
     <label for="name" class="label">Input Label</label>
     <span class="helper" aria-describedby="name">Input Helper</span>
   </div>
-
-  <div class="field">
-    <input type="text" class="input" name="name-disabled" id="name-disabled" disabled/>
-    <label for="name-disabled" class="label">Name</label>
-    <span class="helper" aria-describedby="name-disabled">Input Helper</span>
-  </div>
 </div>
 
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
@@ -55,6 +63,78 @@
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>helper<span class="token punctuation" >"</span></span> <span class="token attr-name" >aria-describedby</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<p>Please take note when using <code>label</code> + <code>control</code> on <code>radio|checkbox</code> the label will be positioned on the right side of it.</p>
+<div class="example example-code">
+  <div class="field">
+    <input type="radio" name="garden-radio" id="garden-radio"/>
+    <label for="garden-radio" class="label">Radio</label>
+  </div>
+
+  <div class="field">
+    <input type="checkbox" name="garden-checkbox" id="garden-checkbox"/>
+    <label for="garden-checkbox" class="label">Checkbox</label>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Radio<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span><span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Checkbox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h3 id="input-button">Input button</h3>
+<p>The <code>input-button</code> is a molecule responsible to provide a similiar style of a button to <code>radio|checkbox</code>:</p>
+<div class="example example-code">
+  <div class="field input-button">
+    <input type="checkbox" id="button-check"/>
+    <label for="button-check" class="label">Input Label</label>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field input-button<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span><span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h2 id="disabled-controls">Disabled Controls</h2>
+<p>In order to set a <code>control</code> as disabled, you can use the native attribute <code>disabled</code> or the <code>.disabled</code> class:</p>
+<div class="example example-code">
+  <input class="input" placeholder="Disabled Input" disabled />
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >disabled</span> <span class="token punctuation" >/></span></span></code></pre>
+<p>Please note all <code>controls</code> can be styled by it.</p>
+<h2 id="validation-controls">Validation Controls</h2>
+<p>Garden provides validation directives (<code>.valid</code> and <code>.invalid</code>) to <code>.input</code>, <code>.select</code> and <code>.textarea</code>. The directive affects the whole <code>.field</code> molecule, so you have to add on it:</p>
+<div class="example example-code">
+  <div class="field valid">
+    <input type="text" class="input" value="Valid Input" />
+    <label class="label">Input Label</label>
+    <span class="helper">Input helper</span>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field valid<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span><span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>helper<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<div class="example example-code">
+  <div class="field invalid">
+    <input type="text" class="input" value="Invalid Input" />
+    <label class="label">Input Label</label>
+    <span class="helper">Input helper</span>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field invalid<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span><span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>helper<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<p>Please note to properly style the <code>.select</code> control, you must add the <code>.field-select</code> to the <code>.field</code> molecule.</p>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="js/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
