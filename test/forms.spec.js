@@ -49,6 +49,16 @@ describe('forms spec', () => {
       $input = $field.find('.input');
     });
 
+    it('should not @shouldInputBeActive if the parent hasn\'t a .field class ', sinon.test(function() {
+      this.spy(Forms.prototype, 'shouldInputBeActive');
+
+      $field.removeClass('field');
+
+      Forms.prototype.toggleActiveClass($input[0]);
+
+      expect(Forms.prototype.shouldInputBeActive.notCalled).to.be.true;
+    }));
+
     it('should not add the active class on the $field if the $input returns false for @shouldInputBeActive', () => {
       Forms.prototype.toggleActiveClass($input[0]);
 

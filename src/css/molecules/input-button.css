@@ -1,22 +1,15 @@
 .input-button {
 
-  &.has-image {
-
-    input[type="radio"] {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    img {
-      border-radius: 4px;
-    }
+  img {
+    border-radius: 4px;
   }
 
   input[type="checkbox"],
   input[type="radio"] {
-    bottom: 1rem;
     left: .75rem;
     position: absolute;
+    top: 50%;
+    transform: translateY(-25%);
 
     &:checked + .label{
       background-color: $color-primary;

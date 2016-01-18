@@ -36,6 +36,10 @@ export default (($) => {
       let $input = $(input),
         $field = $input.parents('.field');
 
+      if(!$field.length) {
+        return;
+      }
+
       if (!$field.hasClass('active') && this.shouldInputBeActive(input)) {
         return $field.addClass('active');
       }

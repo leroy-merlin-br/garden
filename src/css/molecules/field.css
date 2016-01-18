@@ -51,6 +51,7 @@ fieldset {
     margin-right: .31rem;
 
     & + .label {
+      cursor: pointer;
       font-size: .9rem;
     }
 
