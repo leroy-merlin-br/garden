@@ -1,10 +1,16 @@
 export default (($) => {
   const NAME      = 'form';
-  const SELECTORS = '.input, select, .select, .textarea';
+  const DEFAULTS  = {
+    events: 'change',
+    selectors: '.input, select, .select, .textarea'
+  };
 
   class Forms {
-    constructor(element) {
-      this._element = element;
+    constructor(element, options) {
+      options = $.extend({}, DEFAULTS, options || {});
+
+      this._element = $(element);
+      this._options = options;
 
       this.listeners();
 
@@ -12,7 +18,10 @@ export default (($) => {
     }
 
     listeners() {
-      this._element.on('change', SELECTORS, this.onFieldChange.bind(this));
+      $(document).on(
+        this._options.events, this._options.selectors,
+        this.onFieldChange.bind(this)
+      );
     }
 
     onFieldChange(event) {
@@ -38,7 +47,7 @@ export default (($) => {
 
     toggleFieldsActiveClass() {
       Array.prototype.forEach.call(
-        this._element.find(SELECTORS),
+        this._element.find(this._options.selectors),
         this.toggleActiveClass.bind(this)
       );
     }
@@ -49,8 +58,8 @@ export default (($) => {
     options = options || {};
 
     return this.each(function() {
-      if (!$.data(this, Forms)) {
-        $.data(this, Forms, new Forms(this, options));
+      if (!$.data(this, NAME)) {
+        $.data(this, NAME, new Forms(this, options));
       }
     });
   };

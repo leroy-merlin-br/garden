@@ -69,8 +69,11 @@ fieldset {
 
   .label {
     transition: all .2s ease-in-out;
+  }
 
-    &.active {
+  &.active {
+
+    .label {
       font-size: .8rem;
       transform: translateY(-130%);
     }

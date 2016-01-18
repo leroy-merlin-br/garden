@@ -354,7 +354,7 @@ Invalid state in `.field`
 <div class="example">
   <div class="field invalid">
     <input type="text" class="input" name="name-invalid" id="name-invalid" />
-    <label for="name-invalid" class="label active">Name</label>
+    <label for="name-invalid" class="label">Name</label>
     <span class="helper" aria-describedby="name-invalid">Ops, something is wrong!</span>
   </div>
 </div>
@@ -370,7 +370,7 @@ Invalid state in `.field`
       <option value="garden-2">Garden 2</option>
       <option value="garden-3">Garden 3</option>
     </select>
-    <label for="garden-type-invalid" class="label active">Name</label>
+    <label for="garden-type-invalid" class="label">Name</label>
     <span class="helper" aria-describedby="garden-type-invalid">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
   </div>
 </div>
@@ -380,7 +380,7 @@ Invalid state in `.field`
 <div class="example">
   <div class="field invalid">
     <textarea class="textarea" name="garden-area-invalid" id="garden-area-invalid"></textarea>
-    <label for="garden-area-invalid" class="label active">Message</label>
+    <label for="garden-area-invalid" class="label">Message</label>
     <span class="helper" aria-describedby="garden-area-invalid">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
   </div>
 </div>
@@ -392,7 +392,7 @@ Valid state in `.field`
 <div class="example">
   <div class="field valid">
     <input type="text" class="input" name="name-valid" id="name-valid" value="Garden" />
-    <label for="name-valid" class="label active">Name</label>
+    <label for="name-valid" class="label">Name</label>
     <span class="helper" aria-describedby="name-valid">Ops, something is wrong!</span>
   </div>
 </div>
@@ -408,7 +408,7 @@ Valid state in `.field`
       <option value="garden-2">Garden 2</option>
       <option value="garden-3">Garden 3</option>
     </select>
-    <label for="garden-type-valid" class="label active">Name</label>
+    <label for="garden-type-valid" class="label">Name</label>
     <span class="helper" aria-describedby="garden-type-valid">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
   </div>
 </div>
@@ -418,7 +418,7 @@ Valid state in `.field`
 <div class="example">
   <div class="field valid">
     <textarea class="textarea" name="garden-area-valid" id="garden-area-valid"></textarea>
-    <label for="garden-area-valid" class="label active">Message</label>
+    <label for="garden-area-valid" class="label">Message</label>
     <span class="helper" aria-describedby="garden-area-valid">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
   </div>
 </div>

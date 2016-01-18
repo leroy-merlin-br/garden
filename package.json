@@ -33,6 +33,7 @@
     "cssnano": "^3.4.0",
     "eslint": "^1.10.3",
     "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
     "gulp-eslint": "^1.1.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-iconfont": "^5.0.1",

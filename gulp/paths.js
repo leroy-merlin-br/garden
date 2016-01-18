@@ -14,7 +14,8 @@ export default {
     },
     js: {
       src: 'src/js',
-      glob: 'src/js/**/*.js'
+      glob: 'src/js/**/*.js',
+      dest: 'dist/js/'
     }
   },
   docs: {
@@ -23,6 +24,9 @@ export default {
       main: 'docs/css/main.css',
       glob: 'docs/css/**/*.css',
       dest: 'public/css/'
+    },
+    js: {
+      dest: 'public/js'
     },
     layout: {
       src: 'docs/layout/',

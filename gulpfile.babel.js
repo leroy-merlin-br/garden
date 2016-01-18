@@ -10,6 +10,8 @@ import lintJS from './gulp/lint-js';
 import buildCSS from './gulp/build-css';
 import buildGlyphs from './gulp/build-glyphs';
 
+import buildJS from './gulp/build-JS';
+
 import docsMetalsmith from './gulp/docs-metalsmith';
 import docsCSS from './gulp/docs-css';
 import docsDeploy from './gulp/docs-deploy';
@@ -22,12 +24,15 @@ gulp.task('lint:js', lintJS);
 gulp.task('build:css', ['build:glyphs'], buildCSS);
 gulp.task('build:glyphs', buildGlyphs);
 
+gulp.task('build:js', buildJS);
+
 gulp.task('docs:metalsmith', docsMetalsmith);
 gulp.task('docs:css', docsCSS);
 gulp.task('docs', (done) => sequence(
   'docs:metalsmith',
   'docs:css',
   'build:css',
+  'build:js',
   done
   )
 );
@@ -38,6 +43,7 @@ gulp.task('watch', ['docs'], () => {
   gulp.watch([paths.docs.layout.glob, paths.docs.pages.glob], ['docs']);
   gulp.watch([paths.docs.css.glob], ['docs:css', 'lint:css']);
   gulp.watch([paths.src.css.glob], ['build:css', 'lint:css']);
+  gulp.watch([paths.src.js.glob], ['build:js', 'lint:js']);
 });
 
 gulp.task('server', ['watch'], server);
