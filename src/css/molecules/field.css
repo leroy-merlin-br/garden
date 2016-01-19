@@ -78,6 +78,12 @@ fieldset {
       font-size: .8rem;
       transform: translateY(-130%);
     }
+
+    .input,
+    .select,
+    .textarea {
+      @extend reset-border-color-input
+    }
   }
 
   .helper {

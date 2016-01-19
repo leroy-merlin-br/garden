@@ -56,7 +56,7 @@ Tag `<textarea>` is not styled by default. You must use `.textarea` in order to 
 
 ### Select
 
-Tag `<select>` is styled by default. You can use the `.select` class also.
+Tag `<select>` is not styled by default. You must use the `.select` in order to style it.
 
 <div class="example example-code">
   <select class="select">
