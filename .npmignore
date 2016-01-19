@@ -1,0 +1,9 @@
+**/.*
+**/*.md
+node_modules
+test
+docs
+gulp
+gulpfile.babel.js
+metalsmith.js
+karma.conf.js

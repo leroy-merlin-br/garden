@@ -20,9 +20,13 @@
   ],
   "ignore": [
     "**/.*",
+    "**/*.md",
     "node_modules",
-    "bower_components",
     "test",
-    "tests"
+    "docs",
+    "gulp",
+    "gulpfile.babel.js",
+    "metalsmith.js",
+    "karma.conf.js"
   ]
 }
