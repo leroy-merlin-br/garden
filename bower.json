@@ -1,0 +1,28 @@
+{
+  "name": "garden",
+  "description": "A styleguide based on Leroy Merlin needs",
+  "main": "dist/css/garden.min.css",
+  "authors": [
+    "Fernando Fleury"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "garden",
+    "leroy",
+    "leroy",
+    "merlin",
+    "leroy-merlin",
+    "styleguide"
+  ],
+  "homepage": "https://github.com/leroy-merlin-br/garden",
+  "moduleType": [
+    "es6"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
