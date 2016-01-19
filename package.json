@@ -4,8 +4,9 @@
   "description": "A styleguide based on Leroy Merlin needs",
   "main": "index.js",
   "scripts": {
-    "test": "karma start --single-run --reporters dots,coverage,coveralls && npm run lint:js && npm run lint:css",
+    "test": "karma start --single-run --reporters dots,coverage,coveralls",
     "test:watch": "karma start",
+    "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint src/**/*.js test/**/*.spec.js",
     "lint:css": "stylelint 'src/**/*.css' 'docs/**/*.css'"
   },
