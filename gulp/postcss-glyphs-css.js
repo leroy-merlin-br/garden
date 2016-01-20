@@ -68,17 +68,24 @@ export default (glyphs, options) => {
     .append(glyph);
 
   glyphs.forEach((glyph) => {
+    let decl = {
+      prop: 'content',
+      value: `"\\${glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}\"`
+    };
+
+    let currentPlaceholder = postcss.atRule({
+      name: `define-placeholder ${glyph.name}`
+    })
+      .append(postcss.decl(decl));
 
     let currentGlyph = postcss.rule({
       selector: `.glyph-${glyph.name}::before`
-    });
+    })
+      .append(decl);
 
-    currentGlyph.append({
-      prop: 'content',
-      value: `"\\${glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}\"`
-    });
-
-    stylesheet.append(currentGlyph);
+    stylesheet
+      .append(currentPlaceholder)
+      .append(currentGlyph);
   });
 
   fs.writeFileSync(`${paths.src.css.src}/atoms/glyph.css`, stylesheet.toResult().css);

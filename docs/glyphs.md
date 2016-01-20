@@ -24,17 +24,17 @@ The font bundle is required to use the glyphs. The location of the font is `dist
 
 The `.glyph` class is responsible to set the `font-family` name, along with a couple resetting properties. Each glyph has a identifier of the glyph name. IE `cart` is `glyph-cart`.
 
-The current available glyphs are  (Click on it to copy the glyph name):
+You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend cart`:
 
 <div class="glyphs">
   <div class="glyph-container" data-clipboard-text=".glyph-arrow-left">
     <div class="glyph glyph-arrow-left"></div>
-    glyph-arrow-left
+    arrow-left
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-arrow-right">
     <div class="glyph glyph-arrow-right"></div>
-    glyph-arrow-right
+    arrow-right
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-camera">
@@ -44,62 +44,97 @@ The current available glyphs are  (Click on it to copy the glyph name):
 
   <div class="glyph-container" data-clipboard-text=".glyph-cart">
     <div class="glyph glyph-cart"></div>
-    glyph-cart
+    cart
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-checked">
+    <div class="glyph glyph-checked"></div>
+    checked
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-clock">
     <div class="glyph glyph-clock"></div>
-    glyph-clock
+    clock
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-dollar-sign">
     <div class="glyph glyph-dollar-sign"></div>
-    glyph-dollar-sign
+    dollar-sign
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-left">
+    <div class="glyph glyph-double-arrow-left"></div>
+    double-arrow-left
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-right">
+    <div class="glyph glyph-double-arrow-right"></div>
+    double-arrow-right
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-up">
+    <div class="glyph glyph-double-arrow-up"></div>
+    double-arrow-up
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-down">
+    <div class="glyph glyph-double-arrow-down"></div>
+    double-arrow-down
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-envelope">
     <div class="glyph glyph-envelope"></div>
-    glyph-envelope
+    envelope
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-exclamation-mark">
     <div class="glyph glyph-exclamation-mark"></div>
-    glyph-exclamation-mark
+    exclamation-mark
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-external">
+    <div class="glyph glyph-external"></div>
+    external
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-eye">
     <div class="glyph glyph-eye"></div>
-    glyph-eye
+    eye
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-heart">
     <div class="glyph glyph-heart"></div>
-    glyph-heart
+    heart
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-location">
     <div class="glyph glyph-location"></div>
-    glyph-location
+    location
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-magnifier">
     <div class="glyph glyph-magnifier"></div>
-    glyph-magnifier
+    magnifier
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-question-mark">
     <div class="glyph glyph-question-mark"></div>
-    glyph-question-mark
+    question-mark
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-silhouette">
     <div class="glyph glyph-silhouette"></div>
-    glyph-silhouette
+    silhouette
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-trash-can">
     <div class="glyph glyph-trash-can"></div>
-    glyph-trash-can
+    trash-can
+  </div>
+
+  <div class="glyph-container" data-clipboard-text=".glyph-x">
+    <div class="glyph glyph-x"></div>
+    x
   </div>
 </div>
 
