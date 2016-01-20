@@ -93,10 +93,10 @@ fieldset {
   }
 
   &.invalid {
-    @mixin field-validation danger;
+    @mixin field-validation danger, x;
   }
 
   &.valid {
-    @mixin field-validation success;
+    @mixin field-validation success, checked;
   }
 }

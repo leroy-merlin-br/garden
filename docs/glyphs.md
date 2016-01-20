@@ -39,7 +39,7 @@ You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend ca
 
   <div class="glyph-container" data-clipboard-text=".glyph-camera">
     <div class="glyph glyph-camera"></div>
-    glyph-camera
+    camera
   </div>
 
   <div class="glyph-container" data-clipboard-text=".glyph-cart">

@@ -25,10 +25,16 @@
   }
 }
 
-@define-mixin field-validation $color-name {
+@define-mixin field-validation $color-name, $glyph-name {
 
   &::after {
+    @extend $glyph-name;
     background-color: $color-$(color-name);
+    color: $color-neutral;
+    font-family: Glyphs;
+    font-size: .6rem;
+    line-height: 1.2rem;
+    text-align: center;
   }
 
   .input,
