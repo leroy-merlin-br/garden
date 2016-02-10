@@ -2,8 +2,11 @@
 **/*.md
 node_modules
 test
+coverage
 docs
+public
 gulp
 gulpfile.babel.js
 metalsmith.js
 karma.conf.js
+bower.json
