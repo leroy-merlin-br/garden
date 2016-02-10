@@ -17,7 +17,7 @@ export default () => {
     .pipe(postcss(processors))
     .on('error', errorHandler)
     .pipe(rename('garden.min.css'))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.src.css.dest))
     .pipe(gulp.dest(paths.docs.css.dest));
 };
