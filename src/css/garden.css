@@ -7,6 +7,7 @@
 @import "atoms/typography";
 @import "atoms/glyph";
 @import "atoms/button";
+@import "atoms/badge";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
