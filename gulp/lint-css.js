@@ -1,17 +1,22 @@
-'use strict';
-
 import gulp from 'gulp';
-import stylelint from 'gulp-stylelint';
-import reporter from 'gulp-stylelint-console-reporter';
 
 import paths from './paths';
 
+import { argv } from 'yargs';
+
+import postcss from 'gulp-postcss';
+import stylelint from 'stylelint';
+import reporter from 'postcss-reporter';
+
 export default () => {
+  let processors = [
+    stylelint(),
+    reporter({
+      throwError: argv.ci,
+      clearMessages: true
+    })
+  ];
 
   return gulp.src([paths.src.css.glob, paths.docs.css.glob])
-    .pipe(stylelint({
-      reporters: [
-        reporter()
-      ]
-    }));
+    .pipe(postcss(processors));
 };
