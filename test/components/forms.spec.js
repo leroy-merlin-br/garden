@@ -1,4 +1,4 @@
-import Forms from '../src/js/forms';
+import Forms from '../../src/js/components/forms';
 
 describe('forms spec', () => {
   var formInstance, $fixture;

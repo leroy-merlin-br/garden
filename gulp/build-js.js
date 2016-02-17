@@ -1,21 +1,16 @@
-'use strict';
 import gulp from 'gulp';
-import browserify from 'gulp-browserify';
-import rename from 'gulp-rename';
-import sourcemaps from 'gulp-sourcemaps';
 
 import paths from './paths';
 
-export default () => {
-  let options = {
-    transform: 'babelify'
-  };
+import webpack from 'webpack-stream';
+import config from '../webpack.config';
 
-  return gulp.src(paths.src.js.glob)
-    .pipe(sourcemaps.init())
-    .pipe(browserify(options))
-    .pipe(rename('garden.min.js'))
-    .pipe(sourcemaps.write())
+import uglify from 'gulp-uglify';
+
+export default () => {
+  return gulp.src(paths.src.js.main)
+    .pipe(webpack(config))
+    .pipe(uglify())
     .pipe(gulp.dest(paths.src.js.dest))
     .pipe(gulp.dest(paths.docs.js.dest));
 };
