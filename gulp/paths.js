@@ -13,7 +13,8 @@ export default {
       public: 'public/fonts'
     },
     js: {
-      src: 'src/js',
+      src: 'src/js/',
+      main: 'src/js/entry.js',
       glob: 'src/js/**/*.js',
       dest: 'dist/js/'
     }

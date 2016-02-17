@@ -11,4 +11,4 @@ node_js:
 
 script:
   - npm run lint
-  - env PHANTOMJS_BIN=/usr/local/bin/phantomjs npm run test
+  - env PHANTOMJS_BIN=/usr/local/bin/phantomjs npm run test:ci
