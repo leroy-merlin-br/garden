@@ -5,10 +5,7 @@
   "main": "dist/js/garden.min.js",
   "scripts": {
     "test": "karma start",
-    "test:ci": "karma start --single-run --reporters dots,coverage,coveralls",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint src/**/*.js test/**/*.spec.js",
-    "lint:css": "stylelint 'src/**/*.css' 'docs/**/*.css'"
+    "test:ci": "karma start --single-run --reporters dots,coverage,coveralls"
   },
   "repository": {
     "type": "git",
@@ -39,11 +36,12 @@
     "gulp-eslint": "^1.1.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-iconfont": "^5.0.1",
+    "gulp-if": "^2.0.0",
     "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-stylelint": "0.0.4",
     "gulp-stylelint-console-reporter": "0.0.2",
     "gulp-uglify": "^1.5.2",
     "gulp-webserver": "^0.9.1",
@@ -87,6 +85,7 @@
     "run-sequence": "^1.1.5",
     "sinon": "^1.17.2",
     "stylelint": "^3.2.1",
-    "webpack-stream": "^3.1.0"
+    "webpack-stream": "^3.1.0",
+    "yargs": "^4.1.0"
   }
 }

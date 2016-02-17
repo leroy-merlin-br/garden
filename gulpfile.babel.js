@@ -10,7 +10,7 @@ import lintJS from './gulp/lint-js';
 import buildCSS from './gulp/build-css';
 import buildGlyphs from './gulp/build-glyphs';
 
-import buildJS from './gulp/build-JS';
+import buildJS from './gulp/build-js';
 
 import docsMetalsmith from './gulp/docs-metalsmith';
 import docsCSS from './gulp/docs-css';
@@ -21,7 +21,7 @@ import server from './gulp/server';
 gulp.task('lint:css', lintCSS);
 gulp.task('lint:js', lintJS);
 
-gulp.task('build:css', ['build:glyphs'], buildCSS);
+gulp.task('build:css', buildCSS);
 gulp.task('build:glyphs', buildGlyphs);
 
 gulp.task('build:js', buildJS);
