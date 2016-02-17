@@ -10,5 +10,6 @@ node_js:
   - "5.3"
 
 script:
-  - npm run lint
+  - node_modules/.bin/gulp lint:css
+  - node_modules/.bin/gulp lint:js
   - env PHANTOMJS_BIN=/usr/local/bin/phantomjs npm run test:ci

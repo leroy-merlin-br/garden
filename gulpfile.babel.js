@@ -21,7 +21,7 @@ import server from './gulp/server';
 gulp.task('lint:css', lintCSS);
 gulp.task('lint:js', lintJS);
 
-gulp.task('build:css', ['build:glyphs'], buildCSS);
+gulp.task('build:css', buildCSS);
 gulp.task('build:glyphs', buildGlyphs);
 
 gulp.task('build:js', buildJS);
