@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make ​your​ grass greener than the other side"><title>Badges | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="images/favicon.png" type="image/png"><link rel="stylesheet" href="css/garden.min.css"><link rel="stylesheet" href="css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/scaffolding.html" class="link link-active">CSS</a><a href="/form-js.html" class="link">JS</a></nav></div></header><main class="docs"><div class="container"><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="grid.html" class="link">Grid</a><a href="badges.html" class="link link-active">Badges</a><a href="form.html" class="link">Form</a><a href="button.html" class="link">Buttons</a></nav><div class="content"><h1 id="badges">Badges</h1>
+<p>Badge uses <code>display: inline-block</code> by default. </p>
+<p>Usage exemple:</p>
+<div class="example example-code">
+  <span class="badge">default</span>
+  <span class="badge badge-primary">primary</span>
+  <span class="badge badge-secondary">secondary</span>
+  <span class="badge badge-neutral">neutral</span>
+  <span class="badge badge-danger">danger</span>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>badge badge-primary<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span></code></pre>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="js/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }  
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList) {
+    e.trigger.classList.add('copied');
+    
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 1000)
+  }
+});
+
+$('.docs').form();</script></body></html>
