@@ -54,6 +54,10 @@
     font-size: 2rem;
   }
 
+  .price-tag {
+    max-width: 140px;
+  }
+
   .thumbnail {
     width: 13.8rem;
 

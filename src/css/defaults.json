@@ -18,6 +18,9 @@
 
   "color-secondary": "#bada2e",
 
+  "color-promotional": "#fae800",
+  "color-text-promotional": "#ed1c24",
+
   "default-font-size": "16px",
   "default-font-family": "Helvetica, Arial, sans-serif"
 }

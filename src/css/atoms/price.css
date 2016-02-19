@@ -1,0 +1,16 @@
+.price-integer {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.price-decimal {
+  font-size: .8125rem;
+  font-weight: bold;
+  line-height: .8125rem;
+  vertical-align: top;
+}
+
+.price-currency,
+.price-unit {
+  font-size: .8125rem;
+}

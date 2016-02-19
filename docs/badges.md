@@ -3,14 +3,14 @@ title: Badges
 layout: page.jade
 sidebar: true
 collection: css
-priority: 1
+priority: 0
 path: badges
 ---
 
 
 # Badges
 
-Badge uses `display: inline-block` by default. 
+Badge uses `display: inline-block` by default.
 
 Usage example:
 

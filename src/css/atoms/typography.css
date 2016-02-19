@@ -1,3 +1,10 @@
+@import "atoms/text/heading";
+@import "atoms/text/paragraph";
+@import "atoms/text/style";
+@import "atoms/text/alignment";
+@import "atoms/text/transform";
+@import "atoms/text/link";
+
 html {
   font-size: $default-font-size;
   -webkit-font-smoothing: antialiased;
@@ -14,10 +21,3 @@ hr {
   height: .06rem;
   width: 100%;
 }
-
-@import "atoms/text/heading";
-@import "atoms/text/paragraph";
-@import "atoms/text/style";
-@import "atoms/text/alignment";
-@import "atoms/text/transform";
-@import "atoms/text/link";
