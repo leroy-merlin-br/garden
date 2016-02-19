@@ -11,7 +11,7 @@ body {
 hr {
   background-color: $color-default-light;
   border: 0;
-  height: 1px;
+  height: .06rem;
   width: 100%;
 }
 

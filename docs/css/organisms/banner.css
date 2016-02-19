@@ -1,6 +1,6 @@
 .banner {
   background-color: $color-primary;
-  height: 300px;
+  height: 18.75rem;
   text-align: center;
 
   .title {
@@ -9,12 +9,12 @@
     line-height: 1.3em;
     lost-utility: clearfix;
     margin-bottom: 2rem;
-    max-width: 700px;
+    max-width: 43.75;
   }
 
   .btn {
-    border: 1px solid $color-neutral;
-    border-radius: 3px;
+    border: .06rem solid $color-neutral;
+    border-radius: .18rem;
     color: $color-neutral;
     display: inline-block;
     font-size: 1.4em;

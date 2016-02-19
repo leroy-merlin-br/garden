@@ -1,13 +1,13 @@
 .sidebar {
-  border: 1px solid $color-default-light;
-  border-radius: 3px;
-  margin-bottom: 10px;
+  border: .06rem solid $color-default-light;
+  border-radius: .18rem;
+  margin-bottom: .62rem;
 
   .link {
-    border-bottom: 1px solid $color-default-light;
-    border-left: 2px solid transparent;
+    border-bottom: .06rem solid $color-default-light;
+    border-left: .12rem solid transparent;
     display: block;
-    padding: 8px 10px;
+    padding: .5rem .62rem;
 
     &:last-child {
       border-bottom: 0;

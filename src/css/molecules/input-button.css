@@ -1,7 +1,7 @@
 .input-button {
 
   img {
-    border-radius: 4px;
+    border-radius: .25rem;
   }
 
   input[type="checkbox"],
@@ -18,7 +18,7 @@
     }
 
     &[disabled] + .label {
-      border: 1px solid $color-default-light;
+      border: .06rem solid $color-default-light;
       box-shadow: none;
       color: $color-default-light;
     }
@@ -26,8 +26,8 @@
 
   .label {
     background-color: $color-neutral;
-    border: 1px solid $color-default;
-    border-radius: 4px;
+    border: .06rem solid $color-default;
+    border-radius: .25rem;
     display: inline-block;
     padding: .68rem .81rem .68rem 2rem;
     transition: all .3s ease-in-out;

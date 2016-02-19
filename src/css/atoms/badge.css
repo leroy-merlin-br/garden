@@ -1,13 +1,13 @@
 .badge {
   background-color: $color-default;
-  border-radius: 3px;
+  border-radius: .18rem;
   color: $color-neutral;
   display: inline-block;
-  font-size: 14px;
-  padding-bottom: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 1px;
+  font-size: .87rem;
+  padding-bottom: .12rem;
+  padding-left: .31rem;
+  padding-right: .31rem;
+  padding-top: .06rem;
 
   &-danger {
     background-color: $color-danger;

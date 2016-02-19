@@ -1,6 +1,6 @@
 .docs {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
 
   [data-copy] {
     border-radius: .1em;

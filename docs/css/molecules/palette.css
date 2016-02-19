@@ -2,7 +2,7 @@
   lost-utility: clearfix;
 
   .color {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
+    box-shadow: .06rem .06rem .18rem rgba(0, 0, 0, .2);
     cursor: pointer;
     font-size: .9rem;
     font-weight: bold;
