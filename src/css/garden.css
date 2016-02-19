@@ -8,6 +8,7 @@
 @import "atoms/glyph";
 @import "atoms/button";
 @import "atoms/badge";
+@import "atoms/caption";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
@@ -18,3 +19,4 @@
 @import "molecules/field";
 @import "molecules/input-button";
 @import "molecules/pricetag";
+@import "molecules/thumbnail";

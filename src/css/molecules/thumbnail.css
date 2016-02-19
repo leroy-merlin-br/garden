@@ -1,0 +1,32 @@
+.thumbnail {
+  border: .06rem solid $color-default-light;
+  border-radius: .25rem;
+  display: inline-block;
+  margin: 0;
+  padding: .62rem;
+  position: relative;
+
+  .figure {
+    border-radius: .25rem;
+  }
+
+  &::after {
+    border-radius: .25rem;
+    box-shadow: 0 0 1rem $color-default-light;
+    content: " ";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .3s ease-in-out;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+  }
+}
+
