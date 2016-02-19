@@ -12,7 +12,7 @@ path: badges
 
 Badge uses `display: inline-block` by default. 
 
-Usage exemple:
+Usage example:
 
 <div class="example example-code">
   <span class="badge">default</span>
