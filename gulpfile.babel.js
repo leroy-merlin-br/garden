@@ -35,7 +35,7 @@ gulp.task('docs', (done) => sequence(
   )
 );
 
-gulp.task('docs:deploy', ['docs'], docsDeploy);
+gulp.task('docs:deploy', ['docs', 'build:glyphs'], docsDeploy);
 
 gulp.task('watch', ['docs'], () => {
   gulp.watch([paths.docs.layout.glob, paths.docs.pages.glob], ['docs']);
