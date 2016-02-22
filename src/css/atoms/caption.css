@@ -2,14 +2,14 @@
   color: $color-text;
   font-size: 1rem;
   line-height: 1.3rem;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: .62rem;
+  margin-top: .62rem;
   text-align: center;
 
   .additional {
     color: $color-default;
     display: block;
     font-size: .81rem;
-    margin-top: 5px;
+    margin-top: .31rem;
   }
 }

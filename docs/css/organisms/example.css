@@ -54,7 +54,7 @@
     font-size: 2rem;
   }
 
-  .price-tag {
+  > .price-tag {
     max-width: 8.75rem;
   }
 
