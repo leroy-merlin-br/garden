@@ -1,0 +1,31 @@
+.border {
+  border: .0625rem solid $color-primary-light;
+}
+
+.border-hover {
+  border: .0625rem solid $color-primary-light;
+  transition: border-color .3s ease-in-out;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+.border-active {
+  border: .0625rem solid $color-secondary;
+  transition: none;
+
+  &:hover {
+    border-color: $color-secondary;
+  }
+}
+
+.border-disabled {
+  border: .0625rem solid $color-primary-light;
+  opacity: .4;
+  transition: none;
+
+  &:hover {
+    border-color: $color-primary-light;
+  }
+}
