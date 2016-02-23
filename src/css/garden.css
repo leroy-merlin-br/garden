@@ -9,6 +9,9 @@
 @import "atoms/button";
 @import "atoms/badge";
 @import "atoms/caption";
+@import "atoms/circular";
+@import "atoms/rounded";
+@import "atoms/border";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
