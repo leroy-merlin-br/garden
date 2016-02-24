@@ -8,6 +8,7 @@
 @import "molecules/sidebar";
 @import "molecules/palette";
 @import "molecules/glyphs";
+@import "molecules/callout";
 
 @import "organisms/header";
 @import "organisms/footer";

@@ -1,0 +1,15 @@
+.callout {
+  border-left: .25rem solid $color-primary;
+  padding: .3rem 1rem;
+  margin: 1.5rem 0;
+
+  p {
+    margin-top: .3rem;
+    margin-bottom: 0;
+  }
+}
+
+.callout-title {
+  color: $color-primary;
+  font-size: 1.5rem;
+}
