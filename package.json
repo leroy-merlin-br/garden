@@ -68,6 +68,7 @@
     "metalsmith-jade": "^2.0.2",
     "metalsmith-layouts": "^1.4.2",
     "metalsmith-markdown": "^0.2.1",
+    "metalsmith-relative": "^1.0.3",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
     "postcss-color-function": "^2.0.0",

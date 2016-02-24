@@ -4,7 +4,7 @@ layout: page.jade
 path: getting-started
 ---
 ## Install
-We provide some ways to use Garden. You can install using npm, bower or manually (downloading our [latest release](#latest-release-link)):
+We provide some ways to use Garden. You can install using npm, bower or manually (downloading our [latest release](https://github.com/leroy-merlin-br/garden/releases)):
 
 ```js
 npm install garden
@@ -30,7 +30,7 @@ We rely on [PostCSS](https://github.com/postcss/postcss) to process our CSS file
 ```
 
 #### JavaScript
-We use [Browserify](http://browserify.org) with [Babelify](https://github.com/babel/babelify) to handle ES2015 to ES5 transpiling/bundling. Since it's plain ES2015, you can use any transpiling along with any bundler as well:
+We use [Webpack](https://webpack.github.io/) with [Babel-loader](https://github.com/babel/babel-loader) to handle ES2015 to ES5 transpiling/bundling. Since it's plain ES2015, you can use any transpiling along with any bundler as well:
 
 ```js
 // ES2015 import syntax:

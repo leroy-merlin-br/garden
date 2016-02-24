@@ -12,7 +12,7 @@ As for component idealization (the conception of a new component, such as button
 
 Stack wise, Garden was built using [PostCSS](https://github.com/postcss/postcss) for CSS processing, alongside with a couple [PostCSS plugins](https://github.com/leroy-merlin-br/garden/blob/master/package.json).
 
-As for JavaScript components, they are primarily written on ES2015 (using [Babel](babeljs.io)) and bundled to ES5 UMD components with [Browserify](http://browserify.org/).
+As for JavaScript components, they are primarily written on ES2015 (using [Babel](https://babeljs.io)) and bundled to ES5 UMD components with [Webpack](https://webpack.github.io/).
 
 Garden also relies on jQuery to provide API standards for it's components. Please take note Garden does not comes with jQuery, allowing you to use your own version based on your needs. You can opt for Zepto, for example. Or a custom build of jQuery as well.
 
