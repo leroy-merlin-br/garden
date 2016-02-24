@@ -3,6 +3,7 @@ var metalsmith  = require('metalsmith'),
     layouts     = require('metalsmith-layouts'),
     ignore      = require('metalsmith-ignore'),
     collections = require('metalsmith-collections'),
+    relative    = require('metalsmith-relative'),
     marked      = require('marked'),
     prism       = require('prismjs');
 
@@ -40,6 +41,9 @@ metalsmith(__dirname)
       reverse: true
     }
   }))
+  .use(relative({
+    methodName: 'root'
+  }))
   .use(markdown({
     gfm: true,
     smartypants: true,
@@ -61,7 +65,7 @@ metalsmith(__dirname)
   .use(ignore([
     '**/.DS_Store',
     'layout/**',
-    'css/**'
+    'style/**'
   ]))
   .destination('./public')
   .build((err) => {

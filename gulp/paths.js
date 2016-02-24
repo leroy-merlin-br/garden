@@ -21,9 +21,9 @@ export default {
   },
   docs: {
     css: {
-      src: 'docs/css/',
-      main: 'docs/css/main.css',
-      glob: 'docs/css/**/*.css',
+      src: 'docs/styles/',
+      main: 'docs/styles/main.css',
+      glob: 'docs/styles/**/*.css',
       dest: 'public/css/'
     },
     js: {
