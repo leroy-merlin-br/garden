@@ -22,5 +22,10 @@
   "color-text-promotional": "#ed1c24",
 
   "default-font-size": "16px",
-  "default-font-family": "Helvetica, Arial, sans-serif"
+  "default-font-family": "Helvetica, Arial, sans-serif",
+
+  "panel-height": "165px",
+  "panel-large-height": "335px",
+  "panel-wide-height": "165px",
+  "panel-vertical-height": "335px"
 }

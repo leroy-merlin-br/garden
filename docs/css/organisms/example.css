@@ -66,6 +66,15 @@
       width: 100%;
     }
   }
+
+  .panel {
+    width: 165px;
+
+    &-large,
+    &-wide {
+      width: 335px;
+    }
+  }
 }
 
 @media (--tablet) {

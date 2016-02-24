@@ -1,0 +1,59 @@
+.panel {
+  display: block;
+  height: $panel-height;
+  overflow-x: hidden;
+  position: relative;
+
+  &-large {
+    height: $panel-large-height;
+  }
+
+  &-wide {
+    height: $panel-wide-height;
+  }
+
+  &-vertical {
+    height: $panel-vertical-height;
+  }
+
+  &-image {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+
+  .caption {
+    bottom: 0;
+    color: $color-neutral;
+    font-size: 1.25rem;
+    left: 0;
+    padding: 4%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &-hover {
+    cursor: pointer;
+
+    .caption {
+      background-image: linear-gradient(to bottom, transparent 50%, $color-primary 50%);
+      background-size: 100% 200%;
+      transition: background-position .15s ease-in-out;
+    }
+
+    &:hover .caption {
+      background-position: 0 100%;
+    }
+  }
+
+  &::after {
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(30, 30, 30, .7) 100%);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

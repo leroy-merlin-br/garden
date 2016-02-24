@@ -23,3 +23,5 @@
 @import "molecules/input-button";
 @import "molecules/pricetag";
 @import "molecules/thumbnail";
+
+@import "molecules/panel";
