@@ -1,0 +1,32 @@
+.sidebar {
+  border: .06rem solid $color-default-light;
+  border-radius: .18rem;
+  margin-bottom: .62rem;
+
+  .link {
+    border-bottom: .06rem solid $color-default-light;
+    border-left: .12rem solid transparent;
+    display: block;
+    padding: .5rem .62rem;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: color($color-default-light l(95%));
+    }
+
+    &-active {
+      border-left-color: $color-primary;
+      color: $color-text;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        background-color: $color-neutral;
+      }
+    }
+  }
+}

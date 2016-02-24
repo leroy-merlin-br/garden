@@ -1,0 +1,37 @@
+.glyphs {
+  lost-utility: clearfix;
+
+  .glyph-container {
+    background-color: $color-default-lighter;
+    cursor: pointer;
+    font-size: .8rem;
+    lost-column: 6/12;
+    lost-column-cycle: 2;
+    margin-bottom: 1rem;
+    padding: 1rem .7rem;
+    text-align: center;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-neutral;
+    }
+
+    .glyph {
+      font-size: 1.3rem;
+      margin-bottom: .31rem;
+    }
+  }
+}
+
+@media (--tablet) {
+
+  .glyphs {
+
+    .glyph-container {
+      lost-column: 3/12;
+      lost-column-cycle: 4;
+    }
+  }
+
+}

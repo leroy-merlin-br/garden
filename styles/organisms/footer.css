@@ -1,0 +1,15 @@
+.footer {
+  color: $color-default;
+  font-size: .8em;
+  line-height: 1.4em;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+@media (--tablet) {
+
+  .footer {
+    font-size: 1em;
+    text-align: left;
+  }
+}
