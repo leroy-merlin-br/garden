@@ -59,42 +59,6 @@ grid-system or hardcoded on your project:
     </div>
   </div>
 ```
-## Wide Panel
-<div class="example example-code">
-  <div class="panel panel-wide">
-    <img src="https://unsplash.it/335/165" class="panel-image">
-    <div class="caption">
-      Panel caption
-    </div>
-  </div>
-</div>
-
-```html
-  <div class="panel panel-wide">
-    <img src="..." class="panel-image">
-    <div class="caption">
-      Panel caption
-    </div>
-  </div>
-```
-## Vertical Panel
-<div class="example example-code">
-  <div class="panel panel-vertical">
-    <img src="https://unsplash.it/165/335" class="panel-image">
-    <div class="caption">
-      Panel caption
-    </div>
-  </div>
-</div>
-
-```html
-  <div class="panel panel-vertical">
-    <img src="..." class="panel-image">
-    <div class="caption">
-      Panel caption
-    </div>
-  </div>
-```
 
 <div class="callout">
   <div class="callout-title">:hover state</div>

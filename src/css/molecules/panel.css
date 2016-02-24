@@ -8,14 +8,6 @@
     height: $panel-large-height;
   }
 
-  &-wide {
-    height: $panel-wide-height;
-  }
-
-  &-vertical {
-    height: $panel-vertical-height;
-  }
-
   &-image {
     display: block;
     height: 100%;

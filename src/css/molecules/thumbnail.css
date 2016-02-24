@@ -10,6 +10,12 @@
     border-radius: .25rem;
   }
 
+  .caption {
+    margin-bottom: .62rem;
+    margin-top: .62rem;
+    text-align: center;
+  }
+
   &::after {
     border-radius: .25rem;
     box-shadow: 0 0 1rem $color-default-light;

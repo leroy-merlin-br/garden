@@ -25,7 +25,5 @@
   "default-font-family": "Helvetica, Arial, sans-serif",
 
   "panel-height": "165px",
-  "panel-large-height": "335px",
-  "panel-wide-height": "165px",
-  "panel-vertical-height": "335px"
+  "panel-large-height": "335px"
 }
