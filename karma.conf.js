@@ -25,7 +25,7 @@ module.exports = function(config) {
         ]
       }
     },
-    reporters: ['notify', 'nyan', 'coverage'],
+    reporters: ['notify', 'nyan', 'coverage', 'coveralls'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
