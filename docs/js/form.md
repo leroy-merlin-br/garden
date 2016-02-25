@@ -4,7 +4,7 @@ layout: page.jade
 sidebar: true
 collection: js
 priority: 0
-path: formjs
+path: form
 ---
 
 # Form
