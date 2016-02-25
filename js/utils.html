@@ -10,7 +10,21 @@ timeout triggers:</p>
   <span class="token function" >alert</span><span class="token punctuation" >(</span>e<span class="token punctuation" >.</span>target<span class="token punctuation" >.</span>value<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
  <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
 
- <span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'input'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span><span class="token string" >'input'</span><span class="token punctuation" >,</span> <span class="token function" >debounce</span><span class="token punctuation" >(</span>handler<span class="token punctuation" >,</span> <span class="token number" >500</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+ <span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'input'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span><span class="token string" >'input'</span><span class="token punctuation" >,</span> <span class="token function" >debounce</span><span class="token punctuation" >(</span>handler<span class="token punctuation" >,</span> <span class="token number" >500</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+ <span class="token comment" spellcheck="true">// handler will be called only if debounce isn't called again for 500 ms</span></code></pre>
+<h2 id="throttle">Throttle</h2>
+<p>A function to help restrain the execution of the provided function once during
+the provided timeout, then reset it:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"> <span class="token keyword" >import</span> throttle <span class="token keyword" >from</span> <span class="token string" >'src/js/utils/throttle'</span><span class="token punctuation" >;</span>
+
+ <span class="token keyword" >let</span> handler <span class="token operator" >=</span> <span class="token punctuation" >(</span>e<span class="token punctuation" >)</span> <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+  <span class="token function" >alert</span><span class="token punctuation" >(</span>e<span class="token punctuation" >.</span>target<span class="token punctuation" >.</span>value<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+ <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
+
+ <span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'input'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span><span class="token string" >'input'</span><span class="token punctuation" >,</span> <span class="token function" >throttle</span><span class="token punctuation" >(</span>handler<span class="token punctuation" >,</span> <span class="token number" >500</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+ <span class="token comment" spellcheck="true">// handler will called only once during the 500, even if the user inputs again.</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
