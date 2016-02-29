@@ -84,6 +84,25 @@
       }
     }
   }
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    margin-top: 0;
+    padding-left: 10px;
+
+    a {
+      display: block;
+      margin-bottom: 0;
+      padding-bottom: 2px;
+      padding-top: 2px;
+
+      &:hover {
+        color: $color-primary-dark;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 @media (--small) {
