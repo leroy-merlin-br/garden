@@ -11,8 +11,51 @@ path: utils
 <p class="lead">Utils are common use classes to help achiev common generic
 styles, and to compose other components with them as well.</p>
 
+## Summary
+
+- [Breakpoints](/css/utils.html#breakpoints)
+- [Circular](/css/utils.html#circular)
+- [Rounded](/css/utils.html#rounded)
+- [Border](/css/utils.html#border)
+- [Border-hover](/css/utils.html#border-hover)
+- [Border-active](/css/utils.html#border-active)
+- [Border-disabled](/css/utils.html#border-disabled)
+
+## Breakpoints
+
+Garden provide five breakpoints variables, these variables are defined
+in `defaults.json` and can be _overwrited*_. 
+
+| Variable       | Values |
+|----------------|:------:|
+| $breakpoint-xs |  480px |
+| $breakpoint-sm |  768px |
+| $breakpoint-md |  960px |
+| $breakpoint-lg | 1120px |
+| $breakpoint-xl | 1280px |
+
+Based on default breakpoints, we have some `@custom-media` to be used in
+media-queries. `@custom-media` avaliable: `--small`, `--medium`,
+`--large` and `--extra-large`.
+
+Example of how a `@custom-media` is defined:
+
+```scss
+@custom-media --small (min-width: calc($breakpoint-xs + 1));
+```
+
+How to use:
+```scss
+@media(--small) {
+  /* styles */
+}
+```
+
+_Obs: default variables can be overwrited, read more about [how to overwrite default variables](css/scaffolding.html#overriding-default-variables)._
+
+
 ## Circular
-iThe `.circular` class adds `border-radius: 100%` to the element:
+The `.circular` class adds `border-radius: 100%` to the element:
 
 
 <div class="example example-code">
