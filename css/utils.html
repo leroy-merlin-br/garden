@@ -13,7 +13,7 @@ styles, and to compose other components with them as well.</p>
 <li><a href="/css/utils.html#border-disabled">Border-disabled</a></li>
 </ul>
 <h2 id="breakpoints">Breakpoints</h2>
-<p>Garden provide five breakpoints variables. These variables are defined
+<p>Garden provide five breakpoints variables, these variables are defined
 in <code>defaults.json</code> and can be <em>overwrited*</em>. </p>
 <table>
 <thead>
@@ -45,14 +45,14 @@ in <code>defaults.json</code> and can be <em>overwrited*</em>. </p>
 </tr>
 </tbody>
 </table>
-<p>Based on these variables, we have some <code>@custom-media</code> to be used in
+<p>Based on default breakpoints, we have some <code>@custom-media</code> to be used in
 media-queries. <code>@custom-media</code> avaliable: <code>--small</code>, <code>--medium</code>,
 <code>--large</code> and <code>--extra-large</code>.</p>
 <p>Example of how a <code>@custom-media</code> is defined:</p>
-<pre class="language-css"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-css"><span class="token atrule" ><span class="token rule" >@custom-media</span> --small <span class="token punctuation" >(</span><span class="token property" >min-width</span><span class="token punctuation" >:</span> <span class="token function" >calc</span><span class="token punctuation" >(</span>$breakpoint-xs + 1<span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></span></code></pre>
+<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token atrule" ><span class="token rule" >@custom-media</span> --small <span class="token punctuation" >(</span><span class="token property" >min-width</span><span class="token punctuation" >:</span> <span class="token function" >calc</span><span class="token punctuation" >(</span>$breakpoint-xs + 1<span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></span></code></pre>
 <p>How to use:</p>
-<pre class="language-css"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-css"><span class="token atrule" ><span class="token rule" >@media</span><span class="token punctuation" >(</span>--small<span class="token punctuation" >)</span></span> <span class="token punctuation" >{</span>
-  //styles for $breakpoint-xs
+<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token atrule" ><span class="token rule" >@media</span><span class="token punctuation" >(</span>--small<span class="token punctuation" >)</span></span> <span class="token punctuation" >{</span>
+  <span class="token comment" spellcheck="true">/* styles */</span>
 <span class="token punctuation" >}</span></code></pre>
 <p><em>Obs: default variables can be overwrited, read more about <a href="css/scaffolding.html#overriding-default-variables">how to overwrite default variables</a>.</em></p>
 <h2 id="circular">Circular</h2>
