@@ -61,31 +61,26 @@
   }
 
   table {
-    border: 1px solid $color-default;
     color: $color-default-dark;
-    width: 50%;
-
-    thead {
-      border-bottom: 1px solid $color-default;
-
-      th {
-        border-right: 1px solid $color-default;
-      }
-    }
+    width: 100%;
 
     td,
     th{
-      padding: .62rem;
+      padding: .72rem .62rem;
     }
 
-    td {
-      border-bottom: 1px solid $color-default;
+    thead {
+      background-color: $color-primary;
+      color: $color-neutral;
     }
 
-    tr {
+    tbody {
 
-      td {
-        border-right: 1px solid $color-default;
+      tr {
+
+        &:nth-child(even) {
+          background-color: $color-primary-lighter;
+        }
       }
     }
   }
