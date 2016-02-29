@@ -1,5 +1,6 @@
 @import "normalize.css";
 
+@import "utils/breakpoints";
 @import "utils/placeholders";
 @import "utils/mixins";
 
