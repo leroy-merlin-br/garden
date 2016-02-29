@@ -46,7 +46,7 @@ in <code>defaults.json</code> and can be <em>overwrited*</em>. </p>
 </tbody>
 </table>
 <p>Based on these variables, we have some <code>@custom-media</code> to be used in
-media-queries. These are <code>@custom-media</code> avaliable: <code>--small</code>, <code>--medium</code>,
+media-queries. <code>@custom-media</code> avaliable: <code>--small</code>, <code>--medium</code>,
 <code>--large</code> and <code>--extra-large</code>.</p>
 <p>Example of how a <code>@custom-media</code> is defined:</p>
 <pre class="language-css"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-css"><span class="token atrule" ><span class="token rule" >@custom-media</span> --small <span class="token punctuation" >(</span><span class="token property" >min-width</span><span class="token punctuation" >:</span> <span class="token function" >calc</span><span class="token punctuation" >(</span>$breakpoint-xs + 1<span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></span></code></pre>
@@ -54,7 +54,7 @@ media-queries. These are <code>@custom-media</code> avaliable: <code>--small</co
 <pre class="language-css"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-css"><span class="token atrule" ><span class="token rule" >@media</span><span class="token punctuation" >(</span>--small<span class="token punctuation" >)</span></span> <span class="token punctuation" >{</span>
   //styles for $breakpoint-xs
 <span class="token punctuation" >}</span></code></pre>
-<p><em>Obs: default variables can be overwrited, just check <a href="css/scaffolding.html#overriding-default-variables">how to overwrite default variables</a>.</em></p>
+<p><em>Obs: default variables can be overwrited, read more about <a href="css/scaffolding.html#overriding-default-variables">how to overwrite default variables</a>.</em></p>
 <h2 id="circular">Circular</h2>
 <p>The <code>.circular</code> class adds <code>border-radius: 100%</code> to the element:</p>
 <div class="example example-code">
