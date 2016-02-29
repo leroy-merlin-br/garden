@@ -59,6 +59,36 @@
   pre[class*="language-"] {
     font-size: .8rem;
   }
+
+  table {
+    border: 1px solid $color-default;
+    color: $color-default-dark;
+    width: 50%;
+
+    thead {
+      border-bottom: 1px solid $color-default;
+
+      th {
+        border-right: 1px solid $color-default;
+      }
+    }
+
+    td,
+    th{
+      padding: .62rem;
+    }
+
+    td {
+      border-bottom: 1px solid $color-default;
+    }
+
+    tr {
+
+      td {
+        border-right: 1px solid $color-default;
+      }
+    }
+  }
 }
 
 @media (--small) {
