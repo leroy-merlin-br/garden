@@ -71,6 +71,7 @@
     "metalsmith-relative": "^1.0.3",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.19",
+    "postcss-calc": "^5.2.0",
     "postcss-color-function": "^2.0.0",
     "postcss-conditionals": "^2.0.0",
     "postcss-custom-media": "^5.0.0",

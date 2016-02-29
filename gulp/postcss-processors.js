@@ -1,5 +1,6 @@
 import postcssImport from 'postcss-import';
 import postcssSimpleVars from 'postcss-simple-vars';
+import postcssCalc from 'postcss-calc';
 import postcssExtend from 'postcss-extend';
 import postcssColorFunction from 'postcss-color-function';
 import postcssCustomMedia from 'postcss-custom-media';
@@ -17,6 +18,7 @@ export default [
   postcssSimpleVars({
     variables: defaults
   }),
+  postcssCalc({mediaQueries: true}),
   postcssNested,
   postcssExtend,
   postcssColorFunction,
