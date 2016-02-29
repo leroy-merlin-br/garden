@@ -147,7 +147,7 @@
   }
 }
 
-@media (--tablet) {
+@media (--small) {
 
   .color {
     lost-waffle: 1/3;

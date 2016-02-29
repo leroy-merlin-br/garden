@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-@media (--tablet) {
+@media (--small) {
 
   .footer {
     font-size: 1em;

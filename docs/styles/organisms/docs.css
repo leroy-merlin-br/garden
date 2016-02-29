@@ -61,7 +61,7 @@
   }
 }
 
-@media (--tablet) {
+@media (--small) {
 
   .docs {
     lost-utility: clearfix;
