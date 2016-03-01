@@ -512,7 +512,10 @@
 }
 .docs div[class*="col-"] {
   background-color: #72bf44;
+  color: #ffffff;
   margin-bottom: 10px;
+  padding: 1rem 0;
+  text-align: center;
 }
 
 @media (min-width: 481px) {
