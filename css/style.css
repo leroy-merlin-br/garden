@@ -510,6 +510,10 @@
   color: #397615;
   text-decoration: none;
 }
+.docs div[class*="col-"] {
+  background-color: #72bf44;
+  margin-bottom: 10px;
+}
 
 @media (min-width: 481px) {
 

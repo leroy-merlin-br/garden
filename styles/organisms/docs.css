@@ -103,6 +103,11 @@
       }
     }
   }
+
+  div[class*="col-"] {
+    background-color: $color-primary;
+    margin-bottom: 10px;
+  }
 }
 
 @media (--small) {
