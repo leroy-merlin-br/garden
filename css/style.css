@@ -517,6 +517,9 @@
   padding: 1rem 0;
   text-align: center;
 }
+.docs div[class*="col-"] > div {
+  background-color: #bada2e;
+}
 
 @media (min-width: 481px) {
 
