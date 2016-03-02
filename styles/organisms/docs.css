@@ -59,9 +59,65 @@
   pre[class*="language-"] {
     font-size: .8rem;
   }
+
+  table {
+    color: $color-default-dark;
+    width: 100%;
+
+    td,
+    th{
+      padding: .72rem .62rem;
+    }
+
+    thead {
+      background-color: $color-primary;
+      color: $color-neutral;
+    }
+
+    tbody {
+
+      tr {
+
+        &:nth-child(even) {
+          background-color: $color-primary-lighter;
+        }
+      }
+    }
+  }
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    margin-top: 0;
+    padding-left: 10px;
+
+    a {
+      display: block;
+      margin-bottom: 0;
+      padding-bottom: 2px;
+      padding-top: 2px;
+
+      &:hover {
+        color: $color-primary-dark;
+        text-decoration: none;
+      }
+    }
+  }
+
+  div[class*="col-"] {
+    background-color: $color-primary;
+    color: $color-neutral;
+    margin-bottom: 10px;
+    padding: 1rem 0;
+    text-align: center;
+
+    > div {
+      background-color: $color-secondary;
+    }
+  }
 }
 
-@media (--tablet) {
+@media (--small) {
 
   .docs {
     lost-utility: clearfix;

@@ -2,8 +2,61 @@
 <p class="lead">Utils are common use classes to help achiev common generic
 styles, and to compose other components with them as well.</p>
 
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="/css/utils.html#breakpoints">Breakpoints</a></li>
+<li><a href="/css/utils.html#circular">Circular</a></li>
+<li><a href="/css/utils.html#rounded">Rounded</a></li>
+<li><a href="/css/utils.html#border">Border</a></li>
+<li><a href="/css/utils.html#border-hover">Border-hover</a></li>
+<li><a href="/css/utils.html#border-active">Border-active</a></li>
+<li><a href="/css/utils.html#border-disabled">Border-disabled</a></li>
+</ul>
+<h2 id="breakpoints">Breakpoints</h2>
+<p>Garden provide five breakpoints variables, these variables are defined
+in <code>defaults.json</code> and can be <em>overwrited*</em>. </p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th style="text-align:center">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$breakpoint-xs</td>
+<td style="text-align:center">480px</td>
+</tr>
+<tr>
+<td>$breakpoint-sm</td>
+<td style="text-align:center">768px</td>
+</tr>
+<tr>
+<td>$breakpoint-md</td>
+<td style="text-align:center">960px</td>
+</tr>
+<tr>
+<td>$breakpoint-lg</td>
+<td style="text-align:center">1120px</td>
+</tr>
+<tr>
+<td>$breakpoint-xl</td>
+<td style="text-align:center">1280px</td>
+</tr>
+</tbody>
+</table>
+<p>Based on default breakpoints, we have some <code>@custom-media</code> to be used in
+media-queries. <code>@custom-media</code> avaliable: <code>--small</code>, <code>--medium</code>,
+<code>--large</code> and <code>--extra-large</code>.</p>
+<p>Example of how a <code>@custom-media</code> is defined:</p>
+<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token atrule" ><span class="token rule" >@custom-media</span> --small <span class="token punctuation" >(</span><span class="token property" >min-width</span><span class="token punctuation" >:</span> <span class="token function" >calc</span><span class="token punctuation" >(</span>$breakpoint-xs + 1<span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></span></code></pre>
+<p>How to use:</p>
+<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token atrule" ><span class="token rule" >@media</span><span class="token punctuation" >(</span>--small<span class="token punctuation" >)</span></span> <span class="token punctuation" >{</span>
+  <span class="token comment" spellcheck="true">/* styles */</span>
+<span class="token punctuation" >}</span></code></pre>
+<p><em>Obs: default variables can be overwrited, read more about <a href="css/scaffolding.html#overriding-default-variables">how to overwrite default variables</a>.</em></p>
 <h2 id="circular">Circular</h2>
-<p>iThe <code>.circular</code> class adds <code>border-radius: 100%</code> to the element:</p>
+<p>The <code>.circular</code> class adds <code>border-radius: 100%</code> to the element:</p>
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="circular">
 </div>
