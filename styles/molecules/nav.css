@@ -15,7 +15,7 @@
   }
 }
 
-@media (--small) {
+@media (--tablet) {
 
   .nav {
     float: right;

@@ -1,4 +1,4 @@
-@import "../../src/css/utils/breakpoints";
+@import "atoms/breakpoints";
 
 @import "atoms/container";
 @import "atoms/img";

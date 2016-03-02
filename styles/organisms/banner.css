@@ -28,7 +28,7 @@
   }
 }
 
-@media (--small) {
+@media (--tablet) {
 
   .banner {
     padding-top: 3em;
