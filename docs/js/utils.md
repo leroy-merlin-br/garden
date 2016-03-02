@@ -10,6 +10,24 @@ path: utils
 # Utils
 <p class="lead">Garden provides a few utils to help writing better javascript. All utils are located at `src/js/utils`.</p>
 
+## Emitter
+`Emitter` is an instance of `eventEmitter`, responsible to handle the communication of garden components:
+
+```js
+import emitter from 'src/utils/emitter';
+
+
+emitter.on('validation:error', (err, input) => {
+  // Here you can handle an event emitter by a garden component
+});
+
+// You can also use it to emit your own events to your app:
+
+emitter.on('myEvent', (data) => console.log(data));
+
+emitter.emit('myEvent', myEventData);
+```
+
 ## Debounce
 A function to help restrain the execution of the provided function once until the
 timeout triggers:
@@ -41,4 +59,3 @@ the provided timeout, then reset it:
 
  // handler will called only once during the 500, even if the user inputs again.
 ```
-
