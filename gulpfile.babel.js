@@ -41,7 +41,7 @@ gulp.task('watch', ['docs'], () => {
   gulp.watch([paths.docs.layout.glob, paths.docs.pages.glob], ['docs']);
   gulp.watch([paths.docs.css.glob], ['docs:css', 'lint:css']);
   gulp.watch([paths.src.css.glob], ['build:css', 'lint:css']);
-  gulp.watch([paths.src.js.glob], ['build:js', 'lint:js']);
+  gulp.watch([paths.src.js.glob], ['lint:js', 'build:js']);
 });
 
 gulp.task('server', ['watch'], server);

@@ -12,12 +12,12 @@ export default (($) => {
       this._element = $(element);
       this._options = options;
 
-      this.listeners();
+      this.bindListeners();
 
       this.toggleFieldsActiveClass();
     }
 
-    listeners() {
+    bindListeners() {
       $(document).on(
         this._options.events, this._options.selectors,
         this.onFieldChange.bind(this)
