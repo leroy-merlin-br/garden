@@ -10,7 +10,7 @@
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>noscript</span><span class="token punctuation" >></span></span>
 
   /* This way the tell search engines we have an image there */</code></pre>
-<p>You can also work with a <code>data-srcset</code>, which will select the image the best image based on window width:</p>
+<p>You can also work with a <code>data-srcset</code>, which will select the closest image based on window width:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >data-lazy</span> <span class="token attr-name" >data-srcset</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>src/mobile.png 0, src/tablet.png 768, src/desktop.png 1024<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
 /* The plugin will loop through, and try to match the closest image based on the current window width. */
 
