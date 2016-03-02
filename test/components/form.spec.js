@@ -1,6 +1,6 @@
-import Forms from '../../src/js/components/forms';
+import Form from '../../src/js/components/form';
 
-describe('forms spec', () => {
+describe('form spec', () => {
   var formInstance, $fixture;
 
   before(() => {
@@ -8,9 +8,9 @@ describe('forms spec', () => {
   });
 
   beforeEach(() => {
-    $fixture = $(fixture.load('forms.html')[0]);
+    $fixture = $(fixture.load('form.html')[0]);
 
-    formInstance = new Forms($fixture);
+    formInstance = new Form($fixture);
   });
 
   afterEach(() => {
@@ -25,19 +25,19 @@ describe('forms spec', () => {
     });
 
     it('should return true if the input has no value/placeholder', () => {
-      expect(Forms.prototype.shouldInputBeActive(input)).to.be.false;
+      expect(Form.prototype.shouldInputBeActive(input)).to.be.false;
     });
 
     it('should return true if the input has value', () => {
       input.value = true;
 
-      expect(Forms.prototype.shouldInputBeActive(input)).to.be.true;
+      expect(Form.prototype.shouldInputBeActive(input)).to.be.true;
     });
 
     it('should return true if the input has a placeholder', () => {
       input.placeholder = true;
 
-      expect(Forms.prototype.shouldInputBeActive(input)).to.be.true;
+      expect(Form.prototype.shouldInputBeActive(input)).to.be.true;
     });
   });
 
@@ -50,17 +50,17 @@ describe('forms spec', () => {
     });
 
     it('should not @shouldInputBeActive if the parent hasn\'t a .field class ', sinon.test(function() {
-      this.spy(Forms.prototype, 'shouldInputBeActive');
+      this.spy(Form.prototype, 'shouldInputBeActive');
 
       $field.removeClass('field');
 
-      Forms.prototype.toggleActiveClass($input[0]);
+      Form.prototype.toggleActiveClass($input[0]);
 
-      expect(Forms.prototype.shouldInputBeActive.notCalled).to.be.true;
+      expect(Form.prototype.shouldInputBeActive.notCalled).to.be.true;
     }));
 
     it('should not add the active class on the $field if the $input returns false for @shouldInputBeActive', () => {
-      Forms.prototype.toggleActiveClass($input[0]);
+      Form.prototype.toggleActiveClass($input[0]);
 
       expect($field.hasClass('active')).to.be.false;
     });
@@ -68,7 +68,7 @@ describe('forms spec', () => {
     it('should add the active class on the $field if the $input returns true for @shouldInputBeActive', () => {
       $input.val('foo');
 
-      Forms.prototype.toggleActiveClass($input[0]);
+      Form.prototype.toggleActiveClass($input[0]);
 
       expect($field.hasClass('active')).to.be.true;
     });
@@ -76,7 +76,7 @@ describe('forms spec', () => {
     it('should remove the active class on the $field if the $input has the active class and returns false for @shouldInputBeActive', () => {
       $field.addClass('active');
 
-      Forms.prototype.toggleActiveClass($input[0]);
+      Form.prototype.toggleActiveClass($input[0]);
 
       expect($field.hasClass('active')).to.be.false;
     });
@@ -95,22 +95,22 @@ describe('forms spec', () => {
     });
 
     it('should call @toggleActiveClass onChange event', sinon.test(function() {
-      this.spy(Forms.prototype, 'toggleActiveClass');
+      this.spy(Form.prototype, 'toggleActiveClass');
 
-      Forms.prototype.onFieldChange(customEvent);
+      Form.prototype.onFieldChange(customEvent);
 
-      expect(Forms.prototype.toggleActiveClass.calledOnce).to.be.true;
+      expect(Form.prototype.toggleActiveClass.calledOnce).to.be.true;
     }));
   });
 
   describe('toggleFieldsActiveClass', () => {
 
     it('should call @toggleActiveClass on each $field', sinon.test(function() {
-      this.spy(Forms.prototype, 'toggleActiveClass');
+      this.spy(Form.prototype, 'toggleActiveClass');
 
       formInstance.toggleFieldsActiveClass();
 
-      expect(Forms.prototype.toggleActiveClass.called).to.be.true;
+      expect(Form.prototype.toggleActiveClass.called).to.be.true;
     }));
   });
 });

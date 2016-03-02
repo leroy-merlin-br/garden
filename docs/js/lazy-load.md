@@ -59,7 +59,7 @@ Or as a vanilla constructor:
 ```js
 import LazyLoad from 'src/js/components/lazy-load';
 
-let lazyLoad = new LazyLoad(document.querySelectorAll('[data-lazy]'));
+let lazyLoad = new LazyLoad(document.querySelectorAll('[data-lazy]')).init();
 ```
 
 The provided options are:

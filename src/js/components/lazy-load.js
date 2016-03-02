@@ -119,7 +119,7 @@ export default (($) => {
 
     return this.each(function() {
       if (!$.data(this, NAME)) {
-        $.data(this, NAME, new LazyLoad.init(this, options));
+        $.data(this, NAME, new LazyLoad(this, options).init());
       }
     });
   };

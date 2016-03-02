@@ -5,7 +5,7 @@ export default (($) => {
     selectors: '.input, select, .select, .textarea'
   };
 
-  class Forms {
+  class Form {
     constructor(element, options) {
       options = $.extend({}, DEFAULTS, options || {});
 
@@ -63,10 +63,10 @@ export default (($) => {
 
     return this.each(function() {
       if (!$.data(this, NAME)) {
-        $.data(this, NAME, new Forms(this, options));
+        $.data(this, NAME, new Form(this, options));
       }
     });
   };
 
-  return Forms;
+  return Form;
 })(jQuery);
