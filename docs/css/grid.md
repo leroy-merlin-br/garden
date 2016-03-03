@@ -30,17 +30,55 @@ Basic example:
 
 <div class="example">
   <section class="row">
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+  </section>
+</div>
+
+### Offsetting
+Move columns to the right `.col-breakpoint-offset-*` classes. Please take note
+that this method increases the left margin of the column by the number of
+columns provided.
+
+<div class="example">
+  <section class="row">
+    <div class="col-xs-8 col-xs-offset-4 col-lg-offset-0">
+      <div>col-xs-8 col-xs-offset-4 col-lg-offset-0</div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <div>col-xs-8 col-xs-offset-4 col-lg-offset-0</div>
+    </div>
+    <div class="col-xs-3 col-xs-offset-1">
+      <div>col-xs-3 col-xs-offset-1</div>
+    </div>
+  </section>
+</div>
+
+### Ordering columns
+Easily change the order of grid columns with `.col-breakpoint-push-*` and
+`.col-breakpoint-pull-`. Please take note that this method adds `position:
+relative` to the column.
+
+<div class="example">
+  <section class="row">
+    <div class="col-xs-9 col-xs-push-3">
+      <div>.col-xs-9 .col-xs-push-3</div>
+    </div>
+    <div class="col-xs-3 col-xs-pull-9">
+      <div>.col-xs-3 .col-xs-pull-9</div>
+    </div>
   </section>
 </div>
