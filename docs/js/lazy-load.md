@@ -3,7 +3,7 @@ title: Lazy Load
 layout: page.jade
 sidebar: true
 collection: js
-priority: 0
+priority: 1
 path: lazy-load
 ---
 
@@ -81,11 +81,10 @@ new LazyLoad(document.querySelectorAll('[data-lazy]'), options);
 ```
 
 ### Options
-The default options are:
 
 | Option            | Description |
 |-------------------|-------------|
-| throttle (1000ms)     | The amount of time (in ms) to allow the ``[data-lazy]`` verification to be triggered. This prevent bloating of execution, since it's binded to the `scroll` event of the window. |
+| throttle (1000ms)     | The amount of time (in ms) to allow the `[data-lazy]` verification to be triggered. This prevent bloating of execution, since it's binded to the `scroll` event of the window. |
 | offset (200px)       | The offset (in px) allowed before the image actually reaches the viewport. This is intended to smooth a bit the image renderization/visualization process, since it will trigger a bit early then image reaching the bottom of the view. To remove it, set it to 0. |
 | selector (string) | The selector to be removed from the attributes transfer operation. By default it is `[data-lazy]`. If you are willing to use other than this, change it here as well. Any valid jQuery selector is valid here. |
 

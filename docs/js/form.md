@@ -3,7 +3,7 @@ title: Form
 layout: page.jade
 sidebar: true
 collection: js
-priority: 0
+priority: 3
 path: form
 ---
 

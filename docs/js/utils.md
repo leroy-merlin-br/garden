@@ -3,7 +3,7 @@ title: Utils
 layout: page.jade
 sidebar: true
 collection: js
-priority: 1
+priority: 0
 path: utils
 ---
 

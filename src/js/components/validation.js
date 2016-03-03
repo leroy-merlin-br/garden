@@ -26,8 +26,8 @@ export default (($) => {
         this.validate(e.target);
       };
 
-      this._fields.off(this._options.events, this.handler);
-      this._fields.on(this._options.events, this.handler);
+      this._element.off(this._options.events, this._options.selector, this.handler);
+      this._element.on(this._options.events, this._options.selector, this.handler);
     }
 
     validate(field) {
@@ -51,7 +51,7 @@ export default (($) => {
     }
 
     validateAll() {
-      return Array.prototype.map.call(this._fields, this.validate, this).every(validation => validation);
+      return Array.prototype.map.call(this._element.find(this._options.selector), this.validate, this).every(validation => validation);
     }
   }
 
