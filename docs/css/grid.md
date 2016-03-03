@@ -12,13 +12,15 @@ path: grid
 
 ### How to use
 
-Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there (such as Bootstrap).
-
-**Check our [breakpoints](css/utils.html#breakpoints) guideline.**
+Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there (such as Bootstrap). Check our [breakpoints](css/utils.html#breakpoints) guideline.
 
 The grid system provides two types of containers: `.container` a responsive fixed
 width container based on the provided breakpoints; `.container-fluid` a full-width
 container.
+
+Since the grid system scales on it's own, In order to create basic positioning all you have to do is provide `.col-xs-*` grid classes.
+
+Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any `.col-md-*` class to an element will not only affect its styling on medium devices but also on large devices if a `.col-lg-*` class is not present.
 
 ```html
 <section class="row">
