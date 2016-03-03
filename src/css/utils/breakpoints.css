@@ -2,4 +2,4 @@
 @custom-media --small (min-width: calc($breakpoint-xs + 1px));
 @custom-media --medium (min-width: calc($breakpoint-sm + 1px));
 @custom-media --large (min-width: calc($breakpoint-md + 1px));
-@custom-media --extra-large (min-width: calc($breakpoint-lg +1px));
+@custom-media --extra-large (min-width: calc($breakpoint-lg + 1px));
