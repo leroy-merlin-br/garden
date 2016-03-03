@@ -1,5 +1,5 @@
 @import "../../src/css/utils/breakpoints";
-
+@import "../../src/css/utils/mixins";
 @import "atoms/img";
 
 @import "molecules/nav";
