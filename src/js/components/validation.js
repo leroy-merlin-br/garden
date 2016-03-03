@@ -38,7 +38,7 @@ export default (($) => {
       }
 
       rules = rules.split(' ').reduce((errors, rule) => {
-        if (!this.rules[rule].call(this, field)) {
+        if (!this.rules[rule].call(this, field, this._element)) {
           errors.push(rule);
         }
 
@@ -48,6 +48,10 @@ export default (($) => {
       emitter.emit(`validation:${!rules.length ? 'success' : 'error'}`, field, rules);
 
       return !rules.length;
+    }
+
+    validateAll() {
+      return Array.prototype.map.call(this._fields, this.validate, this).every(validation => validation);
     }
   }
 

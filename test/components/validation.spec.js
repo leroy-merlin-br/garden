@@ -43,37 +43,53 @@ describe('Validation spec', () => {
     it('should return false if the field has no validations', () => {
       let field = $('<input />')[0];
 
-      expect(Validation.prototype.validate(field)).to.not.be.ok;
+      expect(Validation.prototype.validate(field)).to.be.falsy;
     });
 
     it('should return false if the field has validations, but does not pass on them', () => {
-      let field = $('<input data-validate="text" />')[0];
+      let field = $('<input data-validate="required" />')[0];
 
-      expect(Validation.prototype.validate(field)).to.not.be.ok;
+      expect(Validation.prototype.validate(field)).to.be.falsy;
     });
 
     it('should return true if the field has one validation, and pass on it', () => {
-      let field = $('<input data-validate="text" value="foo"/>')[0];
+      let field = $('<input data-validate="required" value="foo"/>')[0];
 
       expect(Validation.prototype.validate(field)).to.be.ok;
     });
 
     it('should trigger an emitter event validation:error with validation errors', sinon.test(function() {
       let spy   =  this.spy(emitter, 'emit');
-      let field = $('<input data-validate="text minlength" data-minlength="5"/>')[0];
+      let field = $('<input data-validate="required minlength" data-minlength="5"/>')[0];
 
       Validation.prototype.validate(field);
 
-      expect(spy.calledWith('validation:error', field, ['text', 'minlength'])).to.be.true;
+      expect(spy.calledWith('validation:error', field, ['required', 'minlength'])).to.be.true;
     }));
 
     it('should trigger an emitter event validation:success with no validation errors', sinon.test(function() {
       let spy   =  this.spy(emitter, 'emit');
-      let field = $('<input data-validate="text" value="foo"/>')[0];
+      let field = $('<input data-validate="required" value="foo"/>')[0];
 
       Validation.prototype.validate(field);
 
       expect(spy.calledWith('validation:success', field, [])).to.be.true;
     }));
+  });
+
+  describe('validateAll', () => {
+    it('should validate all fields and return false if there is an invalid field', () => {
+      validation.init();
+
+      expect(validation.validateAll()).to.be.false;
+    });
+
+    it('should validate all fields and return true if there is no invalid field', () => {
+      validation.init();
+
+      validation._fields.last().val('foo');
+
+      expect(validation.validateAll()).to.be.true;
+    });
   });
 });

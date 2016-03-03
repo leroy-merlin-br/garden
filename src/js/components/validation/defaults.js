@@ -1,11 +1,13 @@
-import text from './text';
+import required from './required';
+import confirm from './confirm';
 import minlength from './minlength';
 import maxlength from './maxlength';
-import checkbox from './checkbox';
+import email from './email';
 
 export default {
-  text: text,
+  required: required,
+  confirm: confirm,
   minlength: minlength,
   maxlength: maxlength,
-  checkbox: checkbox
+  email: email
 };
