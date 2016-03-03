@@ -16,6 +16,10 @@ Garden includes a responsive, mobile first fluid grid system that scales up to 1
 
 **Check our [breakpoints](css/utils.html#breakpoints) guideline.**
 
+The grid system provides two types of containers: `.container` a responsive fixed
+width container based on the provided breakpoints; `.container-fluid` a full-width
+container.
+
 ```html
 <section class="row">
   <div class="col-xs-12 col-sm-4 col-md-1">grid</div>
