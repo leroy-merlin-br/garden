@@ -25,7 +25,10 @@ html(lang="pt-BR")
             nav.sidebar
               each page in collections[collection]
                 a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
-        .col-xs-12.col-sm-8.col-md-9!= contents
+        if sidebar
+          .col-xs-12.col-sm-8.col-md-9.content!= contents
+        else
+          .col-xs-12.content!= contents
 
     include _partials/footer.jade
 
