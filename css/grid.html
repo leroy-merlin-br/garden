@@ -2,54 +2,26 @@
 <p class="lead">The grid is responsible for basic element positioning.</p>
 
 <h3 id="how-to-use">How to use</h3>
-<p>The grid is a third party <a href="http://peterramsing.github.io/lost/">postCSS plugin</a>.</p>
-<p>The idea behind this concept is the flexibility to add just what you need. Instead of making the decision of providing a semantic/non-semantic responive grid system (which adds a big chunk of code), you can easily provide a bit of sugar to create a set of classes to handle it:</p>
+<p>Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there (such as Bootstrap).</p>
+<p><strong>Check our <a href="css/utils.html#breakpoints">breakpoints</a> guideline.</strong></p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>section</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>row<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>col-xs-1 col-sm-2 col-md-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>grid<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>col-xs-1 col-sm-2 col-md-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>grid<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>col-xs-1 col-sm-2 col-md-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>grid<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>col-xs-1 col-sm-2 col-md-4<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>grid<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>col-xs-12 col-sm-4 col-md-1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>grid<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>section</span><span class="token punctuation" >></span></span></code></pre>
-<p>and the result:</p>
+<p>Basic example:</p>
 <section class="row">
-  <div class="col-xs-1 col-sm-2 col-md-4">grid</div>
-  <div class="col-xs-1 col-sm-2 col-md-4">grid</div>
-  <div class="col-xs-1 col-sm-2 col-md-4">grid</div>
-  <div class="col-xs-1 col-sm-2 col-md-4">grid</div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
 </section>
-
-
-<h3 id="offseting">Offseting</h3>
-<section class="row">
-  <div class="col-md-offset-4">offset</div>
-  <div class="col-md-4">grid</div>
-</section>
-
-<h3 id="push">Push</h3>
-<section class="row">
-  <div class="col-md-push-12">offset</div>
-  <div class="col-md-4">grid</div>
-</section>
-
-<h3 id="pull">Pull</h3>
-<section class="row">
-  <div class="col-md-1">
-    <div class="col-md-pull-12">offset</div>
-    <div class="col-md-pull-4">grid</div>
-  </div>
-</section>
-
-<h3 id="nested">Nested</h3>
-<section class="row">
-  <div class="col-lg-3">a</div>
-  <div class="col-lg-3">a</div>
-  <div class="col-lg-3">
-    <div class="col-lg-2">b</div>
-    <div class="col-lg-2">b</div>
-  </div>
-</section>
-
-<h4 id="this-is-a-basic-demo-just-to-show-how-to-get-started-on-lost-please-make-sure-to-checkout-the-docs-https-github-com-peterramsing-lost-">This is a basic demo just to show how to get started on lost, please make sure to <a href="https://github.com/peterramsing/lost">checkout the docs</a></h4>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../js/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
