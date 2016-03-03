@@ -31,5 +31,9 @@
   "breakpoint-sm": "768px",
   "breakpoint-md": "960px",
   "breakpoint-lg": "1120px",
-  "breakpoint-xl": "1280px"
+  "breakpoint-xl": "1280px",
+
+  "columns": "12",
+  "gutter-width": "20px",
+  "grid-limit": "980px"
 }

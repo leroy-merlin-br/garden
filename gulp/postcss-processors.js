@@ -1,4 +1,6 @@
 import postcssImport from 'postcss-import';
+import postcssFor from 'postcss-for';
+import postcssEach from 'postcss-each';
 import postcssSimpleVars from 'postcss-simple-vars';
 import postcssCalc from 'postcss-calc';
 import postcssExtend from 'postcss-extend';
@@ -15,6 +17,8 @@ import defaults from '../src/css/defaults.json';
 export default [
   postcssImport,
   postcssMixins,
+  postcssEach,
+  postcssFor,
   postcssSimpleVars({
     variables: defaults
   }),
@@ -23,9 +27,9 @@ export default [
   postcssExtend,
   postcssColorFunction,
   postcssCustomMedia,
-  lost,
   autoprefixer({
     browsers: ['last 3 versions']
   }),
+  lost,
   cssnano
 ];

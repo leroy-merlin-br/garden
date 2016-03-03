@@ -1,0 +1,119 @@
+/*
+@lost gutter $gutter-width;
+
+.row {
+  lost-utility: clearfix;
+}
+
+@each $breakpoint, $custom-media in (xs, sm, md, lg, xl), (--extra-small, --small, --medium, --large, --extra-large) {
+
+  @media ($custom-media) {
+
+    @for $column from 12 to 1 {
+
+      .col-$(breakpoint)-$(i) {
+        lost-column: 1/$(column);
+      }
+
+      .col-$(breakpoint)-pull-$(i) {
+        lost-column: 1/$(column);
+        lost-move: 1/$(column);
+      }
+
+      .col-$(breakpoint)-push-$(i) {
+        lost-move: -1/$(column);
+      }
+
+      .col-$(breakpoint)-offset-$(i) {
+        lost-offset: 1/$(column);
+      }
+    }
+  }
+}
+*/
+
+@define-mixin clearfix {
+  *zoom: 1;
+
+  &::before {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@define-mixin getSize $columns, $i, $prop {
+  $(prop): calc((100% / $columns) * $i);
+}
+
+@define-placeholder column-base {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc($gutter-width / 2);
+  padding-right: calc($gutter-width / 2);
+}
+
+@define-placeholder push-pull-grid {
+  position: relative;
+}
+
+.clearfix {
+  lost-utility: clearfix;
+}
+
+.container,
+.container-fluid {
+  @mixin clearfix;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc($gutter-width / 2);
+  padding-right: calc($gutter-width / 2);
+}
+
+.row {
+  @mixin clearfix;
+  box-sizing: border-box;
+  margin-left: -calc($gutter-width / 2);
+  margin-right: -calc($gutter-width / 2);
+}
+
+@each $breakpoint, $custom-media in (xs, sm, md, lg, xl), (--extra-small, --small, --medium, --large, --extra-large) {
+
+  @for $column from 1 to 12 {
+
+    .col-$(breakpoint)-$(column) {
+      @extend column-base;
+    }
+
+    .col-$(breakpoint)-push-$(column), .col-$(breakpoint)-pull-$(column) {
+      @extend push-pull-grid;
+    }
+  }
+
+  @media ($custom-media) {
+
+    @for $column from 1 to 12 {
+
+      .col-$(breakpoint)-$(column) {
+        @mixin getSize $columns, $(column), width;
+      }
+
+      .col-$(breakpoint)-push-$(column) {
+        @mixin getSize $columns, $(column), left;
+      }
+
+      .col-$(breakpoint)-pull-$(column) {
+        @mixin getSize $columns, $(column), right;
+      }
+
+      .col-$(breakpoint)-offset-$(column) {
+        @mixin getSize $columns, $(column), margin-left;
+      }
+    }
+  }
+}

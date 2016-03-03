@@ -13,6 +13,7 @@
 @import "atoms/circular";
 @import "atoms/rounded";
 @import "atoms/border";
+@import "atoms/grid";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
