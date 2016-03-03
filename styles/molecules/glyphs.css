@@ -1,12 +1,11 @@
 .glyphs {
-  lost-utility: clearfix;
+  @mixin clearfix;
 
   .glyph-container {
     background-color: $color-default-lighter;
     cursor: pointer;
     font-size: .8rem;
-    lost-column: 6/12;
-    lost-column-cycle: 2;
+    height: 85px;
     margin-bottom: 1rem;
     padding: 1rem .7rem;
     text-align: center;
@@ -22,16 +21,4 @@
       margin-bottom: .31rem;
     }
   }
-}
-
-@media (--small) {
-
-  .glyphs {
-
-    .glyph-container {
-      lost-column: 3/12;
-      lost-column-cycle: 4;
-    }
-  }
-
 }

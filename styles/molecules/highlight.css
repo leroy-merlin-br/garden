@@ -11,10 +11,3 @@
     color: $color-primary;
   }
 }
-
-@media (--small) {
-
-  .highlight {
-    lost-column: 1/2;
-  }
-}

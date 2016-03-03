@@ -1,11 +1,12 @@
 .palette {
-  lost-utility: clearfix;
+  @mixin clearfix;
 
   .color {
     box-shadow: .06rem .06rem .18rem rgba(0, 0, 0, .2);
     cursor: pointer;
     font-size: .9rem;
     font-weight: bold;
+    margin-bottom: 1rem;
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -147,9 +148,3 @@
   }
 }
 
-@media (--small) {
-
-  .color {
-    lost-waffle: 1/3;
-  }
-}
