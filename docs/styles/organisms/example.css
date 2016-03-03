@@ -18,27 +18,6 @@
     margin: .62rem 0;
   }
 
-  .row {
-    lost-utility: clearfix;
-
-    div {
-      background-color: $color-primary;
-      height: 1.87rem;
-    }
-
-    .two {
-      lost-column: 2/12;
-    }
-
-    .three {
-      lost-column: 3/12;
-    }
-
-    .four {
-      lost-column: 4/12;
-    }
-  }
-
   .button {
     margin-bottom: .62rem;
     margin-right: .93rem;
@@ -73,6 +52,18 @@
     &-large,
     &-wide {
       width: 335px;
+    }
+  }
+
+  div[class*="col-"] {
+    color: $color-neutral;
+    margin-bottom: 10px;
+    text-align: center;
+
+    div {
+      background-color: $color-primary;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
     }
   }
 }

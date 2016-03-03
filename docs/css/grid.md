@@ -24,17 +24,19 @@ Garden includes a responsive, mobile first fluid grid system that scales up to 1
 
 Basic example:
 
-<section class="row">
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-  <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
-</section>
+<div class="example">
+  <section class="row">
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>grid</div></div>
+  </section>
+</div>

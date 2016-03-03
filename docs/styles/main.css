@@ -1,6 +1,5 @@
 @import "../../src/css/utils/breakpoints";
 
-@import "atoms/container";
 @import "atoms/img";
 
 @import "molecules/nav";

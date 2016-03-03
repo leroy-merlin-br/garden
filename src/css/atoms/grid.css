@@ -14,7 +14,7 @@
   margin-right: -calc($gutter-width / 2);
 }
 
-@each $breakpoint, $custom-media, $screen-size in (xs, sm, md, lg, xl), (--extra-small, --small, --medium, --large, --extra-large), (100%, calc($breakpoint-xs + 1px), calc($breakpoint-sm + 1px), calc($breakpoint-md + 1px), calc($breakpoint-lg + 1px)) {
+@each $breakpoint, $custom-media, $screen-size in (xs, sm, md, lg, xl), (--extra-small, --small, --medium, --large, --extra-large), (100%, 100%, calc($breakpoint-sm + 1px), calc($breakpoint-md + 1px), calc($breakpoint-lg + 1px)) {
 
   @for $column from 1 to 12 {
 

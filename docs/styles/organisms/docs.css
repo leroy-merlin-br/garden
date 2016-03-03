@@ -103,31 +103,4 @@
       }
     }
   }
-
-  div[class*="col-"] {
-    color: $color-neutral;
-    margin-bottom: 10px;
-    text-align: center;
-
-    div {
-      background-color: $color-primary;
-      padding-bottom: 1rem;
-      padding-top: 1rem;
-    }
-  }
-}
-
-@media (--small) {
-
-  .docs {
-    lost-utility: clearfix;
-
-    .sidebar {
-      lost-column: 3/12;
-    }
-
-    .sidebar + .content {
-      lost-column: 9/12;
-    }
-  }
 }

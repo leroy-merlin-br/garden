@@ -7,7 +7,7 @@
     color: $color-neutral;
     font-size: 1.875em;
     line-height: 1.3em;
-    lost-utility: clearfix;
+    @mixin clearfix;
     margin-bottom: 2rem;
     max-width: 43.75;
   }

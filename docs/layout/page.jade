@@ -21,10 +21,11 @@ html(lang="pt-BR")
     main.docs
       .container
         if sidebar
-          nav.sidebar
-            each page in collections[collection]
-              a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
-        .content!= contents
+          .col-xs-12.col-sm-4.col-md-3
+            nav.sidebar
+              each page in collections[collection]
+                a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
+        .col-xs-12.col-sm-8.col-md-9!= contents
 
     include _partials/footer.jade
 
