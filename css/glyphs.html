@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Glyphs | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="garden.min.css"><link rel="stylesheet" href="style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link link-active">CSS</a><a href="/js/form.html" class="link">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link link-active">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="grid.html" class="link">Grid</a><a href="thumbnail.html" class="link">Thumbnail</a><a href="button.html" class="link">Buttons</a><a href="form.html" class="link">Form</a><a href="utils.html" class="link">Utils</a><a href="pricetag.html" class="link">Price Tag</a><a href="badges.html" class="link">Badges</a><a href="panel.html" class="link">Panel</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="glyphs">Glyphs</h1>
+<p>Garden provides a set of glyphs bundled on a typography (Glyphs.woff):</p>
+<div class="example">
+  <div class="glyph glyph-cart"></div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>glyph glyph-cart<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h2 id="usage">Usage</h2>
+<p>The font bundle is required to use the glyphs. The location of the font is <code>dist/fonts</code>.</p>
+<p>The <code>.glyph</code> class is responsible to set the <code>font-family</code> name, along with a couple resetting properties. Each glyph has a identifier of the glyph name. IE <code>cart</code> is <code>glyph-cart</code>.</p>
+<p>You can either use it as a call IE <code>.glyph-cart</code> or as a placeholder <code>@extend cart</code>:</p>
+<div class="row glyphs">
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-arrow-left">
+      <div class="glyph glyph-arrow-left"></div>
+      arrow-left
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-arrow-right">
+      <div class="glyph glyph-arrow-right"></div>
+      arrow-right
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-camera">
+      <div class="glyph glyph-camera"></div>
+      camera
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-cart">
+      <div class="glyph glyph-cart"></div>
+      cart
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-checked">
+      <div class="glyph glyph-checked"></div>
+      checked
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-clock">
+      <div class="glyph glyph-clock"></div>
+      clock
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-dollar-sign">
+      <div class="glyph glyph-dollar-sign"></div>
+      dollar-sign
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-left">
+      <div class="glyph glyph-double-arrow-left"></div>
+      double-arrow-left
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-right">
+      <div class="glyph glyph-double-arrow-right"></div>
+      double-arrow-right
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-up">
+      <div class="glyph glyph-double-arrow-up"></div>
+      double-arrow-up
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-double-arrow-down">
+      <div class="glyph glyph-double-arrow-down"></div>
+      double-arrow-down
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-envelope">
+      <div class="glyph glyph-envelope"></div>
+      envelope
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-exclamation-mark">
+      <div class="glyph glyph-exclamation-mark"></div>
+      exclamation-mark
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-external">
+      <div class="glyph glyph-external"></div>
+      external
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-eye">
+      <div class="glyph glyph-eye"></div>
+      eye
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-heart">
+      <div class="glyph glyph-heart"></div>
+      heart
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-location">
+      <div class="glyph glyph-location"></div>
+      location
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-magnifier">
+      <div class="glyph glyph-magnifier"></div>
+      magnifier
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-question-mark">
+      <div class="glyph glyph-question-mark"></div>
+      question-mark
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-silhouette">
+      <div class="glyph glyph-silhouette"></div>
+      silhouette
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-trash-can">
+      <div class="glyph glyph-trash-can"></div>
+      trash-can
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-x">
+      <div class="glyph glyph-x"></div>
+      x
+    </div>
+  </div>
+</div>
+
+<h2 id="customizing-your-own-bundle">Customizing your own bundle</h2>
+<p>Garden uses <a href="https://github.com/nfroidure/gulp-iconfont">gulp-iconfont</a> to create the font, and a <a href="https://github.com/leroy-merlin-br/garden/blob/master/gulp/postcss-glyphs-css.js">PostCSS function</a> to generate the .css file of it. You can easily customize your bundle adding/removing your glyphs on <code>src/glyphs</code>.</p>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../js/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList) {
+    e.trigger.classList.add('copied');
+
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 1000)
+  }
+});
+
+$('.docs').form();</script></body></html>

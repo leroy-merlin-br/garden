@@ -1,0 +1,28 @@
+.nav {
+  margin-top: .625em;
+
+  .link {
+    color: color($color-neutral a(80%));
+    margin-right: 1.25em;
+
+    &:hover {
+      color: $color-neutral;
+    }
+
+    &-active {
+      color: $color-neutral;
+    }
+  }
+}
+
+@media (--small) {
+
+  .nav {
+    float: right;
+
+    .link {
+      margin-left: 1.25em;
+      margin-right: 0;
+    }
+  }
+}

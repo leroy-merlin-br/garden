@@ -1,0 +1,13 @@
+.highlight {
+  margin-top: 1.87rem;
+
+  .img {
+    height: 7.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-title {
+    color: $color-primary;
+  }
+}
