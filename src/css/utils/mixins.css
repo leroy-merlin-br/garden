@@ -49,3 +49,33 @@
     color: $color-$(color-name);
   }
 }
+
+@define-mixin clearfix {
+  *zoom: 1;
+
+  &::before {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@define-mixin getSize $columns, $i, $prop {
+  $(prop): calc((100% / $columns) * $i);
+}
+
+@define-mixin column-base {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc($gutter-width / 2);
+  padding-right: calc($gutter-width / 2);
+}
+
+@define-mixin push-pull-grid {
+  position: relative;
+}
