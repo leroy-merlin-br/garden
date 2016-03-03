@@ -30,6 +30,5 @@ export default [
   autoprefixer({
     browsers: ['last 3 versions']
   }),
-  lost,
   cssnano
 ];
