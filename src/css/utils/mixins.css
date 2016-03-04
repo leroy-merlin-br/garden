@@ -1,6 +1,6 @@
 @define-mixin form-component $border-color, $border-color-focus {
   border: .06rem solid $color-$(border-color);
-  border-radius: .25;
+  border-radius: .25rem;
   color: $color-text;
   outline: 0;
   padding-bottom: .6rem;
