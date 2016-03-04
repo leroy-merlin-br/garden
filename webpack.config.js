@@ -3,6 +3,9 @@ module.exports = {
   output: {
     filename: 'garden.min.js'
   },
+  externals: {
+    'jquery': '$'
+  },
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }

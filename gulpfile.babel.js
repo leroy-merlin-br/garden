@@ -29,13 +29,14 @@ gulp.task('docs:css', docsCSS);
 gulp.task('docs', (done) => sequence(
   'docs:metalsmith',
   'docs:css',
+  'build:glyphs',
   'build:css',
   'build:js',
   done
   )
 );
 
-gulp.task('docs:deploy', ['docs', 'build:glyphs'], docsDeploy);
+gulp.task('docs:deploy', ['docs'], docsDeploy);
 
 gulp.task('watch', ['docs'], () => {
   gulp.watch([paths.docs.layout.glob, paths.docs.pages.glob], ['docs']);

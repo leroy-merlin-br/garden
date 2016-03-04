@@ -1,72 +1,72 @@
-export default (($) => {
-  const NAME      = 'form';
-  const DEFAULTS  = {
-    events: 'change',
-    selectors: '.input, select, .select, .textarea'
-  };
+import $ from 'jquery';
 
-  class Form {
-    constructor(element, options) {
-      options = $.extend({}, DEFAULTS, options || {});
+const NAME      = 'form';
+const DEFAULTS  = {
+  events: 'change',
+  selectors: '.input, select, .select, .textarea'
+};
 
-      this._element = $(element);
-      this._options = options;
+class Form {
+  constructor(element, options) {
+    options = $.extend({}, DEFAULTS, options || {});
 
-      this.bindListeners();
+    this._element = $(element);
+    this._options = options;
 
-      this.toggleFieldsActiveClass();
+    this.bindListeners();
+
+    this.toggleFieldsActiveClass();
+  }
+
+  bindListeners() {
+    $(document).on(
+      this._options.events, this._options.selectors,
+      this.onFieldChange.bind(this)
+    );
+  }
+
+  onFieldChange(event) {
+    this.toggleActiveClass(event.target);
+  }
+
+  shouldInputBeActive(input) {
+    return !!(input.value || input.placeholder);
+  }
+
+  toggleActiveClass(input) {
+    let $input = $(input),
+      $field = $input.parents('.field');
+
+    if(!$field.length) {
+      return;
     }
 
-    bindListeners() {
-      $(document).on(
-        this._options.events, this._options.selectors,
-        this.onFieldChange.bind(this)
-      );
+    if (!$field.hasClass('active') && this.shouldInputBeActive(input)) {
+      return $field.addClass('active');
     }
 
-    onFieldChange(event) {
-      this.toggleActiveClass(event.target);
-    }
-
-    shouldInputBeActive(input) {
-      return !!(input.value || input.placeholder);
-    }
-
-    toggleActiveClass(input) {
-      let $input = $(input),
-        $field = $input.parents('.field');
-
-      if(!$field.length) {
-        return;
-      }
-
-      if (!$field.hasClass('active') && this.shouldInputBeActive(input)) {
-        return $field.addClass('active');
-      }
-
-      if ($field.hasClass('active') && !this.shouldInputBeActive(input)) {
-        return $field.removeClass('active');
-      }
-    }
-
-    toggleFieldsActiveClass() {
-      Array.prototype.forEach.call(
-        this._element.find(this._options.selectors),
-        this.toggleActiveClass.bind(this)
-      );
+    if ($field.hasClass('active') && !this.shouldInputBeActive(input)) {
+      return $field.removeClass('active');
     }
   }
 
-  /* istanbul ignore next */
-  $.fn[NAME] = function(options) {
-    options = options || {};
+  toggleFieldsActiveClass() {
+    Array.prototype.forEach.call(
+      this._element.find(this._options.selectors),
+      this.toggleActiveClass.bind(this)
+    );
+  }
+}
 
-    return this.each(function() {
-      if (!$.data(this, NAME)) {
-        $.data(this, NAME, new Form(this, options));
-      }
-    });
-  };
+/* istanbul ignore next */
+$.fn[NAME] = function(options) {
+  options = options || {};
 
-  return Form;
-})(jQuery);
+  return this.each(function() {
+    if (!$.data(this, NAME)) {
+      $.data(this, NAME, new Form(this, options));
+    }
+  });
+};
+
+export default Form;
