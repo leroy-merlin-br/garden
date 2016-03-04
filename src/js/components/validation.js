@@ -12,7 +12,7 @@ const DEFAULTS = {
 
 class Validation {
   constructor(element, options) {
-    this._element = element;
+    this._element = $(element);
     this._options = $.extend({}, DEFAULTS, (options || {}));
   }
 

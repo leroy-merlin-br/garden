@@ -14,7 +14,7 @@ class LazyLoad {
   constructor(element, options) {
     options = $.extend({}, DEFAULTS, options || {});
 
-    this._element = element;
+    this._element = $(element);
     this._options = options;
   }
 
