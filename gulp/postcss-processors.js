@@ -3,7 +3,6 @@ import postcssFor from 'postcss-for';
 import postcssEach from 'postcss-each';
 import postcssSimpleVars from 'postcss-simple-vars';
 import postcssCalc from 'postcss-calc';
-import postcssExtend from 'postcss-extend';
 import postcssColorFunction from 'postcss-color-function';
 import postcssCustomMedia from 'postcss-custom-media';
 import postcssNested from 'postcss-nested';
@@ -23,7 +22,6 @@ export default [
   }),
   postcssCalc({mediaQueries: true}),
   postcssNested,
-  postcssExtend,
   postcssColorFunction,
   postcssCustomMedia,
   autoprefixer({

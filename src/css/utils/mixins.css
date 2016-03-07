@@ -1,3 +1,10 @@
+@define-mixin reset-border-color-input {
+  border-left-color: $color-neutral;
+  border-right-color: $color-neutral;
+  border-top-color: $color-neutral;
+}
+
+
 @define-mixin form-component $border-color, $border-color-focus {
   border: .06rem solid $color-$(border-color);
   border-radius: .25rem;
@@ -13,7 +20,7 @@
 
   &:focus {
     border-bottom-color: $color-$(border-color-focus);
-    @extend reset-border-color-input;
+    @mixin reset-border-color-input;
   }
 
   &[disabled] {
@@ -28,7 +35,7 @@
 @define-mixin field-validation $color-name, $glyph-name {
 
   &::after {
-    @extend $glyph-name;
+    @mixin $glyph-name;
     background-color: $color-$(color-name);
     color: $color-neutral;
     font-family: Glyphs;
@@ -41,7 +48,7 @@
   .select,
   .textarea {
     border-bottom-color: $color-$(color-name);
-    @extend reset-border-color-input;
+    @mixin reset-border-color-input;
   }
 
   .label,

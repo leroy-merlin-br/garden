@@ -74,7 +74,7 @@ export default (glyphs, options) => {
     };
 
     let currentPlaceholder = postcss.atRule({
-      name: `define-placeholder ${glyph.name}`
+      name: `define-mixin ${glyph.name}`
     })
       .append(postcss.decl(decl));
 

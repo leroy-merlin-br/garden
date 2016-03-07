@@ -82,7 +82,7 @@ fieldset {
     .input,
     .select,
     .textarea {
-      @extend reset-border-color-input
+      @mixin reset-border-color-input
     }
   }
 
