@@ -20,6 +20,8 @@ class Validation {
     this._fields = this._element.find(this._options.selector);
 
     this.bindListeners();
+
+    return this;
   }
 
   bindListeners() {

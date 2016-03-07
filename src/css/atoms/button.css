@@ -49,4 +49,19 @@
   &-danger {
     background-color: $color-danger;
   }
+
+  &-text {
+    background-color: transparent;
+    box-shadow: none;
+    color: $color-primary;
+    padding: 0;
+    transition: none;
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+      text-decoration: underline;
+      transform: none;
+    }
+  }
 }
