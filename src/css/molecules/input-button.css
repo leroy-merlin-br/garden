@@ -1,4 +1,9 @@
 .input-button {
+  cursor: pointer;
+  display: inline-block;
+  padding-top: .5rem;
+  position: relative;
+  vertical-align: top;
 
   img {
     border-radius: .25rem;

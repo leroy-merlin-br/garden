@@ -153,6 +153,75 @@ The `input-button` is a molecule responsible to provide a similiar style of a bu
 </div>
 ```
 
+### Inlining input-buttons
+The `input-button` molecule is `inline-block` by default, meaning you can inline multiples inside of a `field`:
+
+<div class="example example-code">
+  <div class="field">
+  <div class="input-button">
+    <input type="radio" name="inline-check" id="inline-check-1"/>
+    <label for="inline-check-1" class="label">Input Label</label>
+  </div>
+
+  <div class="input-button">
+    <input type="radio" name="inline-check" id="inline-check-2"/>
+    <label for="inline-check-2" class="label">Input Label</label>
+  </div>
+  </div>
+</div>
+
+```html
+<div class="field">
+  <div class="input-button">
+    <input type="radio"/>
+    <label class="label">Input Label</label>
+  </div>
+
+  <div class="input-button">
+    <input type="radio"/>
+    <label class="label">Input Label</label>
+  </div>
+</div>
+```
+
+This approach allows the usage of common helpers of `field` as well:
+
+<div class="example example-code">
+  <div class="field">
+  <div class="label">Label</div>
+  <div class="input-button">
+    <input type="radio" name="inline-check" id="inline-check-3"/>
+    <label for="inline-check-3" class="label">Input Label</label>
+  </div>
+
+  <div class="input-button">
+    <input type="radio" name="inline-check" id="inline-check-4"/>
+    <label for="inline-check-4" class="label">Input Label</label>
+  </div>
+
+  <div class="helper">Helper message</div>
+  </div>
+</div>
+
+```html
+<div class="field">
+  <div class="label">Label</div>
+  
+  <div class="input-button">
+    <input type="radio"/>
+    <label class="label">Input Label</label>
+  </div>
+
+  <div class="input-button">
+    <input type="radio"/>
+    <label class="label">Input Label</label>
+  </div>
+
+  <div class="helper">Helper message</div>
+</div>
+```
+
+
 ## Disabled Controls
 In order to set a `control` as disabled, you can use the native attribute `disabled` or the `.disabled` class:
 

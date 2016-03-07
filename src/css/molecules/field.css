@@ -52,7 +52,6 @@ fieldset {
 
     & + .label {
       cursor: pointer;
-      font-size: .9rem;
     }
 
     &:focus {
