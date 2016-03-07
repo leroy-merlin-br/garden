@@ -1,9 +1,9 @@
-@import "atoms/text/heading";
-@import "atoms/text/paragraph";
-@import "atoms/text/style";
-@import "atoms/text/alignment";
-@import "atoms/text/transform";
-@import "atoms/text/link";
+@import "text/heading";
+@import "text/paragraph";
+@import "text/style";
+@import "text/alignment";
+@import "text/transform";
+@import "text/link";
 
 html {
   font-size: $default-font-size;
