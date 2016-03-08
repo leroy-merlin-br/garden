@@ -1,6 +1,6 @@
 {
   "name": "garden",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A styleguide based on Leroy Merlin needs",
   "main": "dist/js/garden.min.js",
   "scripts": {

@@ -26,6 +26,7 @@
       border: .06rem solid $color-default-light;
       box-shadow: none;
       color: $color-default-light;
+      cursor: not-allowed;
     }
   }
 
@@ -39,7 +40,7 @@
 
     &:hover {
       border-color: $color-primary;
-      color: $color-text;
+      color: $color-primary;
     }
   }
 }

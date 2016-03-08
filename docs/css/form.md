@@ -206,7 +206,7 @@ This approach allows the usage of common helpers of `field` as well:
 ```html
 <div class="field">
   <div class="label">Label</div>
-  
+
   <div class="input-button">
     <input type="radio"/>
     <label class="label">Input Label</label>
@@ -226,7 +226,7 @@ This approach allows the usage of common helpers of `field` as well:
 In order to set a `control` as disabled, you can use the native attribute `disabled` or the `.disabled` class:
 
 <div class="example example-code">
-  <input class="input" placeholder="Disabled Input" disabled />
+  <input class="input" value="Disabled Input" disabled />
 </div>
 
 ```html

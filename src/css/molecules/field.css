@@ -40,10 +40,6 @@ fieldset {
       font-size: .8rem;
       transform: translateY(-130%);
     }
-
-    &[disabled] + .label {
-      color: $color-default-lighter;
-    }
   }
 
   input[type="checkbox"],
@@ -62,8 +58,8 @@ fieldset {
       color: $color-text;
     }
 
-    &[disabled] + .label {
-      color: $color-default-light;
+    &:hover + .label {
+      color: $color-primary;
     }
   }
 

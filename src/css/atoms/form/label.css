@@ -1,5 +1,5 @@
 .label {
-  color: $color-default;
+  color: $color-default-dark;
   cursor: text;
   font-size: .9rem;
   line-height: 1.5rem;
