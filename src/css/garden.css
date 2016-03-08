@@ -14,12 +14,17 @@
 @import "atoms/rounded";
 @import "atoms/border";
 @import "atoms/grid";
+@import "atoms/modal";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
 @import "atoms/form/helper";
 @import "atoms/form/select";
 @import "atoms/form/textarea";
+
+@import "atoms/modal/close";
+@import "atoms/modal/content";
+@import "atoms/modal/body";
 
 @import "molecules/field";
 @import "molecules/input-button";

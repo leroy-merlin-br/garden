@@ -1,0 +1,26 @@
+.modal {
+  background-color: rgba(102, 102, 102, .5);
+  height: 100%;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  width: 100%;
+  z-index: 100;
+
+  &-enter {
+    left: 0;
+    position: fixed;
+    top: 0;
+  }
+
+  &-show {
+    opacity: 1;
+  }
+
+  &-leave {
+    opacity: 0;
+  }
+
+  &-hide {
+    position: inherit;
+  }
+}
