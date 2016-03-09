@@ -271,3 +271,35 @@ Garden provides validation directives (`.valid` and `.invalid`) to `.input`, `.s
 ```
 
 Please note to properly style the `.select` control, you must add the `.field-select` to the `.field` molecule.
+
+In addition to field validation control, you can also provide a form feedback:
+
+<div class="example example-code">
+  <div class="feedback">
+    <div class="feedback-title">Hooray! Success!</div>
+    Lorem ipsum sit dolor amet
+  </div>
+</div>
+
+```html
+  <div class="feedback">
+    <div class="feedback-title">...</div>
+    ...
+  </div>
+```
+
+You can compose the `.feedback` component using the `.feedback-error` class:
+
+<div class="example example-code">
+  <div class="feedback feedback-error">
+    <div class="feedback-title error">Oops! Something went wrong!</div>
+    Lorem ipsum sit dolor amet
+  </div>
+</div>
+
+```html
+  <div class="feedback feedback-error">
+    <div class="feedback-title">...</div>
+    ...
+  </div>
+```

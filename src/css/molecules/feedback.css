@@ -1,0 +1,36 @@
+.feedback {
+  padding-left: 2.5rem;
+  position: relative;
+
+  &-title {
+    color: $color-success;
+    font-size: 1rem;
+    font-weight: bold;
+
+    &::before {
+      @mixin checked;
+      background-color: $color-success;
+      border-radius: 2rem;
+      color: $color-neutral;
+      font-family: Glyphs;
+      height: 2rem;
+      left: 0;
+      line-height: 2rem;
+      position: absolute;
+      text-align: center;
+      width: 2rem;
+    }
+  }
+
+  &-error {
+
+    .feedback-title {
+      color: $color-danger;
+
+      &::before {
+        @mixin x;
+        background-color: $color-danger;
+      }
+    }
+  }
+}
