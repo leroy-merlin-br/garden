@@ -54,3 +54,15 @@ A function to remove elements from an [array-like object](http://www.2ality.com/
 ```
 
 Under the hood, it's pretty much an `indexOf` + `splice` execution.
+
+## ScrollTo
+A function to scroll to the provided element:
+
+```js
+  import scrollTo from 'src/js/utils/scroll-to';
+
+  scrollTo(document.querySelector('.foo'));
+```
+
+## AnimationFrame
+A function which returns the available usage of `requestAnimationFrame`, or a `setTimeout` fallback
