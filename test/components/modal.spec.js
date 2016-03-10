@@ -87,7 +87,7 @@ describe('Modal spec', () => {
       modalInstance.bindListeners();
 
       $(window).trigger({
-        type: 'keypress',
+        type: 'keyup',
         which: 27
       });
 

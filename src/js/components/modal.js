@@ -27,13 +27,13 @@ class Modal {
   }
 
   show() {
-    this._showModal();
     this.bindListeners();
+    this._showModal();
   }
 
   hide() {
-    this._hideModal();
     this.unbindListeners();
+    this._hideModal();
   }
 
   destroy() {
@@ -44,8 +44,9 @@ class Modal {
   bindListeners() {
     this._close.on('click', this.hide.bind(this));
 
-    $(window).on('keypress', (event) => {
+    $(window).on('keyup', (event) => {
       if (event.which === 27) {
+        console.log('esc');
         this.hide();
       }
     });
@@ -53,7 +54,7 @@ class Modal {
 
   unbindListeners() {
     this._close.off('click');
-    $(window).off('keypress');
+    $(window).off('keyup');
   }
 
   _showModal() {
