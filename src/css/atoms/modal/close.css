@@ -1,11 +1,11 @@
 .close {
-  background-color: $color-default;
-  border-radius: 100%;
-  color: $color-neutral;
+  color: $color-primary;
   float: right;
-  font-size: .75rem;
-  padding-bottom: .37rem;
-  padding-left: .43rem;
-  padding-right: .43rem;
-  padding-top: .37rem;
+  font-size: 1rem;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: $color-primary-dark;
+    cursor: pointer;
+  }
 }
