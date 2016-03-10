@@ -194,8 +194,12 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-$('[data-modal]').modal()
+var modal = $('[data-modal]').modal();
 
-$('[data-trigger="open-modal"]').on('click', function() {
-  $('[data-modal]').data('modal').show();
+$('[data-trigger="open"]').on('click', function() {
+  modal.data('modal').show();
+});
+
+$('[data-trigger="close"]').on('click', function() {
+  modal.data('modal').hide();
 });</script></body></html>
