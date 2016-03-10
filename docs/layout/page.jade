@@ -56,4 +56,8 @@ html(lang="pt-BR")
 
       $('.docs').form();
       
-      $('[data-modal]').modal();
+      $('[data-modal]').modal()
+      
+      $('[data-trigger="open-modal"]').on('click', function() {
+        $('[data-modal]').data('modal').show();
+      });
