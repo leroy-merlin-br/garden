@@ -17,6 +17,14 @@ describe('Modal spec', () => {
     fixture.cleanup();
   });
 
+  describe('constructor', () => {
+    it('should return a instanceof $ if param element isn\'t', () => {
+      let newModalInstance = new Modal(fixture.load('modal.html')[0]);
+
+      expect(newModalInstance._element).to.be.instanceof($);
+    });
+  });
+
   describe('init', () => {
     it('should append modal into body', () => {
       modalInstance.init();
@@ -24,48 +32,52 @@ describe('Modal spec', () => {
       expect($fixture.find('.modal')).to.exist;
     });
 
-    it('should call _fillModal', sinon.test(function() {
-      this.spy(modalInstance, '_fillModal');
+    it('should call createDOM', sinon.test(function() {
+      let spy = this.spy(modalInstance, '_createModal');
 
       modalInstance.init();
 
-      expect(modalInstance._fillModal.calledOnce).to.be.true;
+      expect(spy.calledOnce).to.be.true;
     }));
   });
 
   describe('show', () => {
     it('should call _showModal', sinon.test(function() {
-      this.spy(modalInstance, '_showModal');
+      let spy = this.spy(modalInstance, '_showModal');
 
+      modalInstance.init();
       modalInstance.show();
 
-      expect(modalInstance._showModal.calledOnce).to.be.true;
+      expect(spy.calledOnce).to.be.true;
     }));
 
     it('should call bindListeners', sinon.test(function() {
-      this.spy(modalInstance, 'bindListeners');
+      let spy = this.spy(modalInstance, 'bindListeners');
 
+      modalInstance.init();
       modalInstance.show();
 
-      expect(modalInstance.bindListeners.calledOnce).to.be.true;
+      expect(spy.calledOnce).to.be.true;
     }));
   });
 
   describe('hide', () => {
     it('should call _hideModal', sinon.test(function() {
-      this.spy(modalInstance, '_hideModal');
+      let spy = this.spy(modalInstance, '_hideModal');
 
+      modalInstance.init();
       modalInstance.hide();
 
-      expect(modalInstance._hideModal.calledOnce).to.be.true;
+      expect(spy.calledOnce).to.be.true;
     }));
 
     it('should call unbindListeners', sinon.test(function() {
-      this.spy(modalInstance, 'unbindListeners');
+      let spy = this.spy(modalInstance, 'unbindListeners');
 
+      modalInstance.init();
       modalInstance.hide();
 
-      expect(modalInstance.unbindListeners.calledOnce).to.be.true;
+      expect(spy.calledOnce).to.be.true;
     }));
   });
 
@@ -82,8 +94,9 @@ describe('Modal spec', () => {
 
   describe('bindListeners', () => {
     it('should call hide if escape key is pressed', sinon.test(function() {
-      this.spy(modalInstance, 'hide');
+      let spy = this.spy(modalInstance, 'hide');
 
+      modalInstance.init();
       modalInstance.bindListeners();
 
       $(window).trigger({
@@ -91,91 +104,95 @@ describe('Modal spec', () => {
         which: 27
       });
 
-      expect(modalInstance.hide.calledOnce).to.be.true;
+      expect(spy.calledOnce).to.be.true;
     }));
 
-    it('should hide modal when click in _close', () => {
+    it('should hide modal when click in close', () => {
       modalInstance.init();
       modalInstance.show();
 
-      modalInstance._close.trigger('click');
+      modalInstance.close.trigger('click');
 
-      expect(modalInstance._modal.hasClass('modal-show')).to.be.false;
+      expect(modalInstance.modal.hasClass('modal-show')).to.be.false;
     });
 
     it('should not call hide with user press other key instead of escape',
       sinon.test(function() {
-        this.spy(modalInstance, 'hide');
+        let spy = this.spy(modalInstance, 'hide');
 
+        modalInstance.init();
         modalInstance.bindListeners();
 
         $(window).trigger({
-          type: 'keypress',
+          type: 'keyup',
           which: 22
         });
 
-        expect(modalInstance.hide.notCalled).to.be.true;
+        expect(spy.notCalled).to.be.true;
       })
     );
   });
 
   describe('unbindListeners', () => {
-    it('should not call hide if _close is clicked', sinon.test(function(){
-      this.spy(modalInstance, 'hide');
+    it('should not call hide if close is clicked', sinon.test(function(){
+      let spy = this.spy(modalInstance, 'hide');
 
       modalInstance.init();
       modalInstance.show();
       modalInstance.unbindListeners();
 
-      modalInstance._close.trigger('click');
+      modalInstance.close.trigger('click');
 
-      expect(modalInstance.hide.notCalled).to.be.true;
+      expect(spy.notCalled).to.be.true;
     }));
 
     it('should not call hide if escape key is clicked', sinon.test(function(){
-      this.spy(modalInstance, 'hide');
+      let spy = this.spy(modalInstance, 'hide');
 
       modalInstance.init();
       modalInstance.show();
       modalInstance.unbindListeners();
 
       $(window).trigger({
-        type: 'keypress',
+        type: 'keyup',
         which: 27
       });
 
-      expect(modalInstance.hide.notCalled).to.be.true;
+      expect(spy.notCalled).to.be.true;
     }));
   });
 
   describe('_showModal', () => {
-    it('should addClass to _modal and _content to show enter animation', sinon.test(function(){
+    it('should addClass to modal and content to show enter animation', sinon.test(function(){
+      modalInstance.init();
       modalInstance._showModal();
 
       this.clock.tick(200);
 
-      expect(modalInstance._modal.hasClass('modal-enter modal-show')).to.be.true;
-      expect(modalInstance._content.hasClass('modal-content-enter modal-content-show')).to.be.true;
+      expect(modalInstance.modal.hasClass('modal-enter modal-show')).to.be.true;
+      expect(modalInstance.content.hasClass('modal-content-enter modal-content-show')).to.be.true;
     }));
   });
 
   describe('_hideModal', () => {
-    it('should addClass to _modal and _content to show leave animation', sinon.test(function(){
+    it('should addClass to modal and content to show leave animation', () => {
+      modalInstance.init();
       modalInstance._showModal();
       modalInstance._hideModal();
 
-      expect(modalInstance._modal.hasClass('modal-leave')).to.be.true;
-      expect(modalInstance._content.hasClass('modal-content-leave')).to.be.true;
-    }));
+      expect(modalInstance.modal.hasClass('modal-leave')).to.be.true;
+      expect(modalInstance.content.hasClass('modal-content-leave')).to.be.true;
+    });
 
-    it('should remove animation class from _modal and _content', sinon.test(function() {
+    it('should remove animation class from modal and content', sinon.test(function() {
+      modalInstance.init();
       modalInstance.show();
       modalInstance.hide();
 
       this.clock.tick(200);
 
-      expect(!modalInstance._modal.hasClass('modal-leave')).to.be.true;
-      expect(!modalInstance._modal.hasClass('modal-content-leave')).to.be.true;
+      expect(!modalInstance.modal.hasClass('modal-leave')).to.be.true;
+      expect(!modalInstance.modal.hasClass('modal-content-leave')).to.be.true;
     }));
   });
 });
