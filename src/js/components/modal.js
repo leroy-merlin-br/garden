@@ -66,8 +66,8 @@ class Modal {
 
   _hideModal() {
     this.content
-    .removeClass('modal-content-show')
-    .addClass('modal-content-leave');
+      .removeClass('modal-content-show')
+      .addClass('modal-content-leave');
 
     this.modal
       .removeClass('modal-show')
@@ -84,9 +84,9 @@ class Modal {
   }
 
   _createModal() {
-    this.modal = $(templates.modal);
-    this.content = $(templates.content);
-    this.close = $(templates.close);
+    this.modal    = $(templates.modal);
+    this.content  = $(templates.content);
+    this.close    = $(templates.close);
 
     this.content.append(this.close);
     this.modal.append(this.content);
