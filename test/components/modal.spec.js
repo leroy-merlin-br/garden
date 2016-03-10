@@ -1,7 +1,7 @@
 import Modal from '../../src/js/components/modal';
 
 describe('Modal spec', () => {
-  let modalInstance, $fixture;
+  let modalInstance, $fixture, options;
 
   before(() => {
     fixture.setBase('test/fixture');
@@ -22,6 +22,18 @@ describe('Modal spec', () => {
       let newModalInstance = new Modal(fixture.load('modal.html')[0]);
 
       expect(newModalInstance._element).to.be.instanceof($);
+    });
+
+    it('should have a different container to append modal', () => {
+      let newModalInstance = new Modal(
+        $fixture.find('[data-modal]'),
+        {
+          container: '.bar'
+        }
+      ),
+      newContainer = $fixture.find('.bar');
+
+      expect(newContainer.find('.modal')).to.exist;
     });
   });
 

@@ -98,10 +98,12 @@ class Modal {
 }
 
 /* istanbul ignore next */
-$.fn[NAME] = function() {
+$.fn[NAME] = function(options) {
+  options = options || {};
+
   return this.each(function() {
     if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Modal(this).init());
+      $.data(this, NAME, new Modal(this, options).init());
     }
   });
 };
