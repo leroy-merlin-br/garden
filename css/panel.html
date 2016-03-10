@@ -80,4 +80,10 @@ text.on('success', function(e) {
   }
 });
 
-$('.docs').form();</script></body></html>
+$('.docs').form();
+
+$('[data-modal]').modal()
+
+$('[data-trigger="open-modal"]').on('click', function() {
+  $('[data-modal]').data('modal').show();
+});</script></body></html>

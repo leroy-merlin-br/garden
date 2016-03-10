@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../css/garden.min.css"><link rel="stylesheet" href="../css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link link-active">Modal</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
+<p class="lead">Modal component is an empty container that you put any kind of content.</p>
+
+<p>By default, you can close modal using the close icon inside or by using <code>esc</code> key.</p>
+<h2 id="how-to">How to</h2>
+<p>Modal component allow users to choose witch selector to use, you can use a simple <code>data-whatever</code> or a class. Be sure to not use class like: <code>.modal</code>, <code>.modal-content</code>, <code>.modal-body</code> to initiate modal.</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'[data-modal]'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >modal</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">// or</span>
+
+<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.modal-wrapper'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >modal</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<p>When you call <code>.modal()</code> instance, it create <code>.modal</code> element and append into DOM.</p>
+<p>Example:</p>
+<button class="button button-primary" data-trigger="open-modal">Open Modal</button>
+
+<div data-modal class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>hello</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="button button-primary">Ok</button>
+    </div>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >data-modal</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>hide<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>row<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>col-xs-12<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Hello!<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList) {
+    e.trigger.classList.add('copied');
+
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 1000)
+  }
+});
+
+$('.docs').form();
+
+$('[data-modal]').modal()
+
+$('[data-trigger="open-modal"]').on('click', function() {
+  $('[data-modal]').data('modal').show();
+});</script></body></html>

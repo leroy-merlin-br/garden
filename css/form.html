@@ -203,6 +203,30 @@
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>helper<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
 <p>Please note to properly style the <code>.select</code> control, you must add the <code>.field-select</code> to the <code>.field</code> molecule.</p>
+<p>In addition to field validation control, you can also provide a form feedback:</p>
+<div class="example example-code">
+  <div class="feedback">
+    <div class="feedback-title">Hooray! Success!</div>
+    Lorem ipsum sit dolor amet
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>feedback<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>feedback-title<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>...<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    ...
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<p>You can compose the <code>.feedback</code> component using the <code>.feedback-error</code> class:</p>
+<div class="example example-code">
+  <div class="feedback feedback-error">
+    <div class="feedback-title error">Oops! Something went wrong!</div>
+    Lorem ipsum sit dolor amet
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>feedback feedback-error<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>feedback-title<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>...<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+    ...
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../js/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
@@ -222,4 +246,10 @@ text.on('success', function(e) {
   }
 });
 
-$('.docs').form();</script></body></html>
+$('.docs').form();
+
+$('[data-modal]').modal()
+
+$('[data-trigger="open-modal"]').on('click', function() {
+  $('[data-modal]').data('modal').show();
+});</script></body></html>

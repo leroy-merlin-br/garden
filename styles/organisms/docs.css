@@ -103,4 +103,8 @@
       }
     }
   }
+
+  .hide {
+    display: none;
+  }
 }
