@@ -4,7 +4,7 @@
   opacity: 0;
   transition: opacity .3s ease-in-out;
   width: 100%;
-  z-index: 100;
+  z-index: $modal-index;
 
   &-enter {
     left: 0;
@@ -21,6 +21,6 @@
   }
 
   &-hide {
-    position: inherit;
+    position: static;
   }
 }

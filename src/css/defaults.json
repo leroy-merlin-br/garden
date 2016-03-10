@@ -35,5 +35,8 @@
 
   "columns": "12",
   "gutter-width": "20px",
-  "grid-limit": "980px"
+  "grid-limit": "980px",
+
+  "modal-index": "100",
+  "modal-content-index": "101"
 }

@@ -16,7 +16,7 @@
   transform: translate(-50%, -50%) scale(1.3);
   transition: all .3s ease;
   width: 55%;
-  z-index: 101;
+  z-index: $modal-content-index;
 
   &-enter {
     display: block;
