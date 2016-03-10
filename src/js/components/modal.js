@@ -4,7 +4,7 @@ const NAME = 'modal';
 
 const templates = {
   modal: '<div class="modal"></div>',
-  close: '<i class="close glyph glyph-x"></i>',
+  close: '<i class="modal-close glyph glyph-x"></i>',
   content: '<div class="modal-content"><div class="modal-body"></div></div>'
 };
 
