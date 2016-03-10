@@ -12,10 +12,8 @@ const DEFAULTS = {
 
 class LazyLoad {
   constructor(element, options) {
-    options = $.extend({}, DEFAULTS, options || {});
-
     this._element = $(element);
-    this._options = options;
+    this._options = $.extend({}, DEFAULTS, (options || {}));
   }
 
   init() {
