@@ -46,7 +46,6 @@ class Modal {
 
     $(window).on('keyup', (event) => {
       if (event.which === 27) {
-        console.log('esc');
         this.hide();
       }
     });
