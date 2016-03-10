@@ -4,8 +4,8 @@
   font-size: 1rem;
   position: absolute;
   right: 1rem;
-  transition: color .3s ease-in-out;
   top: 1rem;
+  transition: color .3s ease-in-out;
 
   &:hover {
     color: $color-primary-dark;
