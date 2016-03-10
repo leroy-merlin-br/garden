@@ -8,20 +8,18 @@ const templates = {
   content: '<div class="modal-content"><div class="modal-body"></div></div>'
 };
 
-class Modal {
-  constructor(element) {
-    this._element = $(element);
-    this._modal = $(templates.modal);
-    this._content = $(templates.content);
-    this._close = $(templates.close);
+const DEFAULTS = {
+  container: 'body'
+};
 
-    this._content.append(this._close);
-    this._modal.append(this._content);
+class Modal {
+  constructor(element, options) {
+    this._element = (element instanceof $) ? element : $(element);
+    this._options = $.extend({}, DEFAULTS, (options || {}));
   }
 
   init() {
-    $('body').append(this._modal);
-    this._fillModal();
+    this._createModal();
 
     return this;
   }
@@ -38,53 +36,65 @@ class Modal {
 
   destroy() {
     this._element.removeData(NAME);
-    this._modal.remove();
+    this.modal.remove();
   }
 
   bindListeners() {
-    this._close.on('click', this.hide.bind(this));
+    this.close.on('click', this.hide.bind(this));
 
-    $(window).on('keyup', (event) => {
-      if (event.which === 27) {
+    $(window).on('keyup', this.handler = (e) => {
+      if (e.which === 27) {
         this.hide();
       }
     });
   }
 
   unbindListeners() {
-    this._close.off('click');
-    $(window).off('keyup');
+    this.close.off('click');
+    $(window).off('keyup', this.handler);
   }
 
   _showModal() {
-    this._modal.addClass('modal-enter');
-    this._content.addClass('modal-content-enter');
+    this.modal.addClass('modal-enter');
+    this.content.addClass('modal-content-enter');
 
     window.setTimeout(() => {
-      this._modal.addClass('modal-show');
-      this._content.addClass('modal-content-show');
+      this.modal.addClass('modal-show');
+      this.content.addClass('modal-content-show');
     }, 200);
   }
 
   _hideModal() {
-    this._content
+    this.content
     .removeClass('modal-content-show')
     .addClass('modal-content-leave');
 
-    this._modal
+    this.modal
       .removeClass('modal-show')
       .addClass('modal-leave');
 
     window.setTimeout(() => {
-      this._modal.removeClass('modal-enter modal-leave');
-      this._content.removeClass('modal-content-enter modal-content-leave');
+      this.modal.removeClass('modal-enter modal-leave');
+      this.content.removeClass('modal-content-enter modal-content-leave');
     }, 200);
   }
 
   _fillModal() {
-    this._content.find('.modal-body').append(this._element.html());
+    this.content.find('.modal-body').append(this._element.html());
   }
 
+  _createModal() {
+    this.modal = $(templates.modal);
+    this.content = $(templates.content);
+    this.close = $(templates.close);
+
+    this.content.append(this.close);
+    this.modal.append(this.content);
+
+    $(this._options.container).append(this.modal);
+
+    this._fillModal();
+  }
 }
 
 /* istanbul ignore next */
