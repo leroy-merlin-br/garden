@@ -58,6 +58,9 @@ We highly encourage the usage of color interfaces rather than color names. Color
     <div class="color color-warning" data-clipboard-text="$color-warning"></div>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="color color-warning-light" data-clipboard-text="$color-warning-light"></div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="color color-danger" data-clipboard-text="$color-danger"></div>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-4">

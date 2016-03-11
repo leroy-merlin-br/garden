@@ -2,6 +2,7 @@
   "color-text": "#333333",
   "color-neutral": "#ffffff",
   "color-warning": "#fae800",
+  "color-warning-light": "#fffccf",
   "color-danger": "#ed1c24",
   "color-success": "#72bf44",
 

@@ -129,6 +129,14 @@
     }
   }
 
+  .color-warning-light {
+    background-color: $color-warning-light;
+
+    &::after {
+      content: "color-warning-light: $(color-warning-light)";
+    }
+  }
+
   .color-danger {
     background-color: $color-danger;
     color: $color-neutral;
@@ -147,4 +155,3 @@
     }
   }
 }
-
