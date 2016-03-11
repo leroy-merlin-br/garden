@@ -1,0 +1,25 @@
+.notification {
+  background-color: $color-default-lighter;
+  border-color: $color-default-dark;
+  border-radius: .25rem;
+  border-style: solid;
+  border-width: 1px;
+  color: $color-text;
+  padding-bottom: .75rem;
+  padding-left: .6rem;
+  padding-right: .6rem;
+  padding-top: .75rem;
+  position: relative;
+
+  &-primary {
+    background-color: $color-primary-lighter;
+    border-color: $color-secondary;
+    color: $color-primary;
+  }
+
+  &-warning {
+    background-color: $color-warning-light;
+    border-color: $color-warning;
+    color: $color-text;
+  }
+}

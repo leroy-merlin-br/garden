@@ -1,0 +1,9 @@
+.notification-close {
+  color: $color-text;
+  position: absolute;
+  right: .6rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

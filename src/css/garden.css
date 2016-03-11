@@ -15,6 +15,7 @@
 @import "atoms/border";
 @import "atoms/grid";
 @import "atoms/modal";
+@import "atoms/notification";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
@@ -24,6 +25,8 @@
 
 @import "atoms/modal/close";
 @import "atoms/modal/content";
+
+@import "atoms/notification/close";
 
 @import "molecules/field";
 @import "molecules/input-button";
