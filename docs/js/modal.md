@@ -94,21 +94,17 @@ trigger.on('click', () => {
 ```
 Once you called `show()`, `modal()` bind the close icon and `esc` keyboard key to hide modal.
 
-If you want that a button inside `.modal` close itself, add this trigger in `[data-modal]` content and create an event to call `.hide()`.
+If you want that a button inside `.modal` close itself, add option `triggerClose` with a string selector. Modal will bind this element and call `hide()` when click is fired.
 
 ```js
-let modal = $('[data-modal]').modal(),
-    triggerOpen = $('[data-trigger="open"]'),
-    triggerClose = $('[data-trigger="open"]');
+let modal = $('[data-modal]').modal({
+      triggerClose: '.any-selector'
+    }),
+    triggerOpen = $('[data-trigger="open"]');
 
 triggerOpen.on('click', () => {
   modal.show();
 });
-
-triggerClose.on('click', () => {
-  modal.hide();
-});
-
 ```
 Working Example:
 
