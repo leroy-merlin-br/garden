@@ -49,11 +49,12 @@ Based on this markup, the component will get all content inside of `[data-modal]
 
 ## Options
 
-For while, modal provides only one customizable option, that is `container`. By default, `.modal` is appended in body, but you can change it.
+Modal provides two customizable options, that is `container` and `triggerClose`. By default, `.modal` is appended in body and `triggerClose` is null.
 
 | Option            | Description |
 |-------------------|-------------|
-| container (body)  | The new selector to append `.modal` |
+| container (body)  | A new string selector to append `.modal` |
+| triggerClose (null) | A string selector to bind and call hide method when clicked |
 
 Ex:
 
