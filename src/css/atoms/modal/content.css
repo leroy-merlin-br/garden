@@ -43,3 +43,10 @@
     width: 65%;
   }
 }
+
+@media (--large) {
+
+  .modal-content {
+    width: 50%;
+  }
+}

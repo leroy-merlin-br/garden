@@ -60,7 +60,8 @@ Ex:
 
 ```js
 let options = {
-  container: '.wrapper'
+  container: '.wrapper',
+  triggerClose: '[data-anything]'
 }
 
 // as a jquery plugin
@@ -94,7 +95,7 @@ trigger.on('click', () => {
 ```
 Once you called `show()`, `modal()` bind the close icon and `esc` keyboard key to hide modal.
 
-If you want that a button inside `.modal` close itself, add option `triggerClose` with a string selector. Modal will bind this element and call `hide()` when click is fired.
+If you want that a button inside `.modal` close itself, add option `triggerClose` with a string selector. Modal will delegate `click` to selector and call `hide()` when click is fired.
 
 ```js
 let modal = $('[data-modal]').modal({

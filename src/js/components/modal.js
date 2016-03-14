@@ -43,7 +43,7 @@ class Modal {
   bindListeners() {
     if (this._options.triggerClose) {
       this.triggerClose = this.modal.find(this._options.triggerClose);
-      this.triggerClose.on('click', this.hide.bind(this));
+      this.modal.delegate(this.triggerClose, 'click', this.hide.bind(this));
     }
 
     this.close.on('click', this.hide.bind(this));
