@@ -56,12 +56,10 @@ html(lang="pt-BR")
 
       $('.docs').form();
       
-      var modal = $('[data-modal]').modal();
+      var modal = $('[data-modal]').modal({
+        triggerClose: '[data-trigger="close"]'
+      });
       
       $('[data-trigger="open"]').on('click', function() {
         modal.data('modal').show();
-      });
-      
-      $('[data-trigger="close"]').on('click', function() {
-        modal.data('modal').hide();
       });
