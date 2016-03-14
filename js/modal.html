@@ -24,7 +24,7 @@
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
 <p>Based on this markup, the component will get all content inside of <code>[data-modal]</code> and append into <code>.modal-body</code>.</p>
 <h2 id="options">Options</h2>
-<p>For while, modal provides only one customizable option, that is <code>container</code>. By default, <code>.modal</code> is appended in body, but you can change it.</p>
+<p>Modal provides two customizable options, that is <code>container</code> and <code>triggerClose</code>. By default, <code>.modal</code> is appended in body and <code>triggerClose</code> is null.</p>
 <table>
 <thead>
 <tr>
@@ -35,7 +35,11 @@
 <tbody>
 <tr>
 <td>container (body)</td>
-<td>The new selector to append <code>.modal</code></td>
+<td>A new string selector to append <code>.modal</code></td>
+</tr>
+<tr>
+<td>triggerClose (null)</td>
+<td>A string selector to bind and call hide method when clicked</td>
 </tr>
 </tbody>
 </table>
@@ -107,12 +111,10 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-var modal = $('[data-modal]').modal();
+var modal = $('[data-modal]').modal({
+  triggerClose: '[data-trigger="close"]'
+});
 
 $('[data-trigger="open"]').on('click', function() {
   modal.data('modal').show();
-});
-
-$('[data-trigger="close"]').on('click', function() {
-  modal.data('modal').hide();
 });</script></body></html>
