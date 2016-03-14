@@ -1,7 +1,7 @@
 import Modal from '../../src/js/components/modal';
 
 describe('Modal spec', () => {
-  let modalInstance, $fixture, options;
+  let modalInstance, $fixture;
 
   before(() => {
     fixture.setBase('test/fixture');
@@ -141,6 +141,24 @@ describe('Modal spec', () => {
         });
 
         expect(spy.notCalled).to.be.true;
+      })
+    );
+
+    it('should bind triggerClose if user passed selector as option',
+      sinon.test(function() {
+
+        let newModalInstance = new Modal(
+              $fixture.find('[data-modal]'),
+              { triggerClose: '[data-modal="close"]' }
+            ),
+            spy = this.spy(newModalInstance, 'hide');
+
+        newModalInstance.init();
+        newModalInstance.show();
+
+        newModalInstance.triggerClose.trigger('click');
+
+        expect(newModalInstance.modal.hasClass('modal-show')).to.be.false;
       })
     );
   });
