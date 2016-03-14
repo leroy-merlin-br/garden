@@ -24,7 +24,6 @@
 
 @import "atoms/modal/close";
 @import "atoms/modal/content";
-@import "atoms/modal/body";
 
 @import "molecules/field";
 @import "molecules/input-button";

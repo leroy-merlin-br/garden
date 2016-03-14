@@ -15,7 +15,7 @@
   top: 50%;
   transform: translate(-50%, -50%) scale(1.3);
   transition: all .3s ease;
-  width: 55%;
+  width: 95%;
   z-index: $modal-content-index;
 
   &-enter {
@@ -34,5 +34,12 @@
 
   &-hide {
     display: none;
+  }
+}
+
+@media (--medium) {
+
+  .modal-content {
+    width: 65%;
   }
 }
