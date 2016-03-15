@@ -42,8 +42,7 @@ class Modal {
 
   bindListeners() {
     if (this._options.triggerClose) {
-      this.triggerClose = this.modal.find(this._options.triggerClose);
-      this.modal.delegate(this.triggerClose, 'click', this.hide.bind(this));
+      this.modal.on('click', this._options.triggerClose, this.hide.bind(this));
     }
 
     this.close.on('click', this.hide.bind(this));
@@ -57,7 +56,7 @@ class Modal {
 
   unbindListeners() {
     if (this._options.triggerClose) {
-      this.triggerClose.off('click');
+      this.modal.off('click', this._options.triggerClose, this.hide.bind(this));
     }
 
     this.close.off('click');

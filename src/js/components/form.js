@@ -50,7 +50,7 @@ class Form {
 
   toggleFieldsActiveClass() {
     Array.prototype.forEach.call(
-      this._element.find(this._options.selectors),
+      $(document).find(this._options.selectors),
       this.toggleActiveClass.bind(this)
     );
   }
