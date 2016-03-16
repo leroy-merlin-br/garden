@@ -29,7 +29,7 @@
     }
   }
 
-  .glyph {
+  .glyph-container .glyph {
     font-size: 2rem;
   }
 
