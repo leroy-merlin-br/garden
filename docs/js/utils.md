@@ -54,3 +54,18 @@ A function to remove elements from an [array-like object](http://www.2ality.com/
 ```
 
 Under the hood, it's pretty much an `indexOf` + `splice` execution.
+
+## TransitionEnd Checker
+
+A function that check witch `transitionend` event name is supported in current browser.
+`transitionend` event is fired when any css transition end, but each browser has a different name. This util return the right name based in your browser.
+
+```js
+import transitionEnd from 'src/js/utils/transitionend-checker';
+
+let transitionEndEventName = transitionEnd();
+
+$('div').on(transitionEndEventName, () => {
+  alert('Transition has finished');
+});
+```
