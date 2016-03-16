@@ -42,6 +42,21 @@ Warning, uses our `$color-warning-light` color. Add `notification-warning` class
 <div class="notification notification-warning"></div>
 ```
 
+Adding a glyph to work as a component:
+
+<div class="example example-code">
+  <div class="notification notification-primary">
+    Lorem ipsum dolor
+    <i class="notification-close glyph glyph-x"></i>
+  </div>
+</div>
+
+```html
+<div class="notification notification-primary">
+  <i class="notification-close glyph glyph-x"></i>
+</div>
+```
+
 By default, notification don't have any sizes or display. Notification atom just add some padding, border, border-radius and colors, feel free to use as you want.
 
-If you want notification with some interations, read more about [notification component](/js/notification).
+If you want notification with some interations, read more about [notification component](/js/notification.html).

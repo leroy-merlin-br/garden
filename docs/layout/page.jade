@@ -63,3 +63,16 @@ html(lang="pt-BR")
       $('[data-trigger="open"]').on('click', function() {
         modal.data('modal').show();
       });
+      
+      $('[data-notification-dynamic]').notification({
+        message: 'foo bar',
+        autoHide: true,
+        showIn: 2000,
+        hideIn: 20000,
+        type: 'warning'
+      });
+      
+      $('[data-notification]').notification({
+        dynamic: false,
+        closeButton: '[data-close="notification"]'
+      });

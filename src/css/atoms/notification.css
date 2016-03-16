@@ -7,9 +7,10 @@
   color: $color-text;
   padding-bottom: .75rem;
   padding-left: .6rem;
-  padding-right: .6rem;
+  padding-right: 2rem;
   padding-top: .75rem;
   position: relative;
+  transition: opacity .3s ease-in-out;
 
   &-primary {
     background-color: $color-primary-lighter;
@@ -21,5 +22,22 @@
     background-color: $color-warning-light;
     border-color: $color-warning;
     color: $color-text;
+  }
+
+  &-enter {
+    display: block;
+    opacity: 0;
+  }
+
+  &-leave {
+    opacity: 0;
+  }
+
+  &-hide {
+    display: none;
+  }
+
+  &-show {
+    opacity: 1;
   }
 }
