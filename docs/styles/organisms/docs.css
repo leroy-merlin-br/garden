@@ -80,6 +80,13 @@
 
     tbody {
 
+      code {
+        border-bottom: .06rem solid $color-default-light;
+        border-radius: .12rem;
+        color: $color-primary;
+        display: inline-block;
+      }
+
       tr {
 
         &:nth-child(even) {
