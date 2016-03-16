@@ -1,6 +1,7 @@
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-source-map',
   output: {
+    path: __dirname,
     filename: 'garden.min.js'
   },
   externals: {
