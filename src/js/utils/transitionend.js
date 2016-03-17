@@ -6,10 +6,9 @@ export default () => {
     transition: 'transitionend'
   };
 
-  let el = document.createElement('div'),
-    transition;
+  let el = document.createElement('div');
 
-  for (transition in eventNames) {
+  for (let transition in eventNames) {
     if (el.style[transition] !== undefined) {
       return eventNames[transition];
     }
