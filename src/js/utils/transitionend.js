@@ -3,6 +3,7 @@ export default () => {
     WebkitTransition: 'webkitTransitionEnd',
     MozTransition: 'transitionend',
     OTransition: 'oTransitionEnd otransitionend',
+    msTransition: 'MsTransitionEnd',
     transition: 'transitionend'
   };
 
