@@ -49,6 +49,10 @@
       border-radius: 0 0 .18rem .18rem;
       margin-top: 0;
     }
+
+    .notification {
+      margin-bottom: 0;
+    }
   }
 
   pre {
@@ -75,6 +79,13 @@
     }
 
     tbody {
+
+      code {
+        border-bottom: .06rem solid $color-default-light;
+        border-radius: .12rem;
+        color: $color-primary;
+        display: inline-block;
+      }
 
       tr {
 
@@ -106,5 +117,9 @@
 
   .hide {
     display: none;
+  }
+
+  .notification {
+    margin-bottom: .6rem;
   }
 }

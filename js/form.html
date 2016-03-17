@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Form | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../css/garden.min.css"><link rel="stylesheet" href="../css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link link-active">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link">Modal</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="form">Form</h1>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Form | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../css/garden.min.css"><link rel="stylesheet" href="../css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link link-active">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link">Modal</a><a href="notifications.html" class="link">Notifications</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="form">Form</h1>
 <h3 id="how-to-use">How to use</h3>
 <p>As in right now, the <code>form</code> plugin is responsible to handle the <code>.active</code> state of the <code>.field</code>:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// accepted options / default values:</span>
@@ -37,4 +37,17 @@ var modal = $('[data-modal]').modal({
 
 $('[data-trigger="open"]').on('click', function() {
   modal.data('modal').show();
+});
+
+$('[data-notification-dynamic]').notification({
+  message: 'foo bar',
+  autoHide: true,
+  showIn: 2000,
+  hideIn: 20000,
+  type: 'warning'
+});
+
+$('[data-notification]').notification({
+  dynamic: false,
+  closeButton: '[data-close="notification"]'
 });</script></body></html>
