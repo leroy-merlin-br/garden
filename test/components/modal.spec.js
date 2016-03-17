@@ -120,6 +120,12 @@ describe('Modal spec', () => {
     }));
 
     it('should hide modal when click in close', () => {
+      let newModalInstance = new Modal(
+        $fixture.find('[data-modal]'),
+        {
+          container: '.bar'
+        }
+      );
       modalInstance.init();
       modalInstance.show();
 
@@ -149,14 +155,14 @@ describe('Modal spec', () => {
 
         let newModalInstance = new Modal(
               $fixture.find('[data-modal]'),
-              { triggerClose: '[data-modal="close"]' }
+              { triggerClose: '[data-trigger="close"]' }
             ),
             spy = this.spy(newModalInstance, 'hide');
 
         newModalInstance.init();
         newModalInstance.show();
 
-        newModalInstance.triggerClose.trigger('click');
+        newModalInstance.modal.find('[data-trigger="close"]').trigger('click');
 
         expect(newModalInstance.modal.hasClass('modal-show')).to.be.false;
       })
