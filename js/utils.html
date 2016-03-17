@@ -33,14 +33,12 @@ the provided timeout, then reset it:</p>
 
  <span class="token function" >removeFromArray</span><span class="token punctuation" >(</span>nodes<span class="token punctuation" >,</span> nodes<span class="token punctuation" >[</span><span class="token number" >2</span><span class="token punctuation" >]</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
 <p>Under the hood, it’s pretty much an <code>indexOf</code> + <code>splice</code> execution.</p>
-<h2 id="transitionend-checker">TransitionEnd Checker</h2>
+<h2 id="transitionend">TransitionEnd</h2>
 <p>A function that check witch <code>transitionend</code> event name is supported in current browser.
-<code>transitionend</code> event is fired when any css transition end, but each browser has a different name. This util return the right name based in your browser.</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> transitionEnd <span class="token keyword" >from</span> <span class="token string" >'src/js/utils/transitionend-checker'</span><span class="token punctuation" >;</span>
+<code>transitionend</code> event is fired when any css transition is finished, but each browser has a different name. This util return the right name based in your browser.</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> transitionEnd <span class="token keyword" >from</span> <span class="token string" >'src/js/utils/transitionend'</span><span class="token punctuation" >;</span>
 
-<span class="token keyword" >let</span> transitionEndEventName <span class="token operator" >=</span> <span class="token function" >transitionEnd</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'div'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span>transitionEndEventName<span class="token punctuation" >,</span> <span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'div'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span><span class="token function" >transitionEnd</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span> <span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
   <span class="token function" >alert</span><span class="token punctuation" >(</span><span class="token string" >'Transition has finished'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
