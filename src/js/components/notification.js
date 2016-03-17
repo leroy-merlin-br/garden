@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import transitionEnd from '../utils/transitionend-checker';
+import transitionEnd from '../utils/transitionend';
 
 const NAME = 'notification';
 
@@ -29,9 +29,8 @@ const templates = {
 
 class Notification {
   constructor(element, options) {
-    this._element = (element instanceof $) ? element : $(element);
+    this.$element = (element instanceof $) ? element : $(element);
     this._options = $.extend({}, DEFAULTS, options);
-    this.transitionEndEvent = transitionEnd();
   }
 
   /**
@@ -61,7 +60,7 @@ class Notification {
       this.hide();
     };
 
-    this._element.on('click', this._options.closeButton, this.closeHandler);
+    this.close.on('click', this.closeHandler);
   }
 
   /**
@@ -83,9 +82,11 @@ class Notification {
    * hide notification and after hide animation finish, add display: none to element
    */
   hide() {
-    this.box.removeClass(classNames.show).addClass(classNames.leave);
+    this.box
+      .removeClass(classNames.show)
+      .addClass(classNames.leave);
 
-    this.box.on(this.transitionEndEvent, () => {
+    this.box.on(transitionEnd(), () => {
       this.box
         .addClass(classNames.hide)
         .removeClass(classNames.enter)
@@ -94,10 +95,10 @@ class Notification {
   }
 
   /**
-   * Remove data from _element, unbind close button and remove box from DOM
+   * Remove data from $element, unbind close button and remove box from DOM
    */
   destroy() {
-    this._element.removeData(NAME);
+    this.$element.removeData(NAME);
     this.close.off('click', this.closeHandler);
     this.box.remove();
   }
@@ -108,8 +109,8 @@ class Notification {
   _createNotification() {
 
     if (!this._options.dynamic) {
-      this.box = this._element;
-      this._closeButton();
+      this.box = this.$element;
+      this._createCloseButton();
 
       return;
     }
@@ -122,11 +123,11 @@ class Notification {
     this.box.addClass(`${NAME}-${this._options.type}`);
     this.box.html(this._options.message);
 
-    this._closeButton();
-    this._element.append(this.box);
+    this._createCloseButton();
+    this.$element.append(this.box);
   }
 
-  _closeButton() {
+  _createCloseButton() {
     if (!this._options.dynamic) {
       return this.close = this.box.find(this._options.closeButton);
     }

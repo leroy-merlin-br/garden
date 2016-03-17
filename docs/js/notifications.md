@@ -14,7 +14,7 @@ We add some interactions as close button, automatically show/hide and etc.
 
 Notification component can be used in two ways, dynamic (default) or not.
 
-## How to work
+## How it works
 
 This component allow users to choose which selector to use, you can use a simple `[data-whatever]` or a class.
 
@@ -28,7 +28,7 @@ or as a vanilla constructor:
 ```js
 import Notification from 'garden/src/js/components/notification';
 
-new Notification(document.querySelectorAll('[data-notification]'), options);
+new Notification(document.querySelector('[data-notification]'), options);
 ```
 
 ## Options
@@ -101,7 +101,7 @@ let options = {
   type: 'warning'
 }
 
-new Notification(document.querySelectorAll('[data-notification]'), options);
+new Notification(document.querySelector('[data-notification]'), options);
 ```
 
 ### Non-dynamic
@@ -144,5 +144,5 @@ let options = {
   dynamic: false
 }
 
-new Notification(document.querySelectorAll('[data-notification]'), options);
+new Notification(document.querySelector('[data-notification]'), options);
 ```

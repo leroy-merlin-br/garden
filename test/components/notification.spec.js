@@ -1,4 +1,5 @@
 import Notification from '../../src/js/components/notification';
+import transitionEnd from '../../src/js/utils/transitionend';
 
 describe('Notification spec', () => {
   let notification, $fixture, options;
@@ -25,7 +26,7 @@ describe('Notification spec', () => {
     it('should return a instanceof $ if param element isn\'t', () => {
       let newNotification = new Notification(fixture.load('notification.html')[0], options);
 
-      expect(newNotification._element).to.be.instanceof($);
+      expect(newNotification.$element).to.be.instanceof($);
     });
   });
 
@@ -71,16 +72,16 @@ describe('Notification spec', () => {
   });
 
   describe('bindListeners', () => {
-    // it('should bind close button', sinon.test(function() {
-    //   let spy = this.spy(notification, 'hide');
-    //
-    //   notification._createNotification();
-    //   notification.bindListeners();
-    //
-    //   notification.close.trigger('click');
-    //
-    //   expect(spy.calledOnce).to.be.true;
-    // }));
+    it('should bind close button', sinon.test(function() {
+      let spy = this.spy(notification, 'hide');
+
+      notification._createNotification();
+      notification.bindListeners();
+
+      notification.close.trigger('click');
+
+      expect(spy.calledOnce).to.be.true;
+    }));
   });
 
   describe('show', () => {
@@ -108,11 +109,12 @@ describe('Notification spec', () => {
 
   describe('hide', () => {
     it('should hide notification', sinon.test(function() {
+
       notification._createNotification();
       notification.show();
       notification.hide();
 
-      notification.box.trigger(notification.transitionEndEvent);
+      notification.box.trigger(transitionEnd());
 
       expect(notification.box.hasClass('notification-hide')).to.be.true;
     }));
@@ -130,7 +132,7 @@ describe('Notification spec', () => {
       expect(spy.calledOnce).to.be.false;
     }));
 
-    it('should removeData from _element and remove box from DOM', () => {
+    it('should removeData from $element and remove box from DOM', () => {
       notification.init();
       notification.destroy();
 
@@ -154,7 +156,7 @@ describe('Notification spec', () => {
 
       newNotification._createNotification();
 
-      expect(newNotification.box === newNotification._element).to.be.true;
+      expect(newNotification.box === newNotification.$element).to.be.true;
     });
 
     it('should not create notification in DOM, if message is empty', () => {
@@ -178,7 +180,7 @@ describe('Notification spec', () => {
     });
   });
 
-  describe('_closeButton', () => {
+  describe('_createCloseButton', () => {
     it('should not create close element, if dynamic is false', sinon.test(function() {
       let spy = this.spy($.fn, 'append');
 
