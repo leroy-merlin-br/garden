@@ -76,6 +76,8 @@ class Notification {
         this.hide();
       }, this._options.hideIn);
     }
+
+    console.log('hi hound');
   }
 
   /**
