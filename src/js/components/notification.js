@@ -10,7 +10,7 @@ const DEFAULTS = {
   hideIn: 3000,
   message: null,
   showIn: 1000,
-  type: 'primary',
+  type: 'primary'
 };
 
 const classNames = {
