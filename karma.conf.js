@@ -28,7 +28,15 @@ module.exports = function(config) {
         ]
       }
     },
-    reporters: ['notify', 'nyan', 'coverage', 'coveralls'],
+    reporters: ['notify', 'nyan', 'coverage'],
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [
+        {type: 'html'},
+        {type: 'lcovonly', subdir: '.'},
+        {type: 'json', subdir: '.'}
+      ]
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
