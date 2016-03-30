@@ -18,6 +18,6 @@ body {
 hr {
   background-color: $color-default-light;
   border: 0;
-  height: .06rem;
+  height: .0625rem;
   width: 100%;
 }

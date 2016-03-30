@@ -23,7 +23,7 @@
     }
 
     &[disabled] + .label {
-      border: .06rem solid $color-default-light;
+      border: .0625rem solid $color-default-light;
       box-shadow: none;
       color: $color-default-light;
       cursor: not-allowed;
@@ -32,7 +32,7 @@
 
   .label {
     background-color: $color-neutral;
-    border: .06rem solid $color-default;
+    border: .0625rem solid $color-default;
     border-radius: .25rem;
     display: inline-block;
     padding: .68rem .81rem .68rem 2rem;

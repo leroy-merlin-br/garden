@@ -1,5 +1,5 @@
 .border {
-  border: .0625rem solid $color-primary-light;
+  border: .062525rem solid $color-primary-light;
 
   &-hover {
     transition: border-color .3s ease-in-out;

@@ -7,7 +7,7 @@
   padding-bottom: .12rem;
   padding-left: .31rem;
   padding-right: .31rem;
-  padding-top: .06rem;
+  padding-top: .0625rem;
 
   &-danger {
     background-color: $color-danger;
