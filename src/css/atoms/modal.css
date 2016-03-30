@@ -6,6 +6,14 @@
   width: 100%;
   z-index: $modal-index;
 
+  &::before {
+    content: " ";
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    vertical-align: middle;
+  }
+
   &-enter {
     left: 0;
     position: fixed;

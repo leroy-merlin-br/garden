@@ -4,6 +4,7 @@
   box-shadow: 0 0 .3rem rgba(0, 0, 0, .5);
   display: none;
   left: 50%;
+  margin-left: -47.5%;
   max-height: 90%;
   opacity: 0;
   overflow: auto;
@@ -11,25 +12,25 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1rem;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(1.3);
-  transition: all .3s ease;
+  position: relative;
+  transform: scale(1.3);
+  transition: transform .3s ease, opacity .3s ease;
+  vertical-align: middle;
   width: 95%;
   z-index: $modal-content-index;
 
   &-enter {
-    display: block;
+    display: inline-block;
   }
 
   &-show {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
   }
 
   &-leave {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: scale(1.3);
   }
 
   &-hide {
@@ -40,6 +41,7 @@
 @media (--medium) {
 
   .modal-content {
+    margin-left: -32.5%;
     width: 65%;
   }
 }
@@ -47,6 +49,7 @@
 @media (--large) {
 
   .modal-content {
+    margin-left: -25%;
     width: 50%;
   }
 }
