@@ -2,17 +2,47 @@
   background-color: $color-default;
   border: 0;
   border-radius: .25rem;
-  box-shadow: 0 .12rem .12rem 0 rgba(0, 0, 0, .16), 0 .12rem .5rem 0 rgba(0, 0, 0, .12);
   color: $color-neutral;
   display: inline-block;
   font-size: 1rem;
   padding: .68rem .81rem;
-  transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
+  position: relative;
+  transition: transform .3s ease-in-out;
+
+  &::before,
+  &::after {
+    border-radius: .25rem;
+    content: " ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .3s ease-in-out;
+    width: 100%;
+    z-index: -1;
+
+  }
+
+  &::before {
+    box-shadow: 0 .12rem .12rem 0 rgba(0, 0, 0, .16), 0 .12rem .5rem 0 rgba(0, 0, 0, .12);
+  }
+
+  &::after {
+    box-shadow: 0 1.25rem 1.25rem -.62rem rgba(0, 0, 0, .2), 0 .25rem .81rem 0 rgba(0, 0, 0, .2);
+    opacity: 0;
+  }
 
   &:hover,
   &:focus {
-    box-shadow: 0 1.25rem 1.25rem -.62rem rgba(0, 0, 0, .2), 0 .25rem .81rem 0 rgba(0, 0, 0, .2);
-    transform: translateY(-.06rem);
+    transform: translateY(-.0625rem);
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
   }
 
   &:focus{
@@ -52,10 +82,14 @@
 
   &-text {
     background-color: transparent;
-    box-shadow: none;
     color: $color-primary;
     padding: 0;
     transition: none;
+
+    &::after,
+    &::before {
+      box-shadow: none;
+    }
 
     &:focus,
     &:hover {
