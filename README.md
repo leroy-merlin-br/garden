@@ -1,10 +1,8 @@
 <img src="docs/images/garden.png" alt="Garden">
 
 ![CodeShip](https://codeship.com/projects/7aa22b80-d3f1-0133-7a36-1e4d5c815c8f/status?branch=master)
-
 [![codecov.io](https://codecov.io/github/leroy-merlin-br/garden/coverage.svg?branch=master)](https://codecov.io/github/leroy-merlin-br/garden?branch=master)
-
-[![Semver](http://img.shields.io/SemVer/0.7.0.png)](http://semver.org/spec/v0.7.0.html)
+[![Semver](http://img.shields.io/SemVer/0.7.0.png)](http://semver.org/spec/v0.7.1.html)
 
 A front end library to help you make *​your*​ grass greener than the other side
 
