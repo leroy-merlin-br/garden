@@ -1,7 +1,7 @@
 import Form from '../../src/js/components/form';
 
 describe('form spec', () => {
-  var formInstance, $fixture;
+  var instance, $fixture;
 
   before(() => {
     fixture.setBase('test/fixture');
@@ -10,7 +10,7 @@ describe('form spec', () => {
   beforeEach(() => {
     $fixture = $(fixture.load('form.html')[0]);
 
-    formInstance = new Form($fixture);
+    instance = new Form($fixture);
   });
 
   afterEach(() => {
@@ -108,7 +108,7 @@ describe('form spec', () => {
     it('should call @toggleActiveClass on each $field', sinon.test(function() {
       this.spy(Form.prototype, 'toggleActiveClass');
 
-      formInstance.toggleFieldsActiveClass();
+      instance.toggleFieldsActiveClass();
 
       expect(Form.prototype.toggleActiveClass.called).to.be.true;
     }));

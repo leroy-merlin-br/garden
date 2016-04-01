@@ -8,8 +8,8 @@ const DEFAULTS  = {
 
 class Form {
   constructor(element, options) {
-    this._element = $(element);
-    this._options = $.extend({}, DEFAULTS, (options || {}));
+    this.$element = $(element);
+    this.options = $.extend({}, DEFAULTS, (options || {}));
 
     this.bindListeners();
 
@@ -18,7 +18,7 @@ class Form {
 
   bindListeners() {
     $(document).on(
-      this._options.events, this._options.selectors,
+      this.options.events, this.options.selectors,
       this.onFieldChange.bind(this)
     );
   }
@@ -50,7 +50,7 @@ class Form {
 
   toggleFieldsActiveClass() {
     Array.prototype.forEach.call(
-      $(document).find(this._options.selectors),
+      $(document).find(this.options.selectors),
       this.toggleActiveClass.bind(this)
     );
   }
