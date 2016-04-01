@@ -12,8 +12,8 @@ const DEFAULTS = {
 
 class LazyLoad {
   constructor(element, options) {
-    this._element = $(element);
-    this._options = $.extend({}, DEFAULTS, (options || {}));
+    this.$element = $(element);
+    this.options = $.extend({}, DEFAULTS, (options || {}));
   }
 
   init() {
@@ -24,30 +24,30 @@ class LazyLoad {
   }
 
   bindListeners() {
-    this.onScrollHandler = throttle(this.onScroll.bind(this), this._options.throttle);
+    this.onScrollHandler = throttle(this.onScroll.bind(this), this.options.throttle);
     $(window).on('scroll', this.onScrollHandler);
   }
 
   onScroll() {
-    return this._element.length ? this.checkVisiblePlaceholders() : $(window).off('scroll', this.onScrollHandler);
+    return this.$element.length ? this.checkVisiblePlaceholders() : $(window).off('scroll', this.onScrollHandler);
   }
 
   checkVisiblePlaceholders() {
     this.windowHeight = $(window).height();
     this.windowWidth  = $(window).width();
 
-    Array.prototype.forEach.call(this._element, this.checkPlaceholder.bind(this));
+    Array.prototype.forEach.call(this.$element, this.checkPlaceholder.bind(this));
   }
 
   checkPlaceholder(placeholder) {
     if (this.isPlaceholderVisible(placeholder)) {
       this.renderImage(placeholder);
-      removeFromArray(this._element, placeholder);
+      removeFromArray(this.$element, placeholder);
     }
   }
 
   isPlaceholderVisible(placeholder) {
-    return placeholder.getBoundingClientRect().top <= (this.windowHeight + this._options.offset);
+    return placeholder.getBoundingClientRect().top <= (this.windowHeight + this.options.offset);
   }
 
   renderImage(placeholder) {
@@ -74,7 +74,7 @@ class LazyLoad {
 
   parseAttributes(image, attributes) {
     Array.prototype.forEach.call(attributes, (attr) => {
-      if (attr.name !== this._options.selector || attr.name !== 'data-srcset' || attr.name !== 'data-src') {
+      if (attr.name !== this.options.selector || attr.name !== 'data-srcset' || attr.name !== 'data-src') {
         image.setAttribute(attr.name, attr.value);
       }
     });
