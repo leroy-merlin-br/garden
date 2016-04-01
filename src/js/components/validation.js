@@ -12,12 +12,12 @@ const DEFAULTS = {
 
 class Validation {
   constructor(element, options) {
-    this._element = $(element);
-    this._options = $.extend({}, DEFAULTS, (options || {}));
+    this.$element = $(element);
+    this.options = $.extend({}, DEFAULTS, (options || {}));
   }
 
   init() {
-    this._fields = this._element.find(this._options.selector);
+    this._fields = this.$element.find(this.options.selector);
 
     this.bindListeners();
 
@@ -29,8 +29,8 @@ class Validation {
       this.validate(e.target);
     };
 
-    this._element.off(this._options.events, this._options.selector, this.handler);
-    this._element.on(this._options.events, this._options.selector, this.handler);
+    this.$element.off(this.options.events, this.options.selector, this.handler);
+    this.$element.on(this.options.events, this.options.selector, this.handler);
   }
 
   validate(field) {
@@ -41,7 +41,7 @@ class Validation {
     }
 
     rules = rules.split(' ').reduce((errors, rule) => {
-      if (!this.rules[rule].call(this, field, this._element)) {
+      if (!this.rules[rule].call(this, field, this.$element)) {
         errors.push(rule);
       }
 
@@ -54,7 +54,7 @@ class Validation {
   }
 
   validateAll() {
-    return Array.prototype.map.call(this._element.find(this._options.selector), this.validate, this).every(validation => validation);
+    return Array.prototype.map.call(this.$element.find(this.options.selector), this.validate, this).every(validation => validation);
   }
 }
 

@@ -2,7 +2,7 @@ import Validation from '../../src/js/components/validation';
 import emitter from '../../src/js/utils/emitter';
 
 describe('Validation spec', () => {
-  var validation, $fixture;
+  var instance, $fixture;
 
   before(() => {
     fixture.setBase('test/fixture');
@@ -11,7 +11,7 @@ describe('Validation spec', () => {
   beforeEach(() => {
     $fixture = $(fixture.load('validation.html')[0]);
 
-    validation = new Validation($fixture);
+    instance = new Validation($fixture);
   });
 
   afterEach(() => {
@@ -20,9 +20,9 @@ describe('Validation spec', () => {
 
   describe('init spec', () => {
     it('should call bindListeners', sinon.test(function() {
-      let spy = this.spy(validation, 'bindListeners');
+      let spy = this.spy(instance, 'bindListeners');
 
-      validation.init();
+      instance.init();
 
       expect(spy.calledOnce).to.be.true;
     }));
@@ -30,10 +30,10 @@ describe('Validation spec', () => {
 
   describe('bindListeners', () => {
     it('should set validate as a handler for options.events', sinon.test(function() {
-      let spy = this.spy(validation, 'validate');
+      let spy = this.spy(instance, 'validate');
 
-      validation.init();
-      validation._fields.first().trigger('blur');
+      instance.init();
+      instance._fields.first().trigger('blur');
 
       expect(spy.calledOnce).to.be.true;
     }));
@@ -79,17 +79,17 @@ describe('Validation spec', () => {
 
   describe('validateAll', () => {
     it('should validate all fields and return false if there is an invalid field', () => {
-      validation.init();
+      instance.init();
 
-      expect(validation.validateAll()).to.be.false;
+      expect(instance.validateAll()).to.be.false;
     });
 
     it('should validate all fields and return true if there is no invalid field', () => {
-      validation.init();
+      instance.init();
 
-      validation._fields.last().val('foo');
+      instance._fields.last().val('foo');
 
-      expect(validation.validateAll()).to.be.true;
+      expect(instance.validateAll()).to.be.true;
     });
   });
 });
