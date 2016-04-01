@@ -30,7 +30,7 @@ const templates = {
 class Notification {
   constructor(element, options) {
     this.$element = (element instanceof $) ? element : $(element);
-    this._options = $.extend({}, DEFAULTS, options);
+    this.options = $.extend({}, DEFAULTS, options);
   }
 
   /**
@@ -41,13 +41,13 @@ class Notification {
     this._createNotification();
     this.bindListeners();
 
-    if (!this._options.dynamic) {
+    if (!this.options.dynamic) {
       return this;
     }
 
     window.setTimeout(() => {
       this.show();
-    }, this._options.showIn);
+    }, this.options.showIn);
 
     return this;
   }
@@ -56,25 +56,25 @@ class Notification {
    * Bind close button
    */
   bindListeners() {
-    this.closeHandler = () => {
+    this.$closeHandler = () => {
       this.hide();
     };
 
-    this.close.on('click', this.closeHandler);
+    this.$close.on('click', this.$closeHandler);
   }
 
   /**
    * show notification, if autoHide is true, hide box after hideIn timing config
    */
   show() {
-    this.box
+    this.$box
       .addClass(classNames.show)
       .removeClass(classNames.hide);
 
-    if (this._options.autoHide) {
+    if (this.options.autoHide) {
       window.setTimeout(() => {
         this.hide();
-      }, this._options.hideIn);
+      }, this.options.hideIn);
     }
   }
 
@@ -82,12 +82,12 @@ class Notification {
    * hide notification and after hide animation finish, add display: none to element
    */
   hide() {
-    this.box
+    this.$box
       .removeClass(classNames.show)
       .addClass(classNames.leave);
 
-    this.box.on(transitionEnd(), () => {
-      this.box
+    this.$box.on(transitionEnd(), () => {
+      this.$box
         .addClass(classNames.hide)
         .removeClass(classNames.enter)
         .removeClass(classNames.leave);
@@ -99,8 +99,8 @@ class Notification {
    */
   destroy() {
     this.$element.removeData(NAME);
-    this.close.off('click', this.closeHandler);
-    this.box.remove();
+    this.$close.off('click', this.$closeHandler);
+    this.$box.remove();
   }
 
   /**
@@ -108,32 +108,32 @@ class Notification {
    */
   _createNotification() {
 
-    if (!this._options.dynamic) {
-      this.box = this.$element;
+    if (!this.options.dynamic) {
+      this.$box = this.$element;
       this._createCloseButton();
 
       return;
     }
 
-    if (!this._options.message) {
+    if (!this.options.message) {
       return;
     }
 
-    this.box = $(templates.box);
-    this.box.addClass(`${NAME}-${this._options.type}`);
-    this.box.html(this._options.message);
+    this.$box = $(templates.box);
+    this.$box.addClass(`${NAME}-${this.options.type}`);
+    this.$box.html(this.options.message);
 
     this._createCloseButton();
-    this.$element.append(this.box);
+    this.$element.append(this.$box);
   }
 
   _createCloseButton() {
-    if (!this._options.dynamic) {
-      return this.close = this.box.find(this._options.closeButton);
+    if (!this.options.dynamic) {
+      return this.$close = this.$box.find(this.options.closeButton);
     }
 
-    this.close = $(templates.close);
-    this.box.append(this.close);
+    this.$close = $(templates.close);
+    this.$box.append(this.$close);
   }
 }
 
