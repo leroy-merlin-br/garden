@@ -15,8 +15,8 @@ const DEFAULTS = {
 
 class Modal {
   constructor(element, options) {
-    this._element = (element instanceof $) ? element : $(element);
-    this._options = $.extend({}, DEFAULTS, (options || {}));
+    this.$element = (element instanceof $) ? element : $(element);
+    this.options = $.extend({}, DEFAULTS, (options || {}));
   }
 
   init() {
@@ -36,16 +36,16 @@ class Modal {
   }
 
   destroy() {
-    this._element.removeData(NAME);
-    this.modal.remove();
+    this.$element.removeData(NAME);
+    this.$modal.remove();
   }
 
   bindListeners() {
-    if (this._options.triggerClose) {
-      this.modal.on('click', this._options.triggerClose, this.hide.bind(this));
+    if (this.options.triggerClose) {
+      this.$modal.on('click', this.options.triggerClose, this.hide.bind(this));
     }
 
-    this.close.on('click', this.hide.bind(this));
+    this.$close.on('click', this.hide.bind(this));
 
     $(window).on('keyup', this.handler = (e) => {
       if (e.which === 27) {
@@ -55,52 +55,52 @@ class Modal {
   }
 
   unbindListeners() {
-    if (this._options.triggerClose) {
-      this.modal.off('click', this._options.triggerClose, this.hide.bind(this));
+    if (this.options.triggerClose) {
+      this.$modal.off('click', this.options.triggerClose, this.hide.bind(this));
     }
 
-    this.close.off('click');
+    this.$close.off('click');
     $(window).off('keyup', this.handler);
   }
 
   _showModal() {
-    this.modal.addClass('modal-enter');
-    this.content.addClass('modal-content-enter');
+    this.$modal.addClass('modal-enter');
+    this.$content.addClass('modal-content-enter');
 
     window.setTimeout(() => {
-      this.modal.addClass('modal-show');
-      this.content.addClass('modal-content-show');
+      this.$modal.addClass('modal-show');
+      this.$content.addClass('modal-content-show');
     }, 200);
   }
 
   _hideModal() {
-    this.content
+    this.$content
       .removeClass('modal-content-show')
       .addClass('modal-content-leave');
 
-    this.modal
+    this.$modal
       .removeClass('modal-show')
       .addClass('modal-leave');
 
     window.setTimeout(() => {
-      this.modal.removeClass('modal-enter modal-leave');
-      this.content.removeClass('modal-content-enter modal-content-leave');
+      this.$modal.removeClass('modal-enter modal-leave');
+      this.$content.removeClass('modal-content-enter modal-content-leave');
     }, 200);
   }
 
   _fillModal() {
-    this.content.find('.modal-body').append(this._element.html());
+    this.$content.find('.modal-body').append(this.$element.html());
   }
 
   _createModal() {
-    this.modal    = $(templates.modal);
-    this.content  = $(templates.content);
-    this.close    = $(templates.close);
+    this.$modal    = $(templates.modal);
+    this.$content  = $(templates.content);
+    this.$close    = $(templates.close);
 
-    this.content.append(this.close);
-    this.modal.append(this.content);
+    this.$content.append(this.$close);
+    this.$modal.append(this.$content);
 
-    $(this._options.container).append(this.modal);
+    $(this.options.container).append(this.$modal);
 
     this._fillModal();
   }
