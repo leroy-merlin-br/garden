@@ -61,7 +61,7 @@ describe('Notification spec', () => {
       options.showIn = 3000;
 
       let newIstance = new Notification(fixture.load('notification.html')[0], options),
-          spy = this.spy(newIstance, 'show');
+        spy = this.spy(newIstance, 'show');
 
       newIstance.init();
 
@@ -96,7 +96,7 @@ describe('Notification spec', () => {
       options.autoHide = true;
 
       let newIstance = new Notification(fixture.load('notification.html')[0], options),
-          spy = this.spy(newIstance, 'hide');
+        spy = this.spy(newIstance, 'hide');
 
       newIstance._createNotification();
       newIstance.show();

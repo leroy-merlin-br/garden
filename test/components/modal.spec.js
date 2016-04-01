@@ -25,13 +25,12 @@ describe('Modal spec', () => {
     });
 
     it('should have a different container to append modal', () => {
-      let newIstance = new Modal(
-        $fixture.find('[data-modal]'),
-        {
+      new Modal($fixture.find('[data-modal]'), {
           container: '.bar'
         }
-      ),
-      newContainer = $fixture.find('.bar');
+      );
+
+      let newContainer = $fixture.find('.bar');
 
       expect(newContainer.find('.modal')).to.exist;
     });
@@ -120,12 +119,6 @@ describe('Modal spec', () => {
     }));
 
     it('should hide modal when click in close', () => {
-      let newIstance = new Modal(
-        $fixture.find('[data-modal]'),
-        {
-          container: '.bar'
-        }
-      );
       instance.init();
       instance.show();
 
@@ -153,11 +146,9 @@ describe('Modal spec', () => {
     it('should bind triggerClose if user passed selector as option',
       sinon.test(function() {
 
-        let newIstance = new Modal(
-              $fixture.find('[data-modal]'),
-              { triggerClose: '[data-trigger="close"]' }
-            ),
-            spy = this.spy(newIstance, 'hide');
+        let newIstance = new Modal($fixture.find('[data-modal]'),
+          { triggerClose: '[data-trigger="close"]' }
+        );
 
         newIstance.init();
         newIstance.show();
