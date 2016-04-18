@@ -28,7 +28,7 @@ class Form {
   }
 
   shouldInputBeActive(input) {
-    return !!(input.value || input.placeholder);
+    return !!(input.value);
   }
 
   toggleActiveClass(input) {

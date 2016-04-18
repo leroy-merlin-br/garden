@@ -1,5 +1,5 @@
 .textarea {
-  @mixin form-component default-light, primary-dark {
+  @mixin form-component default, primary-dark {
     padding-right: 1.4rem;
   }
 }

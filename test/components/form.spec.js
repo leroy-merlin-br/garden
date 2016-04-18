@@ -34,10 +34,10 @@ describe('form spec', () => {
       expect(Form.prototype.shouldInputBeActive(input)).to.be.true;
     });
 
-    it('should return true if the input has a placeholder', () => {
+    it('should return false if the input has a placeholder', () => {
       input.placeholder = true;
 
-      expect(Form.prototype.shouldInputBeActive(input)).to.be.true;
+      expect(Form.prototype.shouldInputBeActive(input)).to.be.false;
     });
   });
 

@@ -8,6 +8,7 @@
   padding: .68rem .81rem;
   position: relative;
   transition: transform .3s ease-in-out;
+  z-index: 1;
 
   &::before,
   &::after {
