@@ -10,7 +10,7 @@
 </ol>
 <h2 id="controls">Controls</h2>
 <p>Form controls are by default styled with <code>width: 100%</code>, and use a smooth border transition on <code>focus</code> event.</p>
-<p>Checkout the <a href="form-js.html">JavaScript section of the form</a> in order to see how to handle <code>.active</code> molecule.</p>
+<p>Checkout the <a href="js/form.html">JavaScript section of the form</a> in order to see how to handle <code>.active</code> molecule.</p>
 <h3 id="label">Label</h3>
 <p>Tag <code>&lt;label&gt;</code> is not styled by default. If you want to use as the context of <code>label</code> + <code>control</code>, use the <code>.label</code> class.</p>
 <div class="example example-code">
@@ -93,8 +93,39 @@
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span><span class="token punctuation" >/></span></span>
   <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Checkbox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<h3 id="addon">Addon</h3>
+<p>The <code>.addon</code> atom can be used to complement the context of the <code>.input</code> (inside of a <code>.field</code>). It has the fixed width of <code>2rem</code> for the left side. This is needed because the label is position: absolute, and we need to indent the input based on some width (In this scenario the addon size).</p>
+<div class="example example-code">
+  <div class="field">
+    <div class="addon">$</div>
+    <input type="text" class="input" name="addleft" id="addleft" />
+    <label for="addleft" class="label">Input Label</label>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>addon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>$<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Input Label<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<p>You can also position the <code>.addon</code> on the right side using the <code>.right</code> class (The <code>.right</code> has no width limit):</p>
+<div class="example example-code">
+  <div class="field">
+    <div class="addon">$</div>
+    <input type="text" class="input" name="addfull" id="addfull" />
+    <label for="addfull" class="label">Input Label</label>
+    <div class="addon right">,00</div>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>field<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>addon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>$<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>input<span class="token punctuation" >"</span></span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Input Label<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>addon right<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>,00<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
 <h3 id="input-button">Input button</h3>
-<p>The <code>input-button</code> is a molecule responsible to provide a similiar style of a button to <code>radio|checkbox</code>:</p>
+<p>The <code>input-button</code> is a molecule responsible to provide a similar style of a button to <code>radio|checkbox</code>:</p>
 <div class="example example-code">
   <div class="field input-button">
     <input type="checkbox" id="button-check"/>
