@@ -22,6 +22,9 @@
 @import "atoms/form/helper";
 @import "atoms/form/select";
 @import "atoms/form/textarea";
+@import "atoms/form/fieldset";
+@import "atoms/form/field";
+@import "atoms/form/addon";
 
 @import "atoms/modal/close";
 @import "atoms/modal/content";
@@ -29,6 +32,7 @@
 @import "atoms/notification/close";
 
 @import "molecules/field";
+@import "molecules/addon";
 @import "molecules/input-button";
 @import "molecules/pricetag";
 @import "molecules/thumbnail";

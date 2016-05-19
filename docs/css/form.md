@@ -19,7 +19,7 @@ path: form
 ## Controls
 Form controls are by default styled with `width: 100%`, and use a smooth border transition on `focus` event.
 
-Checkout the [JavaScript section of the form](form-js.html) in order to see how to handle `.active` molecule.
+Checkout the [JavaScript section of the form](js/form.html) in order to see how to handle `.active` molecule.
 
 ### Label
 Tag `<label>` is not styled by default. If you want to use as the context of `label` + `control`, use the `.label` class.
@@ -136,8 +136,47 @@ Please take note when using `label` + `control` on `radio|checkbox` the label wi
 </div>
 ```
 
+### Addon
+The `.addon` atom can be used to complement the context of the `.input` (inside of a `.field`). It has the fixed width of `2rem` for the left side. This is needed because the label is position: absolute, and we need to indent the input based on some width (In this scenario the addon size).
+
+<div class="example example-code">
+  <div class="field">
+    <div class="addon">$</div>
+    <input type="text" class="input" name="addleft" id="addleft" />
+    <label for="addleft" class="label">Input Label</label>
+  </div>
+</div>
+
+```html
+<div class="field">
+  <div class="addon">$</div>
+  <input type="text" class="input" name="input" id="input" />
+  <label for="input" class="label">Input Label</label>
+</div>
+```
+
+You can also position the `.addon` on the right side using the `.right` class (The `.right` has no width limit):
+
+<div class="example example-code">
+  <div class="field">
+    <div class="addon">$</div>
+    <input type="text" class="input" name="addfull" id="addfull" />
+    <label for="addfull" class="label">Input Label</label>
+    <div class="addon right">,00</div>
+  </div>
+</div>
+
+```html
+<div class="field">
+  <div class="addon">$</div>
+  <input type="text" class="input" name="input" id="input" />
+  <label for="input" class="label">Input Label</label>
+  <div class="addon right">,00</div>
+</div>
+```
+
 ### Input button
-The `input-button` is a molecule responsible to provide a similiar style of a button to `radio|checkbox`:
+The `input-button` is a molecule responsible to provide a similar style of a button to `radio|checkbox`:
 
 <div class="example example-code">
   <div class="field input-button">

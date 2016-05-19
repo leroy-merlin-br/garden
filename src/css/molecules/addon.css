@@ -1,0 +1,10 @@
+.addon {
+
+  & + .input {
+    padding-left: 2rem;
+  }
+
+  & + .input + .label {
+    left: 2rem;
+  }
+}

@@ -1,23 +1,4 @@
-fieldset {
-  border: 0;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
-}
-
 .field {
-  padding-top: .5rem;
-  position: relative;
-
-  &::after {
-    border-radius: 1rem;
-    content: " ";
-    height: 1.12rem;
-    position: absolute;
-    right: .12rem;
-    top: 1rem;
-    width: 1.12rem;
-  }
 
   &-select {
 
@@ -67,6 +48,12 @@ fieldset {
     transition: all .2s ease-in-out;
   }
 
+  .addon.right {
+    right: .5rem;
+    top: .5rem;
+    width: auto;
+  }
+
   &.active {
 
     .label {
@@ -77,7 +64,7 @@ fieldset {
     .input,
     .select,
     .textarea {
-      @mixin reset-border-color-input
+      @mixin reset-border-color-input;
     }
   }
 
@@ -89,9 +76,17 @@ fieldset {
 
   &.invalid {
     @mixin field-validation danger, x;
+
+    .addon.right {
+      transform: translateX(-1rem);
+    }
   }
 
   &.valid {
     @mixin field-validation success, checked;
+
+    .addon.right {
+      transform: translateX(-1rem);
+    }
   }
 }

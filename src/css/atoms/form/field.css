@@ -1,0 +1,14 @@
+.field {
+  padding-top: .5rem;
+  position: relative;
+
+  &::after {
+    border-radius: 1rem;
+    content: " ";
+    height: 1.12rem;
+    position: absolute;
+    right: .12rem;
+    top: 1rem;
+    width: 1.12rem;
+  }
+}
