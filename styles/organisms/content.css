@@ -20,7 +20,7 @@
     margin-top: .62rem;
   }
 
-  a,
+  a:not(.button),
   .link {
 
     &:hover {
