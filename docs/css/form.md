@@ -137,37 +137,55 @@ Please take note when using `label` + `control` on `radio|checkbox` the label wi
 ```
 
 ### Addon
-The `.addon` atom can be used to complement the context of the `.input` (inside of a `.field`). It has the fixed width of `2rem` for the left side. This is needed because the label is position: absolute, and we need to indent the input based on some width (In this scenario the addon size).
+The `.addon` atom can be used to complement the context of the `.input` (inside of a `.field`). It has the fixed width of `2rem`. You also need to provide the `.addon-left` or `.addon-right` along with the `.field` class, in order to provide proper margin/padding of the `.input`:
 
 <div class="example example-code">
-  <div class="field">
+  <div class="field addon-left">
     <div class="addon">$</div>
-    <input type="text" class="input" name="addleft" id="addleft" />
-    <label for="addleft" class="label">Input Label</label>
+    <input type="text" class="input" name="addonLeft" id="addonLeft" />
+    <label for="addonLeft" class="label">Input Label</label>
   </div>
 </div>
 
 ```html
-<div class="field">
+<div class="field addon-left">
   <div class="addon">$</div>
   <input type="text" class="input" name="input" id="input" />
   <label for="input" class="label">Input Label</label>
 </div>
 ```
 
-You can also position the `.addon` on the right side using the `.right` class (The `.right` has no width limit):
+You can also position the `.addon` on the right side using the `.right` class, and adding the `.addon-right` to the `.field` molecule:
 
 <div class="example example-code">
-  <div class="field">
-    <div class="addon">$</div>
-    <input type="text" class="input" name="addfull" id="addfull" />
-    <label for="addfull" class="label">Input Label</label>
+  <div class="field addon-right">
+    <input type="text" class="input" name="addonRight" id="addonRight" />
+    <label for="addonRight" class="label">Input Label</label>
     <div class="addon right">,00</div>
   </div>
 </div>
 
 ```html
-<div class="field">
+<div class="field addon-right">
+  <input type="text" class="input" name="input" id="input" />
+  <label for="input" class="label">Input Label</label>
+  <div class="addon right">,00</div>
+</div>
+```
+
+You can use both positions at the same time:
+
+<div class="example example-code">
+  <div class="field addon-left addon-right">
+    <div class="addon">$</div>
+    <input type="text" class="input" name="addonLeftRight" id="addonLeftRight" />
+    <label for="addonLeftRight" class="label">Input Label</label>
+    <div class="addon right">,00</div>
+  </div>
+</div>
+
+```html
+<div class="field addon-left addon-right">
   <div class="addon">$</div>
   <input type="text" class="input" name="input" id="input" />
   <label for="input" class="label">Input Label</label>
