@@ -35,6 +35,7 @@
 
   &:hover,
   &:focus {
+    text-decoration: none;
     transform: translateY(-.0625rem);
 
     &::before {
@@ -50,18 +51,18 @@
     outline: none;
   }
 
+  &.no-shadow {
+    @mixin disable-shadow;
+  }
+
   &-disabled,
   &[disabled] {
     background-color: $color-default-light;
     box-shadow: none;
     color: $color-neutral;
+    cursor: not-allowed;
 
-    &:hover,
-    &:focus {
-      box-shadow: none;
-      cursor: not-allowed;
-      transform: none;
-    }
+    @mixin disable-shadow;
   }
 
   &-primary {
@@ -87,16 +88,10 @@
     padding: 0;
     transition: none;
 
-    &::after,
-    &::before {
-      box-shadow: none;
+    &:hover {
+      text-decoration: underline;
     }
 
-    &:focus,
-    &:hover {
-      box-shadow: none;
-      text-decoration: underline;
-      transform: none;
-    }
+    @mixin disable-shadow;
   }
 }

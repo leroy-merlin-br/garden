@@ -32,12 +32,23 @@ Using `<button>` element:
 Using `<a>` element:
 
 <div class="example example-code">
-  <a href="#" role="button" class="button">Default</a>
+  <a href="#" role="button" class="button">Anchor</a>
 </div>
 
 ```html
 <a href="#" class="button"></a>
 ```
+
+You can also use the button without the shadow/perspective effect:
+
+<div class="example example-code">
+  <button type="button" class="button no-shadow">No shadow</button>
+</div>
+
+```html
+<button type="button" class="button no-shadow"></button>
+```
+
 
 To disable a button, use `disabled` attribute or `.button-disabled` class simulate disabled prop.
 
@@ -46,7 +57,7 @@ _**Obs**: when a button is **disabled**, button style will be the same for all t
 Using `<button>` element:
 
 <div class="example example-code">
-  <button disabled type="button" class="button">Default</button>
+  <button disabled type="button" class="button">Disabled button</button>
 </div>
 
 ```html
@@ -56,7 +67,7 @@ Using `<button>` element:
 Using `<a>` element:
 
 <div class="example example-code">
-  <a href="#" role="button" class="button button-disabled">Default</a>
+  <a href="#" role="button" class="button button-disabled">Disabled link</a>
 </div>
 
 ```html
