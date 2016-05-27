@@ -35,7 +35,7 @@ Garden documentation is built with [Metalsmith](http://www.metalsmith.io/) and p
 
 1. Run `npm install`.
 2. Run `gulp server`.
-3. Open `http://localhost3000` in your browser.
+3. Open `http://localhost:3000` in your browser.
 
 ## Contributing
 Checkout the [contributing section](https://github.com/leroy-merlin-br/garden/blob/master/CONTRIBUTING.md) to learn more on how to open issues, create pull requests, commit standards and more.
