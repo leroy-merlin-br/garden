@@ -193,6 +193,22 @@ You can use both positions at the same time:
 </div>
 ```
 
+The `.addon` allows you to insert any type of content on it:
+
+<div class="field addon-right">
+  <input type="text" class="input" name="input" id="input" />
+  <label for="input" class="label">Input Label</label>
+  <div class="addon right"><span class="glyph glyph-magnifier"></span></div>
+</div>
+
+```html
+<div class="field addon-right">
+  <input type="text" class="input" name="input" id="input" />
+  <label for="input" class="label">Input Label</label>
+  <div class="addon right"><span class="glyph glyph-search"></span></div>
+</div>
+```
+
 ### Input button
 The `input-button` is a molecule responsible to provide a similar style of a button to `radio|checkbox`:
 
