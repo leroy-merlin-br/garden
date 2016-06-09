@@ -93,5 +93,14 @@
     }
 
     @mixin disable-shadow;
+
+    &[disabled] {
+      background-color: transparent;
+      color: $color-default-light;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }

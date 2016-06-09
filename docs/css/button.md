@@ -22,7 +22,7 @@ Using `<button>` element:
   <button type="button" class="button button-secondary">Secondary</button>
   <button type="button" class="button button-neutral">Neutral</button>
   <button type="button" class="button button-danger">Danger</button>
-  <button type="button" class="button button-text">Text only</button>
+  <button type="button" class="button button-text" disabled>Text only</button>
 </div>
 
 ```html
