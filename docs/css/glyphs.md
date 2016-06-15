@@ -70,6 +70,13 @@ You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend ca
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-clone">
+      <div class="glyph glyph-clone"></div>
+      clone
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-dollar-sign">
       <div class="glyph glyph-dollar-sign"></div>
       dollar-sign
@@ -150,6 +157,20 @@ You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend ca
     <div class="glyph-container" data-clipboard-text=".glyph-magnifier">
       <div class="glyph glyph-magnifier"></div>
       magnifier
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-pencil">
+      <div class="glyph glyph-pencil"></div>
+      pencil
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-printer">
+      <div class="glyph glyph-printer"></div>
+      printer
     </div>
   </div>
 
