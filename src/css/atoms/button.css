@@ -64,22 +64,14 @@
 
     @mixin disable-shadow;
   }
-
-  &-primary {
-    background-color: $color-primary;
-  }
-
-  &-secondary {
-    background-color: $color-secondary;
+  
+  @each $color in primary, secondary, danger {
+    background-color: $color-${color};
   }
 
   &-neutral {
     background-color: $color-neutral;
     color: $color-text;
-  }
-
-  &-danger {
-    background-color: $color-danger;
   }
 
   &-text {
