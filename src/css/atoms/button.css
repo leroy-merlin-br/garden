@@ -21,7 +21,6 @@
     transition: opacity .3s ease-in-out;
     width: 100%;
     z-index: -1;
-
   }
 
   &::before {
@@ -37,6 +36,9 @@
   &:focus {
     text-decoration: none;
     transform: translateY(-.0625rem);
+  }
+
+  &:hover {
 
     &::before {
       opacity: 0;
@@ -47,7 +49,7 @@
     }
   }
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 
@@ -55,7 +57,7 @@
     @mixin disable-shadow;
   }
 
-  &-disabled,
+  &.disabled,
   &[disabled] {
     background-color: $color-default-light;
     box-shadow: none;
@@ -64,37 +66,39 @@
 
     @mixin disable-shadow;
   }
+}
 
-  @each $color in primary, secondary, danger {
-    &-$(color) {
-      background-color: $color-${color};
-    }
+@each $color in primary, secondary, danger {
+
+  .button-$(color) {
+    background-color: $color-$(color);
   }
+}
 
-  &-neutral {
-    background-color: $color-neutral;
-    color: $color-text;
-  }
+.button-neutral {
+  background-color: $color-neutral;
+  color: $color-text;
+}
 
-  &-text {
+.button-neutral {
+  background-color: $color-neutral;
+  color: $color-text;
+}
+
+.button-text {
+  background-color: transparent;
+  color: $color-primary;
+  padding: 0;
+  transition: none;
+
+  @mixin disable-shadow;
+
+  &[disabled] {
     background-color: transparent;
-    color: $color-primary;
-    padding: 0;
-    transition: none;
+    color: $color-default-light;
+  }
 
-    &:hover {
-      text-decoration: underline;
-    }
-
-    @mixin disable-shadow;
-
-    &[disabled] {
-      background-color: transparent;
-      color: $color-default-light;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
+  &:hover {
+    text-decoration: none;
   }
 }
