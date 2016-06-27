@@ -80,11 +80,6 @@
   color: $color-text;
 }
 
-.button-neutral {
-  background-color: $color-neutral;
-  color: $color-text;
-}
-
 .button-text {
   background-color: transparent;
   color: $color-primary;
