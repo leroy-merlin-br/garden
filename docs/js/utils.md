@@ -10,6 +10,21 @@ path: utils
 # Utils
 <p class="lead">Garden provides a few utils to help writing better javascript. All utils are located at `src/js/utils`.</p>
 
+## Scroll
+A function to scroll (with the help of [jump.js](http://callmecavs.com/jump.js/)) the `document.body` into the position of the provided element:
+
+```js
+ import scroll from 'src/js/utils/scroll';
+
+ let element = document.querySelector('div'); // It can also be a jQuery instance
+
+ let options = {
+   // all options available from jump.js
+ }
+
+ scroll(element, options)
+```
+
 ## Debounce
 A function to help restrain the execution of the provided function once until the
 timeout triggers:
