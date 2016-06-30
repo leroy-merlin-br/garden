@@ -79,4 +79,8 @@ $('[data-notification-dynamic]').notification({
 $('[data-notification]').notification({
   dynamic: false,
   closeButton: '[data-close="notification"]'
+});
+
+$('[data-trigger="scroll"]').on('click', function() {
+  $('#scroll').scroll();
 });</script></body></html>
