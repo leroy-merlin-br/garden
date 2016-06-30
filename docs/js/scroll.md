@@ -19,7 +19,7 @@ You can use it as a jQuery plugin:
 $('.heading-1').scroll(options);
 ```
 
-or a vanilla constructor (using the [scroll util]('utils.html')):
+or a vanilla constructor (using the [scroll util](utils.html)):
 
 ```js
  import scroll from 'src/js/utils/scroll';
