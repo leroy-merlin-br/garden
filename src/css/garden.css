@@ -16,6 +16,7 @@
 @import "atoms/grid";
 @import "atoms/modal";
 @import "atoms/notification";
+@import "atoms/collapse";
 
 @import "atoms/form/input";
 @import "atoms/form/label";
