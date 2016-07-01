@@ -1,0 +1,6 @@
+.collapse {
+
+  &.visible {
+    max-height: inherit;
+  }
+}
