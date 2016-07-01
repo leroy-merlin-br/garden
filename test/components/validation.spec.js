@@ -39,6 +39,16 @@ describe('Validation spec', () => {
     }));
   });
 
+  describe('@setPristine', () => {
+    it('should call emitter validation:pristine', sinon.test(function () {
+      const stub = this.stub(emitter, 'emit');
+
+      Validation.prototype.setPristine();
+
+      expect(stub.calledWith('validation:pristine')).to.be.true;
+    }));
+  });
+
   describe('validate', () => {
     it('should return false if the field has no validations', () => {
       let field = $('<input />')[0];

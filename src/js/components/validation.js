@@ -33,6 +33,10 @@ class Validation {
     this.$element.on(this.options.events, this.options.selector, this.handler);
   }
 
+  setPristine(field) {
+    emitter.emit('validation:pristine', field);
+  }
+
   validate(field) {
     let rules  = field.getAttribute('data-validate');
 
