@@ -9,7 +9,7 @@ module.exports = function(config) {
     ],
     preprocessors: {
       '**/*.html': ['html2js'],
-      'test/entry.js': ['webpack']
+      'test/entry.js': ['webpack', 'sourcemap']
     },
     webpack: {
       devtool: 'inline-source-map',
