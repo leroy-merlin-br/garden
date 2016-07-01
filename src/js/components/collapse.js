@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import emitter from '../utils/emitter';
 
 const NAME = 'collapse';
 const DEFAULTS  = {
@@ -28,30 +29,38 @@ class Collapse {
   setInitialState () {
     this.isCollapsed = !this.$toggle.hasClass(this.options.visibleClass);
     this.toggleHeight = this.toggle.scrollHeight;
+
+    if (!this.isCollapsed) {
+      this.toggle.style.maxHeight = `${this.toggleHeight}px`;
+    }
   }
 
   bindListeners() {
-    this.$element.on(this.options.listener, this.onElementClick.bind(this));
+    this.$element.on(this.options.listener, this.toggleTarget.bind(this));
   }
 
-  onElementClick() {
-    this.isCollapsed ? this.showContent() : this.hideContent();
+  toggleTarget() {
+    this.isCollapsed ? this.showTarget() : this.hideTarget();
   }
 
-  hideContent() {
+  hideTarget() {
     this.isCollapsed = true;
 
     this.toggle.style.maxHeight = '';
     this.$toggle.removeClass(this.options.visibleClass);
     this.$element.removeClass(this.options.activeClass);
+
+    emitter.emit('collapse:hide', this.$element, this.$toggle);
   }
 
-  showContent() {
+  showTarget() {
     this.isCollapsed = false;
 
     this.toggle.style.maxHeight = `${this.toggleHeight}px`;
     this.$toggle.addClass(this.options.visibleClass);
     this.$element.addClass(this.options.activeClass);
+
+    emitter.emit('collapse:show', this.$element, this.$toggle);
   }
 }
 

@@ -31,7 +31,7 @@ describe('collapse spec', () => {
     context('instance.$toggle collapsed', () => {
       it('should set the instance.isCollapsed to true', () => {
         instance.$toggle = $('');
-        instance.toggle = '';
+        instance.toggle = $('<div />')[0];
 
         instance.setInitialState();
 
@@ -42,7 +42,7 @@ describe('collapse spec', () => {
     context('instance.$toggle visible', () => {
       it('should set the instance.isCollapsed to false', () => {
         instance.$toggle = $(`<div class="${instance.options.visibleClass}" />`);
-        instance.toggle = '';
+        instance.toggle = $('<div />')[0];
 
         instance.setInitialState();
 
@@ -52,8 +52,8 @@ describe('collapse spec', () => {
   });
 
   describe('@bindListeners', () => {
-    it('should bind @onElementClick as a handler to instance.$element click event', sinon.test(function() {
-      const stub = this.stub(instance, 'onElementClick');
+    it('should bind @toggleTarget as a handler to instance.$element click event', sinon.test(function() {
+      const stub = this.stub(instance, 'toggleTarget');
 
       instance.bindListeners();
       instance.$element.trigger(instance.options.listener);
@@ -62,13 +62,13 @@ describe('collapse spec', () => {
     }));
   });
 
-  describe('@onElementClick', () => {
+  describe('@toggleTarget', () => {
     context('instance.$toggle visible', () => {
       it('should call @hide', sinon.test(function() {
-        const stub = this.stub(instance, 'hideContent');
+        const stub = this.stub(instance, 'hideTarget');
 
         instance.isCollapsed = false;
-        instance.onElementClick();
+        instance.toggleTarget();
 
         expect(stub.calledOnce).to.be.true;
       }));
@@ -76,17 +76,17 @@ describe('collapse spec', () => {
 
     context('instance.$toggle collapsed', () => {
       it('should call @show', sinon.test(function() {
-        const stub = this.stub(instance, 'showContent');
+        const stub = this.stub(instance, 'showTarget');
 
         instance.isCollapsed = true;
-        instance.onElementClick();
+        instance.toggleTarget();
 
         expect(stub.calledOnce).to.be.true;
       }));
     });
   });
 
-  describe('@show/hideContent', () => {
+  describe('@show/hide target', () => {
     beforeEach(() => {
       instance.$toggle = $('<div />');
       instance.toggle = instance.$toggle[0];
@@ -96,7 +96,7 @@ describe('collapse spec', () => {
       it('should remove the visibleClass from instance.$toggle', () => {
         instance.$toggle.addClass(instance.options.visibleClass);
 
-        instance.hideContent();
+        instance.hideTarget();
 
         expect(instance.$toggle.hasClass(instance.options.visibleClass)).to.be.false;
       });
@@ -104,7 +104,7 @@ describe('collapse spec', () => {
 
     context('show', () => {
       it('should add the visibleClass to instance.$toggle', () => {
-        instance.showContent();
+        instance.showTarget();
 
         expect(instance.$toggle.hasClass(instance.options.visibleClass)).to.be.true;
       });
