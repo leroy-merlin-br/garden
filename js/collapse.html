@@ -1,13 +1,13 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Collapse | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../css/garden.min.css"><link rel="stylesheet" href="../css/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="collapse.html" class="link link-active">Collapse</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link">Modal</a><a href="notifications.html" class="link">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="collapse">Collapse</h1>
 <p><p class="lead">Collapse is a component responsible to toggle the visibility of an element</p>
-<h1 id="how-to-use">How to use</h1>
-<p>The component expects the element to have a wrapper using the <code>.collapse</code> class. The trigger must have a <code>[data-target]</code> attribute, which points to the element to be collapsed</p>
+<h2 id="how-to-use">How to use</h2>
+<p>You can set the element to be toggled using the <code>[data-target=&quot;selector&quot;]</code> on the provided element.</p>
 <div class="example example-code">
-  <button class="button button-primary toggle" data-target=".collapse">
+  <button class="button button-primary toggle" data-target="#closed">
     Toggle content
   </button>
 
-  <div class="collapse">
+  <div class="collapse" id="closed">
     <p>Content</p>
   </div>
 </div>
@@ -17,7 +17,108 @@
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>collapse<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span> <span class="token comment" spellcheck="true">&lt;!-- content wrapper --></span>
   ... <span class="token comment" spellcheck="true">&lt;!-- content to be displayed --></span>
 <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<p>As a jQuery plugin:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.toggle'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >collapse</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<p>or a vanilla constructor:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> Collapse <span class="token keyword" >from</span> <span class="token string" >'garden/src/js/components/collapse'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >new</span> <span class="token class-name" >Collapse</span><span class="token punctuation" >(</span>document<span class="token punctuation" >.</span><span class="token function" >querySelector</span><span class="token punctuation" >(</span><span class="token string" >'.toggle'</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<h2 id="how-it-works">How it works</h2>
+<p>The component will first check if the provided target is visible (using the visibleClass of the options), and set the targetMaxHeight to it, to allow a smooth transition to happen.</p>
+<p>The <code>.collapse</code> class is <em>required</em> in order to properly show/hide the target. It’s good practice to avoid styling it, since the component relies on <code>scrollHeight</code> to retrieve the target’s height.</p>
+<p>Once the target is visible, the component element will receive the <code>instance.options.activeClass</code>, and the target will receive <code>instance.options.visibleClass</code>.</p>
+<p>If you want to set the initial state of component, all you have to do is add both classes to both elements (<code>active</code> and <code>visible</code>, by default):</p>
+<div class="example example-code">
+  <button class="button button-primary toggle active" data-target="#open">
+    Toggle content
+  </button>
+
+  <div class="collapse visible visible-collapse" id="open">
+    <p>Content</p>
+  </div>
+</div>
+
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>toggle active<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-target</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>.collapse<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>...<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>collapse visible<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span> <span class="token comment" spellcheck="true">&lt;!-- content wrapper --></span>
+  ... <span class="token comment" spellcheck="true">&lt;!-- content to be displayed --></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.toggle'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >collapse</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<h2 id="options">Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selector ([data-target])</td>
+<td>The instance.$element’s attribute to use as query for the target element</td>
+</tr>
+<tr>
+<td>listener (click)</td>
+<td>Event to listen to on the instance.$element</td>
+</tr>
+<tr>
+<td>activeClass (active)</td>
+<td>The class the instance.$element receives when the instance.$toggle is visible</td>
+</tr>
+<tr>
+<td>visibleClass (visible)</td>
+<td>The class the instance.$toggle receives when the instance.$toggle is visible</td>
+</tr>
+</tbody>
+</table>
+<p>Ex:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >let</span> options <span class="token operator" >=</span> <span class="token punctuation" >{</span>
+  selector<span class="token punctuation" >:</span> <span class="token string" >'[data-foo]'</span><span class="token punctuation" >,</span>
+  listener<span class="token punctuation" >:</span> <span class="token string" >'change'</span><span class="token punctuation" >,</span>
+  activeClass<span class="token punctuation" >:</span> <span class="token string" >'button-active'</span><span class="token punctuation" >,</span>
+  visibleClass<span class="token punctuation" >:</span> <span class="token string" >'not-hidden'</span><span class="token punctuation" >,</span>
+<span class="token punctuation" >}</span>
+
+<span class="token comment" spellcheck="true">// as a jquery plugin</span>
+<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'[data-collapse]'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >collapse</span><span class="token punctuation" >(</span>options<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">// as a vanilla constructor</span>
+<span class="token keyword" >new</span> <span class="token class-name" >Collapse</span><span class="token punctuation" >(</span>document<span class="token punctuation" >.</span><span class="token function" >querySelectorAll</span><span class="token punctuation" >(</span><span class="token string" >'[data-collapse]'</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span> options<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toggleTarget</td>
+<td>Will toggle the current state of the instance.$toggle</td>
+</tr>
+<tr>
+<td>showTarget</td>
+<td>Will show the instance.$toggle</td>
+</tr>
+<tr>
+<td>hideTarget</td>
+<td>Will hide the instance.$toggle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="working-with-events">Working with events</h2>
+<p>You can also listen to toggle state changes using the <a href="emitter.html">emitter</a>:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> emitter <span class="token keyword" >from</span> <span class="token string" >'garden/src/js/utils/emitter'</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">// the first argument is the instance.$element (the trigger), and the second is the instance.$target (the element to be toggled)</span>
+emitter<span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span><span class="token string" >'collapse:show'</span><span class="token punctuation" >,</span> <span class="token punctuation" >(</span>$element<span class="token punctuation" >,</span> $target<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+  $element<span class="token punctuation" >.</span><span class="token function" >text</span><span class="token punctuation" >(</span><span class="token string" >'Close content'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+emitter<span class="token punctuation" >.</span><span class="token function" >on</span><span class="token punctuation" >(</span><span class="token string" >'collapse:hide'</span><span class="token punctuation" >,</span> <span class="token punctuation" >(</span>$element<span class="token punctuation" >,</span> $target<span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+  $element<span class="token punctuation" >.</span><span class="token function" >text</span><span class="token punctuation" >(</span><span class="token string" >'Hide content'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
