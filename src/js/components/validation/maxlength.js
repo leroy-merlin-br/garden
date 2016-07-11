@@ -1,1 +1,1 @@
-export default (field) => field.value.length <= field.getAttribute('maxlength');
+export default (field) => field.value.length <= field.getAttribute('maxlength')

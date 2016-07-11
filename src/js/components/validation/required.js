@@ -1,11 +1,11 @@
 export default (field, $form) => {
   if (field.type === 'checkbox') {
-    return field.checked;
+    return field.checked
   }
 
   if (field.type === 'radio') {
-    return $form.find(`[name="${field.name}"]:checked`).length;
+    return $form.find(`[name="${field.name}"]:checked`).length
   }
 
-  return !!field.value.trim();
-};
+  return !!field.value.trim()
+}

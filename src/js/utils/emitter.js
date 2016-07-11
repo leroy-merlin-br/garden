@@ -1,3 +1,3 @@
-import Emitter from 'events';
+import Emitter from 'events'
 
-export default new Emitter();
+export default new Emitter()

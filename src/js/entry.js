@@ -1,3 +1,3 @@
-var files = require.context('.', true, /(components)/);
+var files = require.context('.', true, /(components)/)
 
-files.keys().forEach(files);
+files.keys().forEach(files)

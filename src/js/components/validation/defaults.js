@@ -1,8 +1,8 @@
-import required from './required';
-import confirm from './confirm';
-import minlength from './minlength';
-import maxlength from './maxlength';
-import email from './email';
+import required from './required'
+import confirm from './confirm'
+import minlength from './minlength'
+import maxlength from './maxlength'
+import email from './email'
 
 export default {
   required: required,
@@ -10,4 +10,4 @@ export default {
   minlength: minlength,
   maxlength: maxlength,
   email: email
-};
+}

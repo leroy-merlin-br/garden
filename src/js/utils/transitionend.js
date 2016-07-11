@@ -5,13 +5,13 @@ export default () => {
     OTransition: 'oTransitionEnd otransitionend',
     msTransition: 'MsTransitionEnd',
     transition: 'transitionend'
-  };
+  }
 
-  let el = document.createElement('div');
+  const el = document.createElement('div')
 
   for (let transition in eventNames) {
     if (el.style[transition] !== undefined) {
-      return eventNames[transition];
+      return eventNames[transition]
     }
   }
-};
+}

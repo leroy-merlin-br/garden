@@ -1,35 +1,14 @@
 {
-  "parser": "babel-eslint",
   "rules": {
-    "indent": [
-      2,
-      2
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "semi": [
-      2,
-      "always"
-    ]
+    "no-unused-vars": 0
   },
+  "extends": "standard",
   "env": {
-    "es6": true,
-    "browser": true,
-    "node": true,
     "mocha": true
   },
   "globals": {
     "expect": true,
-    "sinon": true,
-    "jQuery": true,
-    "$": true,
-    "fixture": true
-  },
-  "extends": "eslint:recommended"
+    "fixture": true,
+    "sinon": true
+  }
 }

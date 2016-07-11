@@ -1,70 +1,70 @@
-import $ from 'jquery';
+import $ from 'jquery'
 
-const NAME      = 'form';
-const DEFAULTS  = {
+const NAME = 'form'
+const DEFAULTS = {
   events: 'change',
   selectors: '.input, select, .select, .textarea'
-};
+}
 
 class Form {
-  constructor(element, options) {
-    this.$element = $(element);
-    this.options = $.extend({}, DEFAULTS, (options || {}));
+  constructor (element, options) {
+    this.$element = $(element)
+    this.options = $.extend({}, DEFAULTS, (options || {}))
 
-    this.bindListeners();
+    this.bindListeners()
 
-    this.toggleFieldsActiveClass();
+    this.toggleFieldsActiveClass()
   }
 
-  bindListeners() {
+  bindListeners () {
     $(document).on(
       this.options.events, this.options.selectors,
       this.onFieldChange.bind(this)
-    );
+    )
   }
 
-  onFieldChange(event) {
-    this.toggleActiveClass(event.target);
+  onFieldChange (event) {
+    this.toggleActiveClass(event.target)
   }
 
-  shouldInputBeActive(input) {
-    return !!(input.value);
+  shouldInputBeActive (input) {
+    return !!(input.value)
   }
 
-  toggleActiveClass(input) {
-    let $input = $(input),
-      $field = $input.parents('.field');
+  toggleActiveClass (input) {
+    const $input = $(input)
+    const $field = $input.parents('.field')
 
-    if(!$field.length) {
-      return;
+    if (!$field.length) {
+      return
     }
 
     if (!$field.hasClass('active') && this.shouldInputBeActive(input)) {
-      return $field.addClass('active');
+      return $field.addClass('active')
     }
 
     if ($field.hasClass('active') && !this.shouldInputBeActive(input)) {
-      return $field.removeClass('active');
+      return $field.removeClass('active')
     }
   }
 
-  toggleFieldsActiveClass() {
+  toggleFieldsActiveClass () {
     Array.prototype.forEach.call(
       $(document).find(this.options.selectors),
       this.toggleActiveClass.bind(this)
-    );
+    )
   }
 }
 
 /* istanbul ignore next */
-$.fn[NAME] = function(options) {
-  options = options || {};
+$.fn[NAME] = function (options) {
+  options = options || {}
 
-  return this.each(function() {
+  return this.each(function () {
     if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Form(this, options));
+      $.data(this, NAME, new Form(this, options))
     }
-  });
-};
+  })
+}
 
-export default Form;
+export default Form
