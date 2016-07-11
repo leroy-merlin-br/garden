@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   src: {
     css: {
       src: 'src/css/',
@@ -9,8 +9,7 @@ export default {
     glyphs: {
       src: 'src/glyphs/',
       glob: 'src/glyphs/**/*.svg',
-      dest: 'dist/fonts',
-      public: 'public/fonts'
+      dest: 'dist/fonts'
     },
     js: {
       src: 'src/js/',
@@ -24,18 +23,21 @@ export default {
       src: 'docs/styles/',
       main: 'docs/styles/main.css',
       glob: 'docs/styles/**/*.css',
-      dest: 'public/css/'
+      dest: 'public/assets/'
     },
     js: {
-      dest: 'public/js'
+      dest: 'public/assets'
     },
     layout: {
       src: 'docs/layout/',
       glob: 'docs/layout/**/*.jade'
+    },
+    glyphs: {
+      dest: 'public/fonts'
     },
     pages: {
       glob: 'docs/**/*.md'
     }
   },
   public: 'public/'
-};
+}

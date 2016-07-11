@@ -1,12 +1,10 @@
-import postcss from 'postcss';
+const postcss = require('postcss')
+const fs = require('fs')
 
-import fs from 'fs';
+const paths = require('./paths')
 
-import paths from './paths';
-
-export default (glyphs, options) => {
-
-  let fontFace = postcss.atRule({
+module.exports = (glyphs, options) => {
+  const fontFace = postcss.atRule({
     name: 'font-face'
   })
     .append(postcss.decl({
@@ -27,9 +25,9 @@ export default (glyphs, options) => {
     .append(postcss.decl({
       prop: 'src',
       value: `url("../fonts/${options.fontName}.woff") format("woff")`
-    }));
+    }))
 
-  let glyph = postcss.rule({
+  const glyph = postcss.rule({
     selector: '.glyph'
   })
     .append({
@@ -59,34 +57,34 @@ export default (glyphs, options) => {
     .append({
       prop: 'speak',
       value: 'none'
-    });
+    })
 
-  let stylesheet = postcss.root({
+  const stylesheet = postcss.root({
     after: '\n'
   })
     .append(fontFace)
-    .append(glyph);
+    .append(glyph)
 
   glyphs.forEach((glyph) => {
-    let decl = {
+    const decl = {
       prop: 'content',
       value: `"\\${glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase()}\"`
-    };
+    }
 
-    let currentPlaceholder = postcss.atRule({
+    const currentPlaceholder = postcss.atRule({
       name: `define-mixin ${glyph.name}`
     })
-      .append(postcss.decl(decl));
+      .append(postcss.decl(decl))
 
-    let currentGlyph = postcss.rule({
+    const currentGlyph = postcss.rule({
       selector: `.glyph-${glyph.name}::before`
     })
-      .append(decl);
+      .append(decl)
 
     stylesheet
       .append(currentPlaceholder)
-      .append(currentGlyph);
-  });
+      .append(currentGlyph)
+  })
 
-  fs.writeFileSync(`${paths.src.css.src}/atoms/glyph.css`, stylesheet.toResult().css);
-};
+  fs.writeFileSync(`${paths.src.css.src}/atoms/glyph.css`, stylesheet.toResult().css)
+}

@@ -1,5 +1,4 @@
-@import "../../src/css/utils/breakpoints";
-@import "../../src/css/utils/mixins";
+@import "../../src/css/garden.css";
 @import "atoms/img";
 
 @import "molecules/nav";
