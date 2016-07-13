@@ -14,7 +14,7 @@ path: tooltip
 
 ## How to
 
-To use the tooltip component, you need to add `[data-tooltip = 'tooltipSelector']` to the target element (you can use a class name, an id or a data attribute). The selector inserted should be present inside the target element, it'll be the tooltip itself. This component uses the [popper.js](http://popper.js.org/) library to deal with the positioning.
+To use the tooltip component, you need to add `[data-tooltip = 'tooltipSelector']` to the target element (you can use a class name, an id or a data attribute). The selector inserted should be present inside the target element, it'll be the tooltip itself. This component uses the [popper.js](http://popper.js.org/) library to deal with the positioning and jQuery.
 
 <div class="example example-code">
   <div class="button" data-tooltip=".tooltip">
