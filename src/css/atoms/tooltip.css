@@ -15,9 +15,10 @@
     visibility: visible;
   }
 
-  .tooltip-arrow {
+  &::after {
     border-style: solid;
     border-width: .5rem;
+    content: "";
     height: 0;
     margin: .5rem;
     position: absolute;
@@ -28,7 +29,7 @@
     margin-bottom: .75rem;
   }
 
-  &[x-placement^="top"] .tooltip-arrow {
+  &[x-placement^="top"]::after {
     border-bottom-width: 0;
     border-color: $color-primary transparent transparent transparent;
     bottom: -.5rem;
@@ -41,7 +42,7 @@
     margin-top: .75rem;
   }
 
-  &[x-placement^="bottom"] .tooltip-arrow {
+  &[x-placement^="bottom"]::after {
     border-color: transparent transparent $color-primary transparent;
     border-top-width: 0;
     left: calc(50% - 14px);
@@ -54,7 +55,7 @@
     margin-left: .75rem;
   }
 
-  &[x-placement^="right"] .tooltip-arrow {
+  &[x-placement^="right"]::after {
     border-color: transparent $color-primary transparent transparent;
     border-width: .5rem .5rem .5rem 0;
     left: -.5rem;
@@ -67,7 +68,7 @@
     margin-right: .75rem;
   }
 
-  &[x-placement^="left"] .tooltip-arrow {
+  &[x-placement^="left"]::after {
     border-color: transparent transparent transparent $color-primary;
     border-width: .5rem 0 .5rem .5rem;
     margin-left: 0;

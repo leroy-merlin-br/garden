@@ -25,7 +25,6 @@ This component uses the [popper.js](http://popper.js.org/) library to deal with 
       <strong>My awesome tooltip</strong>
       <br>
       This is a sample text
-      <div class="tooltip-arrow"></div>
     </div>
   </div>
 </div>
@@ -37,7 +36,6 @@ This component uses the [popper.js](http://popper.js.org/) library to deal with 
     <strong>My awesome tooltip</strong>
     <br>
     This is a sample text
-    <div class="tooltip-arrow"></div>
   </div>
 </div>
 ```
