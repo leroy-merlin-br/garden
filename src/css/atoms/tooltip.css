@@ -33,7 +33,7 @@
     border-bottom-width: 0;
     border-color: $color-primary transparent transparent transparent;
     bottom: -7px;
-    left: calc(50% - 7px);
+    left: calc(50% - 14px);
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -45,7 +45,7 @@
   &[x-placement^="bottom"] .tooltip-arrow {
     border-color: transparent transparent $color-primary transparent;
     border-top-width: 0;
-    left: calc(50% - 7px);
+    left: calc(50% - 14px);
     margin-bottom: 0;
     margin-top: 0;
     top: -7px;
