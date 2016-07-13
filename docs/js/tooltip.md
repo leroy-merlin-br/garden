@@ -14,12 +14,14 @@ path: tooltip
 
 ## How to
 
-To use the tooltip component, you need to add `[data-tooltip = 'tooltipSelector']` to the target element (you can use a class name, an id or a data attribute). The selector inserted should be present inside the target element, it'll be the tooltip itself. This component uses the [popper.js](http://popper.js.org/) library to deal with the positioning and jQuery.
+To use the tooltip component, you need to add `[data-tooltip='#some-selector']` to the target element (you can use a class name, an id or a data attribute). The selector inserted should be present inside the target element, it'll be the tooltip itself. An important thing to note is that in order to get the tooltip styles, your tooltip element should have the class `.tooltip`.
+
+This component uses the [popper.js](http://popper.js.org/) library to deal with the positioning.
 
 <div class="example example-code">
-  <div class="button" data-tooltip=".tooltip">
+  <div class="button" data-tooltip="#awesome-tooltip">
     Button with tooltip
-    <div class="tooltip">
+    <div id="awesome-tooltip" class="tooltip">
       <strong>My awesome tooltip</strong>
       <br>
       This is a sample text
@@ -29,9 +31,9 @@ To use the tooltip component, you need to add `[data-tooltip = 'tooltipSelector'
 </div>
 
 ```html
-<div class="button" data-tooltip=".tooltip">
+<div class="button" data-tooltip="#awesome-tooltip">
   Button with tooltip
-  <div class="tooltip">
+  <div id="awesome-tooltip" class="tooltip">
     <strong>My awesome tooltip</strong>
     <br>
     This is a sample text
@@ -40,7 +42,13 @@ To use the tooltip component, you need to add `[data-tooltip = 'tooltipSelector'
 </div>
 ```
 
-You can use the vanilla constructor as well:
+You can use it as a jQuery plugin:
+
+```js
+$('[data-tooltip]').tooltip(element, options);
+```
+
+Or you can use the vanilla constructor as well:
 
 ```js
  import Tooltip from 'garden/src/js/components/tooltip'
@@ -49,7 +57,7 @@ You can use the vanilla constructor as well:
 ```
 
 As you can see, the Tooltip constructor receives two parameters. The first one
-is the target element, and the second is the options. The available options are listed below:
+is the target element, and the second is the options. The available options are listed below. You can also use the [available options for popper.js](https://popper.js.org/documentation.html#new_Popper).
 
 | Option            | Type | Default | Description |
 |-------------------|-------------|
