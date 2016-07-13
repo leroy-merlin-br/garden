@@ -4,7 +4,7 @@
   opacity: 0;
   transition: opacity .3s ease-in-out;
   width: 100%;
-  z-index: $modal-index;
+  z-index: $index-foremost;
 
   &::before {
     content: " ";

@@ -17,7 +17,6 @@
   transition: transform .3s ease, opacity .3s ease;
   vertical-align: middle;
   width: 95%;
-  z-index: $modal-content-index;
 
   &-enter {
     display: inline-block;
