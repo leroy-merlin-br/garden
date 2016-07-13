@@ -7,7 +7,7 @@
   opacity: 0;
   padding: .5rem;
   position: absolute;
-  transition: opacity .5s ease;
+  transition: all .5s ease;
   visibility: hidden;
   z-index: 9999;
 
