@@ -12,7 +12,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.js$/, include: /jump/, loader: 'babel-loader' }
+      { test: /\.js$/, include: /jump|popper/, loader: 'babel-loader' }
     ]
   }
 }

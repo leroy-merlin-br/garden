@@ -20,8 +20,9 @@
   },
   "homepage": "http://styleguide.leroymerlin.com.br",
   "dependencies": {
+    "jump.js": "^0.4.0",
     "normalize.css": "^4.2.0",
-    "jump.js": "^0.4.0"
+    "popper.js": "^0.5.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.3",
