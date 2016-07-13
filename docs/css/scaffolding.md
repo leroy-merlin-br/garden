@@ -42,16 +42,48 @@ The simple-vars plugin exposes a variables property, in order to inject variable
   "color-text": "#333333",
   "color-neutral": "#ffffff",
   "color-warning": "#fae800",
+  "color-warning-light": "#fffccf",
   "color-danger": "#ed1c24",
+  "color-success": "#72bf44",
 
   "color-default": "#a6a6a6",
+  "color-default-dark": "#666666",
+  "color-default-darker": "#333333",
+  "color-default-light": "#e5e5e5",
+  "color-default-lighter": "#f8f8f8",
 
   "color-primary": "#72bf44",
+  "color-primary-dark": "#397615",
+  "color-primary-light": "#cae4b8",
+  "color-primary-lighter": "#f1f8ec",
 
   "color-secondary": "#bada2e",
 
+  "color-promotional": "#fae800",
+  "color-text-promotional": "#ed1c24",
+
   "default-font-size": "16px",
-  "default-font-family": "Helvetica, Arial, sans-serif"
+  "default-font-family": "Helvetica, Arial, sans-serif",
+
+  "panel-height": "165px",
+  "panel-large-height": "335px",
+
+  "breakpoint-xs": "480px",
+  "breakpoint-sm": "768px",
+  "breakpoint-md": "960px",
+  "breakpoint-lg": "1120px",
+  "breakpoint-xl": "1280px",
+
+  "columns": "12",
+  "gutter-width": "20px",
+  "grid-limit": "980px",
+
+  "index-rear": "-1",
+  "index-base": "0",
+  "index-front": "10",
+  "index-ahead": "100",
+  "index-foremost": "9999"
+
 }
 ```
 
