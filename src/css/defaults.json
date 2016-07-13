@@ -38,6 +38,12 @@
   "gutter-width": "20px",
   "grid-limit": "980px",
 
+  "index-rear": "-1",
+  "index-base": "0",
+  "index-front": "10",
+  "index-ahead": "100",
+  "index-foremost": "9999",
+
   "modal-index": "100",
   "modal-content-index": "101"
 }
