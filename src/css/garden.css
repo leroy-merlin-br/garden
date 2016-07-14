@@ -48,5 +48,6 @@
 @import "molecules/thumbnail";
 @import "molecules/feedback";
 @import "molecules/collapse";
+@import "molecules/tooltip";
 
 @import "molecules/panel";

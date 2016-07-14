@@ -10,11 +10,6 @@
   transition: opacity .3s ease-in-out, visibility .6s;
   visibility: hidden;
 
-  &:parent:hover > .tooltip {
-    opacity: 1;
-    visibility: visible;
-  }
-
   &::after {
     border-style: solid;
     border-width: .5rem;
