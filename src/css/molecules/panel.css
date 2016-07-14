@@ -1,7 +1,7 @@
 .panel {
   display: block;
   height: $panel-height;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
 
   &-large {
@@ -35,7 +35,7 @@
     }
 
     &:hover .caption {
-      background-position: 0 100%;
+      background-position: 0 99%;
     }
   }
 
