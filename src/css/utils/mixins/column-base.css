@@ -1,0 +1,6 @@
+@define-mixin column-base {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc($gutter-width / 2);
+  padding-right: calc($gutter-width / 2);
+}

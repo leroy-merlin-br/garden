@@ -1,0 +1,28 @@
+@define-mixin form-component $border-color, $border-color-focus {
+  border: .0625rem solid $color-$(border-color);
+  border-radius: .25rem;
+  color: $color-text;
+  outline: 0;
+  padding-bottom: .6rem;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  padding-top: .6rem;
+  transition: border-color .3s ease-in-out;
+  width: 100%;
+  @mixin-content;
+
+  &:focus {
+    border-bottom-color: $color-$(border-color-focus);
+    @mixin reset-border-color-input;
+  }
+
+  &[disabled] {
+    background-color: $color-neutral;
+    border-color: $color-default-light;
+    color: $color-default-light;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
