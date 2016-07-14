@@ -2,7 +2,15 @@
 
 @import "utils/breakpoints";
 @import "utils/placeholders";
-@import "utils/mixins";
+
+@import "utils/mixins/reset-border-color-input";
+@import "utils/mixins/form-component";
+@import "utils/mixins/field-validation";
+@import "utils/mixins/clearfix";
+@import "utils/mixins/get-size";
+@import "utils/mixins/column-base";
+@import "utils/mixins/push-pull-grid";
+@import "utils/mixins/disable-shadow";
 
 @import "atoms/box-sizing";
 @import "atoms/typography";

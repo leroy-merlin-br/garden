@@ -1,0 +1,12 @@
+@define-mixin disable-shadow {
+
+  &::after,
+  &::before {
+    content: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: none;
+  }
+}

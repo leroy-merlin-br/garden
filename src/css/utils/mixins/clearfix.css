@@ -1,0 +1,14 @@
+@define-mixin clearfix {
+  *zoom: 1;
+
+  &::before {
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

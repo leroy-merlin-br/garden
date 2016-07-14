@@ -1,0 +1,24 @@
+@define-mixin field-validation $color-name, $glyph-name {
+
+  &::after {
+    @mixin $glyph-name;
+    background-color: $color-$(color-name);
+    color: $color-neutral;
+    font-family: Glyphs;
+    font-size: .6rem;
+    line-height: 1.2rem;
+    text-align: center;
+  }
+
+  .input,
+  .select,
+  .textarea {
+    border-bottom-color: $color-$(color-name);
+    @mixin reset-border-color-input;
+  }
+
+  .label,
+  .helper {
+    color: $color-$(color-name);
+  }
+}

@@ -1,0 +1,3 @@
+@define-mixin getSize $columns, $i, $prop {
+  $(prop): calc((100% / $columns) * $i);
+}
