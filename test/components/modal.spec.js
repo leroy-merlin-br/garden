@@ -140,25 +140,37 @@ describe('Modal spec', () => {
       })
     )
 
-    it('should bind triggerClose if user passed selector as option',
+    it('should bind triggerClose if user passes the selector as an option',
       sinon.test(function () {
-
-        let newIstance = new Modal($fixture.find('[data-modal]'),
+        let newInstance = new Modal($fixture.find('[data-modal]'),
           { triggerClose: '[data-trigger="close"]' }
         )
 
-        newIstance.init()
-        newIstance.show()
+        newInstance.init()
+        newInstance.show()
 
-        newIstance.$modal.find('[data-trigger="close"]').trigger('click')
+        newInstance.$modal.find('[data-trigger="close"]').trigger('click')
 
-        expect(newIstance.$modal.hasClass('modal-show')).to.be.false
+        expect(newInstance.$modal.hasClass('modal-show')).to.be.false
       })
     )
+
+    it('should bind triggerOpen if user passes the selector as an option', sinon.test(function () {
+      let newInstance = new Modal($fixture.find('[data-modal]'),
+        { triggerOpen: '[data-trigger="open"]' }
+      )
+      let spy = this.spy(newInstance, 'show')
+
+      newInstance.init()
+
+      $('[data-trigger="open"]').trigger('click')
+
+      expect(spy.calledOnce).to.be.true
+    }))
   })
 
   describe('unbindListeners', () => {
-    it('should not call hide if close is clicked', sinon.test(function (){
+    it('should not call hide if close is clicked', sinon.test(function () {
       let spy = this.spy(instance, 'hide')
 
       instance.init()

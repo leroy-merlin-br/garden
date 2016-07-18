@@ -63,6 +63,12 @@ class Modal {
     $(window).off('keyup', this.handler)
   }
 
+  _bindTrigger () {
+    if (this.options.triggerOpen) {
+      $(this.options.triggerOpen).on('click', this.show.bind(this))
+    }
+  }
+
   _showModal () {
     this.$modal.addClass('modal-enter')
     this.$content.addClass('modal-content-enter')
@@ -102,6 +108,7 @@ class Modal {
 
     $(this.options.container).append(this.$modal)
 
+    this._bindTrigger()
     this._fillModal()
   }
 }

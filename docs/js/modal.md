@@ -49,19 +49,21 @@ Based on this markup, the component will get all content inside of `[data-modal]
 
 ## Options
 
-Modal provides two customizable options, that is `container` and `triggerClose`. By default, `.modal` is appended in body and `triggerClose` is null.
+Modal provides three customizable options: `container`, `triggerClose` and `triggerOpen`. By default `.modal` is appended in the `body`, `triggerClose` and  `triggerOpen` are `null`.
 
-| Option            | Description |
+| Option            | Default | Description |
 |-------------------|-------------|
-| container (body)  | A new string selector to append `.modal` |
-| triggerClose (null) | A string selector to bind and call hide method when clicked |
+| container  | `"body"` | A new string selector to append `.modal` |
+| triggerClose | `null` | A string selector to bind and call hide method when clicked |
+| triggerOpen | `null` | A string selector to bind and call show method when clicked |
 
 Ex:
 
 ```js
 let options = {
   container: '.wrapper',
-  triggerClose: '[data-anything]'
+  triggerClose: '[data-anything]',
+  triggerOpen: '[data-another-thing]'
 }
 
 // as a jquery plugin
@@ -99,13 +101,9 @@ If you want that a button inside `.modal` close itself, add option `triggerClose
 
 ```js
 let modal = $('[data-modal]').modal({
-      triggerClose: '.any-selector'
-    }),
-    triggerOpen = $('[data-trigger="open"]');
-
-triggerOpen.on('click', () => {
-  modal.show();
-});
+      triggerClose: '.any-selector',
+      triggerOpen: '[data-trigger="open"]'
+    })
 ```
 Working Example:
 
