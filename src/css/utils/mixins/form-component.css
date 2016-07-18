@@ -16,7 +16,8 @@
     @mixin reset-border-color-input;
   }
 
-  &[disabled] {
+  &[disabled],
+  .disabled {
     background-color: $color-neutral;
     border-color: $color-default-light;
     color: $color-default-light;
