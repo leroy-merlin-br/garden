@@ -39,6 +39,7 @@
   }
 
   &:hover {
+    cursor: pointer;
 
     &::before {
       opacity: 0;
@@ -88,7 +89,8 @@
 
   @mixin disable-shadow;
 
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     background-color: transparent;
     color: $color-default-light;
   }

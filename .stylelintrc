@@ -39,13 +39,13 @@
     "media-feature-colon-space-before": "never",
     "media-feature-range-operator-space-after": "always",
     "media-feature-range-operator-space-before": "always",
-    "media-query-parentheses-space-inside": "never",
+    "media-feature-parentheses-space-inside": "never",
     "media-query-list-comma-space-after": "always",
     "media-query-list-comma-space-before": "never",
     "comment-whitespace-inside": "always",
     "indentation": 2,
     "max-empty-lines": 2,
     "no-eol-whitespace": true,
-    "no-missing-eof-newline": true
+    "no-missing-end-of-source-newline": true
   }
 }
