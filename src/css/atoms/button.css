@@ -89,7 +89,8 @@
 
   @mixin disable-shadow;
 
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     background-color: transparent;
     color: $color-default-light;
   }
