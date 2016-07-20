@@ -39,6 +39,7 @@
   }
 
   &:hover {
+    cursor: pointer;
 
     &::before {
       opacity: 0;
