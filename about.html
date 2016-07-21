@@ -33,11 +33,8 @@ text.on('success', function(e) {
 $('.docs').form();
 
 var modal = $('[data-modal]').modal({
-  triggerClose: '[data-trigger="close"]'
-});
-
-$('[data-trigger="open"]').on('click', function() {
-  modal.data('modal').show();
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger="open"]'
 });
 
 $('[data-notification-dynamic]').notification({
