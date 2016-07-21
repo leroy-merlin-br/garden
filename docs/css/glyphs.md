@@ -63,6 +63,13 @@ You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend ca
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-chat-balloon">
+      <div class="glyph glyph-chat-balloon"></div>
+      chat-balloon
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-checked">
       <div class="glyph glyph-checked"></div>
       checked
