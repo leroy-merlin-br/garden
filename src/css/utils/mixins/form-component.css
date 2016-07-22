@@ -25,5 +25,9 @@
     &:hover {
       cursor: not-allowed;
     }
+
+    + .label {
+      color: $color-default;
+    }
   }
 }
