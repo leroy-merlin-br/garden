@@ -42,6 +42,11 @@
     &:hover + .label {
       color: $color-primary;
     }
+
+    &[disabled] + .label,
+    .disabled + .label {
+      color: $color-default;
+    }
   }
 
   .label {
