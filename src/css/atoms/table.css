@@ -1,0 +1,16 @@
+.table {
+  border-collapse: collapse;
+  font-size: .8rem;
+  width: 100%;
+
+  td, th {
+    padding: .5rem;
+    text-align: left;
+  }
+}
+
+.table-zebra {
+  tbody tr:nth-child(odd) {
+    background-color: $color-default-lighter;
+  }
+}

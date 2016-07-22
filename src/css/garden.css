@@ -25,6 +25,7 @@
 @import "atoms/modal";
 @import "atoms/notification";
 @import "atoms/collapse";
+@import "atoms/table";
 @import "atoms/tooltip";
 
 @import "atoms/form/input";
