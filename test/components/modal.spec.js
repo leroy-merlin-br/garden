@@ -208,6 +208,19 @@ describe('Modal spec', () => {
       expect(instance.$modal.hasClass('modal-enter modal-show')).to.be.true
       expect(instance.$content.hasClass('modal-content-enter modal-content-show')).to.be.true
     }))
+
+    context('when a click is done outside the modal\'s content', () => {
+      it('should hide the modal', sinon.test(function () {
+        let spy = this.spy(instance, '_hideModal')
+
+        instance.init()
+        instance.show()
+
+        instance.$modal.trigger('click')
+
+        expect(spy.calledOnce).to.be.true
+      }))
+    })
   })
 
   describe('_hideModal', () => {
