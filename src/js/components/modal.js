@@ -77,6 +77,8 @@ class Modal {
       this.$modal.addClass('modal-show')
       this.$content.addClass('modal-content-show')
     }, 200)
+
+    this.$modal.on('click', this._onModalClick.bind(this))
   }
 
   _hideModal () {
@@ -92,6 +94,12 @@ class Modal {
       this.$modal.removeClass('modal-enter modal-leave')
       this.$content.removeClass('modal-content-enter modal-content-leave')
     }, 200)
+  }
+
+  _onModalClick (event) {
+    if (this.$modal.is(event.target)) {
+      this._hideModal()
+    }
   }
 
   _fillModal () {
