@@ -16,6 +16,7 @@
 @import "atoms/typography";
 @import "atoms/glyph";
 @import "atoms/button";
+@import "atoms/button-hollow";
 @import "atoms/badge";
 @import "atoms/caption";
 @import "atoms/circular";

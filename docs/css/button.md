@@ -73,3 +73,51 @@ Using `<a>` element:
 ```html
 <a href="#" role="button" class="button button-disabled"></a>
 ```
+
+## Hollow Buttons
+
+If you want a hollow styled button, you can use the `.button-hollow` class. It'll display a button with a transparent background and a colored border. Like the `.button`, you can add colors using a modifier like `.button-hollow-primary`.
+
+<div class="example example-code">
+  <button type="button" class="button-hollow">
+    Default
+  </button>
+  <button type="button" class="button-hollow button-hollow-primary">
+    Primary
+  </button>
+  <button type="button" class="button-hollow button-hollow-secondary">
+    Secondary
+  </button>
+  <button type="button" class="button-hollow button-hollow-danger">
+    Danger
+  </button>
+</div>
+
+```html
+<button type="button" class="button-hollow">
+  Default
+</button>
+<button type="button" class="button-hollow button-hollow-primary">
+  Primary
+</button>
+<button type="button" class="button-hollow button-hollow-secondary">
+  Secondary
+</button>
+<button type="button" class="button-hollow button-hollow-danger">
+  Danger
+</button>
+```
+
+Likewise the standard buttons, you can achieve a disabled styled adding `.disabled` class to `.button-hollow` element.
+
+<div class="example example-code">
+  <button type="button" class="button-hollow disabled">
+    Disabled Button
+  </button>
+</div>
+
+```html
+<button type="button" class="button-hollow disabled">
+  Disabled Button
+</button>
+```

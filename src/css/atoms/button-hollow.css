@@ -1,0 +1,48 @@
+.button-hollow {
+  background-color: transparent;
+  border: .0625rem solid $color-default;
+  border-radius: .25rem;
+  color: $color-default;
+  display: inline-block;
+  font-size: 1rem;
+  padding: .68rem .81rem;
+  position: relative;
+  transition: background-color .3s ease-in-out;
+  z-index: 1;
+
+  &:hover,
+  &:focus {
+    background: $color-default;
+    color: $color-neutral;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    border-color: $color-default-light;
+    color: $color-default-light;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $color-default-light;
+    }
+  }
+}
+
+@each $color in primary, secondary, danger {
+
+  .button-hollow-$(color) {
+    border-color: $color-$(color);
+    color: $color-$(color);
+
+    &:hover {
+      background-color: $color-$(color);
+    }
+  }
+}
