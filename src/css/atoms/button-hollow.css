@@ -1,24 +1,16 @@
 .button-hollow {
+  @mixin button;
+
   background-color: transparent;
   border: .0625rem solid $color-default;
-  border-radius: .25rem;
   color: $color-default;
-  display: inline-block;
-  font-size: 1rem;
-  padding: .68rem .81rem;
-  position: relative;
   transition: background-color .3s ease-in-out;
-  z-index: 1;
+  z-index: $index-front;
 
   &:hover,
   &:focus {
     background: $color-default;
     color: $color-neutral;
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline: none;
   }
 
   &.disabled,

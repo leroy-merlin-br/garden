@@ -1,14 +1,10 @@
 .button {
+  @mixin button;
+
   background-color: $color-default;
   border: 0;
-  border-radius: .25rem;
   color: $color-neutral;
-  display: inline-block;
-  font-size: 1rem;
-  padding: .68rem .81rem;
-  position: relative;
   transition: transform .3s ease-in-out;
-  z-index: 1;
 
   &::before,
   &::after {
@@ -34,12 +30,10 @@
 
   &:hover,
   &:focus {
-    text-decoration: none;
     transform: translateY(-.0625rem);
   }
 
   &:hover {
-    cursor: pointer;
 
     &::before {
       opacity: 0;
@@ -48,10 +42,6 @@
     &::after {
       opacity: 1;
     }
-  }
-
-  &:focus {
-    outline: none;
   }
 
   &.no-shadow {

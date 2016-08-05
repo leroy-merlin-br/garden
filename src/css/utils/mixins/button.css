@@ -1,0 +1,21 @@
+@define-mixin button {
+  border-radius: .25rem;
+  display: inline-block;
+  font-size: 1rem;
+  padding: .68rem .81rem;
+  position: relative;
+  z-index: $index-front;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
