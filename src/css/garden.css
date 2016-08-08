@@ -29,6 +29,7 @@
 @import "atoms/collapse";
 @import "atoms/table";
 @import "atoms/tooltip";
+@import "atoms/scroll";
 
 @import "atoms/form/input";
 @import "atoms/form/label";

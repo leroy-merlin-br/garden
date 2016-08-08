@@ -20,6 +20,7 @@ class Modal {
   }
 
   init () {
+    this.$container = $(this.options.container)
     this._createModal()
 
     return this
@@ -72,6 +73,7 @@ class Modal {
   _showModal () {
     this.$modal.addClass('modal-enter')
     this.$content.addClass('modal-content-enter')
+    this.$container.addClass('no-scroll')
 
     window.setTimeout(() => {
       this.$modal.addClass('modal-show')
@@ -89,6 +91,8 @@ class Modal {
     this.$modal
       .removeClass('modal-show')
       .addClass('modal-leave')
+
+    this.$container.removeClass('no-scroll')
 
     window.setTimeout(() => {
       this.$modal.removeClass('modal-enter modal-leave')
@@ -114,7 +118,7 @@ class Modal {
     this.$content.append(this.$close)
     this.$modal.append(this.$content)
 
-    $(this.options.container).append(this.$modal)
+    this.$container.append(this.$modal)
 
     this._bindTrigger()
     this._fillModal()
