@@ -1,7 +1,7 @@
 import $ from 'jquery'
 
-import throttle from '../utils/throttle'
-import removeFromArray from '../utils/remove-array-like'
+import throttle from 'scripts/utils/throttle'
+import removeFromArray from 'scripts/utils/remove-array-like'
 
 const NAME = 'lazyload'
 const DEFAULTS = {
