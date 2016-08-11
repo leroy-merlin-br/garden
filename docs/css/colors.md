@@ -52,6 +52,9 @@ We highly encourage the usage of color interfaces rather than color names. Color
     <div class="color color-neutral" data-clipboard-text="$color-neutral"></div>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="color color-black" data-clipboard-text="$color-black"></div>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="color color-text" data-clipboard-text="$color-text"></div>
   </div>
   <div class="col-xs-12 col-sm-6 col-md-4">

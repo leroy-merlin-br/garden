@@ -112,6 +112,15 @@
     }
   }
 
+  .color-black {
+    background-color: $color-black;
+    color: $color-neutral;
+
+    &::after {
+      content: "color-black: $(color-black)";
+    }
+  }
+
   .color-text {
     background-color: $color-text;
     color: $color-neutral;
