@@ -1,6 +1,7 @@
-import Tooltip from '../../src/js/components/tooltip'
-import Popper from 'popper.js'
 import $ from 'jquery'
+import Popper from 'popper.js'
+
+import Tooltip from 'scripts/components/tooltip'
 
 describe('Tooltip spec', () => {
   let instance, $fixture, options

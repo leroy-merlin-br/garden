@@ -1,5 +1,6 @@
-import Modal from '../../src/js/components/modal'
 import $ from 'jquery'
+
+import Modal from 'scripts/components/modal'
 
 describe('Modal spec', () => {
   let instance, $fixture

@@ -1,8 +1,8 @@
 import $ from 'jquery'
 
-import emitter from '../utils/emitter'
+import emitter from 'scripts/utils/emitter'
 
-import rules from './validation/defaults'
+import rules from 'scripts/components/validation/defaults'
 
 const NAME = 'validation'
 const DEFAULTS = {

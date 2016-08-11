@@ -1,4 +1,6 @@
-module.exports = function(config) {
+const join = require('path').join
+
+module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon', 'fixture'],
@@ -15,6 +17,11 @@ module.exports = function(config) {
       devtool: 'inline-source-map',
       externals: {
         'jquery': '$'
+      },
+      resolve: {
+        alias: {
+          scripts: join(__dirname, '/src/js/')
+        }
       },
       module: {
         preLoaders: [

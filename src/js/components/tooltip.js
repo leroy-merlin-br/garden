@@ -1,5 +1,6 @@
-import Popper from 'popper.js'
 import $ from 'jquery'
+
+import Popper from 'popper.js'
 
 const NAME = 'tooltip'
 

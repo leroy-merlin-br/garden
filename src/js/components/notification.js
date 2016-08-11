@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import transitionEnd from '../utils/transitionend'
+import transitionEnd from 'scripts/utils/transitionend'
 
 const NAME = 'notification'
 

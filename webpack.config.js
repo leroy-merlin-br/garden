@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const join = require('path').join
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -8,6 +9,11 @@ module.exports = {
   },
   externals: {
     'jquery': '$'
+  },
+  resolve: {
+    alias: {
+      scripts: join(__dirname, '/src/js/')
+    }
   },
   module: {
     loaders: [
