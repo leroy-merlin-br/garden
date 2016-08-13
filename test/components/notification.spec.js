@@ -35,7 +35,7 @@ describe('Notification spec', () => {
   describe('init', () => {
     let newIstance
 
-    it('should create notification in DOM', sinon.test(function() {
+    it('should create notification in DOM', sinon.test(function () {
       let spy = this.spy(instance, '_createNotification')
 
       instance.init()
@@ -43,7 +43,7 @@ describe('Notification spec', () => {
       expect(spy.calledOnce).to.be.true
     }))
 
-    it('should call bindListeners', sinon.test(function() {
+    it('should call bindListeners', sinon.test(function () {
       let spy = this.spy(instance, 'bindListeners')
 
       instance.init()
@@ -51,7 +51,7 @@ describe('Notification spec', () => {
       expect(spy.calledOnce).to.be.true
     }))
 
-    it('should show notification when init, based on showIn timer', sinon.test(function() {
+    it('should show notification when init, based on showIn timer', sinon.test(function () {
       let spy = this.spy(instance, 'show')
 
       instance.init()
@@ -61,7 +61,7 @@ describe('Notification spec', () => {
       expect(spy.calledOnce).to.be.true
     }))
 
-    it('should show notification when init, based on showIn config', sinon.test(function() {
+    it('should show notification when init, based on showIn config', sinon.test(function () {
       options.showIn = 3000
       const spy = this.spy(newIstance, 'show')
 
@@ -76,7 +76,7 @@ describe('Notification spec', () => {
   })
 
   describe('bindListeners', () => {
-    it('should bind close button', sinon.test(function() {
+    it('should bind close button', sinon.test(function () {
       let spy = this.spy(instance, 'hide')
 
       instance._createNotification()
@@ -98,7 +98,7 @@ describe('Notification spec', () => {
       expect(instance.$box.hasClass('notification-show')).to.be.true
     })
 
-    it('should hide if autoHide config is true', sinon.test(function() {
+    it('should hide if autoHide config is true', sinon.test(function () {
       options.autoHide = true
       const spy = this.spy(newIstance, 'hide')
 
@@ -114,8 +114,7 @@ describe('Notification spec', () => {
   })
 
   describe('hide', () => {
-    it('should hide notification', sinon.test(function() {
-
+    it('should hide notification', sinon.test(function () {
       instance._createNotification()
       instance.show()
       instance.hide()
@@ -127,7 +126,7 @@ describe('Notification spec', () => {
   })
 
   describe('destroy', () => {
-    it('should remove close bind', sinon.test(function() {
+    it('should remove close bind', sinon.test(function () {
       let spy = this.spy(instance, 'hide')
 
       instance.init()
@@ -187,7 +186,7 @@ describe('Notification spec', () => {
   })
 
   describe('_createCloseButton', () => {
-    it('should not create close element, if dynamic is false', sinon.test(function() {
+    it('should not create close element, if dynamic is false', sinon.test(function () {
       let spy = this.spy($.fn, 'append')
 
       options.dynamic = false
@@ -200,7 +199,6 @@ describe('Notification spec', () => {
     }))
 
     it('should create close element', () => {
-
       instance.init()
 
       expect(instance.$box.find('.notification-close')).to.exist
