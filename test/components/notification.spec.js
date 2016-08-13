@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 import Notification from '../../src/js/components/notification'
 import transitionEnd from '../../src/js/utils/transitionend'
 
@@ -31,6 +33,8 @@ describe('Notification spec', () => {
   })
 
   describe('init', () => {
+    let newIstance
+
     it('should create notification in DOM', sinon.test(function() {
       let spy = this.spy(instance, '_createNotification')
 
@@ -59,9 +63,9 @@ describe('Notification spec', () => {
 
     it('should show notification when init, based on showIn config', sinon.test(function() {
       options.showIn = 3000
+      const spy = this.spy(newIstance, 'show')
 
-      let newIstance = new Notification(fixture.load('notification.html')[0], options),
-        spy = this.spy(newIstance, 'show')
+      newIstance = new Notification(fixture.load('notification.html')[0], options)
 
       newIstance.init()
 
@@ -85,6 +89,8 @@ describe('Notification spec', () => {
   })
 
   describe('show', () => {
+    let newIstance
+
     it('should show notification', () => {
       instance._createNotification()
       instance.show()
@@ -94,9 +100,9 @@ describe('Notification spec', () => {
 
     it('should hide if autoHide config is true', sinon.test(function() {
       options.autoHide = true
+      const spy = this.spy(newIstance, 'hide')
 
-      let newIstance = new Notification(fixture.load('notification.html')[0], options),
-        spy = this.spy(newIstance, 'hide')
+      newIstance = new Notification(fixture.load('notification.html')[0], options)
 
       newIstance._createNotification()
       newIstance.show()
