@@ -85,8 +85,8 @@ class LazyLoad {
   parseBreakpoints (image, breakpoints) {
     image.removeAttribute('data-srcset')
 
-    breakpoints = breakpoints.split(',').map(breakpoint => {
-      breakpoint = breakpoint.trim().split(' ')
+    breakpoints = breakpoints.split(/,\s+/g).map(breakpoint => {
+      breakpoint = breakpoint.trim().split(/\s+/)
 
       return {
         src: breakpoint[0],
