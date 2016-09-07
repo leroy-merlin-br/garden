@@ -39,7 +39,7 @@ All options available from [jump.js](http://callmecavs.com/jump.js/). The usage 
 
 | Option            | Description |
 |-------------------|-------------|
-| durantion (500)  | The scroll duration (ms) |
+| duration (500)  | The scroll duration (ms) |
 | offset (-30) | The offset from the provided element |
 
 ### Working Example:
