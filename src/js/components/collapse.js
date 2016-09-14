@@ -6,7 +6,8 @@ const DEFAULTS = {
   selector: 'data-target',
   listener: 'click',
   activeClass: 'active',
-  visibleClass: 'visible'
+  visibleClass: 'visible',
+  timing: 300
 }
 
 class Collapse {
@@ -28,7 +29,10 @@ class Collapse {
 
   setInitialState () {
     this.isCollapsed = !this.$toggle.hasClass(this.options.visibleClass)
-    this.toggleHeight = this.toggle.scrollHeight
+
+    setTimeout(() => {
+      this.toggleHeight = this.toggle.scrollHeight
+    }, this.options.timing)
 
     if (!this.isCollapsed) {
       this.toggle.style.maxHeight = `${this.toggleHeight}px`
