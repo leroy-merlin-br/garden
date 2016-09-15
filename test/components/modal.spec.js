@@ -1,4 +1,5 @@
 import Modal from '../../src/js/components/modal'
+import emitter from '../../src/js/utils/emitter'
 import $ from 'jquery'
 
 describe('Modal spec', () => {
@@ -42,7 +43,7 @@ describe('Modal spec', () => {
     })
 
     it('should call createDOM', sinon.test(function () {
-      let spy = this.spy(instance, '_createModal')
+      let spy = this.spy(instance, 'createModal')
 
       instance.init()
 
@@ -51,8 +52,8 @@ describe('Modal spec', () => {
   })
 
   describe('show', () => {
-    it('should call _showModal', sinon.test(function () {
-      let spy = this.spy(instance, '_showModal')
+    it('should call showModal', sinon.test(function () {
+      let spy = this.spy(instance, 'showModal')
 
       instance.init()
       instance.show()
@@ -71,8 +72,8 @@ describe('Modal spec', () => {
   })
 
   describe('hide', () => {
-    it('should call _hideModal', sinon.test(function () {
-      let spy = this.spy(instance, '_hideModal')
+    it('should call hideModal', sinon.test(function () {
+      let spy = this.spy(instance, 'hideModal')
 
       instance.init()
       instance.hide()
@@ -198,10 +199,19 @@ describe('Modal spec', () => {
     }))
   })
 
-  describe('_showModal', () => {
+  describe('showModal', () => {
+    it('should emit `modal:show`', sinon.test(function () {
+      const stub = this.stub(emitter, 'emit')
+
+      instance.init()
+      instance.showModal()
+
+      expect(stub.calledWith('modal:show'))
+    }))
+
     it('should addClass to modal and content to show enter animation', sinon.test(function () {
       instance.init()
-      instance._showModal()
+      instance.showModal()
 
       this.clock.tick(200)
 
@@ -211,7 +221,7 @@ describe('Modal spec', () => {
 
     context('when a click is done outside the modal\'s content', () => {
       it('should hide the modal', sinon.test(function () {
-        let spy = this.spy(instance, '_hideModal')
+        let spy = this.spy(instance, 'hideModal')
 
         instance.init()
         instance.show()
@@ -223,11 +233,20 @@ describe('Modal spec', () => {
     })
   })
 
-  describe('_hideModal', () => {
+  describe('hideModal', () => {
+    it('should emit `modal:hide`', sinon.test(function () {
+      const stub = this.stub(emitter, 'emit')
+
+      instance.init()
+      instance.hideModal()
+
+      expect(stub.calledWith('modal:hide'))
+    }))
+
     it('should addClass to modal and content to show leave animation', () => {
       instance.init()
-      instance._showModal()
-      instance._hideModal()
+      instance.showModal()
+      instance.hideModal()
 
       expect(instance.$modal.hasClass('modal-leave')).to.be.true
       expect(instance.$content.hasClass('modal-content-leave')).to.be.true

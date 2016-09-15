@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import emitter from '../utils/emitter'
 
 const NAME = 'modal'
 
@@ -21,19 +22,19 @@ class Modal {
 
   init () {
     this.$container = $(this.options.container)
-    this._createModal()
+    this.createModal()
 
     return this
   }
 
   show () {
     this.bindListeners()
-    this._showModal()
+    this.showModal()
   }
 
   hide () {
     this.unbindListeners()
-    this._hideModal()
+    this.hideModal()
   }
 
   destroy () {
@@ -64,13 +65,15 @@ class Modal {
     $(window).off('keyup', this.handler)
   }
 
-  _bindTrigger () {
+  bindTrigger () {
     if (this.options.triggerOpen) {
       $(this.options.triggerOpen).on('click', this.show.bind(this))
     }
   }
 
-  _showModal () {
+  showModal () {
+    emitter.emit('modal:show')
+
     this.$modal.addClass('modal-enter')
     this.$content.addClass('modal-content-enter')
     this.$container.addClass('no-scroll')
@@ -80,10 +83,12 @@ class Modal {
       this.$content.addClass('modal-content-show')
     }, 200)
 
-    this.$modal.on('click', this._onModalClick.bind(this))
+    this.$modal.on('click', this.onModalClick.bind(this))
   }
 
-  _hideModal () {
+  hideModal () {
+    emitter.emit('modal:hide')
+
     this.$content
       .removeClass('modal-content-show')
       .addClass('modal-content-leave')
@@ -100,17 +105,17 @@ class Modal {
     }, 200)
   }
 
-  _onModalClick (event) {
+  onModalClick (event) {
     if (this.$modal.is(event.target)) {
-      this._hideModal()
+      this.hideModal()
     }
   }
 
-  _fillModal () {
+  fillModal () {
     this.$content.find('.modal-body').append(this.$element.html())
   }
 
-  _createModal () {
+  createModal () {
     this.$modal = $(templates.modal)
     this.$content = $(templates.content)
     this.$close = $(templates.close)
@@ -120,8 +125,8 @@ class Modal {
 
     this.$container.append(this.$modal)
 
-    this._bindTrigger()
-    this._fillModal()
+    this.bindTrigger()
+    this.fillModal()
   }
 }
 
