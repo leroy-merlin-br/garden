@@ -33,7 +33,8 @@
     border-color: $color-$(color);
     color: $color-$(color);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $color-$(color);
     }
   }
