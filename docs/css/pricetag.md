@@ -17,7 +17,7 @@ The raw `.price-tag` just adds `text-align: center`, as for the `.price-*` atoms
   <div class="price-tag">
     <span class="price-currency">R$</span>
     <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-    <span class="price-unit">/m</span>
+    <span class="price-unit">m</span>
   </div>
 </div>
 
@@ -26,7 +26,7 @@ The raw `.price-tag` just adds `text-align: center`, as for the `.price-*` atoms
   <span class="price-currency">R$</span>
   <span class="price-integer">9.999</span>
   <span class="price-decimal">,99</span>
-  <span class="price-unit">/m</span>
+  <span class="price-unit">m</span>
 </div>
 ```
 
@@ -38,27 +38,23 @@ Additionally, you can also work with the `.from-price` component, which can dire
 <div class="example example-code">
   <div class="price-tag promotional">
     <div class="from-price">
-      de:
       <span class="price">R$ 9.999,99</span>
-      por:
     </div>
     <span class="price-currency">R$</span>
     <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-    <span class="price-unit">/m</span>
+    <span class="price-unit">m</span>
   </div>
 </div>
 
 ```html
 <div class="price-tag promotional">
   <div class="from-price">
-    de:
     <span class="price">R$ 9.999,99</span>
-    por:
   </div>
 
   <span class="price-currency">R$</span>
   <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-  <span class="price-unit">/m</span>
+  <span class="price-unit">m</span>
 </div>
 ```
 
@@ -67,28 +63,24 @@ or
 <div class="example example-code">
   <div class="price-tag promotional">
     <div class="from-price">
-      de:
       <span class="price-currency">R$</span>
       <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-      por:
     </div>
     <span class="price-currency">R$</span>
     <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-    <span class="price-unit">/m</span>
+    <span class="price-unit">m</span>
   </div>
 </div>
 
 ```html
 <div class="price-tag promotional">
   <div class="from-price">
-    de:
     <span class="price-currency">R$</span>
     <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-    por:
   </div>
 
   <span class="price-currency">R$</span>
   <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
-  <span class="price-unit">/m</span>
+  <span class="price-unit">m</span>
 </div>
 ```
