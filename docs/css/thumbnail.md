@@ -35,7 +35,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
       src="http://unsplash.it/201/201"
       width="200"
       height="200"
-      class="figure" /> 
+      class="figure" />
     <figcaption class="caption">
       Nome de um produto com mais de uma linha pra chegar no máx...
       <span class="additional">Cód. 999999999</span>
@@ -44,7 +44,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
       <span class="price-currency">R$</span>
       <span class="price-integer">9.999</span>
       <span class="price-decimal">,99</span>
-      <span class="price-unit">/m</span>
+      <span class="price-unit">m</span>
     </div>
   </figure>
 </div>
@@ -78,7 +78,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
       src="http://unsplash.it/201/201"
       width="200"
       height="200"
-      class="figure" /> 
+      class="figure" />
     <figcaption class="caption">
       Nome de um produto com mais de uma linha pra chegar no máx...
       <span class="additional">Cód. 999999999</span>
@@ -87,7 +87,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
       <span class="price-currency">R$</span>
       <span class="price-integer">9.999</span>
       <span class="price-decimal">,99</span>
-      <span class="price-unit">/m</span>
+      <span class="price-unit">m</span>
     </div>
   </figure>
 </div>
