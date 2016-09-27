@@ -110,6 +110,27 @@ _**Obs:** When using `.helper`, don't forget to add `aria-describedby` indicate 
 </div>
 ```
 
+<div class="example example-code">
+  <div class="field">
+    <select class="select" name="select" id="select">
+      <option> </option>
+      <option>option</option>
+    </select>
+    <label for="select" class="label">Select Label</label>
+    <span class="helper" aria-describedby="name">Input Helper</span>
+  </div>
+</div>
+
+```html
+<div class="field">
+  <select class="select">
+    <option></option>
+  </select>
+  <label class="label"></label>
+  <span class="helper" aria-describedby=""></span>
+</div>
+```
+
 Please take note when using `label` + `control` on `radio|checkbox` the label will be positioned on the right side of it.
 
 <div class="example example-code">
