@@ -27,8 +27,14 @@ class Form {
     this.toggleActiveClass(event.target)
   }
 
-  shouldInputBeActive (input) {
-    return !!(input.value)
+  shouldInputBeActive ($input) {
+    let value = $input.val()
+
+    if ($input.is('select')) {
+      value = $input.find('option:selected').text().trim()
+    }
+
+    return !!(value)
   }
 
   toggleActiveClass (input) {
@@ -39,11 +45,11 @@ class Form {
       return
     }
 
-    if (!$field.hasClass('active') && this.shouldInputBeActive(input)) {
+    if (!$field.hasClass('active') && this.shouldInputBeActive($input)) {
       return $field.addClass('active')
     }
 
-    if ($field.hasClass('active') && !this.shouldInputBeActive(input)) {
+    if ($field.hasClass('active') && !this.shouldInputBeActive($input)) {
       return $field.removeClass('active')
     }
   }
