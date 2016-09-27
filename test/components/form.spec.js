@@ -18,26 +18,36 @@ describe('form spec', () => {
   });
 
   describe('shouldInputBeActive', () => {
-    let input;
+    let $input;
 
     beforeEach(() => {
-      input = {};
+      $input = $fixture.find('.input');
     });
 
-    it('should return true if the input has no value/placeholder', () => {
-      expect(Form.prototype.shouldInputBeActive(input)).to.be.false;
+    it('should return false if the input has no value', () => {
+      expect(Form.prototype.shouldInputBeActive($input)).to.be.false;
     });
 
     it('should return true if the input has value', () => {
-      input.value = true;
+      $input.val(true);
 
-      expect(Form.prototype.shouldInputBeActive(input)).to.be.true;
+      expect(Form.prototype.shouldInputBeActive($input)).to.be.true;
     });
 
-    it('should return false if the input has a placeholder', () => {
-      input.placeholder = true;
+    context('when input is select field', () => {
+      beforeEach(() => {
+        $input = $fixture.find('.select');
+      });
 
-      expect(Form.prototype.shouldInputBeActive(input)).to.be.false;
+      it('should return false if the option selected has no textContent', () => {
+        expect(Form.prototype.shouldInputBeActive($input)).to.be.false;
+      });
+
+      it('should return true if the option selected has textContent', () => {
+        $input.find('option:selected').text('true');
+
+        expect(Form.prototype.shouldInputBeActive($input)).to.be.true;
+      });
     });
   });
 
