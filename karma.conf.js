@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon', 'fixture'],
@@ -45,5 +45,5 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     singleRun: false,
     concurrency: Infinity
-  });
-};
+  })
+}
