@@ -41,6 +41,7 @@ The simple-vars plugin exposes a variables property, in order to inject variable
 {
   "color-text": "#333333",
   "color-neutral": "#ffffff",
+  "color-black": "#000000",
   "color-warning": "#fae800",
   "color-warning-light": "#fffccf",
   "color-danger": "#ed1c24",
