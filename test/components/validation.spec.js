@@ -103,4 +103,24 @@ describe('Validation spec', () => {
       expect(instance.validateAll()).to.be.true
     })
   })
+
+  describe('@getFilteredInputs', () => {
+    context('inputs without [data-validate]', () => {
+      it('should be removed from jQuery object', () => {
+        instance.$element.find('#foo').removeAttr('data-validate')
+
+        expect(
+          instance.getFilteredInputs().find('#foo')
+        ).to.be.falsy
+      })
+    })
+
+    context('inputs with [data-validate]', () => {
+      it('should be in jQuery object', () => {
+        expect(
+          instance.getFilteredInputs().find('#foo').length
+        ).to.be.truthy
+      })
+    })
+  })
 })
