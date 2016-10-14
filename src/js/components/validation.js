@@ -58,8 +58,17 @@ class Validation {
   }
 
   validateAll () {
-    return Array.prototype.map.call(this.$element.find(this.options.selector), this.validate, this)
-      .every(validation => validation)
+    return Array.prototype.map.call(
+      this.getFilteredInputs(), this.validate, this
+    ).every(validation => validation)
+  }
+
+  getFilteredInputs () {
+    let inputs = this.$element.find(this.options.selector)
+
+    return inputs.filter((index, input) => {
+      return input.hasAttribute('data-validate')
+    })
   }
 }
 
