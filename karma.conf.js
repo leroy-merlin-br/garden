@@ -11,6 +11,7 @@ module.exports = function (config) {
       '**/*.html': ['html2js'],
       'test/entry.js': ['webpack', 'sourcemap']
     },
+    webpackMiddleware: { noInfo: true },
     webpack: {
       devtool: 'inline-source-map',
       externals: {
