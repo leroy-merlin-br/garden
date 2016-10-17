@@ -64,11 +64,13 @@ class Validation {
   }
 
   getFilteredInputs () {
-    let inputs = this.$element.find(this.options.selector)
+    return Array.prototype.filter.call(
+      this.$element.find(this.options.selector), this.getValidInputs
+    )
+  }
 
-    return inputs.filter((index, input) => {
-      return input.hasAttribute('data-validate')
-    })
+  getValidInputs (input) {
+    return input.hasAttribute('data-validate')
   }
 }
 
