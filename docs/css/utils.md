@@ -8,7 +8,7 @@ path: utils
 ---
 
 # Utils
-<p class="lead">Utils are common use classes to help achiev common generic
+<p class="lead">Utils are common use classes to help achieve common generic
 styles, and to compose other components with them as well.</p>
 
 ## Summary
