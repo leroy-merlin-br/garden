@@ -199,6 +199,48 @@ describe('Modal spec', () => {
     }))
   })
 
+  describe('bindTrigger', () => {
+    context('when instance.options.triggerOpen is setted', () => {
+      beforeEach(() => {
+        const $triggerOpen = $('[data-trigger="open"]')
+        instance.options.triggerOpen = $triggerOpen
+      })
+
+      it('should call onTriggerOpenClick if the trigger is clicked', sinon.test(function () {
+        const stub = this.stub(instance, 'onTriggerOpenClick')
+
+        instance.init()
+        instance.bindTrigger()
+
+        $(instance.options.triggerOpen).trigger('click')
+
+        expect(stub.called).to.be.true
+      }))
+    })
+  })
+
+  describe('onTriggerOpenClick', () => {
+    it('should call preventDefault on the event', sinon.test(function () {
+      const fakeEvent = { preventDefault: () => {} }
+      const preventDefault = sinon.stub(fakeEvent, 'preventDefault')
+
+      instance.init()
+      instance.onTriggerOpenClick(fakeEvent)
+
+      expect(preventDefault.calledOnce).to.be.true
+    }))
+
+    it('should call instance.show()', sinon.test(function () {
+      const fakeEvent = { preventDefault: () => {} }
+      const show = sinon.stub(instance, 'show')
+
+      instance.init()
+      instance.onTriggerOpenClick(fakeEvent)
+
+      expect(show.calledOnce).to.be.true
+    }))
+  })
+
   describe('showModal', () => {
     it('should emit `modal:show`', sinon.test(function () {
       const stub = this.stub(emitter, 'emit')

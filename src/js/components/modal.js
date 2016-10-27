@@ -67,8 +67,16 @@ class Modal {
 
   bindTrigger () {
     if (this.options.triggerOpen) {
-      $(this.options.triggerOpen).on('click', this.show.bind(this))
+      $(this.options.triggerOpen).on(
+        'click',
+        this.onTriggerOpenClick.bind(this)
+      )
     }
+  }
+
+  onTriggerOpenClick (event) {
+    event.preventDefault()
+    this.show()
   }
 
   showModal () {
