@@ -35,8 +35,8 @@ gulp.task('default',
   gulp.series(
     'clean',
     'metalsmith',
-    'styles:docs',
     'build',
+    'styles:docs',
     'server',
     'watch'
   )
