@@ -11,7 +11,10 @@ const templates = {
 
 const DEFAULTS = {
   container: 'body',
-  triggerClose: null
+  triggerClose: null,
+  static: false,
+  keyboard: true,
+  keys: { esc: 27 }
 }
 
 class Modal {
@@ -49,11 +52,20 @@ class Modal {
 
     this.$close.on('click', this.hide.bind(this))
 
-    $(window).on('keyup', this.handler = (e) => {
-      if (e.which === 27) {
-        this.hide()
-      }
-    })
+    this.bindKeyboardListener()
+  }
+
+  bindKeyboardListener () {
+    if (this.options.keyboard) {
+      $(window).on('keyup', (e) => {
+        const { esc } = this.options.keys
+        const key = e.which
+
+        if (key === esc) {
+          this.hide()
+        }
+      })
+    }
   }
 
   unbindListeners () {
@@ -114,7 +126,7 @@ class Modal {
   }
 
   onModalClick (event) {
-    if (this.$modal.is(event.target)) {
+    if (!this.isStaticModal() && this.$modal.is(event.target)) {
       this.hideModal()
     }
   }
@@ -128,13 +140,20 @@ class Modal {
     this.$content = $(templates.content)
     this.$close = $(templates.close)
 
-    this.$content.append(this.$close)
+    if (!this.isStaticModal()) {
+      this.$content.append(this.$close)
+    }
+
     this.$modal.append(this.$content)
 
     this.$container.append(this.$modal)
 
     this.bindTrigger()
     this.fillModal()
+  }
+
+  isStaticModal () {
+    return this.options.static
   }
 }
 

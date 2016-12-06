@@ -102,20 +102,6 @@ describe('Modal spec', () => {
   })
 
   describe('bindListeners', () => {
-    it('should call hide if escape key is pressed', sinon.test(function () {
-      let spy = this.spy(instance, 'hide')
-
-      instance.init()
-      instance.bindListeners()
-
-      $(window).trigger({
-        type: 'keyup',
-        which: 27
-      })
-
-      expect(spy.calledOnce).to.be.true
-    }))
-
     it('should hide modal when click in close', () => {
       instance.init()
       instance.show()
@@ -124,22 +110,6 @@ describe('Modal spec', () => {
 
       expect(instance.$modal.hasClass('modal-show')).to.be.false
     })
-
-    it('should not call hide with user press other key instead of escape',
-      sinon.test(function () {
-        let spy = this.spy(instance, 'hide')
-
-        instance.init()
-        instance.bindListeners()
-
-        $(window).trigger({
-          type: 'keyup',
-          which: 22
-        })
-
-        expect(spy.notCalled).to.be.true
-      })
-    )
 
     it('should bind triggerClose if user passes the selector as an option',
       sinon.test(function () {
@@ -168,6 +138,73 @@ describe('Modal spec', () => {
 
       expect(spy.calledOnce).to.be.true
     }))
+
+    it('should call bindKeyboardListener', sinon.test(function () {
+      instance.init()
+      instance.show()
+      let spy = this.spy(instance, 'bindKeyboardListener')
+
+      instance.bindListeners()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+  })
+
+  describe('bindKeyboardListener', () => {
+    context('when keyboard option is set to true', () => {
+      beforeEach(() => {
+        instance.options.keyboard = true
+      })
+
+      it('should call hide if escape key is pressed', sinon.test(function () {
+        let spy = this.spy(instance, 'hide')
+
+        instance.init()
+        instance.bindKeyboardListener()
+
+        $(window).trigger({
+          type: 'keyup',
+          which: 27
+        })
+
+        expect(spy.calledOnce).to.be.true
+      }))
+
+      it('should not call hide with user press other key instead of escape',
+        sinon.test(function () {
+          let spy = this.spy(instance, 'hide')
+
+          instance.init()
+          instance.bindKeyboardListener()
+
+          $(window).trigger({
+            type: 'keyup',
+            which: 22
+          })
+
+          expect(spy.notCalled).to.be.true
+        })
+      )
+    })
+
+    context('when keyboard option is set to false', () => {
+      it('should not call hide if escape key is pressed',
+        sinon.test(function () {
+          let spy = this.spy(instance, 'hide')
+          instance.options.keyboard = false
+
+          instance.init()
+          instance.bindKeyboardListener()
+
+          $(window).trigger({
+            type: 'keyup',
+            which: 27
+          })
+
+          expect(spy.calledOnce).to.be.false
+        })
+      )
+    })
   })
 
   describe('unbindListeners', () => {
@@ -304,5 +341,163 @@ describe('Modal spec', () => {
       expect(!instance.$modal.hasClass('modal-leave')).to.be.true
       expect(!instance.$modal.hasClass('modal-content-leave')).to.be.true
     }))
+  })
+
+  describe('onModalClick', () => {
+    let fakeEvent
+
+    beforeEach(() => {
+      const modal = $('<div></div>')
+      instance.$modal = modal
+
+      fakeEvent = {
+        target: modal
+      }
+    })
+
+    context('when event target is the $modal on a static modal', () => {
+      it('should not hide modal', sinon.test(function () {
+        let stub = this.stub(instance, 'hideModal')
+        instance.options.static = true
+
+        instance.onModalClick(fakeEvent)
+
+        expect(stub.called).to.be.false
+      }))
+    })
+
+    context('when event target is the $modal on a non static modal', () => {
+      it('should hide modal', sinon.test(function () {
+        let stub = this.stub(instance, 'hideModal')
+        instance.options.static = false
+
+        instance.onModalClick(fakeEvent)
+
+        expect(stub.calledOnce).to.be.true
+      }))
+    })
+
+    context('when event target is different from $modal', () => {
+      beforeEach(() => {
+        instance.$modal = $('<div></div>')
+
+        fakeEvent = {
+          target: $('<div></div>')
+        }
+      })
+
+      it('should not hide modal', sinon.test(function () {
+        let stub = this.stub(instance, 'hideModal')
+
+        instance.onModalClick(fakeEvent)
+
+        expect(stub.called).to.be.false
+      }))
+    })
+  })
+
+  describe('fillModal', () => {
+    it('should append html to $content', () => {
+      let html = '<div>Element</div>'
+      instance.$content = $('<div><div class="modal-body"></div></div>')
+      instance.$element = $(html)
+
+      instance.fillModal()
+
+      expect(instance.$content.find('.modal-body').html()).to.equal('Element')
+    })
+  })
+
+  describe('createModal', () => {
+    beforeEach(() => {
+      instance.$container = $('<div></div>')
+      instance.options.static = false
+    })
+
+    it('should set $modal', () => {
+      instance.$modal = undefined
+
+      instance.createModal()
+
+      expect(instance.$modal).to.not.be.undefined
+    })
+
+    it('should set $content', () => {
+      instance.$content = undefined
+
+      instance.createModal()
+
+      expect(instance.$content).to.not.be.undefined
+    })
+
+    it('should set $close', () => {
+      instance.$close = undefined
+
+      instance.createModal()
+
+      expect(instance.$close).to.not.be.undefined
+    })
+
+    it('should append $close in $content', () => {
+      instance.createModal()
+
+      expect(
+        instance.$content.html()
+      ).to.have.string(instance.$close.get(0).outerHTML)
+    })
+
+    it('should append $content in $modal', () => {
+      instance.createModal()
+
+      expect(
+        instance.$modal.html()
+      ).to.have.string(instance.$content.html())
+    })
+
+    it('should call bindTrigger', sinon.test(function () {
+      let stub = this.stub(instance, 'bindTrigger')
+
+      instance.createModal()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+
+    it('should call fillModal', sinon.test(function () {
+      let stub = this.stub(instance, 'fillModal')
+
+      instance.createModal()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+
+    context('when static option is set to true', () => {
+      it('should not append $close to $content', () => {
+        instance.options.static = true
+
+        instance.createModal()
+
+        expect(
+          instance.$content.html()
+        ).to.not.have.string(instance.$close.get(0).outerHTML)
+      })
+    })
+  })
+
+  describe('isStaticModal', () => {
+    context('when static option was set to true', () => {
+      it('returns true', () => {
+        instance.options.static = true
+
+        expect(instance.isStaticModal()).to.be.true
+      })
+    })
+
+    context('when static option was set to false', () => {
+      it('returns false', () => {
+        instance.options.static = false
+
+        expect(instance.isStaticModal()).to.be.false
+      })
+    })
   })
 })
