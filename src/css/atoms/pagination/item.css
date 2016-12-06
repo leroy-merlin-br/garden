@@ -1,0 +1,29 @@
+.pagination-item {
+  background-color: transparent;
+  border-radius: .1875rem;
+  color: $color-primary;
+  float: left;
+  font-size: 1rem;
+  margin-left: .5rem;
+  padding-bottom: .25rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  padding-top: .25rem;
+  text-align: center;
+  transition: background-color .3s ease-in-out;
+
+  &:hover,
+  &.active {
+    background-color: $color-primary-dark;
+    color: $color-neutral;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.disabled {
+    color: $color-default;
+    cursor: default;
+  }
+}

@@ -1,0 +1,13 @@
+.pagination-arrows {
+  float: left;
+  font-size: 1rem;
+  padding-bottom: .25rem;
+  padding-left: .375rem;
+  padding-right: .375rem;
+  padding-top: .25rem;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
