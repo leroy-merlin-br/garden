@@ -45,6 +45,9 @@
 
 @import "atoms/notification/close";
 
+@import "atoms/pagination/item";
+@import "atoms/pagination/arrows";
+
 @import "molecules/field";
 @import "molecules/addon";
 @import "molecules/input-button";

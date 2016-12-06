@@ -1,6 +1,7 @@
 .example {
   border: .06rem solid $color-default-light;
   border-radius: .18rem;
+  min-height: 3.56rem;
   padding: .93rem 1.25rem;
 
   h1,
