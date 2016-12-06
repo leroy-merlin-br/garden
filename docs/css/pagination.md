@@ -25,10 +25,10 @@ Links are customizable for different circumstances. Use `.disabled` for unclicka
 ```html
 <nav class="pagination">
   <a href="#" class="pagination-item pagination-arrow disabled" title="Página 1">
-    <i class="glyph glyph-arrow-left"></i>
+    <i class="glyph glyph-double-arrow-left"></i>
   </a>
   <a href="#" class="pagination-item pagination-arrow disabled" title="Página 1">
-    <i class="glyph glyph-double-arrow-left"></i>
+    <i class="glyph glyph-arrow-left"></i>
   </a>
 
   <a href="#" class="pagination-item active" title="Página 1">1</a>
@@ -36,10 +36,10 @@ Links are customizable for different circumstances. Use `.disabled` for unclicka
   <a href="#" class="pagination-item" title="Página 3">3</a>
 
   <a href="#" class="pagination-item pagination-arrow" title="Página 8">
-    <i class="glyph glyph-double-arrow-right"></i>
+    <i class="glyph glyph-arrow-right"></i>
   </a>
   <a href="#" class="pagination-item pagination-arrow" title="Página 8">
-    <i class="glyph glyph-arrow-right"></i>
+    <i class="glyph glyph-double-arrow-right"></i>
   </a>
 </nav>
 ```
