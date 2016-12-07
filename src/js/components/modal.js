@@ -14,7 +14,8 @@ const DEFAULTS = {
   triggerClose: null,
   static: false,
   keyboard: true,
-  keys: { esc: 27 }
+  keys: { esc: 27 },
+  triggerOpen: null
 }
 
 class Modal {
