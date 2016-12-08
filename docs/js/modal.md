@@ -56,6 +56,8 @@ Modal provides three customizable options: `container`, `triggerClose` and `trig
 | container  | `"body"` | A new string selector to append `.modal` |
 | triggerClose | `null` | A string selector to bind and call hide method when clicked |
 | triggerOpen | `null` | A string selector to bind and call show method when clicked |
+| static | false | When false insert the close icon and call hide method when clicked outside modal  |
+| keyboard | true | Closes the modal when esc key is pressed |
 
 Ex:
 
@@ -63,7 +65,9 @@ Ex:
 let options = {
   container: '.wrapper',
   triggerClose: '[data-anything]',
-  triggerOpen: '[data-another-thing]'
+  triggerOpen: '[data-another-thing]',
+  static: false,
+  keyboard: true
 }
 
 // as a jquery plugin
@@ -75,9 +79,10 @@ new Modal(document.querySelectorAll('[data-modal]'), options);
 
 ## Methods
 
-`.show()`: manually opens modal and bind close icon and `esc` keyboard key.
+`.show()`: manually opens modal and bind close icon and `esc` keyboard key by default.
 
 `.hide()`: manually closes modal and unbind close icon and `esc` keyboard key.
+
 
 ## Working with modal
 
@@ -118,3 +123,16 @@ Working Example:
     </div>
   </div>
 </div>
+
+## Static modal
+
+It's possible to use a modal in cases where a user interaction is mandatory before closing the modal.
+With the `static` and `keyboard` options, you can turn off the options to close the modal.
+You need to call the `.hide()` function manually.
+
+```js
+let modal = $('[data-modal]').modal({
+      static: true,
+      keyboard: false
+    })
+```
