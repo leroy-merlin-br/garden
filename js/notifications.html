@@ -5,11 +5,11 @@ We add some interactions as close button, automatically show/hide and etc.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>This component allow users to choose which selector to use, you can use a simple <code>[data-whatever]</code> or a class.</p>
 <p>You can initiate as a jQuery plugin:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.any-selector'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >notification</span><span class="token punctuation" >(</span>options<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.any-selector'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>or as a vanilla constructor:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> Notification <span class="token keyword" >from</span> <span class="token string" >'garden/src/js/components/notification'</span><span class="token punctuation" >;</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Notification <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/notification'</span><span class="token punctuation">;</span>
 
-<span class="token keyword" >new</span> <span class="token class-name" >Notification</span><span class="token punctuation" >(</span>document<span class="token punctuation" >.</span><span class="token function" >querySelector</span><span class="token punctuation" >(</span><span class="token string" >'[data-notification]'</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span> options<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<span class="token keyword">new</span> <span class="token class-name">Notification</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'[data-notification]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h2 id="options">Options</h2>
 <p>autoHide: false,
 closeButton: <code>.${NAME}-close</code>,
@@ -62,40 +62,40 @@ type: ‘primary’,</p>
 
 <p>Markup:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- using data-* --></span>
-<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >data-notification-dynamic</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-notification-dynamic</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 
 <span class="token comment" spellcheck="true">&lt;!-- using class --></span>
-<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>any-class<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>any-class<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>As a jQuery plugin:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using selector as data-*</span>
-<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'[data-notification-dynamic]'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >notification</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
-  message<span class="token punctuation" >:</span> <span class="token string" >'foo bar'</span><span class="token punctuation" >,</span>
-  autoHide<span class="token punctuation" >:</span> <span class="token boolean" >true</span><span class="token punctuation" >,</span>
-  showIn<span class="token punctuation" >:</span> <span class="token number" >2000</span><span class="token punctuation" >,</span>
-  hideIn<span class="token punctuation" >:</span> <span class="token number" >20000</span><span class="token punctuation" >,</span>
-  type<span class="token punctuation" >:</span> <span class="token string" >'warning'</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-notification-dynamic]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  message<span class="token punctuation">:</span> <span class="token string">'foo bar'</span><span class="token punctuation">,</span>
+  autoHide<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  showIn<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+  hideIn<span class="token punctuation">:</span> <span class="token number">20000</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'warning'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// using as a class</span>
-<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.any-class'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >notification</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
-  message<span class="token punctuation" >:</span> <span class="token string" >'foo bar'</span><span class="token punctuation" >,</span>
-  autoHide<span class="token punctuation" >:</span> <span class="token boolean" >true</span><span class="token punctuation" >,</span>
-  showIn<span class="token punctuation" >:</span> <span class="token number" >2000</span><span class="token punctuation" >,</span>
-  hideIn<span class="token punctuation" >:</span> <span class="token number" >20000</span><span class="token punctuation" >,</span>
-  type<span class="token punctuation" >:</span> <span class="token string" >'warning'</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.any-class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  message<span class="token punctuation">:</span> <span class="token string">'foo bar'</span><span class="token punctuation">,</span>
+  autoHide<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  showIn<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+  hideIn<span class="token punctuation">:</span> <span class="token number">20000</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'warning'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Using as vanilla constructor :</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> Notification <span class="token keyword" >from</span> <span class="token string" >'garden/src/js/components/notification'</span><span class="token punctuation" >;</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Notification <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/notification'</span><span class="token punctuation">;</span>
 
-<span class="token keyword" >let</span> options <span class="token operator" >=</span> <span class="token punctuation" >{</span>
-  message<span class="token punctuation" >:</span> <span class="token string" >'foo bar'</span><span class="token punctuation" >,</span>
-  autoHide<span class="token punctuation" >:</span> <span class="token boolean" >true</span><span class="token punctuation" >,</span>
-  showIn<span class="token punctuation" >:</span> <span class="token number" >2000</span><span class="token punctuation" >,</span>
-  hideIn<span class="token punctuation" >:</span> <span class="token number" >20000</span><span class="token punctuation" >,</span>
-  type<span class="token punctuation" >:</span> <span class="token string" >'warning'</span>
-<span class="token punctuation" >}</span>
+<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  message<span class="token punctuation">:</span> <span class="token string">'foo bar'</span><span class="token punctuation">,</span>
+  autoHide<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  showIn<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+  hideIn<span class="token punctuation">:</span> <span class="token number">20000</span><span class="token punctuation">,</span>
+  type<span class="token punctuation">:</span> <span class="token string">'warning'</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword" >new</span> <span class="token class-name" >Notification</span><span class="token punctuation" >(</span>document<span class="token punctuation" >.</span><span class="token function" >querySelector</span><span class="token punctuation" >(</span><span class="token string" >'[data-notification]'</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span> options<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<span class="token keyword">new</span> <span class="token class-name">Notification</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'[data-notification]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h3 id="non-dynamic">Non-dynamic</h3>
 <p>You can use notification by non-dynamic way. It means that you need to add all the markup in your view, add a selector and initiate the plugin.</p>
 <div class="notification notification-primary" data-notification>
@@ -103,29 +103,29 @@ type: ‘primary’,</p>
   <i class="notification-close glyph glyph-x" data-close="notification" ></i>
 </div>
 
-<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>notification notification-primary<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-notification</span><span class="token punctuation" >></span></span>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>notification notification-primary<span class="token punctuation">"</span></span> <span class="token attr-name">data-notification</span><span class="token punctuation">></span></span>
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
-  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>i</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>notification-close glyph glyph-x<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-close</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>notification<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>i</span><span class="token punctuation" >></span></span>
-<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>notification-close glyph glyph-x<span class="token punctuation">"</span></span> <span class="token attr-name">data-close</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>notification<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>As a jQuery plugin:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using selector as data-*</span>
-<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'[data-notification-dynamic]'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >notification</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
-  dynamic<span class="token punctuation" >:</span> <span class="token boolean" >false</span><span class="token punctuation" >,</span>
-  closeButton<span class="token punctuation" >:</span> <span class="token string" >'[data-close="notification"]'</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-notification-dynamic]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  dynamic<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  closeButton<span class="token punctuation">:</span> <span class="token string">'[data-close="notification"]'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// using as a class</span>
-<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.any-class'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >notification</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
-  dynamic<span class="token punctuation" >:</span> <span class="token boolean" >false</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.any-class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  dynamic<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Using as vanilla constructor :</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword" >import</span> Notification <span class="token keyword" >from</span> <span class="token string" >'garden/src/js/components/notification'</span><span class="token punctuation" >;</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Notification <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/notification'</span><span class="token punctuation">;</span>
 
-<span class="token keyword" >let</span> options <span class="token operator" >=</span> <span class="token punctuation" >{</span>
-  dynamic<span class="token punctuation" >:</span> <span class="token boolean" >false</span>
-<span class="token punctuation" >}</span>
+<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  dynamic<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword" >new</span> <span class="token class-name" >Notification</span><span class="token punctuation" >(</span>document<span class="token punctuation" >.</span><span class="token function" >querySelector</span><span class="token punctuation" >(</span><span class="token string" >'[data-notification]'</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span> options<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<span class="token keyword">new</span> <span class="token class-name">Notification</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'[data-notification]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {

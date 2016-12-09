@@ -2,12 +2,12 @@
 <h3 id="how-to-use">How to use</h3>
 <p>As in right now, the <code>form</code> plugin is responsible to handle the <code>.active</code> state of the <code>.field</code>:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// accepted options / default values:</span>
-<span class="token keyword" >var</span> options <span class="token operator" >=</span> <span class="token punctuation" >{</span>
-  events<span class="token punctuation" >:</span> <span class="token string" >'change'</span><span class="token punctuation" >,</span>
-  selectors<span class="token punctuation" >:</span> <span class="token string" >'.input, select, .select, .textarea'</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >;</span>
+<span class="token keyword">var</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  events<span class="token punctuation">:</span> <span class="token string">'change'</span><span class="token punctuation">,</span>
+  selectors<span class="token punctuation">:</span> <span class="token string">'.input, select, .select, .textarea'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'[data-form]'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >form</span><span class="token punctuation" >(</span>options<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">form</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>The constructor will loop through each <code>selector</code> found on the element and check if it has either a <code>value</code> or <code>placeholder</code>, then add/remove the <code>.active</code> class on the <code>.field</code> molecule. If the <code>selector</code> does not have a <code>.field</code> and parent, the verification will be skipped, and no classes will be added.</p>
 <p>The provided event listener will do the same verification process.</p>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
