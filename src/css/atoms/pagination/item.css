@@ -24,6 +24,6 @@
 
   &.disabled {
     color: $color-default;
-    cursor: default;
+    pointer-events: none;
   }
 }
