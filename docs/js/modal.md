@@ -56,6 +56,7 @@ Modal provides some customizable options such as: `container`, `size`, `triggerC
 | triggerOpen | `null` | A string selector to bind and call show method when clicked |
 | static | false | When false insert the close icon and call hide method when clicked outside modal  |
 | keyboard | true | Closes the modal when esc key is pressed |
+| history | false | When true the behavior of the back button is to close the modal instead of sending the user to the previous page |
 
 Ex:
 
@@ -66,7 +67,8 @@ let options = {
   triggerClose: '[data-anything]',
   triggerOpen: '[data-another-thing]',
   static: false,
-  keyboard: true
+  keyboard: true,
+  history: true
 }
 
 // as a jquery plugin
@@ -189,3 +191,15 @@ function closeModalStatic() {
     </div>
   </div>
 </div>
+
+## Changing the back button behavior
+
+There are cases in which users click the back button in order to close the modal and remain in the same page. Thus, the `history` option allows users to do just that. It works by creating a new state in the browser history after the modal is showed on the page. When the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent to the previous browser state, which happens to be the same page he is currently at.
+
+The default value for this option is `false`, so in order to change that behavior you only need to initiate the option as `true`.
+
+```js
+let modal = $('[data-modal]').modal({
+  history: true
+})
+```
