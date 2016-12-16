@@ -2,6 +2,7 @@ import $ from 'jquery'
 import emitter from '../utils/emitter'
 
 const NAME = 'modal'
+const HASH = '#modal-open'
 
 const templates = {
   modal: '<div class="modal"></div>',
@@ -15,6 +16,7 @@ const DEFAULTS = {
   triggerClose: null,
   static: false,
   keyboard: true,
+  history: false,
   keys: { esc: 27 },
   triggerOpen: null
 }
@@ -55,6 +57,12 @@ class Modal {
     this.$close.on('click', this.hide.bind(this))
 
     this.bindKeyboardListener()
+
+    if (this.options.history) {
+      this.bindModalShowListener()
+      this.bindHashChangeListener()
+      this.bindModalHideListener()
+    }
   }
 
   bindKeyboardListener () {
@@ -68,6 +76,28 @@ class Modal {
         }
       })
     }
+  }
+
+  bindModalShowListener () {
+    emitter.on('modal:show', () => {
+      window.location.hash = HASH
+    })
+  }
+
+  bindHashChangeListener () {
+    $(window).on('hashchange', () => {
+      if (window.location.hash) {
+        return
+      }
+
+      this.hide()
+    })
+  }
+
+  bindModalHideListener () {
+    emitter.on('modal:hide', () => {
+      history.back()
+    })
   }
 
   unbindListeners () {
@@ -95,6 +125,7 @@ class Modal {
 
   showModal () {
     emitter.emit('modal:show')
+    emitter.removeAllListeners('modal:show')
 
     this.$modal.addClass('modal-enter')
     this.$content.addClass('modal-content-enter')
@@ -109,7 +140,10 @@ class Modal {
   }
 
   hideModal () {
-    emitter.emit('modal:hide')
+    if (window.location.hash) {
+      emitter.emit('modal:hide')
+    }
+    emitter.removeAllListeners('modal:hide')
 
     this.$content
       .removeClass('modal-content-show')
