@@ -148,6 +148,38 @@ describe('Modal spec', () => {
 
       expect(spy.calledOnce).to.be.true
     }))
+
+    context('when history option is set to true', () => {
+      beforeEach(() => {
+        instance.init()
+        instance.show()
+        instance.options.history = true
+      })
+
+      it('should call bindModalShowListener', sinon.test(function () {
+        const spy = this.spy(instance, 'bindModalShowListener')
+
+        instance.bindListeners()
+
+        expect(spy.calledOnce).to.be.true
+      }))
+
+      it('should call bindHashChangeListener', sinon.test(function () {
+        const spy = this.spy(instance, 'bindHashChangeListener')
+
+        instance.bindListeners()
+
+        expect(spy.calledOnce).to.be.true
+      }))
+
+      it('should call bindModalHideListener', sinon.test(function () {
+        const spy = this.spy(instance, 'bindModalHideListener')
+
+        instance.bindListeners()
+
+        expect(spy.calledOnce).to.be.true
+      }))
+    })
   })
 
   describe('bindKeyboardListener', () => {
@@ -207,6 +239,69 @@ describe('Modal spec', () => {
     })
   })
 
+  describe('bindModalShowListener', () => {
+    it('should change location hash when `modal:show` is emitted', () => {
+      const hash = '#modal-open'
+      instance.options.history = true
+
+      emitter.emit('modal:show')
+
+      expect(window.location.hash).to.be.equal(hash)
+    })
+  })
+
+  describe('bindHashChangeListener', () => {
+    context('when there is not a location hash', () => {
+      it('should hide modal', sinon.test(function () {
+        const spy = this.spy(instance, 'hide')
+
+        instance.init()
+        instance.bindHashChangeListener()
+
+        history.pushState(null, null, window.location.pathname)
+
+        $(window).trigger({
+          type: 'hashchange'
+        })
+
+        expect(spy.called).to.be.true
+      }))
+    })
+
+    context('when there is a location hash', () => {
+      it('should not hide modal', sinon.test(function () {
+        const spy = this.spy(instance, 'hide')
+        const hash = '#modal-open'
+
+        instance.init()
+        instance.bindHashChangeListener()
+
+        window.location.hash = hash
+
+        $(window).trigger({
+          type: 'hashchange'
+        })
+
+        expect(spy.called).to.be.false
+      }))
+    })
+  })
+
+  describe('bindModalHideListener', () => {
+    it('should call `history.back` when `modal:hide` is emitted',
+      sinon.test(function () {
+        const spy = this.spy(history, 'back')
+        instance.init()
+        instance.options.history = true
+        instance.show()
+
+        emitter.emit('modal:hide')
+
+        expect(spy.calledOnce).to.be.true
+      })
+    )
+  })
+
   describe('unbindListeners', () => {
     it('should not call hide if close is clicked', sinon.test(function () {
       let spy = this.spy(instance, 'hide')
@@ -259,7 +354,7 @@ describe('Modal spec', () => {
   describe('onTriggerOpenClick', () => {
     it('should call preventDefault on the event', sinon.test(function () {
       const fakeEvent = { preventDefault: () => {} }
-      const preventDefault = sinon.stub(fakeEvent, 'preventDefault')
+      const preventDefault = this.stub(fakeEvent, 'preventDefault')
 
       instance.init()
       instance.onTriggerOpenClick(fakeEvent)
@@ -269,7 +364,7 @@ describe('Modal spec', () => {
 
     it('should call instance.show()', sinon.test(function () {
       const fakeEvent = { preventDefault: () => {} }
-      const show = sinon.stub(instance, 'show')
+      const show = this.stub(instance, 'show')
 
       instance.init()
       instance.onTriggerOpenClick(fakeEvent)
@@ -287,6 +382,17 @@ describe('Modal spec', () => {
 
       expect(stub.calledWith('modal:show'))
     }))
+
+    it('should remove `modal:show` listener from emitter',
+      sinon.test(function () {
+        const stub = this.stub(emitter, 'removeAllListeners')
+
+        instance.init()
+        instance.showModal()
+
+        expect(stub.calledWith('modal:show'))
+      })
+    )
 
     it('should addClass to modal and content to show enter animation', sinon.test(function () {
       instance.init()
@@ -313,14 +419,43 @@ describe('Modal spec', () => {
   })
 
   describe('hideModal', () => {
-    it('should emit `modal:hide`', sinon.test(function () {
-      const stub = this.stub(emitter, 'emit')
+    context('when there is a hash in the location path', () => {
+      it('should emit `modal:hide`', sinon.test(function () {
+        const spy = this.spy(emitter, 'emit')
+        const hash = '#modal-open'
 
-      instance.init()
-      instance.hideModal()
+        window.location.hash = hash
 
-      expect(stub.calledWith('modal:hide'))
-    }))
+        instance.init()
+        instance.hideModal()
+
+        expect(spy.calledWith('modal:hide')).to.be.true
+      }))
+    })
+
+    context('when there is not a hash in the location path', () => {
+      it('should not emit `modal:hide`', sinon.test(function () {
+        const spy = this.spy(emitter, 'emit')
+
+        window.location.hash = ''
+
+        instance.init()
+        instance.hideModal()
+
+        expect(spy.calledWith('modal:hide')).to.be.false
+      }))
+    })
+
+    it('should remove `modal:hide` listener from emitter',
+      sinon.test(function () {
+        const spy = this.spy(emitter, 'removeAllListeners')
+
+        instance.init()
+        instance.hideModal()
+
+        expect(spy.calledWith('modal:hide'))
+      })
+    )
 
     it('should addClass to modal and content to show leave animation', () => {
       instance.init()
