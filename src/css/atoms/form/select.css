@@ -1,6 +1,6 @@
 .select {
   @mixin form-component default, primary-dark {
-    background-color: $color-neutral;
+    background-color: transparent;
     font-size: 1.1rem;
     height: 2.5rem;
   }
