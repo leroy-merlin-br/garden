@@ -59,6 +59,11 @@
 <td>true</td>
 <td>Closes the modal when esc key is pressed</td>
 </tr>
+<tr>
+<td>history</td>
+<td>true</td>
+<td>When true the behavior of the back button is to close the modal instead of sending the user to the previous page</td>
+</tr>
 </tbody>
 </table>
 <p>Ex:</p>
@@ -67,7 +72,8 @@
   triggerClose<span class="token punctuation">:</span> <span class="token string">'[data-anything]'</span><span class="token punctuation">,</span>
   triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-another-thing]'</span><span class="token punctuation">,</span>
   <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  keyboard<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  keyboard<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  history<span class="token punctuation">:</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// as a jquery plugin</span>
@@ -90,9 +96,9 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <p>Once you called <code>show()</code>, <code>modal()</code> bind the close icon and <code>esc</code> keyboard key to hide modal.</p>
 <p>If you want that a button inside <code>.modal</code> close itself, add option <code>triggerClose</code> with a string selector. Modal will delegate <code>click</code> to selector and call <code>hide()</code> when click is fired.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
-      triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+  triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
+  triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>Working Example:</p>
 <button class="button button-primary" data-trigger="open">Open Modal</button>
 
@@ -111,9 +117,15 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 With the <code>static</code> and <code>keyboard</code> options, you can turn off the options to close the modal.
 You need to call the <code>.hide()</code> function manually.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      keyboard<span class="token punctuation">:</span> <span class="token boolean">false</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+  <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  keyboard<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h2 id="changing-the-back-button-behavior">Changing the back button behavior</h2>
+<p>There are cases in which users click the back button in order to close the modal and remain in the same page. Thus, the <code>history</code> option allows users to do just that. It works by creating a new state in the browser history after the modal is showed on the page. When the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent to the previous browser state, which happens to be the same page he is currently at.</p>
+<p>The default value for this option is <code>true</code>, so in order to change that behavior you only need to initiate the option as <code>false</code>.</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  history<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
