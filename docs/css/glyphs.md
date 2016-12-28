@@ -236,6 +236,13 @@ You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend ca
       tag
     </div>
   </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-tools">
+      <div class="glyph glyph-tools"></div>
+      tools
+    </div>
+  </div>
 </div>
 
 ## Customizing your own bundle
