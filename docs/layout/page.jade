@@ -59,6 +59,8 @@ html(lang="pt-BR")
         triggerClose: '[data-trigger="close"]',
         triggerOpen: '[data-trigger="open"]'
       });
+            
+      var alert = $('[data-alert]').on('click', () => $.fn.alert('this is an example message'))
 
       $('[data-modal-small]').modal({
         triggerOpen: '[data-trigger-small="open"]',
