@@ -23,10 +23,6 @@
     }
   }
 
-  .select + .label {
-    z-index: $index-rear;
-  }
-
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: .31rem;
