@@ -23,6 +23,10 @@
     }
   }
 
+  .select + .label {
+    pointer-events: none;
+  }
+
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: .31rem;
