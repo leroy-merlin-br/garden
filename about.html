@@ -36,6 +36,8 @@ var modal = $('[data-modal]').modal({
   triggerClose: '[data-trigger="close"]',
   triggerOpen: '[data-trigger="open"]'
 });
+      
+var alert = $('[data-alert]').on('click', () => $.fn.alert());
 
 $('[data-notification-dynamic]').notification({
   message: 'foo bar',
