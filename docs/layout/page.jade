@@ -60,7 +60,7 @@ html(lang="pt-BR")
         triggerOpen: '[data-trigger="open"]'
       });
             
-      var alert = $('[data-alert]').on('click', () => $.fn.alert('this is an example message'))
+      var alert = $('[data-alert]').on('click', () => $.fn.alert());
 
       $('[data-modal-small]').modal({
         triggerOpen: '[data-trigger-small="open"]',

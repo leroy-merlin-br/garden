@@ -3,30 +3,60 @@ import Modal from './modal'
 
 const NAME = 'alert'
 
-const templates = {
-  wrapper: '<div></div>',
-  content: '<div class="container-fluid align-center"></div>',
-  wrapperText: '<div class="row"><div class="col-xs-12"><p data-alert-text></p></div></div>',
-  button: '<div class="row"><div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4"><button class="button button-primary button-full" data-alert-button>Ok</button></div></div>'
+const DEFAULTS = {
+  textMessage: 'this is an example message',
+  textButton: 'Ok',
+  triggerClose: '[data-alert-button]'
 }
 
-class Alert extends Modal {
-  constructor (message) {
-    const { content, wrapperText, button, wrapper } = templates
-    const $alert = $(content).append(wrapperText, button)
-    const $element = $(wrapper).append($alert)
+class Alert {
+  constructor (options = {}) {
+    this.options = $.extend({}, DEFAULTS, options)
+  }
 
-    $element.find('[data-alert-text]').append(message)
+  init () {
+    this.setupAlert()
+    this.showAlert()
+  }
 
-    super($element, {
-      triggerClose: '[data-alert-button]'
-    })
+  setupAlert () {
+    const { textMessage, textButton, triggerClose } = this.options
+    this.$element = $(this.buildHtml(textMessage, textButton))
+
+    this.modal = $(this.$element).modal({ triggerClose }).data('modal')
+  }
+
+  showAlert () {
+    this.modal.show()
+  }
+
+  buildHtml (textMessage, textButton) {
+    return (`
+      <div>
+        <div class="container-fluid align-center">
+          <div class="row">
+            <div class="col-xs-12">
+              <p data-alert-text>${textMessage}</p>
+            </div>
+            <div class="row">
+              <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+                <button class="button button-primary button-full" data-alert-button>
+                  ${textButton}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `)
   }
 }
 
 /* istanbul ignore next */
-$.fn[NAME] = function (message) {
-  return $.data(this, NAME, new Alert(message).init().show())
+$.fn[NAME] = function (options) {
+  return $.data(this, NAME, new Alert(options).init())
 }
 
-export default (message) => new Alert(message).init()
+/* istanbul ignore next */
+export default (options) => new Alert(options).init()
+export { Alert }

@@ -1,33 +1,73 @@
 import $ from 'jquery'
-import Alert from '../../src/js/components/alert'
-import Modal from '../../src/js/components/modal'
+import { Alert } from '../../src/js/components/alert'
 
-describe('Alert spec', () => {
-  let instance, $fixture
-
-  before(() => {
-    fixture.setBase('test/fixture')
-  })
+describe('Alert component', () => {
+  let instance
 
   beforeEach(() => {
-    $fixture = $(fixture.load('alert.html')[0])
-
-    instance = new Alert($fixture.find('[data-alert]'))
+    instance = new Alert($('<div />'))
   })
 
-  afterEach(() => {
-    fixture.cleanup()
-  })
+  describe('@init', () => {
+    it('should call @setupAlert', sinon.test(function () {
+      const stub = this.stub(instance, 'setupAlert')
+      this.stub(instance, 'showAlert')
 
-  describe('constructor', () => {
-    it('should properly call super', sinon.test(function () {
-      const stub = this.stub(Modal.prototype, 'constructor')
+      instance.init()
 
-      let alert = new Alert('test')
-
-      expect(stub.calledWith(instance.$element, {
-        triggerOpen: '[data-trigger="open"]'
-      }))
+      expect(stub.calledOnce).to.be.true
     }))
+
+    it('should call @showAlert', sinon.test(function () {
+      const stub = this.stub(instance, 'showAlert')
+      this.stub(instance, 'setupAlert')
+
+      instance.init()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+  })
+
+  describe('@setupAlert', () => {
+    it('should properly assign $element', () => {
+      instance.$element = undefined
+
+      instance.setupAlert()
+
+      expect(instance.$element).to.not.be.undefined
+    })
+
+    it('should properly assign modal', () => {
+      instance.modal = undefined
+
+      instance.setupAlert()
+
+      expect(instance.modal).to.not.be.undefined
+    })
+  })
+
+  describe('@showAlert', () => {
+    it('should show the alert component', sinon.test(function () {
+      instance.modal = { show () {} }
+      const stub = this.stub(instance.modal, 'show')
+
+      instance.showAlert()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+  })
+
+  describe('@buildHtml', () => {
+    it('should have the data-alert-text', () => {
+      const html = instance.buildHtml('string', 'string')
+
+      expect($(html).find('[data-alert-text]')).to.not.be.undefined
+    })
+
+    it('should have the data-alert-button', () => {
+      const html = instance.buildHtml('string', 'string')
+
+      expect($(html).find('[data-alert-button]')).to.not.be.undefined
+    })
   })
 })
