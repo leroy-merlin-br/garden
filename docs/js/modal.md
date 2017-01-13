@@ -17,11 +17,8 @@ Modal component allow users to choose which selector to use, you can use a simpl
 You can initiate as a jQuery plugin:
 
 ```js
-// using a data-*
-$('[data-modal]').modal(options);
-
-// using a class
-$('.modal-wrapper').modal(options);
+// using any selector
+$('any-selector').modal(options);
 ```
 
 or a vanilla constructor:
@@ -49,11 +46,12 @@ Based on this markup, the component will get all content inside of `[data-modal]
 
 ## Options
 
-Modal provides three customizable options: `container`, `triggerClose` and `triggerOpen`. By default `.modal` is appended in the `body`, `triggerClose` and  `triggerOpen` are `null`.
+Modal provides some customizable options as: `container`, `size`, `triggerClose` and `triggerOpen`. The default of `.modal` is to be appended in the `body`, the `size` is 'medium', `triggerClose` and  `triggerOpen` are `null`.
 
 | Option            | Default | Description |
 |-------------------|-------------|
 | container  | `"body"` | A new string selector to append `.modal` |
+| size | `"medium"` | Size of the modal, can be "small", "large" or "medium" |
 | triggerClose | `null` | A string selector to bind and call hide method when clicked |
 | triggerOpen | `null` | A string selector to bind and call show method when clicked |
 | static | false | When false insert the close icon and call hide method when clicked outside modal  |
@@ -64,6 +62,7 @@ Ex:
 ```js
 let options = {
   container: '.wrapper',
+  size: 'small',
   triggerClose: '[data-anything]',
   triggerOpen: '[data-another-thing]',
   static: false,
@@ -110,11 +109,63 @@ let modal = $('[data-modal]').modal({
       triggerOpen: '[data-trigger="open"]'
     })
 ```
-Working Example:
 
-<button class="button button-primary" data-trigger="open">Open Modal</button>
+## How to set the modal size
 
-<div data-modal class="hide">
+The modal has three predefined sizes that can be chosen, small, medium or large.
+
+```js
+//small
+let options = {
+  size: 'small'
+}
+
+//medium
+let options = {
+  size: 'medium'
+}
+
+//large
+let options = {
+  size: 'large'
+}
+
+// as a jquery plugin
+$('[data-modal]').modal(options);
+
+// as a vanilla constructor
+new Modal(document.querySelectorAll('[data-modal]'), options);
+```
+
+### Working buttons examples
+
+<div class="example example-code align-center">
+  <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
+  <button class="button button-primary" data-trigger-medium="open">Open Medium Modal</button>
+  <button class="button button-primary" data-trigger-large="open">Open Large Modal</button>
+</div>
+
+<div data-modal-small class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>hello</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="button button-primary" data-trigger="close">Close</button>
+    </div>
+  </div>
+</div>
+
+<div data-modal-medium class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>hello</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="button button-primary" data-trigger="close">Close</button>
+    </div>
+  </div>
+</div>
+
+<div data-modal-large class="hide">
   <div class="row">
     <div class="col-xs-12">
       <h2>hello</h2>
