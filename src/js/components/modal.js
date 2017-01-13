@@ -11,6 +11,7 @@ const templates = {
 
 const DEFAULTS = {
   container: 'body',
+  size: 'medium',
   triggerClose: null,
   static: false,
   keyboard: true,
@@ -141,6 +142,8 @@ class Modal {
     this.$content = $(templates.content)
     this.$close = $(templates.close)
 
+    this.$content.addClass(this.setupSizeModal(this.options.size))
+
     if (!this.isStaticModal()) {
       this.$content.append(this.$close)
     }
@@ -155,6 +158,16 @@ class Modal {
 
   isStaticModal () {
     return this.options.static
+  }
+
+  setupSizeModal (size) {
+    var sizes = {
+      'small': 'modal-content-sm',
+      'medium': 'modal-content-md',
+      'large': 'modal-content-lg'
+    }
+
+    return sizes[size]
   }
 }
 

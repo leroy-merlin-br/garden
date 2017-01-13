@@ -438,6 +438,14 @@ describe('Modal spec', () => {
       expect(instance.$close).to.not.be.undefined
     })
 
+    it('should add the size class to $content', () => {
+      const size = instance.setupSizeModal(instance.options.size)
+
+      instance.createModal()
+
+      expect(instance.$content.hasClass(size)).to.be.true
+    })
+
     it('should append $close in $content', () => {
       instance.createModal()
 
@@ -497,6 +505,34 @@ describe('Modal spec', () => {
         instance.options.static = false
 
         expect(instance.isStaticModal()).to.be.false
+      })
+    })
+  })
+
+  describe('setupSizeModal', () => {
+    context('when the size is small', () => {
+      it('should return the modal-content-sm class ', () => {
+        instance.options.size = 'small'
+        const classSize = instance.setupSizeModal(instance.options.size)
+
+        expect(classSize).to.be.equal('modal-content-sm')
+      })
+    })
+
+    context('when the size is medium', () => {
+      it('should return the modal-content-md class ', () => {
+        const classSize = instance.setupSizeModal(instance.options.size)
+
+        expect(classSize).to.be.equal('modal-content-md')
+      })
+    })
+
+    context('when the size is large', () => {
+      it('should return the modal-content-lg class ', () => {
+        instance.options.size = 'large'
+        const classSize = instance.setupSizeModal(instance.options.size)
+
+        expect(classSize).to.be.equal('modal-content-lg')
       })
     })
   })
