@@ -17,38 +17,58 @@
   transition: transform .3s ease, opacity .3s ease;
   vertical-align: middle;
   width: 95%;
+}
 
-  &-enter {
-    display: inline-block;
-  }
+.modal-content-enter {
+  display: inline-block;
+}
 
-  &-show {
-    opacity: 1;
-    transform: scale(1);
-  }
+.modal-content-show {
+  opacity: 1;
+  transform: scale(1);
+}
 
-  &-leave {
-    opacity: 0;
-    transform: scale(1.3);
-  }
+.modal-content-leave {
+  opacity: 0;
+  transform: scale(1.3);
+}
 
-  &-hide {
-    display: none;
-  }
+.modal-content-hide {
+  display: none;
 }
 
 @media (--medium) {
 
-  .modal-content {
+  .modal-content-lg {
+    margin-left: -37.5%;
+    width: 75%;
+  }
+
+  .modal-content-md {
     margin-left: -32.5%;
     width: 65%;
+  }
+
+  .modal-content-sm {
+    margin-left: -27.5%;
+    width: 55%;
   }
 }
 
 @media (--large) {
 
-  .modal-content {
+  .modal-content-lg {
+    margin-left: -30%;
+    width: 60%;
+  }
+
+  .modal-content-md {
     margin-left: -25%;
     width: 50%;
+  }
+
+  .modal-content-sm {
+    margin-left: -20%;
+    width: 40%;
   }
 }

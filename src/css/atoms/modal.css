@@ -5,30 +5,30 @@
   transition: opacity .3s ease-in-out;
   width: 100%;
   z-index: $index-foremost;
+}
 
-  &::before {
-    content: " ";
-    display: inline-block;
-    height: 100%;
-    position: relative;
-    vertical-align: middle;
-  }
+.modal::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  vertical-align: middle;
+}
 
-  &-enter {
-    left: 0;
-    position: fixed;
-    top: 0;
-  }
+.modal-enter {
+  left: 0;
+  position: fixed;
+  top: 0;
+}
 
-  &-show {
-    opacity: 1;
-  }
+.modal-show {
+  opacity: 1;
+}
 
-  &-leave {
-    opacity: 0;
-  }
+.modal-leave {
+  opacity: 0;
+}
 
-  &-hide {
-    position: static;
-  }
+.modal-hide {
+  position: static;
 }
