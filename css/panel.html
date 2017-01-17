@@ -82,22 +82,42 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-var smallModal = $('[data-modal-small]').modal({
+$('[data-modal]').modal({
   triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger="open"]'
+});
+
+$('[data-modal-small]').modal({
   triggerOpen: '[data-trigger-small="open"]',
   size: 'small'
 });
 
-var mediumModal = $('[data-modal-medium]').modal({
-  triggerClose: '[data-trigger="close"]',
+$('[data-modal-medium]').modal({
   triggerOpen: '[data-trigger-medium="open"]',
   size: 'medium'
 });
 
-var largeModal = $('[data-modal-large]').modal({
-  triggerClose: '[data-trigger="close"]',
+$('[data-modal-large]').modal({
   triggerOpen: '[data-trigger-large="open"]',
   size: 'large'
+});
+
+let modalStatic = $('[data-modal-static]').modal({
+  triggerOpen: '[data-trigger-static="open"]',
+  static: true,
+  keyboard: false
+}).data('modal');
+
+function closeModalStatic() {
+  console.log('you did it! :)')
+  return modalStatic.hide()
+}
+
+let modalTrigger = $('[data-modal-trigger]').modal().data('modal')
+let trigger = $('[data-trigger]');
+
+trigger.on('click', function() {
+  modalTrigger.show();
 });
 
 $('[data-notification-dynamic]').notification({

@@ -39,7 +39,7 @@
 <tr>
 <td>size</td>
 <td><code>&quot;medium&quot;</code></td>
-<td>Size of the modal, can be “small”, “large” or “medium”</td>
+<td>Modal sizes that can be “small”, “large” or “medium”</td>
 </tr>
 <tr>
 <td>triggerClose</td>
@@ -83,54 +83,45 @@
 <p><code>.hide()</code>: manually closes modal and unbind close icon and <code>esc</code> keyboard key.</p>
 <h2 id="working-with-modal">Working with modal</h2>
 <p>By default, modal don’t provide any trigger to open it. Where’s an example of how to create a button to open modal.</p>
-<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">data-trigger</span><span class="token punctuation">></span></span>Open Modal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    trigger <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-trigger]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="example example-code">
+  <button class="button button-primary" data-trigger>Open Modal</button>
+</div>
+
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal-trigger]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'modal'</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> trigger <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-trigger]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 trigger<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   modal<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<div data-modal-trigger class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Trigger Modal example</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+</div>
+
 <p>Once you called <code>show()</code>, <code>modal()</code> bind the close icon and <code>esc</code> keyboard key to hide modal.</p>
-<p>If you want that a button inside <code>.modal</code> close itself, add option <code>triggerClose</code> with a string selector. Modal will delegate <code>click</code> to selector and call <code>hide()</code> when click is fired.</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
-      triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<h2 id="how-to-set-the-modal-size">How to set the modal size</h2>
+<p>To have a default open and close button, you can use <code>triggerOpen</code> and <code>triggerClose</code> and modal will delegate <code>click</code> event to these selector and call <code>show()</code> or <code>hide()</code> when click is fired. Example:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
+  triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h2 id="set-modal-size">Set Modal size</h2>
 <p>The modal has three predefined sizes that can be chosen, small, medium or large.</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">//small</span>
-<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
-  size<span class="token punctuation">:</span> <span class="token string">'small'</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//medium</span>
-<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
-  size<span class="token punctuation">:</span> <span class="token string">'medium'</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//large</span>
-<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
-  size<span class="token punctuation">:</span> <span class="token string">'large'</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// as a jquery plugin</span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// as a vanilla constructor</span>
-<span class="token keyword">new</span> <span class="token class-name">Modal</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="working-buttons-examples">Working buttons examples</h3>
 <div class="example example-code align-center">
   <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
   <button class="button button-primary" data-trigger-medium="open">Open Medium Modal</button>
   <button class="button button-primary" data-trigger-large="open">Open Large Modal</button>
 </div>
 
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span> size<span class="token punctuation">:</span> <span class="token string">'small|medium|large'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <div data-modal-small class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>hello</h2>
+      <h2>Small size example</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <button class="button button-primary" data-trigger="close">Close</button>
     </div>
   </div>
 </div>
@@ -138,9 +129,8 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <div data-modal-medium class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>hello</h2>
+      <h2>Medium size example</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <button class="button button-primary" data-trigger="close">Close</button>
     </div>
   </div>
 </div>
@@ -148,9 +138,8 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <div data-modal-large class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>hello</h2>
+      <h2>Large size example</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <button class="button button-primary" data-trigger="close">Close</button>
     </div>
   </div>
 </div>
@@ -159,10 +148,26 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <p>It’s possible to use a modal in cases where a user interaction is mandatory before closing the modal.
 With the <code>static</code> and <code>keyboard</code> options, you can turn off the options to close the modal.
 You need to call the <code>.hide()</code> function manually.</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      keyboard<span class="token punctuation">:</span> <span class="token boolean">false</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<div class="example example-code">
+  <button class="button button-primary" data-trigger-static="open">Open Static Modal</button>
+</div>
+
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modalStatic <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal-static]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  keyboard<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'modal'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">closeModalStatic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  modalStatic<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<div data-modal-static class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Static Modal example</h2>
+      <p>Lorem ipsum dolor sit amet, you know how to close it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+</div>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
@@ -184,22 +189,42 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-var smallModal = $('[data-modal-small]').modal({
+$('[data-modal]').modal({
   triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger="open"]'
+});
+
+$('[data-modal-small]').modal({
   triggerOpen: '[data-trigger-small="open"]',
   size: 'small'
 });
 
-var mediumModal = $('[data-modal-medium]').modal({
-  triggerClose: '[data-trigger="close"]',
+$('[data-modal-medium]').modal({
   triggerOpen: '[data-trigger-medium="open"]',
   size: 'medium'
 });
 
-var largeModal = $('[data-modal-large]').modal({
-  triggerClose: '[data-trigger="close"]',
+$('[data-modal-large]').modal({
   triggerOpen: '[data-trigger-large="open"]',
   size: 'large'
+});
+
+let modalStatic = $('[data-modal-static]').modal({
+  triggerOpen: '[data-trigger-static="open"]',
+  static: true,
+  keyboard: false
+}).data('modal');
+
+function closeModalStatic() {
+  console.log('you did it! :)')
+  return modalStatic.hide()
+}
+
+let modalTrigger = $('[data-modal-trigger]').modal().data('modal')
+let trigger = $('[data-trigger]');
+
+trigger.on('click', function() {
+  modalTrigger.show();
 });
 
 $('[data-notification-dynamic]').notification({
