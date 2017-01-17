@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Notifications | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="modal.html" class="link">Modal</a><a href="alert.html" class="link">Alert</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="collapse.html" class="link">Collapse</a><a href="notifications.html" class="link link-active">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="notifications">Notifications</h1>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Notifications | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="collapse.html" class="link">Collapse</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link">Modal</a><a href="notifications.html" class="link link-active">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="notifications">Notifications</h1>
 <p>The component is an enriched version of <a href="/css/notification.html">notification atom</a>.
 We add some interactions as close button, automatically show/hide and etc.</p>
 <p>Notification component can be used in two ways, dynamic (default) or not.</p>
@@ -147,12 +147,23 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-var modal = $('[data-modal]').modal({
+var smallModal = $('[data-modal-small]').modal({
   triggerClose: '[data-trigger="close"]',
-  triggerOpen: '[data-trigger="open"]'
+  triggerOpen: '[data-trigger-small="open"]',
+  size: 'small'
 });
-      
-var alert = $('[data-alert]').on('click', () => $.fn.alert());
+
+var mediumModal = $('[data-modal-medium]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger-medium="open"]',
+  size: 'medium'
+});
+
+var largeModal = $('[data-modal-large]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger-large="open"]',
+  size: 'large'
+});
 
 $('[data-notification-dynamic]').notification({
   message: 'foo bar',

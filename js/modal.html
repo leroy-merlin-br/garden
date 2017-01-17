@@ -1,14 +1,11 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="modal.html" class="link link-active">Modal</a><a href="alert.html" class="link">Alert</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="collapse.html" class="link">Collapse</a><a href="notifications.html" class="link">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="collapse.html" class="link">Collapse</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link link-active">Modal</a><a href="notifications.html" class="link">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
 <p class="lead">Modal component it’s an empty container that you put any kind of content.</p>
 
 <h2 id="how-to">How to</h2>
 <p>Modal component allow users to choose which selector to use, you can use a simple <code>[data-whatever]</code> or a class. Be sure to not use class like: <code>.modal</code>, <code>.modal-content</code>, <code>.modal-body</code> to initiate modal.</p>
 <p>You can initiate as a jQuery plugin:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using a data-*</span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// using a class</span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.modal-wrapper'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using any selector</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'any-selector'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>or a vanilla constructor:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Modal <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/modal'</span><span class="token punctuation">;</span>
 
@@ -24,7 +21,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>Based on this markup, the component will get all content inside of <code>[data-modal]</code> and append into <code>.modal-body</code>.</p>
 <h2 id="options">Options</h2>
-<p>Modal provides three customizable options: <code>container</code>, <code>triggerClose</code> and <code>triggerOpen</code>. By default <code>.modal</code> is appended in the <code>body</code>, <code>triggerClose</code> and  <code>triggerOpen</code> are <code>null</code>.</p>
+<p>Modal provides some customizable options as: <code>container</code>, <code>size</code>, <code>triggerClose</code> and <code>triggerOpen</code>. The default of <code>.modal</code> is to be appended in the <code>body</code>, the <code>size</code> is ‘medium’, <code>triggerClose</code> and  <code>triggerOpen</code> are <code>null</code>.</p>
 <table>
 <thead>
 <tr>
@@ -38,6 +35,11 @@
 <td>container</td>
 <td><code>&quot;body&quot;</code></td>
 <td>A new string selector to append <code>.modal</code></td>
+</tr>
+<tr>
+<td>size</td>
+<td><code>&quot;medium&quot;</code></td>
+<td>Size of the modal, can be “small”, “large” or “medium”</td>
 </tr>
 <tr>
 <td>triggerClose</td>
@@ -64,6 +66,7 @@
 <p>Ex:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
   container<span class="token punctuation">:</span> <span class="token string">'.wrapper'</span><span class="token punctuation">,</span>
+  size<span class="token punctuation">:</span> <span class="token string">'small'</span><span class="token punctuation">,</span>
   triggerClose<span class="token punctuation">:</span> <span class="token string">'[data-anything]'</span><span class="token punctuation">,</span>
   triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-another-thing]'</span><span class="token punctuation">,</span>
   <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
@@ -93,10 +96,56 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
       triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
       triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>Working Example:</p>
-<button class="button button-primary" data-trigger="open">Open Modal</button>
+<h2 id="how-to-set-the-modal-size">How to set the modal size</h2>
+<p>The modal has three predefined sizes that can be chosen, small, medium or large.</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">//small</span>
+<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  size<span class="token punctuation">:</span> <span class="token string">'small'</span>
+<span class="token punctuation">}</span>
 
-<div data-modal class="hide">
+<span class="token comment" spellcheck="true">//medium</span>
+<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  size<span class="token punctuation">:</span> <span class="token string">'medium'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//large</span>
+<span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  size<span class="token punctuation">:</span> <span class="token string">'large'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// as a jquery plugin</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// as a vanilla constructor</span>
+<span class="token keyword">new</span> <span class="token class-name">Modal</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="working-buttons-examples">Working buttons examples</h3>
+<div class="example example-code align-center">
+  <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
+  <button class="button button-primary" data-trigger-medium="open">Open Medium Modal</button>
+  <button class="button button-primary" data-trigger-large="open">Open Large Modal</button>
+</div>
+
+<div data-modal-small class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>hello</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="button button-primary" data-trigger="close">Close</button>
+    </div>
+  </div>
+</div>
+
+<div data-modal-medium class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>hello</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="button button-primary" data-trigger="close">Close</button>
+    </div>
+  </div>
+</div>
+
+<div data-modal-large class="hide">
   <div class="row">
     <div class="col-xs-12">
       <h2>hello</h2>
@@ -135,12 +184,23 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-var modal = $('[data-modal]').modal({
+var smallModal = $('[data-modal-small]').modal({
   triggerClose: '[data-trigger="close"]',
-  triggerOpen: '[data-trigger="open"]'
+  triggerOpen: '[data-trigger-small="open"]',
+  size: 'small'
 });
-      
-var alert = $('[data-alert]').on('click', () => $.fn.alert());
+
+var mediumModal = $('[data-modal-medium]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger-medium="open"]',
+  size: 'medium'
+});
+
+var largeModal = $('[data-modal-large]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger-large="open"]',
+  size: 'large'
+});
 
 $('[data-notification-dynamic]').notification({
   message: 'foo bar',

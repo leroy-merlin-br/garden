@@ -85,12 +85,23 @@ text.on('success', function(e) {
 
 $('.docs').form();
 
-var modal = $('[data-modal]').modal({
+var smallModal = $('[data-modal-small]').modal({
   triggerClose: '[data-trigger="close"]',
-  triggerOpen: '[data-trigger="open"]'
+  triggerOpen: '[data-trigger-small="open"]',
+  size: 'small'
 });
-      
-var alert = $('[data-alert]').on('click', () => $.fn.alert());
+
+var mediumModal = $('[data-modal-medium]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger-medium="open"]',
+  size: 'medium'
+});
+
+var largeModal = $('[data-modal-large]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger-large="open"]',
+  size: 'large'
+});
 
 $('[data-notification-dynamic]').notification({
   message: 'foo bar',
