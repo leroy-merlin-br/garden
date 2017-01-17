@@ -51,7 +51,7 @@ Modal provides some customizable options as: `container`, `size`, `triggerClose`
 | Option            | Default | Description |
 |-------------------|-------------|
 | container  | `"body"` | A new string selector to append `.modal` |
-| size | `"medium"` | Size of the modal, can be "small", "large" or "medium" |
+| size | `"medium"` | Modal sizes that can be "small", "large" or "medium" |
 | triggerClose | `null` | A string selector to bind and call hide method when clicked |
 | triggerOpen | `null` | A string selector to bind and call show method when clicked |
 | static | false | When false insert the close icon and call hide method when clicked outside modal  |
@@ -87,57 +87,41 @@ new Modal(document.querySelectorAll('[data-modal]'), options);
 
 By default, modal don't provide any trigger to open it. Where's an example of how to create a button to open modal.
 
-```html
-<button data-trigger>Open Modal</button>
-```
+<div class="example example-code">
+  <button class="button button-primary" data-trigger>Open Modal</button>
+</div>
 
 ```js
-let modal = $('[data-modal]').modal(),
-    trigger = $('[data-trigger]');
+let modal = $('[data-modal-trigger]').modal().data('modal')
+let trigger = $('[data-trigger]');
 
 trigger.on('click', () => {
   modal.show();
 });
 ```
+<div data-modal-trigger class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Trigger Modal example</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+</div>
+
 Once you called `show()`, `modal()` bind the close icon and `esc` keyboard key to hide modal.
 
-If you want that a button inside `.modal` close itself, add option `triggerClose` with a string selector. Modal will delegate `click` to selector and call `hide()` when click is fired.
+To have a default open and close button, you can use `triggerOpen` and `triggerClose` and modal will delegate `click` event to these selector and call `show()` or `hide()` when click is fired. Example:
 
 ```js
-let modal = $('[data-modal]').modal({
-      triggerClose: '.any-selector',
-      triggerOpen: '[data-trigger="open"]'
-    })
+$('[data-modal]').modal({
+  triggerClose: '.any-selector',
+  triggerOpen: '[data-trigger="open"]'
+})
 ```
 
-## How to set the modal size
+## Set Modal size
 
 The modal has three predefined sizes that can be chosen, small, medium or large.
-
-```js
-//small
-let options = {
-  size: 'small'
-}
-
-//medium
-let options = {
-  size: 'medium'
-}
-
-//large
-let options = {
-  size: 'large'
-}
-
-// as a jquery plugin
-$('[data-modal]').modal(options);
-
-// as a vanilla constructor
-new Modal(document.querySelectorAll('[data-modal]'), options);
-```
-
-### Working buttons examples
 
 <div class="example example-code align-center">
   <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
@@ -145,12 +129,15 @@ new Modal(document.querySelectorAll('[data-modal]'), options);
   <button class="button button-primary" data-trigger-large="open">Open Large Modal</button>
 </div>
 
+```js
+$('[data-modal]').modal({ size: 'small|medium|large' });
+```
+
 <div data-modal-small class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>hello</h2>
+      <h2>Small size example</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <button class="button button-primary" data-trigger="close">Close</button>
     </div>
   </div>
 </div>
@@ -158,9 +145,8 @@ new Modal(document.querySelectorAll('[data-modal]'), options);
 <div data-modal-medium class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>hello</h2>
+      <h2>Medium size example</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <button class="button button-primary" data-trigger="close">Close</button>
     </div>
   </div>
 </div>
@@ -168,9 +154,8 @@ new Modal(document.querySelectorAll('[data-modal]'), options);
 <div data-modal-large class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>hello</h2>
+      <h2>Large size example</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <button class="button button-primary" data-trigger="close">Close</button>
     </div>
   </div>
 </div>
@@ -181,9 +166,26 @@ It's possible to use a modal in cases where a user interaction is mandatory befo
 With the `static` and `keyboard` options, you can turn off the options to close the modal.
 You need to call the `.hide()` function manually.
 
+<div class="example example-code">
+  <button class="button button-primary" data-trigger-static="open">Open Static Modal</button>
+</div>
+
 ```js
-let modal = $('[data-modal]').modal({
-      static: true,
-      keyboard: false
-    })
+let modalStatic = $('[data-modal-static]').modal({
+  static: true,
+  keyboard: false
+}).data('modal')
+
+function closeModalStatic() {
+  modalStatic.hide()
+}
 ```
+
+<div data-modal-static class="hide">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Static Modal example</h2>
+      <p>Lorem ipsum dolor sit amet, you know how to close it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </div>
+</div>
