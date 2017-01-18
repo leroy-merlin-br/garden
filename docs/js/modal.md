@@ -12,7 +12,7 @@ path: modal
 
 ## How to
 
-Modal component allow users to choose which selector to use, you can use a simple `[data-whatever]` or a class. Be sure to not use class like: `.modal`, `.modal-content`, `.modal-body` to initiate modal.
+Modal component allow users to choose which selector to use, you can use a simple `[data-whatever]` or a class. Be sure to not use class like: `.modal`, `.modal-content`, `.modal-body` to initiate modal. Modal has variable `height` based on his content and the `max-height` is `90%`.
 
 You can initiate as a jQuery plugin:
 
