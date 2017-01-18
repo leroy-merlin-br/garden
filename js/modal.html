@@ -2,8 +2,8 @@
 <p class="lead">Modal component it’s an empty container that you put any kind of content.</p>
 
 <h2 id="how-to">How to</h2>
-<p>Modal component allow users to choose which selector to use, you can use a simple <code>[data-whatever]</code> or a class. Be sure to not use class like: <code>.modal</code>, <code>.modal-content</code>, <code>.modal-body</code> to initiate modal.</p>
-<p>You can initiate as a jQuery plugin:</p>
+<p>Modal component allows users to choose which selector to use, you can use a simple <code>[data-whatever]</code> or a class. Be sure to not use classes such as: <code>.modal</code>, <code>.modal-content</code> and <code>.modal-body</code> to initiate a modal. Modal has variable <code>height</code> based on his content and the <code>max-height</code> is <code>90%</code>.</p>
+<p>You can initiate it as a jQuery plugin:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using any selector</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'any-selector'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>or a vanilla constructor:</p>
@@ -21,7 +21,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>Based on this markup, the component will get all content inside of <code>[data-modal]</code> and append into <code>.modal-body</code>.</p>
 <h2 id="options">Options</h2>
-<p>Modal provides some customizable options as: <code>container</code>, <code>size</code>, <code>triggerClose</code> and <code>triggerOpen</code>. The default of <code>.modal</code> is to be appended in the <code>body</code>, the <code>size</code> is ‘medium’, <code>triggerClose</code> and  <code>triggerOpen</code> are <code>null</code>.</p>
+<p>Modal provides some customizable options such as: <code>container</code>, <code>size</code>, <code>triggerClose</code> and <code>triggerOpen</code>. The default container option for the <code>.modal</code> class is to be appended in the <code>body</code>, the <code>size</code> is ‘medium’, <code>triggerClose</code> and  <code>triggerOpen</code> are <code>null</code>.</p>
 <table>
 <thead>
 <tr>
@@ -34,12 +34,12 @@
 <tr>
 <td>container</td>
 <td><code>&quot;body&quot;</code></td>
-<td>A new string selector to append <code>.modal</code></td>
+<td>A new string selector in which the modal component will be appended</td>
 </tr>
 <tr>
 <td>size</td>
 <td><code>&quot;medium&quot;</code></td>
-<td>Modal sizes that can be “small”, “large” or “medium”</td>
+<td>The modal size may vary between small, large, or medium</td>
 </tr>
 <tr>
 <td>triggerClose</td>
@@ -82,7 +82,7 @@
 <p><code>.show()</code>: manually opens modal and bind close icon and <code>esc</code> keyboard key by default.</p>
 <p><code>.hide()</code>: manually closes modal and unbind close icon and <code>esc</code> keyboard key.</p>
 <h2 id="working-with-modal">Working with modal</h2>
-<p>By default, modal don’t provide any trigger to open it. Where’s an example of how to create a button to open modal.</p>
+<p>By default, modal doesn’t provide any trigger to open it. Here’s an example of how to create a button to open modal.</p>
 <div class="example example-code">
   <button class="button button-primary" data-trigger>Open Modal</button>
 </div>
@@ -103,13 +103,13 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 </div>
 
 <p>Once you called <code>show()</code>, <code>modal()</code> bind the close icon and <code>esc</code> keyboard key to hide modal.</p>
-<p>To have a default open and close button, you can use <code>triggerOpen</code> and <code>triggerClose</code> and modal will delegate <code>click</code> event to these selector and call <code>show()</code> or <code>hide()</code> when click is fired. Example:</p>
+<p> In order to have a default open and close button, you can use <code>triggerOpen</code> and <code>triggerClose</code>, the  modal will delegate <code>click</code> event to those selectors and call <code>show()</code> or <code>hide()</code> when the click event is fired. Example:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
   triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h2 id="set-modal-size">Set Modal size</h2>
-<p>The modal has three predefined sizes that can be chosen, small, medium or large.</p>
+<p>The modal has three predefined sizes: small, medium, or large.</p>
 <div class="example example-code align-center">
   <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
   <button class="button button-primary" data-trigger-medium="open">Open Medium Modal</button>
