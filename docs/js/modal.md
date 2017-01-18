@@ -92,7 +92,7 @@ By default, modal don't provide any trigger to open it. Where's an example of ho
 </div>
 
 ```js
-let modal = $('[data-modal-trigger]').modal().data('modal')
+let modal = $('[data-modal-trigger]').modal().data('modal');
 let trigger = $('[data-trigger]');
 
 trigger.on('click', () => {
@@ -116,7 +116,7 @@ To have a default open and close button, you can use `triggerOpen` and `triggerC
 $('[data-modal]').modal({
   triggerClose: '.any-selector',
   triggerOpen: '[data-trigger="open"]'
-})
+});
 ```
 
 ## Set Modal size
@@ -174,10 +174,10 @@ You need to call the `.hide()` function manually.
 let modalStatic = $('[data-modal-static]').modal({
   static: true,
   keyboard: false
-}).data('modal')
+}).data('modal');
 
 function closeModalStatic() {
-  modalStatic.hide()
+  modalStatic.hide();
 }
 ```
 
