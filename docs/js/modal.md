@@ -12,9 +12,9 @@ path: modal
 
 ## How to
 
-Modal component allow users to choose which selector to use, you can use a simple `[data-whatever]` or a class. Be sure to not use class like: `.modal`, `.modal-content`, `.modal-body` to initiate modal. Modal has variable `height` based on his content and the `max-height` is `90%`.
+Modal component allows users to choose which selector to use, you can use a simple `[data-whatever]` or a class. Be sure to not use classes such as: `.modal`, `.modal-content`, and `.modal-body` to initiate a modal. Modal has variable `height` based on it content and the `max-height` is `90%`.
 
-You can initiate as a jQuery plugin:
+You can initiate it as a jQuery plugin:
 
 ```js
 // using any selector
@@ -46,12 +46,12 @@ Based on this markup, the component will get all content inside of `[data-modal]
 
 ## Options
 
-Modal provides some customizable options as: `container`, `size`, `triggerClose` and `triggerOpen`. The default of `.modal` is to be appended in the `body`, the `size` is 'medium', `triggerClose` and  `triggerOpen` are `null`.
+Modal provides some customizable options such as: `container`, `size`, `triggerClose`, and `triggerOpen`. The default container option for the `.modal` class is to be appended in the `body`, the `size` is 'medium', `triggerClose`, and  `triggerOpen` are `null`.
 
 | Option            | Default | Description |
 |-------------------|-------------|
-| container  | `"body"` | A new string selector to append `.modal` |
-| size | `"medium"` | Modal sizes that can be "small", "large" or "medium" |
+| container  | `"body"` | A new string selector in which the modal component will be appended |
+| size | `"medium"` | The modal size may vary between small, large, or medium |
 | triggerClose | `null` | A string selector to bind and call hide method when clicked |
 | triggerOpen | `null` | A string selector to bind and call show method when clicked |
 | static | false | When false insert the close icon and call hide method when clicked outside modal  |
@@ -85,7 +85,7 @@ new Modal(document.querySelectorAll('[data-modal]'), options);
 
 ## Working with modal
 
-By default, modal don't provide any trigger to open it. Where's an example of how to create a button to open modal.
+By default, modal doesn't provide any trigger to open it. Here's an example of how to create a button to open a modal.
 
 <div class="example example-code">
   <button class="button button-primary" data-trigger>Open Modal</button>
@@ -110,7 +110,7 @@ trigger.on('click', () => {
 
 Once you called `show()`, `modal()` bind the close icon and `esc` keyboard key to hide modal.
 
-To have a default open and close button, you can use `triggerOpen` and `triggerClose` and modal will delegate `click` event to these selector and call `show()` or `hide()` when click is fired. Example:
+ In order to have a default open and close button, you can use `triggerOpen` and `triggerClose`, the  modal will delegate `click` event to those selectors and call `show()` or `hide()` when the click event is fired. Example:
 
 ```js
 $('[data-modal]').modal({
@@ -121,7 +121,7 @@ $('[data-modal]').modal({
 
 ## Set Modal size
 
-The modal has three predefined sizes that can be chosen, small, medium or large.
+The modal has three predefined sizes: small, medium, or large.
 
 <div class="example example-code align-center">
   <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
