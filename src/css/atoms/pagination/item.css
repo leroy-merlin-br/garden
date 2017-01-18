@@ -2,7 +2,7 @@
   background-color: transparent;
   border-radius: .1875rem;
   color: $color-primary;
-  float: left;
+  display: inline-block;
   font-size: 1rem;
   margin-left: .5rem;
   padding-bottom: .25rem;
