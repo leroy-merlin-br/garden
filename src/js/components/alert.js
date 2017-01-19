@@ -4,8 +4,9 @@ import Modal from './modal'
 const NAME = 'alert'
 
 const DEFAULTS = {
-  textMessage: 'this is an example message',
+  textMessage: 'This is an example message',
   textButton: 'Ok',
+  size: 'medium',
   triggerClose: '[data-alert-button]'
 }
 
@@ -20,14 +21,18 @@ class Alert {
   }
 
   setupAlert () {
-    const { textMessage, textButton, triggerClose } = this.options
+    const { textMessage, textButton, size, triggerClose } = this.options
     this.$element = $(this.buildHtml(textMessage, textButton))
 
-    this.modal = $(this.$element).modal({ triggerClose }).data('modal')
+    this.modal = $(this.$element).modal({ triggerClose, size }).data('modal')
   }
 
   showAlert () {
     this.modal.show()
+  }
+
+  hideAlert () {
+    this.modal.hide()
   }
 
   buildHtml (textMessage, textButton) {

@@ -8,7 +8,7 @@ path: alert
 ---
 
 # Alert
-<p class="lead">The Alert component is an empty container where you can add a message that will be presented to users. It has an OK button by default.</p>
+<p class="lead">The alert component is an empty container where you can add a message that will be presented to users. It has an OK button by default.</p>
 
 An alert box is often used when you want to make sure information comes through to the user.
 
@@ -31,19 +31,21 @@ new Alert(options);
 
 ## Options
 
-Alert provides two customizable options: `textMessage` and `textButton`. The default value for the  `textMessage` is `this is an example message` and for the `textButton` is `Ok`.
+The alert provides some customizable options such as: `textMessage`, `textButton`, `size`, and `triggerClose`. The default value for the `textMessage` is 'This is an example message', for the `textButton` is 'Ok', the `size` value is 'medium', and `triggerClose` is 'data-alert-button'.
 
 | Option            | Default | Description |
 |-------------------|-------------|
-| textMessage  | `this is an example message` | A text to display in the alert |
-| textButton | `Ok` | A text to alert button |
+| textMessage  | `This is an example message` | A text to display in the alert |
+| textButton | `Ok` | A text to the alert button |
+| size | `"medium"` | The modal size may vary between small, large, or medium |
+| triggerClose | `data-alert-button` | A string selector to bind and call the hide method when clicked |
 
 
 Ex:
 
 ```js
 let options = {
-  textMessage: 'this is an example message',
+  textMessage: 'This is an example message',
   textButton: 'Ok'
 }
 
@@ -54,10 +56,41 @@ $('[data-alert]').on('click', () => $.fn.alert(options));
 new Alert(options);
 ```
 
-Working Example:
+## Working with alert
 
-<button class="button button-primary" data-alert>Open Alert</button>
+By default, an alert provides a text message, a text to the button, and a size value. Here's an example on how to create a button to open an alert.
 
-### Notes
+<div class="example example-code">
+  <button class="button button-primary" data-alert>Open Alert</button>
+</div>
+
+```js
+let alert = $('[data-alert]').on('click', () => $.fn.alert());
+```
+ The alert can be closed by clicking on the close icon or by pressing the `esc` key.
+
+ An alert has a default close button, but you can use `triggerClose` option to change the element from which the click event will close the alert. Example:
+
+```js
+$('[data-alert]').on('click', () => $.fn.alert({
+  triggerClose: '.any-selector'
+}));
+```
+
+## Set Alert size
+
+The alert has three predefined sizes: small, medium, or large.
+
+<div class="example example-code align-center">
+  <button class="button button-primary" data-alert-small>Open Small Alert</button>
+  <button class="button button-primary" data-alert-medium>Open Medium Alert</button>
+  <button class="button button-primary" data-alert-large>Open Large Alert</button>
+</div>
+
+```js
+$('[data-alert]').on('click', () => $.fn.alert({ size: 'small|medium|large' }));
+```
+
+## Notes
 
 The alert dialog should be used for messages that do not require any response on the part of the user, other than the acknowledgement of the message.

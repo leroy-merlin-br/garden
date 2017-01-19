@@ -59,8 +59,6 @@ html(lang="pt-BR")
         triggerClose: '[data-trigger="close"]',
         triggerOpen: '[data-trigger="open"]'
       });
-            
-      var alert = $('[data-alert]').on('click', () => $.fn.alert());
 
       $('[data-modal-small]').modal({
         triggerOpen: '[data-trigger-small="open"]',
@@ -93,6 +91,24 @@ html(lang="pt-BR")
       trigger.on('click', function() {
         modalTrigger.show();
       });
+      
+      $('[data-alert]').on('click', () => $.fn.alert());
+
+      $('[data-alert-small]').on('click', () => $.fn.alert({
+        textMessage: 'Small alert example message',
+        size: 'small'
+      }));
+      
+      $('[data-alert-medium]').on('click', () => $.fn.alert({
+        textMessage: 'Medium alert example message',
+        size: 'medium'
+      }));
+      
+      $('[data-alert-large]').on('click', () => $.fn.alert({
+        textMessage: 'Large alert example message',
+        size: 'large'
+      }));
+      
 
       $('[data-notification-dynamic]').notification({
         message: 'foo bar',

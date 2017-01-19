@@ -57,6 +57,17 @@ describe('Alert component', () => {
     }))
   })
 
+  describe('@hideAlert', () => {
+    it('should hide the alert component', sinon.test(function () {
+      instance.modal = { hide () {} }
+      const stub = this.stub(instance.modal, 'hide')
+
+      instance.hideAlert()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+  })
+
   describe('@buildHtml', () => {
     it('should have the data-alert-text', () => {
       const html = instance.buildHtml('string', 'string')
