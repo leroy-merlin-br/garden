@@ -1,0 +1,11 @@
+.pagination-arrow {
+
+  &:hover {
+    background-color: transparent;
+    color: $color-primary-dark;
+  }
+
+  .glyph {
+    vertical-align: text-top;
+  }
+}

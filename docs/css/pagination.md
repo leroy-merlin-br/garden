@@ -18,8 +18,10 @@ navigation section to screen readers and other technologies.
 
 Links are customizable for different circumstances. Use `.disabled` for unclickable links and `.active` to indicate the current page.
 
+The `.pagination-arrow` class can be used to modify the background and color for the next and previous arrows on mouse hover.
+
 <div class="example example-code">
-  <nav class="pagination">
+  <nav>
     <a href="#" class="pagination-item pagination-arrow disabled" title="Page 0">
       <i class="glyph glyph-double-arrow-left"></i>
     </a>
@@ -41,7 +43,7 @@ Links are customizable for different circumstances. Use `.disabled` for unclicka
 </div>
 
 ```html
-<nav class="pagination">
+<nav>
   <a href="#" class="pagination-item pagination-arrow disabled" title="Page 0">
     <i class="glyph glyph-double-arrow-left"></i>
   </a>
