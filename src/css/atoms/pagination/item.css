@@ -16,6 +16,7 @@
   &.active {
     background-color: $color-primary-dark;
     color: $color-neutral;
+    text-decoration: none;
   }
 
   &:first-child {
