@@ -20,7 +20,7 @@
     margin-top: .62rem;
   }
 
-  a:not(.button),
+  a:not(.button):not(.pagination-item),
   .link {
 
     &:hover {

@@ -14,7 +14,7 @@ Provide control over pages using links and arrow keys styled for multiple pages 
 ## Usage
 
 The pagination component should be wrapped in a `nav` element to identify it as a
-navigation section to screen readers and other technologies.
+navigation section to screen readers and other technologies. You can use `.align-center` or `.align-right` for align pagination items.
 
 Links are customizable for different circumstances. Use `.disabled` for unclickable links and `.active` to indicate the current page.
 
