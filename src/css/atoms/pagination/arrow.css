@@ -1,5 +1,9 @@
 .pagination-arrow {
 
+  + .pagination-arrow {
+    margin-left: 0;
+  }
+
   &:hover {
     background-color: transparent;
     color: $color-primary-dark;
