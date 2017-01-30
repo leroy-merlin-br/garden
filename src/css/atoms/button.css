@@ -89,3 +89,7 @@
     text-decoration: none;
   }
 }
+
+.button-full {
+  width: 100%;
+}

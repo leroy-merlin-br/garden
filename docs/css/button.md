@@ -121,3 +121,19 @@ Likewise the standard buttons, you can achieve a disabled styled adding `.disabl
   Disabled Button
 </button>
 ```
+
+## Full width button
+
+A full width button spans the entire width of the parent element by adding the `.button-full` class.
+
+<div class="example example-code">
+  <button type="button" class="button button-full">
+    Full width button
+  </button>
+</div>
+
+```html
+<button type="button" class="button button-full">
+  Full width button
+</button>
+```
