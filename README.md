@@ -35,8 +35,40 @@ Garden documentation is built with [Metalsmith](http://www.metalsmith.io/) and p
 ### Running locally
 
 1. Run `npm install`.
-2. Run `gulp server`.
+2. Run `npm run gulp`.
 3. Open `http://localhost:3000` in your browser.
+
+### Using Docker
+Alternatively, you can install and run the application using a docker container.
+
+#### Installing Docker
+
+##### On Ubuntu
+- [Install Docker Engine](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+##### On macOS
+- [Installation on macOS](https://docs.docker.com/engine/installation/mac/)
+
+##### On Windows
+- [Installation on Windows](https://docs.docker.com/engine/installation/windows/)
+
+#### Testing docker installation
+Docker version:
+```console
+docker --version
+```
+Docker-compose version:
+```console
+docker-compose --version
+```
+
+#### Development
+After having  `docker` and `docker-compose` setup on your machine you can simply run these commands to run the project:
+
+1. Run `docker-compose build` (Setup container)
+2. Run `docker-compose run --rm web npm install` (Install dependencies)
+3. Run `docker-compose up` (Run webserver)
 
 ## Contributing
 Checkout the [contributing section](https://github.com/leroy-merlin-br/garden/blob/master/CONTRIBUTING.md) to learn more on how to open issues, create pull requests, commit standards and more.
