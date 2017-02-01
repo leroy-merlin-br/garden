@@ -7,7 +7,8 @@ const paths = require('./paths')
 const config = {
   livereload: true,
   port: 3000,
-  open: true
+  open: true,
+  host: '0.0.0.0'
 }
 
 module.exports = () => {

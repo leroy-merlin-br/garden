@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    command: 'npm run gulp'
+    volumes:
+      - '.:/app'
+    ports:
+      - '3000:3000'
