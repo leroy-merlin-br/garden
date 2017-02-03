@@ -68,6 +68,24 @@ trigger.on('click', function() {
   modalTrigger.show();
 });
 
+$('[data-alert]').on('click', () => $.fn.alert());
+
+$('[data-alert-small]').on('click', () => $.fn.alert({
+  textMessage: 'Small alert example message',
+  size: 'small'
+}));
+
+$('[data-alert-medium]').on('click', () => $.fn.alert({
+  textMessage: 'Medium alert example message',
+  size: 'medium'
+}));
+
+$('[data-alert-large]').on('click', () => $.fn.alert({
+  textMessage: 'Large alert example message',
+  size: 'large'
+}));
+
+
 $('[data-notification-dynamic]').notification({
   message: 'foo bar',
   autoHide: true,

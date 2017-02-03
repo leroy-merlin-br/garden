@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="collapse.html" class="link">Collapse</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="modal.html" class="link link-active">Modal</a><a href="notifications.html" class="link">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/form.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="modal.html" class="link link-active">Modal</a><a href="collapse.html" class="link">Collapse</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="alert.html" class="link">Alert</a><a href="notifications.html" class="link">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
 <p class="lead">Modal component it’s an empty container that you put any kind of content.</p>
 
 <h2 id="how-to">How to</h2>
@@ -61,6 +61,11 @@
 <td>true</td>
 <td>Closes the modal when esc key is pressed</td>
 </tr>
+<tr>
+<td>history</td>
+<td>false</td>
+<td>When true the behavior of the back button is to close the modal instead of sending the user to the previous page</td>
+</tr>
 </tbody>
 </table>
 <p>Ex:</p>
@@ -70,7 +75,8 @@
   triggerClose<span class="token punctuation">:</span> <span class="token string">'[data-anything]'</span><span class="token punctuation">,</span>
   triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-another-thing]'</span><span class="token punctuation">,</span>
   <span class="token keyword">static</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  keyboard<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  keyboard<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  history<span class="token punctuation">:</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// as a jquery plugin</span>
@@ -168,6 +174,13 @@ You need to call the <code>.hide()</code> function manually.</p>
     </div>
   </div>
 </div>
+
+<h2 id="changing-the-back-button-behavior">Changing the back button behavior</h2>
+<p>There are cases in which users click the back button in order to close the modal and remain in the same page. Thus, the <code>history</code> option allows users to do just that. It works by creating a new state in the browser history after the modal is showed on the page. When the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent to the previous browser state, which happens to be the same page he is currently at.</p>
+<p>The default value for this option is <code>false</code>, so in order to change that behavior you only need to initiate the option as <code>true</code>.</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  history<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
@@ -225,6 +238,24 @@ let trigger = $('[data-trigger]');
 trigger.on('click', function() {
   modalTrigger.show();
 });
+
+$('[data-alert]').on('click', () => $.fn.alert());
+
+$('[data-alert-small]').on('click', () => $.fn.alert({
+  textMessage: 'Small alert example message',
+  size: 'small'
+}));
+
+$('[data-alert-medium]').on('click', () => $.fn.alert({
+  textMessage: 'Medium alert example message',
+  size: 'medium'
+}));
+
+$('[data-alert-large]').on('click', () => $.fn.alert({
+  textMessage: 'Large alert example message',
+  size: 'large'
+}));
+
 
 $('[data-notification-dynamic]').notification({
   message: 'foo bar',
