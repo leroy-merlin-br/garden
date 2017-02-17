@@ -8,27 +8,43 @@ path: emitter
 ---
 
 # Emitter
-`Emitter` is an instance of [node's eventEmitter](https://nodejs.org/api/events.html), responsible to handle the communication between garden components
+An emitter is an object responsible for handling the communication among components.
 
-Usually garden components will emit an event to allow third party integrations with it.
+This element is built as an instance of the [EventEmitter](https://nodejs.org/api/events.html) object from Node.js and therefore exposes some useful functions, such as `emitter.on()` and `emitter.emit()`.
 
-For example, the [validation](validation.html) component emits an event when a field is validated. Either for success or error:
 
+### Registering events
+To register an event you can use the `emitter.on()` function, passing the event name and a handler as parameters.
 ```js
 import emitter from 'src/utils/emitter';
 
-
-emitter.on('validation:error', (field, errors) => {
-  // Here you can handle an errror event, emitted by the validation component.
+emitter.on('eventName', () => {
+  // Here you can handle the event.
 });
 ```
-
-#### You can also use it to emit your own events to your app:
-
+### Passing arguments
+It is possible to pass arguments to a listener while emitting an event with the `emitter.emit()` function.
 ```js
-emitter.on('myEvent', (data) => {
-  // Listens to myEvent, and work with the data object
+import emitter from 'src/utils/emitter';
+
+emitter.on('event', (data) => {
+  // Here you can work with the data passed.
 });
 
-emitter.emit('myEvent', myEventData);
+emitter.emit('event', eventData);
+```
+<p class="notification notification-warning paragraph">
+  Notice that you can customize event names as you want, but they are generally camel-cased strings.
+</p>
+
+### Third party integration
+Usually, Garden components will emit events to allow third party integrations in a project.
+
+For example, the [validation](validation.html) component emits an event whenever a field is validated, either for success or error.
+```js
+import emitter from 'src/utils/emitter';
+
+emitter.on('validation:error', (field, errors) => {
+  // Here you can handle the error event, emitted by the validation component.
+});
 ```
