@@ -9,10 +9,10 @@ const DEFAULTS = {
 
 class Tooltip {
 
-  constructor (element, options) {
+  constructor (element, options = {}) {
     this.$element = $(element)
     this.$target = this._getTarget()
-    this.options = $.extend(DEFAULTS, (options || {}))
+    this.options = $.extend({}, DEFAULTS, options)
   }
 
   init () {
@@ -37,7 +37,7 @@ $.fn[NAME] = function (options) {
 
   return this.each(function () {
     if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Tooltip(this, $(this).data(NAME)).init())
+      $.data(this, NAME, new Tooltip(this, $(this).data()).init())
     }
   })
 }

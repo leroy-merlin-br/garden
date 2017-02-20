@@ -56,7 +56,7 @@
     left: -.5rem;
     margin-left: 0;
     margin-right: 0;
-    top: calc(70% - .5rem);
+    top: calc(10% - .5rem);
   }
 
   &[x-placement^="left"] {
@@ -69,11 +69,6 @@
     margin-left: 0;
     margin-right: 0;
     right: -.5rem;
-    top: calc(70% - .5rem);
+    top: calc(10% - .5rem);
   }
-}
-
-[data-tooltip]:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
 }
