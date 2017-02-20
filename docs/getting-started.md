@@ -4,14 +4,34 @@ layout: page.jade
 path: getting-started
 ---
 ## Install
-We provide some ways to use Garden. You can install using npm, bower or manually (downloading our [latest release](https://github.com/leroy-merlin-br/garden/releases)):
+We provide some ways to use Garden. You can use it by installing from npm, bower or manually (downloading our [latest release](https://github.com/leroy-merlin-br/garden/releases)):
+
+To install using npm
 
 ```js
 npm install garden
 ```
 
+To install using bower
+
 ```js
 bower install garden
+```
+
+### CDN
+
+You can also use Garden through a CDN (Content Delivery Network) link, so you will not need to download and host the code within your application.
+
+CSS
+
+```html
+<link href="https://unpkg.com/garden/dist/css/garden.min.css" rel="stylesheet">
+```
+
+JavaScript
+
+```html
+  <script scr="https://unpkg.com/garden/dist/js/garden.min.js"></script>
 ```
 
 Garden main files are located on `dist/garden.min.css` and `dist/garden.min.js` (It comes with all JS components bundled together).
@@ -41,5 +61,4 @@ import file from 'node_modules/garden/src/js/file.js';
 
 JavaScript components rely on jQuery to work, most of the time. Please note `garden.min.js` *does not* comes with jQuery. You have to add your own version of it.
 
-
-##### Checkout the **<a href="https://github.com/leroy-merlin-br/garden" target="_blank" title="Garden Readme">README</a>** of the project in order how to build the project locally.
+##### Checkout the **<a href="https://github.com/leroy-merlin-br/garden" target="_blank" title="Garden Readme">README</a>** of the project to know how to build the project locally.
