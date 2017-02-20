@@ -29,6 +29,20 @@ npm install garden
 bower install garden
 ```
 
+### CDN
+
+CSS
+
+```
+<link href="https://unpkg.com/garden/dist/css/garden.min.css" rel="stylesheet">
+```
+
+JavaScript
+
+```
+<script scr="https://unpkg.com/garden/dist/js/garden.min.js"></script>
+```
+
 ## Documentation
 Garden documentation is built with [Metalsmith](http://www.metalsmith.io/) and publicy hosted on Github Pages at [http://styleguide.leroymerlin.com.br](http://styleguide.leroymerlin.com.br)
 
