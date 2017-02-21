@@ -8,7 +8,9 @@ path: emitter
 ---
 
 # Emitter
-An emitter is an object responsible for handling the communication among components.
+<p class="lead">
+  An emitter is an object responsible for handling the communication among components.
+</p>
 
 This element is built as an instance of the [EventEmitter](https://nodejs.org/api/events.html) object from Node.js and therefore exposes some useful functions, such as `emitter.on()` and `emitter.emit()`.
 
@@ -28,7 +30,7 @@ It is possible to pass arguments to a listener while emitting an event with the 
 import emitter from 'src/utils/emitter';
 
 emitter.on('event', (data) => {
-  // Here you can work with the data passed.
+  // Here you can work with the received data.
 });
 
 emitter.emit('event', eventData);
