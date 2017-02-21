@@ -16,7 +16,7 @@ class Tooltip {
   }
 
   init () {
-    this._buildPopper()
+    this._registerPopper()
 
     return this
   }
@@ -28,6 +28,12 @@ class Tooltip {
 
   _buildPopper () {
     return new Popper(this.$element[0], this.$target[0], this.options)
+  }
+
+  _registerPopper () {
+    const popper = this._buildPopper()
+
+    this.$element.data('popper', popper)
   }
 }
 

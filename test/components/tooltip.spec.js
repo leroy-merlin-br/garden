@@ -19,11 +19,15 @@ describe('Tooltip spec', () => {
   })
 
   describe('init', () => {
-    it('should return the instance itself', sinon.test(function () {
-      const stub = this.stub(instance, '_buildPopper')
+    it('should return the instance itself', () => {
+      expect(instance.init()).to.be.equal(instance)
+    })
+
+    it('should register the popper instance on the element', () => {
       instance.init()
-      expect(stub.calledOnce).to.be.true
-    }))
+
+      expect(instance.$element.data('popper')).to.be.an.instanceof(Popper)
+    })
   })
 
   describe('_getTarget', () => {
