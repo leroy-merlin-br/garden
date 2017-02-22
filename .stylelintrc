@@ -1,6 +1,14 @@
 {
   "ignoreFiles": ['./src/css/atoms/glyph.css'],
+  "plugins": [
+    "stylelint-order"
+  ],
   "rules": {
+    "order/declaration-block-order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/declaration-block-properties-alphabetical-order": true,
     "string-quotes": "double",
     "color-hex-case": "lower",
     "color-hex-length": "long",
@@ -19,21 +27,20 @@
     "declaration-no-important": true,
     "declaration-colon-space-after": "always",
     "declaration-colon-space-before": "never",
-    "block-no-single-line": true,
     "declaration-block-semicolon-newline-after": "always",
     "declaration-block-semicolon-newline-before": "never-multi-line",
     "declaration-block-single-line-max-declarations": 1,
     "block-no-empty": true,
     "block-opening-brace-newline-after": "always",
+    "block-closing-brace-newline-before": "always",
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
     "selector-no-id": true,
     "selector-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": "double",
-    "rule-nested-empty-line-before": "always",
+    "rule-empty-line-before": "always",
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
-    "declaration-block-properties-order": "alphabetical",
     "declaration-block-trailing-semicolon": "always",
     "media-feature-colon-space-after": "always",
     "media-feature-colon-space-before": "never",
