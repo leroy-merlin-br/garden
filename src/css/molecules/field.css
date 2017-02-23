@@ -3,7 +3,20 @@
   &-select {
 
     &::after {
-      right: 1.56rem;
+      right: 1.8rem;
+      top: 1.2rem;
+    }
+
+    &::before {
+      border-left: .35rem solid transparent;
+      border-right: .35rem solid transparent;
+      border-top: .35rem solid $color-black;
+      content: "";
+      height: 0;
+      position: absolute;
+      right: .6rem;
+      top: 1.6rem;
+      width: 0;
     }
   }
 
