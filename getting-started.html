@@ -14,14 +14,14 @@ As an alternative, you can manually download the source code for our <a href="ht
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">scr</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/garden/dist/js/garden.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <h2 id="using">Using</h2>
 <p>Garden main files are located on <code>dist/garden.min.css</code> and <code>dist/garden.min.js</code> (It comes with all of the JS components bundled together). If you want to use components individually, you will have to build them as well.</p>
-<h4 id="css">CSS</h4>
+<h5 id="css">CSS</h5>
 <p>We rely on <a href="https://github.com/postcss/postcss">PostCSS</a> to process our CSS files. By using the <a href="https://github.com/postcss/postcss-import">PostCSS import plugin</a> it is possible to import a specific file, as shown below.</p>
 <pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token comment" spellcheck="true">/* css files are located at: garden/src/css/ */</span>
 
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"garden/src/atoms/button"</span><span class="token punctuation">;</span></span>
 
 <span class="token comment" spellcheck="true">/* PostCSS import resolves bower_components/node_modules folder automatically */</span></code></pre>
-<h4 id="javascript">JavaScript</h4>
+<h5 id="javascript">JavaScript</h5>
 <p>We use <a href="https://webpack.github.io/">Webpack</a> with <a href="https://github.com/babel/babel-loader">Babel-loader</a> to handle the ES2015 to ES5 transpiling/bundling process. Since it’s plain ES2015, you can use any transpiler along with any bundler as well:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// ES2015 import syntax:</span>
 
