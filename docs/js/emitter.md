@@ -12,6 +12,8 @@ path: emitter
   An emitter is an object responsible for handling the communication among components.
 </p>
 
+<br>
+
 This element is built as an instance of the [EventEmitter](https://nodejs.org/api/events.html) object from Node.js and therefore exposes some useful functions, such as `emitter.on()` and `emitter.emit()`.
 
 

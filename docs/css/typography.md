@@ -8,17 +8,26 @@ path: typography
 ---
 
 # Typography
-All typography tags/classes uses `rem` in order to set size. The `$default-font-size` variable uses `16px`.
+<p class="lead">
+  Set of default styles for standard elements and properties.
+</p>
 
-In case you use Garden css components individually (bundling with PostCSS), you can provide your own `$default-font-size` to change it.
+<br>
+
+By default, Garden uses `16px` for the `default-font-size` variable and all the typography classes/tags are sized with `rem`.
+
+<p class="notification notification-warning">
+  In case you use Garden CSS components individually (bundling them with PostCSS) and want to set your own font size, you can provide a different value for the `$default-font-size` variable.
+</p>
+
+
 We provide both markup tags and classes in order to handle text styling with flexibility.
 
-## Defaults
-Check out our [scaffolding section](scaffolding.md) for more info on providing your own defaults for typography.
+For more info about setting your own typography, you can check out our [scaffolding section](scaffolding.html).
 
 ## Headings
 
-In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-6]` classes for the same style of a heading tag.
+As an alternative to using `<h[1-6]>` tags, you can use `.heading-[1-6]` classes to get the same style.
 
 <div class="example example-code">
   <div class="heading-1">Heading 1</div>
@@ -45,41 +54,41 @@ In alternative to using directly `<h[1-6]>`, you can use `.heading-[1-6]` classe
 </div>
 
 ```html
-  <div class="heading-1"></div>
-  <div class="heading-2"></div>
-  <div class="heading-3"></div>
-  <div class="heading-4"></div>
-  <div class="heading-5"></div>
-  <div class="heading-6"></div>
+  <div class="heading-1">Heading 1</div>
+  <div class="heading-2">Heading 2</div>
+  <div class="heading-3">Heading 3</div>
+  <div class="heading-4">Heading 4</div>
+  <div class="heading-5">Heading 5</div>
+  <div class="heading-6">Heading 6</div>
 ```
 
 ## Paragraphs
 
-Tag `<p>` is styled by default. You can also use the `.paragraph` class.
+Instead of using the tag `<p>`, you can use the `.paragraph` class.
 
 <div class="example example-code">
   <div class="paragraph">Paragraph class</div>
 </div>
 
 ```html
-  <div class="paragraph"></div>
+  <div class="paragraph">Paragraph class</div>
 ```
 
 ## Links
 
-`<a>` tags are styled by default. You can also use the `.link` class.
+Instead of using the tag `<a>`, you can use the `.link` class.
 
 <div class="example example-code">
   <div class="link">Link</div>
 </div>
 
 ```html
-  <div class="link"></div>
+  <div class="link">Link</div>
 ```
 
 ## Inline text
 
-Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. You can also use `.strong` and `.italic`, `.underlined` to reuse their styles.
+Instead of using the tags `<strong>`, `<b>`, `<em>`, `<i>`, `<u>`, you can use the `.strong`, `.italic`, and `.underlined` classes.
 
 <div class="example example-code">
   <div class="strong">strong</div>
@@ -94,85 +103,97 @@ Tags such as `<strong>`, `<b>`, `<em>`, `<i>`, `<u>` are by default stylized. Yo
 </div>
 
 ```html
-  <p class="strong"></p>
-  <p class="italic"></p>
-  <p class="underlined"></p>
+  <p class="strong">strong</p>
+  <p class="italic">italic</p>
+  <p class="underlined">underlined</p>
 ```
 
 ## Text transformation
 
-
-#### Capitalized
+<br>
 <div class="example example-code">
   <p class="capitalize">capitalized text</p>
 </div>
 
 ```html
-  <p class="capitalize"></p>
+  <p class="capitalize">capitalized text</p>
 ```
 
-#### Uppercase
+<br>
+
 <div class="example example-code">
   <p class="uppercase">uppercase text</p>
 </div>
 
 ```html
-  <p class="uppercase"></p>
+  <p class="uppercase">uppercase text</p>
 ```
 
-#### Lowercase
+<br>
+
 <div class="example example-code">
   <p class="lowercase">LOWERCASE TEXT</p>
 </div>
 
 ```html
-  <p class="lowercase"></p>
+  <p class="lowercase">LOWERCASE TEXT</p>
 ```
 
 ## Text alignment
 
-#### Left alignment
+<br>
+
 <div class="example example-code">
   <p class="align-left">Left alignment</p>
 
 </div>
 
 ```html
-  <p class="align-left"></p>
+  <p class="align-left">Left alignment</p>
 ```
 
-#### Right alignment
+<br>
+
 <div class="example example-code">
   <p class="align-right">Right alignment</p>
 </div>
 
 ```html
-  <p class="align-right"></p>
+  <p class="align-right">Right alignment</p>
 ```
 
-#### Center alignment
+<br>
+
 <div class="example example-code">
   <p class="align-center">Center alignment</p>
 </div>
 
 ```html
-  <p class="align-center"></p>
+  <p class="align-center">Center alignment</p>
 ```
 
-#### Justified text
+<br>
+
 <div class="example example-code">
-  <p class="align-justify">Justified text</p>
+  <p class="align-justify">
+    This is supposed to be a justified paragraph and it needs to be long enough so you will notice that it is really a justified paragraph. With that this block will not look the same as the left aligned paragraph showed at the beginning of this section, which would seem like we are trying to deceive you.
+  </p>
 </div>
 
 ```html
-  <p class="align-justify"></p>
+  <p class="align-justify">
+      This is supposed to be a justified paragraph and it needs to be long enough so you will notice that it is really
+      a justified paragraph. With that this block will not look the same as the left aligned paragraph showed at the
+      beginning of this section, which would seem like we are trying to deceive you.
+  </p>
 ```
 
-#### No wrap
+<br>
+
 <div class="example example-code">
   <p class="align-nowrap">No wrap</p>
 </div>
 
 ```html
-  <p class="align-nowrap"></p>
+  <p class="align-nowrap">No wrap</p>
 ```

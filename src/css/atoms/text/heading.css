@@ -45,7 +45,7 @@ h5,
 h6,
 .heading-6 {
   font-family: inherit;
-  font-size: 1rem;
+  font-size: .875rem;
   font-weight: 300;
   @mixin heading-margin;
 }
