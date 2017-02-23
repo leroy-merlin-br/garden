@@ -59,18 +59,23 @@ Tag `<textarea>` is not styled by default. You must use `.textarea` in order to 
 Tag `<select>` is not styled by default. You must use the `.select` in order to style it.
 
 <div class="example example-code">
-  <select class="select">
-    <option>Select your option</option>
-    <option value="option-1">Option 1</option>
-    <option value="option-2">Option 2</option>
-    <option value="option-3">Option 3</option>
-  </select>
+  <div class="field field-select">
+    <select class="select">
+      <option></option>
+      <option value="option-1">Option 1</option>
+      <option value="option-2">Option 2</option>
+      <option value="option-3">Option 3</option>
+    </select>
+    <label class="label">Select your option</label>
+  </div>
 </div>
 
 ```html
-<select class="select">
-  <option></option>
-</select>
+<div class="field field-select">
+  <select class="select">
+    <option></option>
+  </select>
+</div>
 ```
 
 ### Helper
@@ -111,7 +116,7 @@ _**Obs:** When using `.helper`, don't forget to add `aria-describedby` indicate 
 ```
 
 <div class="example example-code">
-  <div class="field">
+  <div class="field field-select">
     <select class="select" name="select" id="select">
       <option> </option>
       <option>option</option>
@@ -122,7 +127,7 @@ _**Obs:** When using `.helper`, don't forget to add `aria-describedby` indicate 
 </div>
 
 ```html
-<div class="field">
+<div class="field field-select">
   <select class="select">
     <option></option>
   </select>
