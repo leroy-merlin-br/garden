@@ -2,9 +2,10 @@
 title: Colors
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 4
 path: colors
+section: css
 ---
 
 # Colors

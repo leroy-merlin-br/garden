@@ -2,9 +2,10 @@
 title: Alert
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 3
 path: alert
+section: js
 ---
 
 # Alert

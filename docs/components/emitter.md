@@ -2,9 +2,10 @@
 title: Emitter
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 0
 path: emitter
+section: js
 ---
 
 # Emitter

@@ -36,7 +36,8 @@ metalsmith(__dirname)
   .source('./docs')
   .clean(false)
   .use(collections({
-    css: {
+    docs: {
+      pattern: 'components/*.md',
       sortBy: 'priority',
       reverse: true
     }

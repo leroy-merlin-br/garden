@@ -2,9 +2,10 @@
 title: Glyphs
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 5
 path: glyphs
+section: css
 ---
 
 # Glyphs

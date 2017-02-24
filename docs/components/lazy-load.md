@@ -2,9 +2,10 @@
 title: Lazy Load
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 1
 path: lazy-load
+section: js
 ---
 
 # Lazy Load

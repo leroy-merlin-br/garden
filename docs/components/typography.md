@@ -2,9 +2,10 @@
 title: Typography
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 5
 path: typography
+section: css
 ---
 
 # Typography

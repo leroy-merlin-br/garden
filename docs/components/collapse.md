@@ -2,9 +2,10 @@
 title: Collapse
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 0
 path: collapse
+section: js
 ---
 
 # Collapse

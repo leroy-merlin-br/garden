@@ -2,9 +2,10 @@
 title: Badges
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 0
 path: badges
+section: css
 ---
 
 

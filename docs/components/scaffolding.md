@@ -2,9 +2,10 @@
 title: Scaffolding
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 6
 path: scaffolding
+section: css
 ---
 
 # Scaffolding

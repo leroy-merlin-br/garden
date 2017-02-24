@@ -2,9 +2,10 @@
 title: Table
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 0
 path: table
+section: css
 ---
 
 # Table

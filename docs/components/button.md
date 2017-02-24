@@ -2,9 +2,10 @@
 title: Buttons
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 1
 path: button
+section: css
 ---
 
 # Buttons

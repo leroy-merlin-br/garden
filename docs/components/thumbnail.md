@@ -2,9 +2,10 @@
 title: Thumbnail
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 1
 path: thumbnail
+section: css
 ---
 
 # Thumbnail

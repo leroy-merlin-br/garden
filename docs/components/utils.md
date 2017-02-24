@@ -2,9 +2,10 @@
 title: Utils
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 0
 path: utils
+section: js
 ---
 
 # Utils

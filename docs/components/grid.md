@@ -2,9 +2,10 @@
 title: Grid
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 3
 path: grid
+section: css
 ---
 
 # Grid

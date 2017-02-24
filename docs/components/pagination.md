@@ -2,9 +2,10 @@
 title: Pagination
 layout: page.jade
 sidebar: true
-collection: css
+collection: docs
 priority: 3
 path: pagination
+section: css
 ---
 
 # Pagination

@@ -2,9 +2,10 @@
 title: Validation
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 1
 path: validation
+section: js
 ---
 
 # Validation

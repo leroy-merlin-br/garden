@@ -2,9 +2,10 @@
 title: Tooltip
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 1
 path: tooltip
+section: js
 ---
 
 # Tooltip

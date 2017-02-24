@@ -2,9 +2,10 @@
 title: Scroll
 layout: page.jade
 sidebar: true
-collection: js
+collection: docs
 priority: 4
 path: scroll
+section: js
 ---
 
 # Scroll
