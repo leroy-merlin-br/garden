@@ -1,14 +1,14 @@
 ---
-title: Notifications
+title: JS Notifications
 layout: page.jade
 sidebar: true
 collection: docs
 priority: 3
-path: notifications
+path: js-notifications
 section: js
 ---
 
-# Notifications
+# JS Notifications
 
 The component is an enriched version of [notification atom](/css/notification.html).
 We add some interactions as close button, automatically show/hide and etc.

@@ -1,14 +1,14 @@
 ---
-title: Utils
+title: JS Utilities
 layout: page.jade
 sidebar: true
 collection: docs
 priority: 0
-path: utils
+path: js-utilities
 section: js
 ---
 
-# Utils
+# JS Utilities
 <p class="lead">Garden provides a few utils to help writing better javascript. All utils are located at `src/js/utils`.</p>
 
 ## Scroll
