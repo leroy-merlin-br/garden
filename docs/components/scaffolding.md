@@ -9,11 +9,12 @@ section: css
 ---
 
 # Scaffolding
-<p class="lead">The building blocks on how Garden works with CSS components.</p>
+<p class="lead">
+  The building blocks on how Garden works with CSS components.
+</p>
 
 ## Box-sizing
-Garden applies `box-sizing: border-box` to all elements using the [box-sizing global inherit](http://www.paulirish.com/2012/box-sizing-border-box-ftw/):
-
+To make it easier to work with box-sizing properties, Garden uses the [box-sizing global inherit](http://www.paulirish.com/2012/box-sizing-border-box-ftw/) method, as described below.
 ```css
 html {
   box-sizing: border-box;
@@ -25,18 +26,20 @@ html {
   box-sizing: inherit;
 }
 ```
+This reset method gives you more flexibility since you can use another value of box-sizing without worrying about having your CSS overriden.
 
 ## Default styles
-As in right now, Garden styles by default a couple of tags: `h1-6, p, strong, b, em, i, u and a`.
+Garden provides some default styles for several tags, such as: `h1-6, p, strong, b, em, i, u, and a`.  
+Check our [typography section](typography.html) for more details.
 
 ## Normalize
 In order to preserve a linear cross-browser behavior, Garden uses [normalize.css](http://necolas.github.io/normalize.css/).
 
 ## Variables
-Garden uses [PostCSS Simple Vars plugins](https://github.com/postcss/postcss-simple-vars) in order to work with variables.
+Garden uses [PostCSS Simple Vars plugins](https://github.com/postcss/postcss-simple-vars) to work with variables.
 
 ### Overriding default variables
-The simple-vars plugin exposes a variables property, in order to inject variable defaults:
+Here is a relation of default values for the variables exposed by the simple-vars plugin:
 
 ```json
 {
@@ -89,7 +92,7 @@ The simple-vars plugin exposes a variables property, in order to inject variable
 }
 ```
 
-You can work providing a [configuration file](https://github.com/leroy-merlin-br/garden/blob/master/src/css/defaults.json) with your own defaults, or override during compilation time:
+To set your own default values, you can provide a [configuration file](https://github.com/leroy-merlin-br/garden/blob/master/src/css/defaults.json), or override the variables during compilation time:
 
 ```scss
   /* your css */
