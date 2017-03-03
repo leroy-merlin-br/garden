@@ -9,8 +9,15 @@ section: css
 ---
 
 # Glyphs
+<p class="lead">
+  Collection of icons and typographic symbols.
+</p>
 
-Garden provides a set of glyphs bundled on a typography (Glyphs.woff):
+## Usage
+All Garden glyphs are bundled together into a [Web Open Font Format](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) file, located at `dist/fonts`.
+
+The `.glyph` class is responsible for setting the `font-family` name, along with a couple of resetting properties.  
+The classes for specific glyphs should be prefixed with `glyph` and then followed by the glyph identifier, as shown in the example below for the cart icon.
 
 <div class="example">
   <div class="glyph glyph-cart"></div>
@@ -20,12 +27,7 @@ Garden provides a set of glyphs bundled on a typography (Glyphs.woff):
   <div class="glyph glyph-cart"></div>
 ```
 
-## Usage
-The font bundle is required to use the glyphs. The location of the font is `dist/fonts`.
-
-The `.glyph` class is responsible to set the `font-family` name, along with a couple resetting properties. Each glyph has a identifier of the glyph name. IE `cart` is `glyph-cart`.
-
-You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend cart`:
+Below is a relation of glyphs currently available. You can click on any of them to automatically copy their identifiers.
 
 <div class="row glyphs">
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
@@ -246,6 +248,6 @@ You can either use it as a call IE `.glyph-cart` or as a placeholder `@extend ca
   </div>
 </div>
 
-## Customizing your own bundle
+## Customized bundle
 
-Garden uses [gulp-iconfont](https://github.com/nfroidure/gulp-iconfont) to create the font, and a [PostCSS function](https://github.com/leroy-merlin-br/garden/blob/master/gulp/postcss-glyphs-css.js) to generate the .css file of it. You can easily customize your bundle adding/removing your glyphs on `src/glyphs`.
+Garden gathers all the SVG icons under `src/glyphs` and uses [gulp-iconfont](https://github.com/nfroidure/gulp-iconfont) to create the font file. With that, a [PostCSS function](https://github.com/leroy-merlin-br/garden/blob/master/gulp/postcss-glyphs-css.js) is used to generate the CSS file for that font. Due to this process flow, you can easily customize your bundle by adding or removing glyphs on that folder.
