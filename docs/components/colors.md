@@ -9,10 +9,13 @@ section: css
 ---
 
 # Colors
-The colors atom works a bit differently than most css helpers out here. While we do provide helpers as `.color-primary`, `.color-default`, as in right now we do not provide common dark/light scales since Leroy Merlin's brand colors aren't proper color scales as well.
+<p class="lead">
+  Set of colors used as the default Garden interface.
+</p>
 
 ## Usage
-We highly encourage the usage of color interfaces rather than color names. Color interfaces represents a purpose, not a color itself. While you can and should use your own color scheme, using color names on this project such as `$color-green` makes theming a hard task. The color palette grows as our own needs on interfaces grows as well (Click on the color to copy the interface name):
+We highly encourage the usage of color interfaces rather than color names. Color interfaces represent a purpose, not a color itself. While you can and should use your own color scheme, using color names such as `$color-green` on a project makes theming a hard task.  
+The color palette grows as our own needs on interfaces grow as well. You can click on the color to copy its interface name.
 
 
 <div class="row palette">
@@ -73,13 +76,7 @@ We highly encourage the usage of color interfaces rather than color names. Color
 </div>
 
 ## Customization
-In order to customize our color interfaces, there are a couple ways of doing it:
-
-### Defaults
-Check out our [scaffolding section](scaffolding.html) for more info on providing your own defaults for colors.
-
-### Override
-Since they are just plain variables you can override it any moment before garden css is processed:
+To customize the default color interface, you can use a [configuration file](https://github.com/leroy-merlin-br/garden/blob/master/src/css/defaults.json) or override the variables at any moment before Garden CSS is processed.
 
 ```scss
   /* your css */
@@ -92,3 +89,6 @@ Since they are just plain variables you can override it any moment before garden
 
   @import "garden";
 ```
+<p class="notification notification-warning">
+  Check out our [scaffolding section](scaffolding.html) for more info on providing your own defaults for colors.
+</p>
