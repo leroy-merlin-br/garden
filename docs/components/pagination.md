@@ -9,17 +9,16 @@ section: css
 ---
 
 # Pagination
-
-Provide control over pages using links and arrow keys styled for multiple pages contexts.
+<p class="lead">
+  The pagination component allows users to navigate through pages of related content.
+</p>
 
 ## Usage
 
-The pagination component should be wrapped in a `nav` element to identify it as a
-navigation section to screen readers and other technologies. You can use `.align-center` or `.align-right` in order to align pagination items.
+The component should be wrapped in a `nav` element to identify it as a
+navigation section.  
 
-Links are customizable for different circumstances. Use `.disabled` for unclickable links and `.active` to indicate the current page.
-
-The `.pagination-arrow` class can be used to modify the background and color for the next and previous arrows on mouse hover.
+To customize links according to their state you can use the class `.disabled` for unclickable links and `.active` to indicate the current page. To modify the background and color for the next and previous arrows on mouse hover, you can use the `.pagination-arrow` class, as shown below.
 
 <div class="example example-code">
   <nav>
