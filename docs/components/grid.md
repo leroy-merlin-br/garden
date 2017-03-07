@@ -9,28 +9,62 @@ section: css
 ---
 
 # Grid
-<p class="lead">The grid is responsible for basic element positioning.</p>
+<p class="lead">
+  The grid component is responsible for basic element alignment.
+</p>
 
-### How to use
+## Usage
 
-Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there (such as Bootstrap). Check our [breakpoints](css/utils.html#breakpoints) guideline.
+Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there, such as Bootstrap.  
+You can check our [breakpoints section](css/utils.html#breakpoints) for more info about the default values used to build the system layout.
 
-The grid system provides two types of containers: `.container` a responsive fixed
-width container based on the provided breakpoints; `.container-fluid` a full-width
-container.
+### Containers
+To build a grid you can use two types of containers. With the `.container` class you can create a responsive fixed width container based on the provided breakpoints, while with the `.container-fluid` class, you will get a full-width container.
 
-Since the grid system scales on it's own, In order to create basic positioning all you have to do is provide `.col-xs-*` grid classes.
+You can click on the button below to see how each type of container behaves.
 
-Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any `.col-md-*` class to an element will not only affect its styling on medium devices but also on large devices if a `.col-lg-*` class is not present.
+<button type="button" class="button button-secondary" data-toggle-container>
+  Toggle container
+</button>
+<div class="example">
+  <div class="example-container--fluid" data-container>
+    <section class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div data-container-text>.container-fluid</div>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3"><div></div></div>
+      <div class="col-xs-12 col-sm-6 col-md-3"><div></div></div>
+      <div class="col-xs-12 col-sm-6 col-md-3"><div></div></div>
+      <div class="col-xs-12 col-sm-6 col-md-3"><div></div></div>
+      <div class="col-xs-12 col-sm-6 col-md-6"><div></div></div>
+      <div class="col-xs-12 col-sm-6 col-md-6"><div></div></div>
+    </section>
+  </div>
+</div>
 
-```html
-<section class="row">
-  <div class="col-xs-12 col-sm-4 col-md-1">grid</div>
-</section>
-```
+### Rows and Columns
+Since the grid system scales on its own, all you have to do in order to position the columns within your grid is to provide a `.col-xs-*` breakpoint class.
 
 Basic example:
 
+```html
+<section class="row">
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+  <div class="col-xs-12 col-sm-4 col-md-1">1/12</div>
+</section>
+```
 <div class="example">
   <section class="row">
     <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
@@ -48,20 +82,24 @@ Basic example:
   </section>
 </div>
 
-### Offsetting
-Move columns to the right `.col-breakpoint-offset-*` classes. Please take note
-that this method increases the left margin of the column by the number of
-columns provided.
+Grid classes apply styles to devices with a viewport greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, applying any `.col-md-*` class to an element will not only affect its styling on medium devices, but also on large devices, if a `.col-lg-*` class is not present.
 
+### Offset
+You can use an offset class to move columns to the right. By adding one of the `.col-breakpoint-offset-*` classes, the left margin of the column increases by the number of columns provided in the class name.
+
+```html
+<section class="row">
+  <div class="col-xs-8 col-xs-offset-4 col-lg-offset-0">
+    col-xs-8 col-xs-offset-4 col-lg-offset-0
+  </div>
+  <div class="col-xs-3 col-xs-offset-1">
+    col-xs-3 col-xs-offset-1
+  </div>
+</section>
+```
 <div class="example">
   <section class="row">
     <div class="col-xs-8 col-xs-offset-4 col-lg-offset-0">
-      <div>col-xs-8 col-xs-offset-4 col-lg-offset-0</div>
-    </div>
-  </section>
-
-  <section class="row">
-    <div class="col-xs-4 col-xs-offset-4">
       <div>col-xs-8 col-xs-offset-4 col-lg-offset-0</div>
     </div>
     <div class="col-xs-3 col-xs-offset-1">
@@ -71,10 +109,16 @@ columns provided.
 </div>
 
 ### Ordering columns
-Easily change the order of grid columns with `.col-breakpoint-push-*` and
-`.col-breakpoint-pull-`. Please take note that this method adds `position:
+You can easily change the order of grid columns with `.col-breakpoint-push-*` and
+`.col-breakpoint-pull-` classes. Please take note that this method adds `position:
 relative` to the column.
 
+```html
+<section class="row">
+  <div class="col-xs-9 col-xs-push-3">.col-xs-9 .col-xs-push-3</div>
+  <div class="col-xs-3 col-xs-pull-9">.col-xs-3 .col-xs-pull-9</div>
+</section>
+```
 <div class="example">
   <section class="row">
     <div class="col-xs-9 col-xs-push-3">
