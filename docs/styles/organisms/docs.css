@@ -45,6 +45,20 @@
       border-radius: .18rem .18rem 0 0;
     }
 
+    &-container {
+      width: 70%;
+      margin: 0 auto;
+      transition-property: width, margin;
+      transition-duration: 1s;
+
+      &--fluid {
+        width: 100%;
+        margin: auto;
+        transition-property: width, margin;
+        transition-duration: 1s;
+      }
+    }
+
     & + pre {
       border-radius: 0 0 .18rem .18rem;
       margin-top: 0;
