@@ -2,6 +2,10 @@
 
   &-select {
 
+    .select {
+      padding-right: 1.5rem;
+    }
+
     &::after {
       right: 1.8rem;
       top: 1.2rem;
