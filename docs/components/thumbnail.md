@@ -9,10 +9,13 @@ section: css
 ---
 
 # Thumbnail
+<div class="lead">
+  A thumbnail can be used to display linked images or to wrap some content.
+</div>
 
-Thumbnails are used by default, to display linked image or can be used as a
-wrapper and it's `display: inline-block` by default.
+## Usage
 
+### Linked image
 <div class="example example-code">
   <a href="#" class="thumbnail">
     <img src="http://unsplash.it/201/201" width="200" height="200" />
@@ -21,14 +24,16 @@ wrapper and it's `display: inline-block` by default.
 
 ```html
   <a href="#" class="thumbnail">
-    <img src="" />
+    <img src="http://unsplash.it/201/201" />
   </a>
 ```
+<p class="notification notification-warning">
+  The thumbnail component has a `display: inline-block` by default.
+</p>
 
-With an extra markup, you can to add any HTML markup. In this example we use
-`.caption` and `.price-tag`* to complement our molecule.
-
-<strong>*Read more about [price-tag](/pricetag.html) component.</strong>
+### Content wrapper
+You can use any HTML markup within a thumbnail block. In the example below we use the
+`.caption` and `.price-tag`* classes to build a product card.
 
 <div class="example example-code">
   <figure class="thumbnail">
@@ -38,7 +43,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
       height="200"
       class="figure" />
     <figcaption class="caption">
-      Nome de um produto com mais de uma linha pra chegar no máx...
+      Product name
       <span class="additional">Cód. 999999999</span>
     </figcaption>
     <div class="price-tag">
@@ -53,7 +58,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
 ```html
 <div class="thumbnail">
   <figure>
-    <img src="..." />
+    <img src="http://unsplash.it/201/201" />
     <figcaption class="caption">
       <span class="additional"></span>
     </figcaption>
@@ -67,11 +72,9 @@ With an extra markup, you can to add any HTML markup. In this example we use
 </div>
 ```
 
-<div class="callout">
-  <div class="callout-title">:hover state</div>
-  <p>You can compose `.thumbnail` with a `.thumbnail-hover` class, in order to
-  achieve a simple `:hover` state.</p>
-</div>
+### Hover state
+To achieve a simple hover effect on a thumbnail block, you can use the
+`.thumbnail-hover` class, as shown below.
 
 <div class="example example-code">
   <figure class="thumbnail thumbnail-hover">
@@ -81,7 +84,7 @@ With an extra markup, you can to add any HTML markup. In this example we use
       height="200"
       class="figure" />
     <figcaption class="caption">
-      Nome de um produto com mais de uma linha pra chegar no máx...
+      Product name
       <span class="additional">Cód. 999999999</span>
     </figcaption>
     <div class="price-tag">
@@ -109,3 +112,5 @@ With an extra markup, you can to add any HTML markup. In this example we use
   </figure>
 </div>
 ```
+
+*Read more about the [price-tag](/pricetag.html) component.
