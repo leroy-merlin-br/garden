@@ -57,6 +57,10 @@
 
     @mixin disable-shadow;
   }
+
+  &.disabled {
+    pointer-events: none;
+  }
 }
 
 @each $color in primary, secondary, danger {
@@ -88,4 +92,8 @@
   &:hover {
     text-decoration: none;
   }
+}
+
+.button-full {
+  width: 100%;
 }
