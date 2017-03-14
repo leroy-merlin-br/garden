@@ -11,12 +11,12 @@ section: css
 # Table
 
 <div class="lead">
-`table` is a component used to display a large dataset distributed in rows and columns.
+  A table can be used to display a large dataset distributed in rows and columns.
 </div>
 
-## Default table
+## Usage
 
-To use the default table component is pretty straightforward. All you need to do is to add the class `.table` into the `table` HTML tag.
+To get the default style for this component you just have to add the `.table` class to a `<table>` tag.
 
 <div class="example example-code">
   <table class="table">
@@ -85,9 +85,9 @@ To use the default table component is pretty straightforward. All you need to do
   </table>
 ```
 
-## Zebra Striping Tables
+### Striped table
 
-If you want your table to alternate the colors of the rows, just add `.table-zebra` class to your `table.table` element.
+If you want a table with alternate colors for its rows, you can add the `.table-zebra` class to the `table` element.
 
 <div class="example example-code">
   <table class="table table-zebra">
@@ -156,9 +156,9 @@ If you want your table to alternate the colors of the rows, just add `.table-zeb
   </table>
 ```
 
-## Bordered Table
+### Bordered table
 
-If you want to add border to your table, just add the `table-bordered` class to the `table.table` element.
+To get a bordered table, you can add the `.table-bordered` class to a `table` element.
 
 <div class="example example-code">
   <table class="table table-bordered">
