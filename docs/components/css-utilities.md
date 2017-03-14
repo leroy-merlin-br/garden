@@ -9,12 +9,14 @@ section: css
 ---
 
 # CSS Utilities
-<p class="lead">Utils are common use classes to help achieve common generic
-styles, and to compose other components with them as well.</p>
+<p class="lead">
+  Set of common classes and variables used to provide predefined style and measures.
+</p>
 
 ## Summary
 
 - [Breakpoints](/css/utils.html#breakpoints)
+- [Media queries](/css/utils.html#media-queries)
 - [Circular](/css/utils.html#circular)
 - [Rounded](/css/utils.html#rounded)
 - [Border](/css/utils.html#border)
@@ -24,8 +26,8 @@ styles, and to compose other components with them as well.</p>
 
 ## Breakpoints
 
-Garden provide five breakpoints variables, these variables are defined
-in `defaults.json` and can be _overwritten*_.
+Garden provides five breakpoints variables, which are defined
+in the [defaults.json](/css/scaffolding.html#overriding-default-variables) file.
 
 | Variable       | Values |
 |----------------|:------:|
@@ -35,92 +37,92 @@ in `defaults.json` and can be _overwritten*_.
 | $breakpoint-lg | 1120px |
 | $breakpoint-xl | 1280px |
 
-Based on default breakpoints, we have some `@custom-media` to be used in
-media-queries. `@custom-media` avaliable: `--small`, `--medium`,
-`--large` and `--extra-large`.
+<p class="notification notification-warning">
+   Check out the [Scaffolding](/css/scaffolding.html) page to learn how to overwrite these values.
+</p>
 
-Example of how a `@custom-media` is defined:
+
+## Media queries
+Based on the breakpoints provided, Garden creates some custom media queries: `--small`, `--medium`,
+`--large`, and `--extra-large`.
+
+Below you can see how a `@custom-media` is defined and used, respectively.
 
 ```scss
 @custom-media --small (min-width: calc($breakpoint-xs + 1));
 ```
 
-How to use:
+<br>
+
 ```scss
 @media(--small) {
-  /* styles */
+  /* Style here */
 }
 ```
 
-_Obs: default variables can be overwrited, read more about [how to overwrite default variables](css/scaffolding.html#overriding-default-variables)._
-
-
 ## Circular
-The `.circular` class adds `border-radius: 100%` to the element:
-
+The `.circular` class adds `border-radius: 100%` to an element.
 
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="circular">
 </div>
 
 ```html
-  <img src="..." class="circular">
+  <img src="http://unsplash.it/100/100" class="circular">
 ```
 
 ## Rounded
-The `.rounded` class adds `border-radius: .25rem` to the element:
+The `.rounded` class adds `border-radius: .25rem` to an element.
 
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="rounded">
 </div>
 
 ```html
-  <img src="..." class="rounded">
+  <img src="http://unsplash.it/100/100" class="rounded">
 ```
 
-
 ## Border
-The `.border` class adds a `border` style to the element:
+The `.border` class adds a `border` style to an element:
 
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="border">
 </div>
 
 ```html
-  <img src="..." class="border">
+  <img src="http://unsplash.it/100/100" class="border">
 ```
 
 ## border-hover
-The `.border-hover` class adds a border style to the element, and a `:hover` effect to it:
+The `.border-hover` class adds a border style and a `hover` effect to an element.
 
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="border border-hover">
 </div>
 
 ```html
-  <img src="..." class="border border-hover">
+  <img src="http://unsplash.it/100/100" class="border border-hover">
 ```
 
 ## border-active
-
-The `.border-active` class adds a `border` style to the element, and overrides
-any `border-color:hover` effect to it:
+The `.border-active` class adds a `border` style to an element and overrides
+any `border-color:hover` effect on it.
 
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="border border-active">
 </div>
 
 ```html
-  <img src="..." class="border border-active">
+    <img src="http://unsplash.it/100/100" class="border border-active">
 ```
 
 ## border-disabled
-The `.border-disabled` class adds a `border` style to the element, overrides any `border-color:hover`, and adds `opacity: .4` to it:
+The `.border-disabled` class adds a `border` style and `opacity: .4` to an element, and also overrides any `border-color:hover` effect on it.
 
 <div class="example example-code">
   <img src="http://unsplash.it/100/100" class="border border-disabled">
 </div>
 
 ```html
-  <img src="..." class="border border-disabled">
+  <img src="http://unsplash.it/100/100" class="border border-disabled">
 ```
