@@ -9,15 +9,18 @@ section: css
 ---
 
 # Price Tag
-<p class="lead">The `.price-tag` component is really specific to our interface. It's used to display common price throughout the applications, with a variation for promotional prices:</p>
+<p class="lead">
+  The price tag component provides predefined style for the price section of an offer.
+</p>
 
-### Default
-The raw `.price-tag` just adds `text-align: center`, as for the `.price-*` atoms, they have their own styles:
+## Usage
+The `.price-tag` class works as a molecule, so it should wrap related atoms, as described below.
 
 <div class="example example-code">
   <div class="price-tag">
     <span class="price-currency">R$</span>
-    <span class="price-integer">9.999</span><span class="price-decimal">,99</span>
+    <span class="price-integer">9.999</span>
+    <span class="price-decimal">,99</span>
     <span class="price-unit">m</span>
   </div>
 </div>
@@ -31,10 +34,9 @@ The raw `.price-tag` just adds `text-align: center`, as for the `.price-*` atoms
 </div>
 ```
 
-### Promotional
-The `.promotional` modifier adds a background-color as `$color-promotional` and changes the color of the main price to `$color-text-promotional`.
-
-Additionally, you can also work with the `.from-price` component, which can directly use the `.price` atom or break down into `.price-*` atoms as well:
+### Promotional price
+You can get a standard style for promotional prices by adding the `.promotional` class to a `price-tag` element.
+The modifier applies the colors provided in the `$color-promotional` and `$color-text-promotional` variables to the background and the main price, respectively.
 
 <div class="example example-code">
   <div class="price-tag promotional">
@@ -58,8 +60,11 @@ Additionally, you can also work with the `.from-price` component, which can dire
   <span class="price-unit">m</span>
 </div>
 ```
+<p class="notification notification-warning">
+  Notice that you can use the `.from-price` class to describe the previous product price.
+</p>
 
-or
+Alternatively, you can use the same atoms used in a `price-tag` molecule to build the `from-price` section, as shown below.
 
 <div class="example example-code">
   <div class="price-tag promotional">
