@@ -23,7 +23,7 @@ section: css
 By default, form controls have full width and use a smooth border transition on `focus` event.
 
 <p class="notification notification-warning">
-  Checkout the [JavaScript section](js/form.html) of the form to see how to handle the `.active` class on it.
+  Checkout the [JavaScript section](/components/js-form.html) of the form to see how to handle the `.active` class on it.
 </p>
 
 <p class="notification notification-warning">
