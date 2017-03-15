@@ -113,4 +113,4 @@ To achieve a simple hover effect on a thumbnail block, you can use the
 </div>
 ```
 
-*Read more about the [price-tag](/pricetag.html) component.
+*Read more about the [price-tag](/components/pricetag.html) component.
