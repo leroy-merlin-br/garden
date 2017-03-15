@@ -68,4 +68,4 @@ As an alternative, you can create the style for a dismissable notification by ad
 
 By default, a notification does not have any sizes or display. The notification atom only add some padding, border, border-radius and color properties to the element, so you are free to use it as you want.
 
-If you want a notification with some interactivity, check out the [JavaScript section](/js/notifications.html) for the notification component.
+If you want a notification with some interactivity, check out the [JavaScript section](/components/js-notifications.html) for the notification component.
