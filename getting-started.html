@@ -127,4 +127,12 @@ $('[data-trigger="scroll"]').on('click', function() {
 
 $('.toggle').collapse();
 
-$('[data-tooltip]').tooltip();</script></body></html>
+$('[data-tooltip]').tooltip();
+
+$('[data-toggle-container]').on('click', () => {
+  const container = $('[data-container]')
+  const containerText = container.find('[data-container-text]')
+
+  container.toggleClass('example-container example-container--fluid')
+  containerText.text(container.hasClass('example-container') ? '.container' : '.container-fluid')
+})</script></body></html>
