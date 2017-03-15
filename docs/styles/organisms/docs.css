@@ -46,16 +46,16 @@
     }
 
     &-container {
-      width: 70%;
       margin: 0 auto;
-      transition-property: width, margin;
       transition-duration: 1s;
+      transition-property: width, margin;
+      width: 70%;
 
       &--fluid {
-        width: 100%;
         margin: auto;
-        transition-property: width, margin;
         transition-duration: 1s;
+        transition-property: width, margin;
+        width: 100%;
       }
     }
 
