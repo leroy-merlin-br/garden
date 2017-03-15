@@ -16,7 +16,7 @@ section: css
 ## Usage
 
 Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there, such as Bootstrap.  
-You can check our [breakpoints section](css/utils.html#breakpoints) for more info about the default values used to build the system layout.
+You can check our [breakpoints section](components/css-utilities.html#breakpoints) for more info about the default values used to build the system layout.
 
 ### Containers
 To build a grid you can use two types of containers. With the `.container` class you can create a responsive fixed width container based on the provided breakpoints, while with the `.container-fluid` class, you will get a full-width container.
