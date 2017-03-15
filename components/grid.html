@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Grid | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><a href="https://github.com/leroy-merlin-br/garden" aria-label="View source on Github" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#72bf44; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/components/scaffolding.html" class="link link-active">Docs</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><h4 class="heading-4">CSS</h4><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="css-notifications.html" class="link">CSS Notifications</a><a href="grid.html" class="link link-active">Grid</a><a href="pagination.html" class="link">Pagination</a><a href="button.html" class="link">Buttons</a><a href="thumbnail.html" class="link">Thumbnail</a><a href="badges.html" class="link">Badges</a><a href="panel.html" class="link">Panel</a><a href="pricetag.html" class="link">Price Tag</a><a href="table.html" class="link">Table</a><a href="css-utilities.html" class="link">CSS Utilities</a></nav><h4 class="heading-4">JS</h4><nav class="sidebar"><a href="scroll.html" class="link">Scroll</a><a href="modal.html" class="link">Modal</a><a href="form.html" class="link">Form</a><a href="alert.html" class="link">Alert</a><a href="js-notifications.html" class="link">JS Notifications</a><a href="validation.html" class="link">Validation</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="tooltip.html" class="link">Tooltip</a><a href="emitter.html" class="link">Emitter</a><a href="collapse.html" class="link">Collapse</a><a href="js-utilities.html" class="link">JS Utilities</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="grid">Grid</h1>
+<p class="lead">The grid is responsible for basic element positioning.</p>
+
+<h3 id="how-to-use">How to use</h3>
+<p>Garden includes a responsive, mobile first fluid grid system that scales up to 12 columns. It is heavily based on common grid systems out there (such as Bootstrap). Check our <a href="css/utils.html#breakpoints">breakpoints</a> guideline.</p>
+<p>The grid system provides two types of containers: <code>.container</code> a responsive fixed
+width container based on the provided breakpoints; <code>.container-fluid</code> a full-width
+container.</p>
+<p>Since the grid system scales on it’s own, In order to create basic positioning all you have to do is provide <code>.col-xs-*</code> grid classes.</p>
+<p>Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any <code>.col-md-*</code> class to an element will not only affect its styling on medium devices but also on large devices if a <code>.col-lg-*</code> class is not present.</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-xs-12 col-sm-4 col-md-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>grid<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span></code></pre>
+<p>Basic example:</p>
+<div class="example">
+  <section class="row">
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+    <div class="col-xs-12 col-sm-4 col-md-1"><div>1/12</div></div>
+  </section>
+</div>
+
+<h3 id="offsetting">Offsetting</h3>
+<p>Move columns to the right <code>.col-breakpoint-offset-*</code> classes. Please take note
+that this method increases the left margin of the column by the number of
+columns provided.</p>
+<div class="example">
+  <section class="row">
+    <div class="col-xs-8 col-xs-offset-4 col-lg-offset-0">
+      <div>col-xs-8 col-xs-offset-4 col-lg-offset-0</div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <div>col-xs-8 col-xs-offset-4 col-lg-offset-0</div>
+    </div>
+    <div class="col-xs-3 col-xs-offset-1">
+      <div>col-xs-3 col-xs-offset-1</div>
+    </div>
+  </section>
+</div>
+
+<h3 id="ordering-columns">Ordering columns</h3>
+<p>Easily change the order of grid columns with <code>.col-breakpoint-push-*</code> and
+<code>.col-breakpoint-pull-</code>. Please take note that this method adds <code>position:
+relative</code> to the column.</p>
+<div class="example">
+  <section class="row">
+    <div class="col-xs-9 col-xs-push-3">
+      <div>.col-xs-9 .col-xs-push-3</div>
+    </div>
+    <div class="col-xs-3 col-xs-pull-9">
+      <div>.col-xs-3 .col-xs-pull-9</div>
+    </div>
+  </section>
+</div>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList) {
+    e.trigger.classList.add('copied');
+
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 1000)
+  }
+});
+
+$('.docs').form();
+
+$('[data-modal]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger="open"]'
+});
+
+$('[data-modal-small]').modal({
+  triggerOpen: '[data-trigger-small="open"]',
+  size: 'small'
+});
+
+$('[data-modal-medium]').modal({
+  triggerOpen: '[data-trigger-medium="open"]',
+  size: 'medium'
+});
+
+$('[data-modal-large]').modal({
+  triggerOpen: '[data-trigger-large="open"]',
+  size: 'large'
+});
+
+let modalStatic = $('[data-modal-static]').modal({
+  triggerOpen: '[data-trigger-static="open"]',
+  static: true,
+  keyboard: false
+}).data('modal');
+
+function closeModalStatic() {
+  return modalStatic.hide();
+}
+
+let modalTrigger = $('[data-modal-trigger]').modal().data('modal')
+let trigger = $('[data-trigger]');
+
+trigger.on('click', function() {
+  modalTrigger.show();
+});
+
+$('[data-alert]').on('click', () => $.fn.alert());
+
+$('[data-alert-small]').on('click', () => $.fn.alert({
+  textMessage: 'Small alert example message',
+  size: 'small'
+}));
+
+$('[data-alert-medium]').on('click', () => $.fn.alert({
+  textMessage: 'Medium alert example message',
+  size: 'medium'
+}));
+
+$('[data-alert-large]').on('click', () => $.fn.alert({
+  textMessage: 'Large alert example message',
+  size: 'large'
+}));
+
+
+$('[data-notification-dynamic]').notification({
+  message: 'foo bar',
+  autoHide: true,
+  showIn: 2000,
+  hideIn: 20000,
+  type: 'warning'
+});
+
+$('[data-notification]').notification({
+  dynamic: false,
+  closeButton: '[data-close="notification"]'
+});
+
+$('[data-trigger="scroll"]').on('click', function() {
+  $('#scroll').scroll();
+});
+
+$('.toggle').collapse();
+
+$('[data-tooltip]').tooltip();</script></body></html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Lazy Load | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><a href="https://github.com/leroy-merlin-br/garden" aria-label="View source on Github" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#72bf44; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/components/scaffolding.html" class="link link-active">Docs</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><h4 class="heading-4">CSS</h4><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="css-notifications.html" class="link">CSS Notifications</a><a href="grid.html" class="link">Grid</a><a href="pagination.html" class="link">Pagination</a><a href="button.html" class="link">Buttons</a><a href="thumbnail.html" class="link">Thumbnail</a><a href="badges.html" class="link">Badges</a><a href="panel.html" class="link">Panel</a><a href="pricetag.html" class="link">Price Tag</a><a href="table.html" class="link">Table</a><a href="css-utilities.html" class="link">CSS Utilities</a></nav><h4 class="heading-4">JS</h4><nav class="sidebar"><a href="scroll.html" class="link">Scroll</a><a href="modal.html" class="link">Modal</a><a href="form.html" class="link">Form</a><a href="alert.html" class="link">Alert</a><a href="js-notifications.html" class="link">JS Notifications</a><a href="validation.html" class="link">Validation</a><a href="lazy-load.html" class="link link-active">Lazy Load</a><a href="tooltip.html" class="link">Tooltip</a><a href="emitter.html" class="link">Emitter</a><a href="collapse.html" class="link">Collapse</a><a href="js-utilities.html" class="link">JS Utilities</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="lazy-load">Lazy Load</h1>
+<p class="lead">Lazy Load is a component responsible to handle delayed image rendering, preventing unnecessary requests on never used images.</p>
+
+<h2 id="how-it-works">How it works</h2>
+<p>Usually you will implement lazy load on a page with lots of images, where the user does not necessarily loads them all. This technique <b>lazy</b> loads the pictures you do not want as first load, it’s actually pretty easy to implement using our component.</p>
+<p>If you want to provide a placeholder or a lower resolution image, you can simply use an <code>&lt;img /&gt;</code> for it:</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-lazy</span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>placeholderImage.png<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<p><code>[data-lazy]</code> will tell the component it’s a lazy image (You can change the selector if you want, we will get to it later), and using <code>[data-src]</code> the lazy component will replace the provided tag with an <code>&lt;img /&gt;</code> using <code>[data-src]</code> as <code>[src]</code>:</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-lazy</span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>placeholderImage.png<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+
+  /* Becomes */
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>In fact, you can use any type of markup in order to create a lazy image:</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">data-lazy</span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+
+  /* Becomes */
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<h2 id="attributes">Attributes</h2>
+<p>A lazy tag will carry all of its attributes, except the ones used by the component, such as the selector provided (by default <code>[data-lazy]</code>), <code>[data-src]</code> and <code>[data-srcset]</code>, which we will get to it soon.</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">data-lazy</span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span> <span class="token attr-name">data-component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+
+  /* Becomes */
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/imageToBeLoaded.png<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span> <span class="token attr-name">data-component</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>image<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<h5 id="-please-take-note-that-a-lazy-image-will-not-carry-any-source-of-data-binded-to-it-such-as-events-">* Please take note that a lazy image will not carry any source of data binded to it, such as events.</h5>
+<h2 id="serving-images-by-breakpoint">Serving images by breakpoint</h2>
+<p>The lazy component also handles responsive images by default, using the <code>[data-srcset]</code>:</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">data-lazy</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>src/placeholder.png<span class="token punctuation">"</span></span> <span class="token attr-name">data-srcset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mobile.png 0, tablet.png 768, desktop.png 1280<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></code></pre>
+<p>The <code>[data-srcset]</code> attribute accepts a list of images, divided by commas, where the first argument is the image source, and the second the <code>window min-width</code>. The <code>min-width</code> is retrieved with <code>$(window).width()</code> at the moment of the placeholder/image render/replace process.</p>
+<p>You do not have to provide the list in minWidth order, but it’s way easier to read if you do so.</p>
+<h5 id="-please-take-note-that-this-approach-only-happens-during-render-replace-process-it-does-not-happen-when-you-resize-your-window-">* Please take note that this approach only happens during render/replace process. It does not happen when you resize your window.</h5>
+<h2 id="initializing-the-component-with-javascript">Initializing the component with JavaScript</h2>
+<p>Other than just setting up a plain <code>&lt;img data-lazy /&gt;</code> tag, you need to initialize the component as well. You can initialize it as a jQuery plugin, or as a vanilla constructor. Take note that even the vanilla constructor relies on jQuery to perform a few operations:</p>
+<h4 id="using-as-a-jquery-plugin">Using as a jQuery plugin</h4>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lazyload</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="using-as-a-vanilla-constructor">Using as a vanilla constructor</h4>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">LazyLoad</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="options">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>throttle (1000ms)</td>
+<td>The amount of time (in ms) to allow the <code>[data-lazy]</code> verification to be triggered. This prevent bloating of execution, since it’s bound to the <code>scroll</code> event of the window.</td>
+</tr>
+<tr>
+<td>offset (200px)</td>
+<td>The offset (in px) allowed before the image actually reaches the viewport. This is intended to smooth a bit the image renderization/visualization process, since it will trigger a bit early than image reaching the bottom of the view. To remove it, set it to 0.</td>
+</tr>
+<tr>
+<td>selector (string)</td>
+<td>The selector to be removed from the attributes transfer operation. By default it is <code>[data-lazy]</code>. If you are willing to use other than this, change it here as well. Any valid jQuery selector is valid here.</td>
+</tr>
+</tbody>
+</table>
+<p>The options object is incremental, so you can change just which options you want:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  throttle<span class="token punctuation">:</span> <span class="token number">4000</span> <span class="token comment" spellcheck="true">// Increasing the throttle wait time</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lazyload</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// or with vanilla constructor</span>
+
+<span class="token keyword">new</span> <span class="token class-name">LazyLoad</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Changing the default selector:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">'.lazy-image'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy-image'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lazyload</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// or with vanilla constructor</span>
+
+<span class="token keyword">new</span> <span class="token class-name">LazyLoad</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.lazy-image'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="destroying-an-instance">Destroying an instance</h3>
+<p>By default, when the lazy component does not find any other <code>[data-lazy]</code> to be checked, it automatically triggers <code>off</code> to the <code>$(window).scroll</code> event, but you can do it manually:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lazyload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'lazy-load'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// or with vanilla constructor</span>
+
+<span class="token keyword">let</span> lazyLoad <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyLoad</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+lazyLoad<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
+Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }
+});
+
+var text = new Clipboard('[data-clipboard-text]');
+
+text.on('success', function(e) {
+  if (e.trigger.classList) {
+    e.trigger.classList.add('copied');
+
+    setTimeout(function() {
+      e.trigger.classList.remove('copied');
+    }, 1000)
+  }
+});
+
+$('.docs').form();
+
+$('[data-modal]').modal({
+  triggerClose: '[data-trigger="close"]',
+  triggerOpen: '[data-trigger="open"]'
+});
+
+$('[data-modal-small]').modal({
+  triggerOpen: '[data-trigger-small="open"]',
+  size: 'small'
+});
+
+$('[data-modal-medium]').modal({
+  triggerOpen: '[data-trigger-medium="open"]',
+  size: 'medium'
+});
+
+$('[data-modal-large]').modal({
+  triggerOpen: '[data-trigger-large="open"]',
+  size: 'large'
+});
+
+let modalStatic = $('[data-modal-static]').modal({
+  triggerOpen: '[data-trigger-static="open"]',
+  static: true,
+  keyboard: false
+}).data('modal');
+
+function closeModalStatic() {
+  return modalStatic.hide();
+}
+
+let modalTrigger = $('[data-modal-trigger]').modal().data('modal')
+let trigger = $('[data-trigger]');
+
+trigger.on('click', function() {
+  modalTrigger.show();
+});
+
+$('[data-alert]').on('click', () => $.fn.alert());
+
+$('[data-alert-small]').on('click', () => $.fn.alert({
+  textMessage: 'Small alert example message',
+  size: 'small'
+}));
+
+$('[data-alert-medium]').on('click', () => $.fn.alert({
+  textMessage: 'Medium alert example message',
+  size: 'medium'
+}));
+
+$('[data-alert-large]').on('click', () => $.fn.alert({
+  textMessage: 'Large alert example message',
+  size: 'large'
+}));
+
+
+$('[data-notification-dynamic]').notification({
+  message: 'foo bar',
+  autoHide: true,
+  showIn: 2000,
+  hideIn: 20000,
+  type: 'warning'
+});
+
+$('[data-notification]').notification({
+  dynamic: false,
+  closeButton: '[data-close="notification"]'
+});
+
+$('[data-trigger="scroll"]').on('click', function() {
+  $('#scroll').scroll();
+});
+
+$('.toggle').collapse();
+
+$('[data-tooltip]').tooltip();</script></body></html>
