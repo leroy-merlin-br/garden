@@ -1,14 +1,14 @@
 ---
-title: Form
+title: JS Form
 layout: page.jade
 sidebar: true
 collection: docs
 priority: 3
-path: form
+path: js-form
 section: js
 ---
 
-# Form
+# JS Form
 <p class="lead">
   The form component is built as a jQuery plugin responsible for handling the state of input elements.
 </p>

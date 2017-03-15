@@ -1,13 +1,14 @@
 ---
-title: Form
+title: CSS Form
 layout: page.jade
 sidebar: true
-collection: css
-priority: 1
-path: form
+collection: docs
+priority: 3
+path: css-form
+section: css
 ---
 
-# Form
+# CSS Form
 <p class="lead">Basic form components</p>
 
 ## Summary
