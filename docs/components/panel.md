@@ -9,18 +9,14 @@ section: css
 ---
 
 # Panel
-<div class="lead">`panel` is a component responsible to display an image with a descriptive text,
-but in a more fashion way, compared to the [`thumbnail`](/thumbnail.html) component: </div>
+<div class="lead">
+  A panel is generally used to display an image with a caption.
+</div>
 
-## Default Panel
-The `.panel` component and it's variations stricly sets the `height` property,
-based on the panel variation. 
-
-Along with the `.panel`, the image should be used with `.panel-image` to
-properly position it, and with the `.caption` atom.
-
-The width should be set by your current
-grid-system or hardcoded on your project:
+## Usage
+To define a panel you should apply the `.panel` class to a `div` block,
+for instance, and use the `.panel-image` and `.caption` classes to arrange
+its content.
 
 <div class="example example-code">
   <div class="panel">
@@ -33,16 +29,18 @@ grid-system or hardcoded on your project:
 
 ```html
   <div class="panel">
-    <img src="..." class="panel-image">
+    <img src="https://unsplash.it/170/170" class="panel-image">
     <div class="caption">
       Panel caption
     </div>
   </div>
 ```
 
+<br>
 
+### Large Panel
+To get a larger panel you can use the `.panel-large` class, as shown below.
 
-## Large Panel
 <div class="example example-code">
   <div class="panel panel-large">
     <img src="https://unsplash.it/335/335" class="panel-image">
@@ -54,18 +52,17 @@ grid-system or hardcoded on your project:
 
 ```html
   <div class="panel panel-large">
-    <img src="..." class="panel-image">
+    <img src="https://unsplash.it/335/335" class="panel-image">
     <div class="caption">
       Panel caption
     </div>
   </div>
 ```
 
-<div class="callout">
-  <div class="callout-title">:hover state</div>
-  <p>You can compose all `.panel` variations with a `.panel-hover` class, in order to
-  achieve a simple `:hover` state, modifying the `.caption` behavior:</p>
-</div>
+<br>
+
+### Hover effect
+To get a simple hover effect you can use the `.panel-hover` class, as described below.
 
 <div class="example example-code">
   <div class="panel panel-hover">
@@ -78,7 +75,7 @@ grid-system or hardcoded on your project:
 
 ```html
   <div class="panel panel-hover">
-    <img src="..." class="panel-image">
+    <img src="https://unsplash.it/170/170" class="panel-image">
     <div class="caption">
       Panel caption with hover
     </div>
