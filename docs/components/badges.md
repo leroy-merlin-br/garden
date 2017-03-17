@@ -10,10 +10,12 @@ section: css
 
 
 # Badges
+<p class="lead">
+  A badge is generally used to categorize content.
+</p>
 
-Badge uses `display: inline-block` by default.
-
-Usage example:
+## Usage
+The badge component receives a `display: inline-block` rule by default.
 
 <div class="example example-code">
   <span class="badge">default</span>
@@ -24,5 +26,9 @@ Usage example:
 </div>
 
 ```html
-<span class="badge badge-primary"></span>
+  <span class="badge">default</span>
+  <span class="badge badge-primary">primary</span>
+  <span class="badge badge-secondary">secondary</span>
+  <span class="badge badge-neutral">neutral</span>
+  <span class="badge badge-danger">danger</span>
 ```
