@@ -9,11 +9,24 @@ section: js
 ---
 
 # Modal
-<p class="lead">Modal component it's an empty container that you put any kind of content.</p>
+<p class="lead">
+  A modal is used as a dialog box that blocks the main view until the
+  information or action required is provided.
+</p>
 
-## How to
+## Summary
+1. [Usage](#usage)
+2. [Options](#options)
+3. [Methods](#methods)
+4. [Opening a modal](#opening-a-modal)
+5. [Modal size](#modal-size)
+6. [Static modal](#static-modal)
+7. [History option](#history-option)
 
-Modal component allows users to choose which selector to use, you can use a simple `[data-whatever]` or a class. Be sure to not use classes such as: `.modal`, `.modal-content`, and `.modal-body` to initiate a modal. Modal has variable `height` based on it content and the `max-height` is `90%`.
+## Usage
+
+The modal height varies according to its content, but it is limited to a `max-height` of `90%`.  
+You can use a data attribute or a class name as the modal selector, as described in the example below.
 
 You can initiate it as a jQuery plugin:
 
@@ -27,39 +40,43 @@ or a vanilla constructor:
 ```js
 import Modal from 'garden/src/js/components/modal';
 
+// using [data-modal] as the selector
 new Modal(document.querySelectorAll('[data-modal]'), options);
 ```
 
-And with the usage of `[data-modal]` as a selector, here is basic markup:
+Here is a snippet of a modal block that uses a data attribute as its selector.
 
 ```html
 <div data-modal>
   <div class="row">
     <div class="col-xs-12">
       <h2>Hello!</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>This is a simple modal example.</p>
     </div>
   </div>
 </div>
 ```
+Based on this markup, the component will get all content inside of `[data-modal]` and append it into `.modal-body`.
 
-Based on this markup, the component will get all content inside of `[data-modal]` and append into `.modal-body`.
+<p class="notification notification-warning">
+  Note that you should not use classes such as: .modal, .modal-content, and .modal-body to initiate a modal.
+</p>
 
-## Options
+### Options
 
-Modal provides some customizable options such as: `container`, `size`, `triggerClose`, and `triggerOpen`. The default container option for the `.modal` class is to be appended in the `body`, the `size` is 'medium', `triggerClose`, and  `triggerOpen` are `null`.
+Modal provides some customizable options such as: `container`, `size`, `triggerClose`, and `triggerOpen`. The default values for each option are described below.
 
 | Option            | Default | Description |
 |-------------------|-------------|
 | container  | `"body"` | A new string selector in which the modal component will be appended |
-| size | `"medium"` | The modal size may vary between small, large, or medium |
+| size | `"medium"` | Possible values are: small, large, and medium |
 | triggerClose | `null` | A string selector to bind and call hide method when clicked |
 | triggerOpen | `null` | A string selector to bind and call show method when clicked |
-| static | false | When false insert the close icon and call hide method when clicked outside modal  |
-| keyboard | true | Closes the modal when esc key is pressed |
-| history | false | When true the behavior of the back button is to close the modal instead of sending the user to the previous page |
+| static | false | When false, a close icon is inserted and the hide method is called when a user clicks outside the modal  |
+| keyboard | true | Closes the modal when the ESC key is pressed |
+| history | false | When true, the behavior of the back button is to close the modal instead of sending the user to the previous page |
 
-Ex:
+Below is an example on how you can pass those options to the modal component.
 
 ```js
 let options = {
@@ -75,20 +92,22 @@ let options = {
 // as a jquery plugin
 $('[data-modal]').modal(options);
 
+// or
+
 // as a vanilla constructor
 new Modal(document.querySelectorAll('[data-modal]'), options);
 ```
 
-## Methods
+### Methods
 
-`.show()`: manually opens modal and bind close icon and `esc` keyboard key by default.
+| Method     | Description |
+|------------|-----------------------|
+| `show()`     | Manually opens the modal and bind a close icon and the ESC key action by default |
+| `hide()`     | Manually closes the modal and unbind the close icon and the ESC key action |
 
-`.hide()`: manually closes modal and unbind close icon and `esc` keyboard key.
+### Opening a modal
 
-
-## Working with modal
-
-By default, modal doesn't provide any trigger to open it. Here's an example of how to create a button to open a modal.
+By default, the modal component does not provide any opening trigger element. To achieve that you can create a button, as shown in the example below.
 
 <div class="example example-code">
   <button class="button button-primary" data-trigger>Open Modal</button>
@@ -111,9 +130,7 @@ trigger.on('click', () => {
   </div>
 </div>
 
-Once you called `show()`, `modal()` bind the close icon and `esc` keyboard key to hide modal.
-
- In order to have a default open and close button, you can use `triggerOpen` and `triggerClose`, the  modal will delegate `click` event to those selectors and call `show()` or `hide()` when the click event is fired. Example:
+ To setup a default opening and closing button, you can use the `triggerOpen` and `triggerClose` options. With that, the  modal will register a `click` event to those selectors and call `show()` or `hide()` when the click event is fired.
 
 ```js
 $('[data-modal]').modal({
@@ -122,9 +139,10 @@ $('[data-modal]').modal({
 });
 ```
 
-## Set Modal size
+### Modal size
 
-The modal has three predefined sizes: small, medium, or large.
+As stated before, the modal has three predefined sizes: small, medium, or large.  
+Click in each button below to check each modal size.
 
 <div class="example example-code align-center">
   <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
@@ -139,8 +157,8 @@ $('[data-modal]').modal({ size: 'small|medium|large' });
 <div data-modal-small class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Small size example</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>Small size modal</h2>
+      <p>This is an example of a small modal.</p>
     </div>
   </div>
 </div>
@@ -148,8 +166,8 @@ $('[data-modal]').modal({ size: 'small|medium|large' });
 <div data-modal-medium class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Medium size example</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>Medium size modal</h2>
+      <p>This is an example of a medium modal.</p>
     </div>
   </div>
 </div>
@@ -157,17 +175,16 @@ $('[data-modal]').modal({ size: 'small|medium|large' });
 <div data-modal-large class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Large size example</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>Large size modal</h2>
+      <p>This is an example of a large modal.</p>
     </div>
   </div>
 </div>
 
-## Static modal
+### Static modal
 
-It's possible to use a modal in cases where a user interaction is mandatory before closing the modal.
-With the `static` and `keyboard` options, you can turn off the options to close the modal.
-You need to call the `.hide()` function manually.
+With the `static` and `keyboard` attributes, you can turn off the options to close a modal.
+With that, users would have to interact with the modal before closing it.
 
 <div class="example example-code">
   <button class="button button-primary" data-trigger-static="open">Open Static Modal</button>
@@ -184,18 +201,22 @@ function closeModalStatic() {
 }
 ```
 
+<p class="notification notification-warning">
+  Note that to close the modal you need to call the `.hide()` function manually after the user interaction.
+</p>
+
 <div data-modal-static class="hide">
   <div class="row">
     <div class="col-xs-12">
       <h2>Static Modal example</h2>
-      <p>Lorem ipsum dolor sit amet, you know how to close it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>You know how to close it.</p>
     </div>
   </div>
 </div>
 
-## Changing the back button behavior
+### History option
 
-There are cases in which users click the back button in order to close the modal and remain in the same page. Thus, the `history` option allows users to do just that. It works by creating a new state in the browser history after the modal is showed on the page. When the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent to the previous browser state, which happens to be the same page he is currently at.
+ With the history option activated, whenever the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent back to the current page instead of the previous page, as it would normally behave.
 
 The default value for this option is `false`, so in order to change that behavior you only need to initiate the option as `true`.
 
