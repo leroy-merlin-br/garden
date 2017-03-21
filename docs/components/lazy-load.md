@@ -9,28 +9,26 @@ section: js
 ---
 
 # Lazy Load
-<p class="lead">Lazy Load is a component responsible to handle delayed image rendering, preventing unnecessary requests on never used images.</p>
+<p class="lead">
+  The Lazy Load component is responsible for handling the image rendering
+  process in a page, loading images only when needed.
+</p>
 
-## How it works
-Usually you will implement lazy load on a page with lots of images, where the user does not necessarily loads them all. This technique <b>lazy</b> loads the pictures you do not want as first load, it's actually pretty easy to implement using our component.
+## Summary
+1. [Usage](#usage)
+2. [Attributes](#attributes)
+3. [Serving images by breakpoint](#serving-images-by-breakpoint)
+4. [Options](#options)
+5. [Destroying an instance](#destroying-an-instance)
 
-If you want to provide a placeholder or a lower resolution image, you can simply use an `<img />` for it:
+## Usage
+This component is generally used in pages filled with images, where users do not need to load all of them at once.
 
-```html
-  <img data-lazy data-src="src/imageToBeLoaded.png" src="placeholderImage.png"/>
-```
+To apply a lazy load behavior to an element you have to add the `[data-lazy]`
+attribute to any HTML block and the `[data-src]` attribute along with the path for the image to be loaded.  
 
-`[data-lazy]` will tell the component it's a lazy image (You can change the selector if you want, we will get to it later), and using `[data-src]` the lazy component will replace the provided tag with an `<img />` using `[data-src]` as `[src]`:
-
-```html
-  <img data-lazy data-src="src/imageToBeLoaded.png" src="placeholderImage.png"/>
-
-  /* Becomes */
-
-  <img src="src/imageToBeLoaded.png" />
-```
-
-In fact, you can use any type of markup in order to create a lazy image:
+With that, the component will replace the provided markup with an `<img />` tag,
+using the `[data-src]` attribute as the `src` property, as shown below.
 
 ```html
   <span data-lazy data-src="src/imageToBeLoaded.png"></span>
@@ -40,8 +38,26 @@ In fact, you can use any type of markup in order to create a lazy image:
   <img src="src/imageToBeLoaded.png" />
 ```
 
-## Attributes
-A lazy tag will carry all of its attributes, except the ones used by the component, such as the selector provided (by default `[data-lazy]`), `[data-src]` and `[data-srcset]`, which we will get to it soon.
+If you want to provide a placeholder or a lower resolution image, you can use
+an `<img />` tag and provide a `src` attribute to it.
+
+```html
+  <img data-lazy data-src="src/imageToBeLoaded.png" src="placeholderImage.png"/>
+
+  /* Becomes */
+
+  <img src="src/imageToBeLoaded.png" />
+```
+
+<p class="notification notification-warning">
+  Notice that, other than just adding the `[data-lazy]` attribute to the markup,
+  you need to initialize the component as well.
+  Check out the [Options section](#options) to learn how it works.
+</p>
+
+### Attributes
+Except for the default attributes (`[data-lazy]`, `[data-src]`, `[data-srcset]`),
+all the properties passed to a lazy tag will be sent to the generated markup, as shown below.
 
 ```html
   <span data-lazy data-src="src/imageToBeLoaded.png" class="image" data-component="image"></span>
@@ -50,84 +66,62 @@ A lazy tag will carry all of its attributes, except the ones used by the compone
 
   <img src="src/imageToBeLoaded.png" class="image" data-component="image" />
 ```
+<p class="notification notification-warning">
+  Please take note that a Lazy Load image will not carry any source of data binded to it, such as events.
+</p>
 
-##### * Please take note that a lazy image will not carry any source of data binded to it, such as events.
 
-
-## Serving images by breakpoint
-The lazy component also handles responsive images by default, using the `[data-srcset]`:
+### Serving images by breakpoint
+The lazy load component also handles responsive images by using the `[data-srcset]`
+attribute, which accepts a list of images, divided by commas. The first argument
+is the image source and the second is the window `min-width`.
 
 ```html
   <img data-lazy src="src/placeholder.png" data-srcset="mobile.png 0, tablet.png 768, desktop.png 1280"/>
 ```
 
-The `[data-srcset]` attribute accepts a list of images, divided by commas, where the first argument is the image source, and the second the `window min-width`. The `min-width` is retrieved with `$(window).width()` at the moment of the placeholder/image render/replace process.
-
-You do not have to provide the list in minWidth order, but it's way easier to read if you do so.
-
-##### * Please take note that this approach only happens during render/replace process. It does not happen when you resize your window.
-
-
-## Initializing the component with JavaScript
-Other than just setting up a plain `<img data-lazy />` tag, you need to initialize the component as well. You can initialize it as a jQuery plugin, or as a vanilla constructor. Take note that even the vanilla constructor relies on jQuery to perform a few operations:
-
-#### Using as a jQuery plugin
-```js
-$('[data-lazy]').lazyload(options);
-```
-
-#### Using as a vanilla constructor
-```js
-new LazyLoad(document.querySelectorAll('[data-lazy]'), options);
-```
+<p class="notification notification-warning">
+  You do not have to provide the values in the order showed above, but it is easier to read if you do so.  
+  Also, you should notice that this approach works only during render or replace
+  process, and not during window resizing.
+</p>
 
 ### Options
+These are the options you can pass to the component while initializing it.
 
-| Option            | Description |
+| Option            | Default | Description |
 |-------------------|-------------|
-| throttle (1000ms)     | The amount of time (in ms) to allow the `[data-lazy]` verification to be triggered. This prevent bloating of execution, since it's bound to the `scroll` event of the window. |
-| offset (200px)       | The offset (in px) allowed before the image actually reaches the viewport. This is intended to smooth a bit the image renderization/visualization process, since it will trigger a bit early than image reaching the bottom of the view. To remove it, set it to 0. |
-| selector (string) | The selector to be removed from the attributes transfer operation. By default it is `[data-lazy]`. If you are willing to use other than this, change it here as well. Any valid jQuery selector is valid here. |
+| throttle | 1000ms     | The amount of time (in milliseconds) that the verification process must wait before being triggered again. This prevents execution overload, since this process is bound to the `scroll` event of the window. |
+| offset | 200px       | The allowed offset (in pixel) before the image actually reaches the viewport. This is aimed at making the image renderization process a little bit softer. You can remove it by setting it to 0. |
+| selector | `[data-lazy]` | The selector used to identify a Lazy Load component. You can customize it by providing any valid jQuery selector. |
 
-The options object is incremental, so you can change just which options you want:
-
+Below is how you can customize the component using the options provided.
 
 ```js
 let options = {
-  throttle: 4000 // Increasing the throttle wait time
+  throttle: 4000, // Increasing the throttle waiting time
+  selector: '.lazy-image' // Changing the default selector
 };
 
+// Initializing it as a jQuery plugin
 $('[data-lazy]').lazyload(options);
 
-// or with vanilla constructor
-
+// Or as a vanilla constructor
 new LazyLoad(document.querySelectorAll('[data-lazy]'), options);
 ```
 
-Changing the default selector:
-
-```js
-let options: {
-  selector: '.lazy-image'
-};
-
-$('.lazy-image').lazyload(options);
-
-// or with vanilla constructor
-
-new LazyLoad(document.querySelectorAll('.lazy-image'), options);
-```
-
 ### Destroying an instance
-By default, when the lazy component does not find any other `[data-lazy]` to be checked, it automatically triggers `off` to the `$(window).scroll` event, but you can do it manually:
+By default, when the Lazy Load component does not find a `[data-lazy]` attribute in the page, it automatically removes the listener on the `$(window).scroll` event, but you can also do it manually by using the `destroy()` method.
 
 ```js
+// With a jQuery plugin
 $('[data-lazy]').lazyload();
 
 $('[data-lazy]').data('lazy-load').destroy();
+```
 
-// or with vanilla constructor
-
+```js
+// With a vanilla constructor
 let lazyLoad = new LazyLoad(document.querySelectorAll('[data-lazy]'));
 
 lazyLoad.destroy();
