@@ -1,27 +1,45 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><a href="https://github.com/leroy-merlin-br/garden" aria-label="View source on Github" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#72bf44; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/components/scaffolding.html" class="link link-active">Docs</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><h4 class="heading-4">CSS</h4><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="css-notifications.html" class="link">CSS Notifications</a><a href="css-form.html" class="link">CSS Form</a><a href="grid.html" class="link">Grid</a><a href="pagination.html" class="link">Pagination</a><a href="button.html" class="link">Buttons</a><a href="thumbnail.html" class="link">Thumbnail</a><a href="panel.html" class="link">Panel</a><a href="pricetag.html" class="link">Price Tag</a><a href="css-utilities.html" class="link">CSS Utilities</a><a href="table.html" class="link">Table</a><a href="badges.html" class="link">Badges</a></nav><h4 class="heading-4">JS</h4><nav class="sidebar"><a href="scroll.html" class="link">Scroll</a><a href="js-form.html" class="link">JS Form</a><a href="modal.html" class="link link-active">Modal</a><a href="alert.html" class="link">Alert</a><a href="js-notifications.html" class="link">JS Notifications</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="tooltip.html" class="link">Tooltip</a><a href="validation.html" class="link">Validation</a><a href="emitter.html" class="link">Emitter</a><a href="collapse.html" class="link">Collapse</a><a href="js-utilities.html" class="link">JS Utilities</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
-<p class="lead">Modal component it’s an empty container that you put any kind of content.</p>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Modal | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><a href="https://github.com/leroy-merlin-br/garden" aria-label="View source on Github" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#72bf44; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/components/scaffolding.html" class="link link-active">Docs</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><h4 class="heading-4">CSS</h4><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="css-notifications.html" class="link">CSS Notifications</a><a href="css-form.html" class="link">CSS Form</a><a href="grid.html" class="link">Grid</a><a href="pagination.html" class="link">Pagination</a><a href="button.html" class="link">Buttons</a><a href="thumbnail.html" class="link">Thumbnail</a><a href="badges.html" class="link">Badges</a><a href="panel.html" class="link">Panel</a><a href="pricetag.html" class="link">Price Tag</a><a href="css-utilities.html" class="link">CSS Utilities</a><a href="table.html" class="link">Table</a></nav><h4 class="heading-4">JS</h4><nav class="sidebar"><a href="scroll.html" class="link">Scroll</a><a href="js-form.html" class="link">JS Form</a><a href="modal.html" class="link link-active">Modal</a><a href="alert.html" class="link">Alert</a><a href="js-notifications.html" class="link">JS Notifications</a><a href="validation.html" class="link">Validation</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="tooltip.html" class="link">Tooltip</a><a href="emitter.html" class="link">Emitter</a><a href="collapse.html" class="link">Collapse</a><a href="js-utilities.html" class="link">JS Utilities</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="modal">Modal</h1>
+<p class="lead">
+  A modal is used as a dialog box that blocks the main view until the
+  information or action required is provided.
+</p>
 
-<h2 id="how-to">How to</h2>
-<p>Modal component allows users to choose which selector to use, you can use a simple <code>[data-whatever]</code> or a class. Be sure to not use classes such as: <code>.modal</code>, <code>.modal-content</code>, and <code>.modal-body</code> to initiate a modal. Modal has variable <code>height</code> based on it content and the <code>max-height</code> is <code>90%</code>.</p>
+<h2 id="summary">Summary</h2>
+<ol>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#opening-a-modal">Opening a modal</a></li>
+<li><a href="#modal-size">Modal size</a></li>
+<li><a href="#static-modal">Static modal</a></li>
+<li><a href="#history-option">History option</a></li>
+</ol>
+<h2 id="usage">Usage</h2>
+<p>The modal height varies according to its content, but it is limited to a <code>max-height</code> of <code>90%</code>.<br>You can use a data attribute or a class name as the modal selector, as described in the example below.</p>
 <p>You can initiate it as a jQuery plugin:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using any selector</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'any-selector'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>or a vanilla constructor:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Modal <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/modal'</span><span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">// using [data-modal] as the selector</span>
 <span class="token keyword">new</span> <span class="token class-name">Modal</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>And with the usage of <code>[data-modal]</code> as a selector, here is basic markup:</p>
+<p>Here is a snippet of a modal block that uses a data attribute as its selector.</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-modal</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-xs-12<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Hello!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>This is a simple modal example.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
-<p>Based on this markup, the component will get all content inside of <code>[data-modal]</code> and append into <code>.modal-body</code>.</p>
-<h2 id="options">Options</h2>
-<p>Modal provides some customizable options such as: <code>container</code>, <code>size</code>, <code>triggerClose</code>, and <code>triggerOpen</code>. The default container option for the <code>.modal</code> class is to be appended in the <code>body</code>, the <code>size</code> is ‘medium’, <code>triggerClose</code>, and  <code>triggerOpen</code> are <code>null</code>.</p>
+<p>Based on this markup, the component will get all content inside of <code>[data-modal]</code> and append it into <code>.modal-body</code>.</p>
+<p class="notification notification-warning">
+  Note that you should not use classes such as: .modal, .modal-content, and .modal-body to initiate a modal.
+</p>
+
+<h3 id="options">Options</h3>
+<p>Modal provides some customizable options such as: <code>container</code>, <code>size</code>, <code>triggerClose</code>, and <code>triggerOpen</code>. The default values for each option are described below.</p>
 <table>
 <thead>
 <tr>
@@ -39,7 +57,7 @@
 <tr>
 <td>size</td>
 <td><code>&quot;medium&quot;</code></td>
-<td>The modal size may vary between small, large, or medium</td>
+<td>Possible values are: small, large, and medium</td>
 </tr>
 <tr>
 <td>triggerClose</td>
@@ -54,21 +72,21 @@
 <tr>
 <td>static</td>
 <td>false</td>
-<td>When false insert the close icon and call hide method when clicked outside modal</td>
+<td>When false, a close icon is inserted and the hide method is called when a user clicks outside the modal</td>
 </tr>
 <tr>
 <td>keyboard</td>
 <td>true</td>
-<td>Closes the modal when esc key is pressed</td>
+<td>Closes the modal when the ESC key is pressed</td>
 </tr>
 <tr>
 <td>history</td>
 <td>false</td>
-<td>When true the behavior of the back button is to close the modal instead of sending the user to the previous page</td>
+<td>When true, the behavior of the back button is to close the modal instead of sending the user to the previous page</td>
 </tr>
 </tbody>
 </table>
-<p>Ex:</p>
+<p>Below is an example on how you can pass those options to the modal component.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
   container<span class="token punctuation">:</span> <span class="token string">'.wrapper'</span><span class="token punctuation">,</span>
   size<span class="token punctuation">:</span> <span class="token string">'small'</span><span class="token punctuation">,</span>
@@ -82,13 +100,31 @@
 <span class="token comment" spellcheck="true">// as a jquery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">// or</span>
+
 <span class="token comment" spellcheck="true">// as a vanilla constructor</span>
 <span class="token keyword">new</span> <span class="token class-name">Modal</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="methods">Methods</h2>
-<p><code>.show()</code>: manually opens modal and bind close icon and <code>esc</code> keyboard key by default.</p>
-<p><code>.hide()</code>: manually closes modal and unbind close icon and <code>esc</code> keyboard key.</p>
-<h2 id="working-with-modal">Working with modal</h2>
-<p>By default, modal doesn’t provide any trigger to open it. Here’s an example of how to create a button to open a modal.</p>
+<h3 id="methods">Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show()</code></td>
+<td>Manually opens the modal and bind a close icon and the ESC key action by default</td>
+</tr>
+<tr>
+<td><code>hide()</code></td>
+<td>Manually closes the modal and unbind the close icon and the ESC key action</td>
+</tr>
+</tbody>
+</table>
+<h3 id="opening-a-modal">Opening a modal</h3>
+<p>By default, the modal component does not provide any opening trigger element. To achieve that you can create a button, as shown in the example below.</p>
 <div class="example example-code">
   <button class="button button-primary" data-trigger>Open Modal</button>
 </div>
@@ -108,14 +144,13 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
   </div>
 </div>
 
-<p>Once you called <code>show()</code>, <code>modal()</code> bind the close icon and <code>esc</code> keyboard key to hide modal.</p>
-<p> In order to have a default open and close button, you can use <code>triggerOpen</code> and <code>triggerClose</code>, the  modal will delegate <code>click</code> event to those selectors and call <code>show()</code> or <code>hide()</code> when the click event is fired. Example:</p>
+<p> To setup a default opening and closing button, you can use the <code>triggerOpen</code> and <code>triggerClose</code> options. With that, the  modal will register a <code>click</code> event to those selectors and call <code>show()</code> or <code>hide()</code> when the click event is fired.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   triggerClose<span class="token punctuation">:</span> <span class="token string">'.any-selector'</span><span class="token punctuation">,</span>
   triggerOpen<span class="token punctuation">:</span> <span class="token string">'[data-trigger="open"]'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="set-modal-size">Set Modal size</h2>
-<p>The modal has three predefined sizes: small, medium, or large.</p>
+<h3 id="modal-size">Modal size</h3>
+<p>As stated before, the modal has three predefined sizes: small, medium, or large.<br>Click in each button below to check each modal size.</p>
 <div class="example example-code align-center">
   <button class="button button-primary" data-trigger-small="open">Open Small Modal</button>
   <button class="button button-primary" data-trigger-medium="open">Open Medium Modal</button>
@@ -126,8 +161,8 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <div data-modal-small class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Small size example</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>Small size modal</h2>
+      <p>This is an example of a small modal.</p>
     </div>
   </div>
 </div>
@@ -135,8 +170,8 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <div data-modal-medium class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Medium size example</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>Medium size modal</h2>
+      <p>This is an example of a medium modal.</p>
     </div>
   </div>
 </div>
@@ -144,16 +179,15 @@ trigger<span class="token punctuation">.</span><span class="token function">on</
 <div data-modal-large class="hide">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Large size example</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>Large size modal</h2>
+      <p>This is an example of a large modal.</p>
     </div>
   </div>
 </div>
 
-<h2 id="static-modal">Static modal</h2>
-<p>It’s possible to use a modal in cases where a user interaction is mandatory before closing the modal.
-With the <code>static</code> and <code>keyboard</code> options, you can turn off the options to close the modal.
-You need to call the <code>.hide()</code> function manually.</p>
+<h3 id="static-modal">Static modal</h3>
+<p>With the <code>static</code> and <code>keyboard</code> attributes, you can turn off the options to close a modal.
+With that, users would have to interact with the modal before closing it.</p>
 <div class="example example-code">
   <button class="button button-primary" data-trigger-static="open">Open Static Modal</button>
 </div>
@@ -166,17 +200,21 @@ You need to call the <code>.hide()</code> function manually.</p>
 <span class="token keyword">function</span> <span class="token function">closeModalStatic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   modalStatic<span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
+<p class="notification notification-warning">
+  Note that to close the modal you need to call the <code>.hide()</code> function manually after the user interaction.
+</p>
+
 <div data-modal-static class="hide">
   <div class="row">
     <div class="col-xs-12">
       <h2>Static Modal example</h2>
-      <p>Lorem ipsum dolor sit amet, you know how to close it, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>You know how to close it.</p>
     </div>
   </div>
 </div>
 
-<h2 id="changing-the-back-button-behavior">Changing the back button behavior</h2>
-<p>There are cases in which users click the back button in order to close the modal and remain in the same page. Thus, the <code>history</code> option allows users to do just that. It works by creating a new state in the browser history after the modal is showed on the page. When the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent to the previous browser state, which happens to be the same page he is currently at.</p>
+<h3 id="history-option">History option</h3>
+<p> With the history option activated, whenever the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent back to the current page instead of the previous page, as it would normally behave.</p>
 <p>The default value for this option is <code>false</code>, so in order to change that behavior you only need to initiate the option as <code>true</code>.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> modal <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   history<span class="token punctuation">:</span> <span class="token boolean">true</span>
