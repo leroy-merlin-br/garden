@@ -161,3 +161,7 @@ html(lang="pt-BR")
         container.toggleClass('example-container example-container--fluid')
         containerText.text(container.hasClass('example-container') ? '.container' : '.container-fluid')
       })
+
+      $('[data-scroll]').on('click', () => {
+        $('.footer').scroll();
+      })

@@ -9,26 +9,53 @@ section: js
 ---
 
 # JS Utilities
-<p class="lead">Garden provides a few utils to help writing better javascript. All utils are located at `src/js/utils`.</p>
+<p class="lead">
+  Set of utilities provided to help you write a better JavaScript code.
+</p>
+
+## Summary
+1. [Scroll](#scroll)
+2. [Debounce](#debounce)
+3. [Throttle](#throttle)
+4. [Remove from array](#remove-from-array)
+5. [TransitionEnd](#transitionend)
 
 ## Scroll
-A function to scroll (with the help of [jump.js](http://callmecavs.com/jump.js/)) the `document.body` into the position of the provided element:
+This utility works with the help of [jump.js](http://callmecavs.com/jump.js/) and provides a function to scroll the page body into the position of the element provided.
+
+You can use it as a jQuery plugin:
+
+```js
+$('.heading-1').scroll();
+```
+
+Or as a vanilla constructor:
 
 ```js
  import scroll from 'src/js/utils/scroll';
 
- let element = document.querySelector('div'); // It can also be a jQuery instance
+ let element = document.querySelector('div');
 
  let options = {
-   // all options available from jump.js
+   // all the options available from jump.js
  }
 
  scroll(element, options)
 ```
+#### Options
+You can use all the options available from [jump.js](http://callmecavs.com/jump.js/). The options described below are the default ones when you use this utility as a jQuery plugin.
+
+| Option            | Default | Description |
+|-------------------|-------------|
+| duration | 500  | The scroll duration (ms) |
+| offset | -30 | The offset from the provided element |
+
+You can click on the button below to see how it works.
+
+<button class="button button-primary" data-scroll>Scroll to footer</button>
 
 ## Debounce
-A function to help restrain the execution of the provided function once until the
-timeout triggers:
+A utility to help restrain the execution of the provided function until a certain amount of time has passed without it being called.
 
 ```js
  import debounce from 'src/js/utils/debounce';
@@ -39,12 +66,11 @@ timeout triggers:
 
  $('input').on('input', debounce(handler, 500));
 
- // handler will be called only if debounce isn't called again for 500 ms
+ // the handler will be called only if it is not called again within 500ms.
 ```
 
 ## Throttle
-A function to help restrain the execution of the provided function once during
-the provided timeout, then reset it:
+A utility to help restrain the execution of the provided function multiple times before the time provide has passed.
 
 ```js
  import throttle from 'src/js/utils/throttle';
@@ -55,11 +81,11 @@ the provided timeout, then reset it:
 
  $('input').on('input', throttle(handler, 500));
 
- // handler will called only once during the 500, even if the user inputs again.
+ // the handler will be called only once within 500ms, even if the user inputs again.
 ```
 
-## Remove from Array-like
-A function to remove elements from an [array-like object](http://www.2ality.com/2013/05/quirk-array-like-objects.html):
+## Remove from array
+A function to remove elements from an [array-like](http://www.2ality.com/2013/05/quirk-array-like-objects.html) object.
 
 ```js
  import removeFromArray from 'src/js/utils/remove-from-array';
@@ -68,13 +94,14 @@ A function to remove elements from an [array-like object](http://www.2ality.com/
 
  removeFromArray(nodes, nodes[2]);
 ```
-
-Under the hood, it's pretty much an `indexOf` + `splice` execution.
+<p class="notification notification-warning">
+  Under the hood, this utility executes the `indexOf` and `splice` methods on the array and item provided.
+</p>
 
 ## TransitionEnd
 
-A function that check witch `transitionend` event name is supported in current browser.
-`transitionend` event is fired when any css transition is finished, but each browser has a different name. This util return the right name based in your browser.
+A `transitionend` event is fired whenever a CSS transition finishes. However, each browser has a different name for this event, so this utility helps at checking which `transitionend` event name is supported in the current browser.
+
 
 ```js
 import transitionEnd from 'src/js/utils/transitionend';
