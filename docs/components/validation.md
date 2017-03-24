@@ -9,55 +9,83 @@ section: js
 ---
 
 # Validation
-<p class="lead">The validation component is responsible to handle form interactions with flexible rules.</p>
+<p class="lead">
+  The validation component is responsible for handling form interactions with some flexible rules.
+</p>
 
-## Quick usage
-If you just want to get it working setup the JS plugin:
+## Summary
+1. [Usage](#usage)
+2. [Options](#options)
+3. [Validation names](#validation-names)  
+  3.1 [required](#required)  
+  3.2 [maxlength](#maxlength)  
+  3.3 [minlength](#minlength)  
+  3.4 [email](#email)  
+  3.5 [confirm](#confirm)  
+4. [Extending validations](#extending-validations)
+5. [Handling validation events](#handling-validation-events)
+6. [Validating fields individually](#validating-fields-individually)
+7. [Validating all fields](#validating-all-fields)
+8. [Dynamic fields](#dynamic-fields)
 
+## Usage
+
+To get a simple validation component you can use a jQuery plugin:
 ```js
-// If you are using the jQuery version of it
-$('[data-form]').validation(options);
-
-// Or the vanilla constructor
-new Validation($('[data-form]'), options);
-
-// Setup emitter to listen to validation events
-emitter.on('validation:success', (field) => {});
-emitter.on('validation:error', (field, errors) => {});
+$('[data-form]').validation();
 ```
 
-And with the usage of `[data-required]` to set a field to be validated and `[data-validate="validations split by space"]`:
+Or a vanilla constructor:
+```js
+new Validation($('[data-form]'));
+```
+
+After that, you have to create the markup for the fields you want to validate.
+Notice that you have to use the `[data-required]` and the `[data-validate]` attributes to each field,
+as this allows you to have dynamic required fields, without too much effort.
 
 ```html
 <form data-form>
   <input data-required data-validate="required" />
   <input type="checkbox" data-required data-validate="required" />
 
-  /* Dynamic field, can be conditionally required by adding/removing the [data-required] */
+  /* Dynamic field, can be conditionally required by adding or removing the [data-required] attribute */
   <input type="checkbox" data-validate="required" />
 </form>
 ```
 
-## How it works
-In order to handle basic validation, you have to setup the component (either as a jQuery plugin, or as a vanilla constructor):
-
+Finally, to handle validation events you can use an [emitter](emitter.html), as described below.
+The `validation:success` and `validation:error` are the events emitted by the validation component.
 ```js
-$('[data-form]').validation();
+emitter.on('validation:success', (field) => {});
+emitter.on('validation:error', (field, errors) => {});
+```
+
+## Options
+These are the options you can use to customize the component.
+
+| Option            | Default | Description |
+|-------------------|-------------|
+| events | `blur`            | The events the component should listen to, such as blur, click, input, keypress and so on |
+| selector | `[data-required]` | The selector to be dynamic required by the component instance |
+
+Changing the default events and selector:
+```js
+let options = {
+  events: 'blur, change',
+  selector: '.required'
+};
+
+//  Using it as a jQuery plugin
+$('[data-form]').validation(options);
 
 // or as a vanilla constructor
-
-new Validation(document.querySelectorAll('[data-form]'));
+new Validation(document.querySelectorAll('[data-form]'), options);
 ```
 
-And setup the markup on the field, using the `[data-validate]` to pass validations to the field:
-
-```html
-<input data-required data-validate="required" />
-```
-Please take note the usage of a selector (By default `[data-required]`) and a `[data-validate]` is in order to allow dynamic required fields, without too much work for it.
-
-## Validations
-In order to validate a field, you must add the desired validations to it. You can provide single or multiple validations to it:
+## Validation names
+To validate a field you must add the desired validation name to it.
+Notice you can provide multiple validations separated by spaces.
 
 ```html
 <input type="text" data-required data-validate="required" />
@@ -67,10 +95,8 @@ In order to validate a field, you must add the desired validations to it. You ca
 <input type="text" data-required data-validate="minlength maxlength" />
 ```
 
-The default validations are:
-
 #### Required
-Required will check the type of the field, and the perform the verification based on it:
+Perform the verification based on the type of the field.
 
 ```html
 <input type="text" data-required data-validate="required" />
@@ -80,61 +106,62 @@ Required will check the type of the field, and the perform the verification base
 /* This field is valid, since it has a value */
 
 <input type="checkbox" data-required data-validate="required" />
-/* This field is not valid, since it's a checkbox, and it's not checked. */
+/* This field is not valid, since it is a checkbox, and it is not checked */
 
 <input type="checkbox" data-required data-validate="required" checked />
-/* This field is valid, since it's a checkbox, and it's checked */
+/* This field is valid, since it is a checkbox, and it is checked */
 
 <input type="radio" name="radio" value="1" data-required data-validate="required" />
 <input type="radio" name="radio" value="2" data-required data-validate="required" />
-/* These field are not valid, since it's a radio, and none of them are checked. */
+/* These fields are not valid, since they are radio inputs and none of them is checked */
 
 <input type="radio" name="radio" value="1" data-required data-validate="required" />
 <input type="radio" name="radio" value="2" data-required data-validate="required" checked />
-/* These field are valid, since it's a radio, and one of them are checked. */
+/* These fields are valid, since they are radio inputs and one of them is checked */
 
 <select data-required data-validate="required">
-  <option value="foo">foo</option>
+  <option value="option-1">Option 1</option>
 </select>
 /* This select is not valid, since it does not have a selected option */
 
 <select data-required data-validate="required">
-  <option value="foo" selected>foo</option>
+  <option value="option-2" selected>Option 2</option>
 </select>
 /* This select is valid, since it has a selected option */
 ```
 
-Since it's usually just plain value validation, if you are composing with other validations, such as `minlength`, you do not need this validation.
-
 #### Maxlength
-Using the `[maxlength="length"]` attribute, you can limit* the maximum number of valid characters for the field:
+Limit the maximum number of valid characters for a field.
 
 ```html
 <input data-required data-validate="maxlength" maxlength="8" />
 ```
-
-Please take note that the usage of maxlength itself already limits the field. But in a few cases (such as editing the value of the input via JavaScript, can bypass it). The validation component does not limit the field. Just validate the length of it.
+<p class="notification notification-warning">
+  Notice that in a few cases, such as when you are editing the value of an input
+  via JavaScript, the validation process can be bypassed while using the `maxlength` option, since the component does
+  not limit the field, it just validates the length of it.
+</p>
 
 #### Minlength
-Using the `[data-minlength="length"]` attribute, you can limit* the minimum number of valid characters for the field:
+Limit the minimum number of valid characters for a field.
 
 ```html
 <input data-required data-validate="minlength" data-minlength="8" />
 ```
 
-Please take note that the usage of data-minlength will limit set a minlength to the field. You must use it along with a mask plugin.
-
 #### Email
-The `email` validation works with an email regex. The usage is straight forward:
+Verify email fields
 
 ```html
 <input type="text" data-required data-validate="email" />
 ```
 
 #### Confirm
-The `confirm` validation relies on a `[data-confirm="fieldName"]` to confirm the value of the field. The confirm field does not have to be a validation component.
+Verify the value of a field based on the value of another field.
 
-The objective of this validation, is to handle two-way fields, such as `password / confirm password` or `email / confirm email`.
+For this validation you should add the `[data-confirm]` attribute along with the
+name of the field to be compared with.
+The goal of this validation is to handle two-way fields, such as `password / confirm password` or `email / confirm email`.
 
 ```html
 <input type="text" name="foo" data-required data-validate="confirm" data-confirm="bar" />
@@ -142,42 +169,53 @@ The objective of this validation, is to handle two-way fields, such as `password
 ```
 
 ## Extending validations
-You can provide your own set of rules. For example the confirm rule:
+You can provide your own set of rules to the component.
 
+Check the example of a customized `confirm` validation below.
 ```js
 import Validation 'src/js/components/validation';
 
 Validation.prototype.rules.confirm = (field, $form) => {
-  // field is the current field being validated, and form is the form of the instance, as a jQuery object. So you can check for other fields and use them for more complex validations, such as confirm itself.
+  // field is the current field being validated, and form is the form of the instance, as a jQuery object.
+  // So you can check for other fields and use them for more complex validations, such as confirm itself.
 
   // the return statement should be a boolean or a truthy/falsy value.
   return field.value === $form.find(`[name="${field.getAttribute('data-confirm')}]`).val();
 };
 ```
 
-## Working with validation
-The `validation` component will always trigger an [emitter event](emitter.html) whenever a field is validated. You can use it to style the element:
+## Handling validation events
+The validation component will trigger an [emitter](emitter.html) event whenever a field is validated.
+You can use it to style the element, according to the validation result.
 
 ```js
 import emitter from 'src/js/utils/emitter';
 
 emitter.on('validation:success', (field) => {
-  // handle validation success for a field. The field is the DOMNode.
+  // handle validation success for a field.
+  // 'field' is the DOMNode.
 
   field.classList.remove('invalid');
 });
 
 emitter.on('validation:error', (field, errors) => {
-  // handle validation success for a field. The field is the DOMNode. And errors is an array of errors.
+  // handle validation error for a field.
+  // 'field' is the DOMNode and 'errors' is an array of errors.
 
   field.classList.add('invalid');
 });
 ```
 
-You can use this approach to create a single validation file. And if you ever need to style a specific field, you can add another `emitter.on` to a specific file.
+You can use this approach to create a single validation file, and if you ever need to style a specific field, you can add another `emitter.on` function to a specific file.
 
-### Validating fields individually
-The `validation` component provides a method called `validate(field)`, where you can provide any field (Even not inside the form instance), and returns a boolean for the validation process of it:
+<p class="notification notification-warning">
+  With this you should notice that the `Validation` component does not style the field.
+  It is only responsible for handling the validation process.
+</p>
+
+## Validating fields individually
+The `validation` component provides a method called `validate()`, where you can
+provide any field (even if it is not inside the form instance) and returns a boolean value for its validation process.
 
 ```js
 import Validation from 'src/js/components/validation';
@@ -189,57 +227,21 @@ Validation.prototype.validate($field);
 // returns a boolean, and triggers the validation event.
 ```
 
-### Validating all fields
-You will usually look for this method to check the whole form instance:
+## Validating all fields
+You will usually use this method to validate the whole form instance.
 
 ```js
 let validation = $('[data-form]').validation();
 
 $('[data-form]').on('submit', (e) => {
-  // in case validation of the whole form fails, prevent the submition of it:
+  // in case validation of the whole form fails, prevent the submission of it:
   if (!validation.data('validation').validateAll()) {
     e.preventDefault();
   }
 });
 ```
 
-Please take note that the `Validation` component does not style the fields, it is only responsible to handle the pipeline of validations.
-
-## Working with dynamic fields
-The `validation` component handle events through [event delegation](http://api.jquery.com/on/) using the provided selector (By default `[data-required]`). So you can add/remove fields without having to communicate with the `Validation` instance.
-
-## Options
-
-| Option            | Description |
-|-------------------|-------------|
-| events (blur)            | The events to listen to. Such as blur, click, input, keypress and so on. Please take note that the event is delegated through the form of the Validation instance. |
-| selector ([data-required]) | The selector to be dynamic required by the Validation instance. If you change the selector, do not forget the selector option as well |
-
-The options object is incremental, so you can change just which options you want:
-
-
-```js
-let options = {
-  events: 'blur, change' // Changing the events to listen to
-};
-
-$('[data-form]').validation(options);
-
-// or with vanilla constructor
-
-new Validation(document.querySelectorAll('[data-form]'), options);
-```
-
-Changing the default selector:
-
-```js
-let options: {
-  selector: '.required'
-};
-
-$('[data-form]').validation(options);
-
-// or with vanilla constructor
-
-new Validation(document.querySelectorAll('[data-form]'), options);
-```
+## Dynamic fields
+The `validation` component handles events through [event delegation](http://api.jquery.com/on/)
+using the provided selector, which is `[data-required]` by default.
+Thus, you can add or remove fields without having to communicate with the component instance.
