@@ -10,7 +10,7 @@ section: js
 
 # Confirm
 <p class="lead">
-  A confirm is used to present a question message to users' actions.
+  A confirm is used to present confirmation messages according to users' actions.
 </p>
 
 ## Summary
