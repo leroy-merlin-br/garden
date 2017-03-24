@@ -24,15 +24,15 @@ html(lang="pt-BR")
           .col-xs-12.col-sm-4.col-md-3
             - const css = collections[collection].filter((page) => page.section === 'css')
             - const js = collections[collection].filter((page) => page.section === 'js')
-            
+
             h4.heading-4 CSS
-                        
+
             nav.sidebar
               each page in css
                 a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
-            
+
             h4.heading-4 JS
-            
+
             nav.sidebar
               each page in js
                 a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
@@ -103,24 +103,24 @@ html(lang="pt-BR")
       trigger.on('click', function() {
         modalTrigger.show();
       });
-      
+
       $('[data-alert]').on('click', () => $.fn.alert());
 
       $('[data-alert-small]').on('click', () => $.fn.alert({
         textMessage: 'Small alert example message',
         size: 'small'
       }));
-      
+
       $('[data-alert-medium]').on('click', () => $.fn.alert({
         textMessage: 'Medium alert example message',
         size: 'medium'
       }));
-      
+
       $('[data-alert-large]').on('click', () => $.fn.alert({
         textMessage: 'Large alert example message',
         size: 'large'
       }));
-      
+
       $('[data-notification-temp-button]').on('click', () => {
         const notificationContainer = $('[data-notification-temporary]')
         const notification = notificationContainer.find('.notification')
@@ -135,6 +135,23 @@ html(lang="pt-BR")
           hideIn: 2000
         });
       });
+
+      $('[data-confirm]').on('click', () => $.fn.confirm((value) => value));
+
+      $('[data-confirm-small]').on('click', () => $.fn.confirm((value) => value, {
+        textMessage: 'Small confirm example message',
+        size: 'small'
+      }));
+
+      $('[data-confirm-medium]').on('click', () => $.fn.confirm((value) => value, {
+        textMessage: 'Medium confirm example message',
+        size: 'medium'
+      }));
+
+      $('[data-confirm-large]').on('click', () => $.fn.confirm((value) => value, {
+        textMessage: 'Large confirm example message',
+        size: 'large'
+      }));
 
       $('[data-notification-dynamic]').notification({
         message: 'This is a dynamic notification.',
