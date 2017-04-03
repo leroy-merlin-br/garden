@@ -101,6 +101,23 @@ $('[data-notification-temp-button]').on('click', () => {
   });
 });
 
+$('[data-confirm]').on('click', () => $.fn.confirm((value) => value));
+
+$('[data-confirm-small]').on('click', () => $.fn.confirm((value) => value, {
+  textMessage: 'Small confirm example message',
+  size: 'small'
+}));
+
+$('[data-confirm-medium]').on('click', () => $.fn.confirm((value) => value, {
+  textMessage: 'Medium confirm example message',
+  size: 'medium'
+}));
+
+$('[data-confirm-large]').on('click', () => $.fn.confirm((value) => value, {
+  textMessage: 'Large confirm example message',
+  size: 'large'
+}));
+
 $('[data-notification-dynamic]').notification({
   message: 'This is a dynamic notification.',
   type: 'warning'
