@@ -115,12 +115,23 @@ $('[data-alert-large]').on('click', () => $.fn.alert({
   size: 'large'
 }));
 
+$('[data-notification-temp-button]').on('click', () => {
+  const notificationContainer = $('[data-notification-temporary]')
+  const notification = notificationContainer.find('.notification')
+
+  notificationContainer.removeData('notification')
+  notification.remove()
+
+  notificationContainer.notification({
+    message: 'This is a temporary notification',
+    autoHide: true,
+    showIn: 500,
+    hideIn: 2000
+  });
+});
 
 $('[data-notification-dynamic]').notification({
-  message: 'foo bar',
-  autoHide: true,
-  showIn: 2000,
-  hideIn: 20000,
+  message: 'This is a dynamic notification.',
   type: 'warning'
 });
 
@@ -143,4 +154,8 @@ $('[data-toggle-container]').on('click', () => {
 
   container.toggleClass('example-container example-container--fluid')
   containerText.text(container.hasClass('example-container') ? '.container' : '.container-fluid')
+})
+
+$('[data-scroll]').on('click', () => {
+  $('.footer').scroll();
 })</script></body></html>
