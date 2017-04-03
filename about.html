@@ -86,23 +86,12 @@ $('[data-alert-large]').on('click', () => $.fn.alert({
   size: 'large'
 }));
 
-$('[data-notification-temp-button]').on('click', () => {
-  const notificationContainer = $('[data-notification-temporary]')
-  const notification = notificationContainer.find('.notification')
-
-  notificationContainer.removeData('notification')
-  notification.remove()
-
-  notificationContainer.notification({
-    message: 'This is a temporary notification',
-    autoHide: true,
-    showIn: 500,
-    hideIn: 2000
-  });
-});
 
 $('[data-notification-dynamic]').notification({
-  message: 'This is a dynamic notification.',
+  message: 'foo bar',
+  autoHide: true,
+  showIn: 2000,
+  hideIn: 20000,
   type: 'warning'
 });
 
