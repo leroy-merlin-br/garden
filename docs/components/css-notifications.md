@@ -1,5 +1,5 @@
 ---
-title: CSS Notifications
+title: Notifications
 layout: page.jade
 sidebar: true
 collection: docs

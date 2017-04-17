@@ -1,5 +1,5 @@
 ---
-title: JS Notifications
+title: Notifications
 layout: page.jade
 sidebar: true
 collection: docs
@@ -8,7 +8,7 @@ path: js-notifications
 section: js
 ---
 
-# JS Notifications
+# Notifications
 <p class="lead">
   This is an extension of the [notification atom](/components/css-notifications.html)
   and can be used to add some interactivity to notifications.

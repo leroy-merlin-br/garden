@@ -1,5 +1,5 @@
 ---
-title: CSS Form
+title: Form
 layout: page.jade
 sidebar: true
 collection: docs

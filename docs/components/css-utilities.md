@@ -1,5 +1,5 @@
 ---
-title: CSS Utilities
+title: Utilities
 layout: page.jade
 sidebar: true
 collection: docs
@@ -8,7 +8,7 @@ path: css-utilities
 section: css
 ---
 
-# CSS Utilities
+# Utilities
 <p class="lead">
   Set of common classes and variables used to provide predefined style and measures.
 </p>

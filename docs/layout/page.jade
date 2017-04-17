@@ -29,13 +29,15 @@ html(lang="pt-BR")
 
             nav.sidebar
               each page in css
-                a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
+                a.link(href="#{page.path}.html", class=title === page.title &&
+                  section === page.section ? "link-active" : undefined) #{page.title}
 
             h4.heading-4 JS
 
             nav.sidebar
               each page in js
-                a.link(href="#{page.path}.html", class=title === page.title ? "link-active" : undefined) #{page.title}
+                a.link(href="#{page.path}.html", class=title === page.title &&
+                  section === page.section ? "link-active" : undefined) #{page.title}
         if sidebar
           .col-xs-12.col-sm-8.col-md-9.content!= contents
         else

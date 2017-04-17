@@ -1,5 +1,5 @@
 ---
-title: JS Utilities
+title: Utilities
 layout: page.jade
 sidebar: true
 collection: docs
@@ -8,7 +8,7 @@ path: js-utilities
 section: js
 ---
 
-# JS Utilities
+# Utilities
 <p class="lead">
   Set of utilities provided to help you write a better JavaScript code.
 </p>
