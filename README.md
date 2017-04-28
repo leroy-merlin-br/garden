@@ -10,6 +10,8 @@ A front end library to help you make *​your*​ grass greener than the other s
 
 ## Contents
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/leroy-merlin-br/garden.svg)](https://greenkeeper.io/)
+
 - [Install](#install)
 - [Usage](#usage)
 - [Documentation](#documentation)
