@@ -3,7 +3,7 @@
  */
 import $ from 'jquery'
 
-import Jump from 'jump.js/src/jump'
+import Jump from 'jump.js'
 
 const SCROLL = new Jump()
 
