@@ -2,10 +2,7 @@
  * Util responsible to handle animated scroll with the usage of a third party plugin called Jump.js.
  */
 import $ from 'jquery'
-
 import Jump from 'jump.js'
-
-const SCROLL = new Jump()
 
 /**
  * Default scroll method
@@ -13,10 +10,8 @@ const SCROLL = new Jump()
  * @param  {object}  options The options available on Jump.js @method jump. Will extend from the DEFAULTS const.
  */
 export default (el, options) => {
-  return SCROLL.jump(
+  return new Jump(
     el instanceof $ ? el[0] : el,
     options
   )
 }
-
-export { SCROLL }

@@ -1,28 +1,16 @@
 import $ from 'jquery'
-import scroll, { SCROLL as instance } from '../../src/js/utils/scroll'
+import scroll from '../../src/js/utils/scroll'
+import Jump from 'jump.js'
 
 describe('scroll spec', () => {
-  const DEFAULTS = {
-    duration: 500,
-    offset: -30
-  }
+  let element, instance
 
-  const ELEMENT = document.createElement('div')
-  const $ELEMENT = $('<div />')
+  beforeEach(() => {
+    element = document.createElement('div')
+    instance = scroll(element, { duration: 500, offset: -30 })
+  })
 
-  it('should call instance.jump with the defaults', sinon.test(function () {
-    this.spy(instance, 'jump')
-
-    scroll(ELEMENT)
-
-    expect(instance.jump.calledWith(ELEMENT, DEFAULTS))
-  }))
-
-  it('should call unwrap the jQuery instance', sinon.test(function () {
-    this.spy(instance, 'jump')
-
-    scroll($ELEMENT)
-
-    expect(instance.jump.calledWith($ELEMENT, DEFAULTS))
-  }))
+  it('should be an instance of Jump', () => {
+    expect(instance).to.be.an.instanceof(Jump)
+  })
 })
