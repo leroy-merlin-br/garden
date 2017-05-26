@@ -4,6 +4,11 @@
 import $ from 'jquery'
 import Jump from 'jump.js'
 
+const DEFAULTS = {
+	duration: 500,
+	offset: -30
+}
+
 /**
  * Default scroll method
  * @param  {element} el      The element to scroll to. Accepts both vanilla and $ selector
@@ -12,6 +17,6 @@ import Jump from 'jump.js'
 export default (el, options) => {
   return new Jump(
     el instanceof $ ? el[0] : el,
-    options
+    $.extend({}, DEFAULTS, options)
   )
 }
