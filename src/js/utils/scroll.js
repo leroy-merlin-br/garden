@@ -5,8 +5,8 @@ import $ from 'jquery'
 import Jump from 'jump.js'
 
 const DEFAULTS = {
-	duration: 500,
-	offset: -30
+  duration: 500,
+  offset: -30
 }
 
 /**
