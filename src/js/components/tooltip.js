@@ -43,7 +43,7 @@ $.fn[NAME] = function (options) {
 
   return this.each(function () {
     if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Tooltip(this, $(this).data()).init())
+      $.data(this, NAME, new Tooltip(this, options).init())
     }
   })
 }

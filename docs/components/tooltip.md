@@ -20,9 +20,30 @@ To create a tooltip, you need to add the `[data-tooltip]` attribute to the targe
 The selector used can either be a class name, a data attribute, or an ID, as in the example below.
 
 <div class="example example-code">
-  <div class="button" data-tooltip="#awesome-tooltip">
-    Button with tooltip
-    <div id="awesome-tooltip" class="tooltip">
+  <div class="button" data-tooltip="#top">
+    Tooltip on top
+    <div id="top" class="tooltip">
+      <strong>This is a basic tooltip</strong>
+    </div>
+  </div>
+
+  <div class="button" data-tooltip="#bottom">
+    Tooltip on bottom
+    <div id="bottom" class="tooltip">
+      <strong>This is a basic tooltip</strong>
+    </div>
+  </div>
+
+  <div class="button" data-tooltip="#left">
+    Tooltip on left
+    <div id="left" class="tooltip">
+      <strong>This is a basic tooltip</strong>
+    </div>
+  </div>
+
+  <div class="button" data-tooltip="#right">
+    Tooltip on right
+    <div id="right" class="tooltip">
       <strong>This is a basic tooltip</strong>
     </div>
   </div>
