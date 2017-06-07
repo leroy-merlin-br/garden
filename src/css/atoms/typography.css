@@ -13,6 +13,7 @@ html {
 body {
   color: $color-text;
   font-family: $default-font-family;
+  margin: 0;
 }
 
 hr {
