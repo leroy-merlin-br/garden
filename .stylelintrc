@@ -4,11 +4,11 @@
     "stylelint-order"
   ],
   "rules": {
-    "order/declaration-block-order": [
+    "order/order": [
       "custom-properties",
       "declarations"
     ],
-    "order/declaration-block-properties-alphabetical-order": true,
+    "order/properties-alphabetical-order": true,
     "string-quotes": "double",
     "color-hex-case": "lower",
     "color-hex-length": "long",

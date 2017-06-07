@@ -8,7 +8,6 @@ const DEFAULTS = {
 }
 
 class Tooltip {
-
   constructor (element, options = {}) {
     this.$element = $(element)
     this.$target = this._getTarget()
