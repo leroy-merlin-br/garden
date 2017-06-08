@@ -200,7 +200,10 @@ $('[data-trigger="scroll"]').on('click', function() {
 
 $('.toggle').collapse();
 
-$('[data-tooltip]').tooltip();
+$('[data-tooltip="#top"]').tooltip();
+$('[data-tooltip="#bottom"]').tooltip({ placement: 'bottom' });
+$('[data-tooltip="#left"]').tooltip({ placement: 'left' });
+$('[data-tooltip="#right"]').tooltip({ placement: 'right' });
 
 $('[data-toggle-container]').on('click', () => {
   const container = $('[data-container]')

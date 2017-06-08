@@ -7,9 +7,30 @@
 <p>To create a tooltip, you need to add the <code>[data-tooltip]</code> attribute to the target element, along with the selector of the element you will use as the tooltip.</p>
 <p>The selector used can either be a class name, a data attribute, or an ID, as in the example below.</p>
 <div class="example example-code">
-  <div class="button" data-tooltip="#awesome-tooltip">
-    Button with tooltip
-    <div id="awesome-tooltip" class="tooltip">
+  <div class="button" data-tooltip="#top">
+    Tooltip on top
+    <div id="top" class="tooltip">
+      <strong>This is a basic tooltip</strong>
+    </div>
+  </div>
+
+  <div class="button" data-tooltip="#bottom">
+    Tooltip on bottom
+    <div id="bottom" class="tooltip">
+      <strong>This is a basic tooltip</strong>
+    </div>
+  </div>
+
+  <div class="button" data-tooltip="#left">
+    Tooltip on left
+    <div id="left" class="tooltip">
+      <strong>This is a basic tooltip</strong>
+    </div>
+  </div>
+
+  <div class="button" data-tooltip="#right">
+    Tooltip on right
+    <div id="right" class="tooltip">
       <strong>This is a basic tooltip</strong>
     </div>
   </div>
@@ -189,7 +210,10 @@ $('[data-trigger="scroll"]').on('click', function() {
 
 $('.toggle').collapse();
 
-$('[data-tooltip]').tooltip();
+$('[data-tooltip="#top"]').tooltip();
+$('[data-tooltip="#bottom"]').tooltip({ placement: 'bottom' });
+$('[data-tooltip="#left"]').tooltip({ placement: 'left' });
+$('[data-tooltip="#right"]').tooltip({ placement: 'right' });
 
 $('[data-toggle-container]').on('click', () => {
   const container = $('[data-container]')
