@@ -1,3 +1,8 @@
-var specs = require.context('.', true, /\.spec/);
+const specs = require.context('.', true, /\.spec/)
 
-specs.keys().forEach(specs);
+const sinonTest = require('sinon-test')
+sinon = require('sinon')
+
+sinon.test = sinonTest.configureTest(sinon)
+
+specs.keys().forEach(specs)

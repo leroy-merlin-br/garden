@@ -96,7 +96,8 @@
     "postcss-simple-vars": "^3.0.0",
     "prismjs": "^1.3.0",
     "run-sequence": "^1.1.5",
-    "sinon": "^1.17.2",
+    "sinon": "^2.1.0",
+    "sinon-test": "^1.0.2",
     "stylelint": "^7.9.0",
     "stylelint-order": "^0.4.3",
     "webpack-stream": "^3.1.0",
@@ -104,8 +105,7 @@
   },
   "greenkeeper": {
     "ignore": [
-      "metalsmith-collections",
-      "sinon"
+      "metalsmith-collections"
     ]
   }
 }
