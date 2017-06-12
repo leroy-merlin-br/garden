@@ -48,6 +48,11 @@
 @import "atoms/pagination/item";
 @import "atoms/pagination/arrow";
 
+@import "atoms/steps/container";
+@import "atoms/steps/stage";
+@import "atoms/steps/bullet";
+@import "atoms/steps/label";
+
 @import "molecules/field";
 @import "molecules/addon";
 @import "molecules/input-button";

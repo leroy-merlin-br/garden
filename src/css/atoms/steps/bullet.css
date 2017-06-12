@@ -1,0 +1,9 @@
+.steps-bullet {
+  border: .3125rem solid $color-primary;
+  border-radius: 100%;
+  color: $color-primary;
+  display: inline-block;
+  height: 2.5rem;
+  line-height: 1.75rem;
+  width: 2.5rem;
+}
