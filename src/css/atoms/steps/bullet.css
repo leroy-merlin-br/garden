@@ -1,9 +1,10 @@
 .steps-bullet {
-  border: .3125rem solid $color-primary;
+  background-color: $color-default-light;
+  border: .3125rem solid $color-default-light;
   border-radius: 100%;
-  color: $color-primary;
+  color: transparent;
   display: inline-block;
   height: 2.5rem;
-  line-height: 1.75rem;
+  line-height: 1.875rem;
   width: 2.5rem;
 }
