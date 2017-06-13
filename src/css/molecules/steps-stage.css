@@ -1,0 +1,31 @@
+.steps-stage {
+
+  &.active {
+
+    &::before,
+    &::after {
+      background-color: $color-primary;
+    }
+
+    .steps-bullet {
+      background-color: $color-neutral;
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+
+    .steps-label {
+      color: $color-default;
+    }
+  }
+
+  &.current {
+
+    &::after {
+      background-color: $color-default-light;
+    }
+
+    .steps-label {
+      color: $color-black;
+    }
+  }
+}
