@@ -15,7 +15,10 @@ section: css
 
 ## Usage
 
-### Linked image
+To get the default style for this component you just have to add the `.steps-container` class to a `<ul>` tag and `.steps-stage` to an `<li>` children.
+
+For the active steps use `.active` and for the current step use `.current`.
+
 <div class="example example-code">
   <div class="steps-container">
     <div class="steps-stage active">
@@ -23,7 +26,7 @@ section: css
         1
       </div>
       <div class="steps-label">
-        Pedido recebido <br>
+        Order Received <br>
         <small>em 01/05/2017</small>
       </div>
     </div>
@@ -32,7 +35,7 @@ section: css
         2
       </div>
       <div class="steps-label">
-        Pedido separado <br>
+        Separate order <br>
         <small>em 01/05/2017</small>
       </div>
     </div>
@@ -41,7 +44,7 @@ section: css
         3
       </div>
       <div class="steps-label">
-        Pedido enviado <br>
+        Order dispatched <br>
         <small>em 01/05/2017</small>
       </div>
     </div>
@@ -50,7 +53,7 @@ section: css
         4
       </div>
       <div class="steps-label">
-        Pedido entregue <br>
+        Order delivered <br>
         <small>em 01/05/2017</small>
       </div>
     </div>
@@ -58,7 +61,42 @@ section: css
 </div>
 
 ```html
-  <a href="#" class="thumbnail">
-    <img src="http://unsplash.it/201/201" />
-  </a>
+  <ul class="steps-container">
+    <li class="steps-stage active">
+      <div class="steps-bullet">
+        1
+      </div>
+      <div class="steps-label">
+        Order Received <br>
+        <small>em 01/05/2017</small>
+      </div>
+    </li>
+    <li class="steps-stage active">
+      <div class="steps-bullet">
+        2
+      </div>
+      <div class="steps-label">
+        Separate order <br>
+        <small>em 01/05/2017</small>
+      </div>
+    </li>
+    <li class="steps-stage active current">
+      <div class="steps-bullet">
+        3
+      </div>
+      <div class="steps-label">
+        Order dispatched <br>
+        <small>em 01/05/2017</small>
+      </div>
+    </li>
+    <li class="steps-stage">
+      <div class="steps-bullet">
+        4
+      </div>
+      <div class="steps-label">
+        Order delivered <br>
+        <small>em 01/05/2017</small>
+      </div>
+    </li>
+  </ul>
 ```
