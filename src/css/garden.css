@@ -61,6 +61,6 @@
 @import "molecules/feedback";
 @import "molecules/collapse";
 @import "molecules/tooltip";
-@import "molecules/steps-stage";
+@import "molecules/steps";
 
 @import "molecules/panel";
