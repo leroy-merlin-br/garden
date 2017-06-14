@@ -10,7 +10,7 @@ section: css
 
 # Steps
 <div class="lead">
-  Steppers convey progress through numbered steps.
+  Steps convey progress through numbered steps.
 </div>
 
 ## Usage
