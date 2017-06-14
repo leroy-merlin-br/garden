@@ -28,4 +28,12 @@
       color: $color-black;
     }
   }
+
+  &.warning {
+
+    .steps-bullet {
+      border-color: $color-danger;
+      color: $color-danger;
+    }
+  }
 }
