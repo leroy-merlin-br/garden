@@ -26,6 +26,7 @@
 
     .steps-label {
       color: $color-black;
+      display: block;
     }
   }
 

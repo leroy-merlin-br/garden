@@ -4,7 +4,15 @@
   border-radius: 100%;
   color: transparent;
   display: inline-block;
-  height: 2.5rem;
-  line-height: 1.875rem;
-  width: 2.5rem;
+  font-size: .8rem;
+  height: 2.1875rem;
+  line-height: 1.5rem;
+  width: 2.1875rem;
+
+  @media (--small) {
+    font-size: 1rem;
+    height: 2.5rem;
+    line-height: 1.875rem;
+    width: 2.5rem;
+  }
 }

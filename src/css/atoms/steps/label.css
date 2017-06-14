@@ -1,4 +1,18 @@
 .steps-label {
   color: $color-default-light;
+  display: none;
+  font-size: .8rem;
+  left: 50%;
   margin-top: .5rem;
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  @media (--small) {
+    display: block;
+    font-size: 1em;
+    position: static;
+    transform: none;
+    white-space: normal;
+  }
 }

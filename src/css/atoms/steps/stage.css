@@ -1,5 +1,6 @@
 .steps-stage {
-  margin: auto;
+  margin: 0 auto;
+  min-height: 5rem;
   position: relative;
   text-align: center;
   width: 100%;
