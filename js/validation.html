@@ -1,82 +1,45 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Validation | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><a href="https://github.com/leroy-merlin-br/garden" aria-label="View source on Github" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#72bf44; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/components/scaffolding.html" class="link link-active">Docs</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><h4 class="heading-4">CSS</h4><nav class="sidebar"><a href="scaffolding.html" class="link">Scaffolding</a><a href="typography.html" class="link">Typography</a><a href="glyphs.html" class="link">Glyphs</a><a href="colors.html" class="link">Colors</a><a href="css-notifications.html" class="link">Notifications</a><a href="grid.html" class="link">Grid</a><a href="css-form.html" class="link">Form</a><a href="pagination.html" class="link">Pagination</a><a href="steps.html" class="link">Steps</a><a href="button.html" class="link">Buttons</a><a href="thumbnail.html" class="link">Thumbnail</a><a href="table.html" class="link">Table</a><a href="pricetag.html" class="link">Price Tag</a><a href="panel.html" class="link">Panel</a><a href="css-utilities.html" class="link">Utilities</a><a href="badges.html" class="link">Badges</a></nav><h4 class="heading-4">JS</h4><nav class="sidebar"><a href="js-notifications.html" class="link">Notifications</a><a href="js-form.html" class="link">Form</a><a href="modal.html" class="link">Modal</a><a href="confirm.html" class="link">Confirm</a><a href="alert.html" class="link">Alert</a><a href="tooltip.html" class="link">Tooltip</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="validation.html" class="link link-active">Validation</a><a href="js-utilities.html" class="link">Utilities</a><a href="emitter.html" class="link">Emitter</a><a href="collapse.html" class="link">Collapse</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="validation">Validation</h1>
-<p class="lead">
-  The validation component is responsible for handling form interactions with some flexible rules.
-</p>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A front end library to help you make your grass greener than the other side"><title>Validation | Garden</title><meta property="og:image" content="http://styleguide.leroymerlin.com.br/images/banner.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="icon" href="../images/favicon.png" type="image/png"><link rel="stylesheet" href="../assets/style.css"></head><body><a href="https://github.com/leroy-merlin-br/garden" aria-label="View source on Github" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#fff; color:#72bf44; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header class="header"><div class="container"><a href="/" class="logo"><img src="../images/garden-white.png" width="100"></a><nav class="nav"><a href="/about.html" class="link">About</a><a href="/getting-started.html" class="link">Getting Started</a><a href="/css/scaffolding.html" class="link">CSS</a><a href="/js/modal.html" class="link link-active">JS</a></nav></div></header><main class="docs"><div class="container"><div class="col-xs-12 col-sm-4 col-md-3"><nav class="sidebar"><a href="modal.html" class="link">Modal</a><a href="alert.html" class="link">Alert</a><a href="emitter.html" class="link">Emitter</a><a href="form.html" class="link">Form</a><a href="lazy-load.html" class="link">Lazy Load</a><a href="collapse.html" class="link">Collapse</a><a href="notifications.html" class="link">Notifications</a><a href="scroll.html" class="link">Scroll</a><a href="tooltip.html" class="link">Tooltip</a><a href="utils.html" class="link">Utils</a><a href="validation.html" class="link link-active">Validation</a></nav></div><div class="col-xs-12 col-sm-8 col-md-9 content"><h1 id="validation">Validation</h1>
+<p class="lead">The validation component is responsible to handle form interactions with flexible rules.</p>
 
-<h2 id="summary">Summary</h2>
-<ol>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#options">Options</a></li>
-<li><a href="#validation-names">Validation names</a><br>3.1 <a href="#required">required</a><br>3.2 <a href="#maxlength">maxlength</a><br>3.3 <a href="#minlength">minlength</a><br>3.4 <a href="#email">email</a><br>3.5 <a href="#confirm">confirm</a>  </li>
-<li><a href="#extending-validations">Extending validations</a></li>
-<li><a href="#handling-validation-events">Handling validation events</a></li>
-<li><a href="#validating-fields-individually">Validating fields individually</a></li>
-<li><a href="#validating-all-fields">Validating all fields</a></li>
-<li><a href="#dynamic-fields">Dynamic fields</a></li>
-</ol>
-<h2 id="usage">Usage</h2>
-<p>To get a simple validation component you can use a jQuery plugin:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>Or a vanilla constructor:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>After that, you have to create the markup for the fields you want to validate.
-Notice that you have to use the <code>[data-required]</code> and the <code>[data-validate]</code> attributes to each field,
-as this allows you to have dynamic required fields, without too much effort.</p>
+<h2 id="quick-usage">Quick usage</h2>
+<p>If you just want to get it working setup the JS plugin:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// If you are using the jQuery version of it</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Or the vanilla constructor</span>
+<span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Setup emitter to listen to validation events</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:success'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> errors<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>And with the usage of <code>[data-required]</code> to set a field to be validated and <code>[data-validate=&quot;validations split by space&quot;]</code>:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">data-form</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 
-  /* Dynamic field, can be conditionally required by adding or removing the [data-required] attribute */
+  /* Dynamic field, can be conditionally required by adding/removing the [data-required] */
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
-<p>Finally, to handle validation events you can use an <a href="emitter.html">emitter</a>, as described below.
-The <code>validation:success</code> and <code>validation:error</code> are the events emitted by the validation component.</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js">emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:success'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> errors<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="options">Options</h2>
-<p>These are the options you can use to customize the component.</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>events</td>
-<td><code>blur</code></td>
-<td>The events the component should listen to, such as blur, click, input, keypress and so on</td>
-</tr>
-<tr>
-<td>selector</td>
-<td><code>[data-required]</code></td>
-<td>The selector to be dynamic required by the component instance</td>
-</tr>
-</tbody>
-</table>
-<p>Changing the default events and selector:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
-  events<span class="token punctuation">:</span> <span class="token string">'blur, change'</span><span class="token punctuation">,</span>
-  selector<span class="token punctuation">:</span> <span class="token string">'.required'</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">//  Using it as a jQuery plugin</span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h2 id="how-it-works">How it works</h2>
+<p>In order to handle basic validation, you have to setup the component (either as a jQuery plugin, or as a vanilla constructor):</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// or as a vanilla constructor</span>
-<span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="validation-names">Validation names</h2>
-<p>To validate a field you must add the desired validation name to it.
-Notice you can provide multiple validations separated by spaces.</p>
+
+<span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>And setup the markup on the field, using the <code>[data-validate]</code> to pass validations to the field:</p>
+<pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>Please take note the usage of a selector (By default <code>[data-required]</code>) and a <code>[data-validate]</code> is in order to allow dynamic required fields, without too much work for it.</p>
+<h2 id="validations">Validations</h2>
+<p>In order to validate a field, you must add the desired validations to it. You can provide single or multiple validations to it:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 
 /* Multiple validations */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>minlength maxlength<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>The default validations are:</p>
 <h4 id="required">Required</h4>
-<p>Perform the verification based on the type of the field.</p>
+<p>Required will check the type of the field, and the perform the verification based on it:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 /* This field is not valid, since it does not have a value */
 
@@ -84,89 +47,73 @@ Notice you can provide multiple validations separated by spaces.</p>
 /* This field is valid, since it has a value */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-/* This field is not valid, since it is a checkbox, and it is not checked */
+/* This field is not valid, since it's a checkbox, and it's not checked. */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token punctuation">/></span></span>
-/* This field is valid, since it is a checkbox, and it is checked */
+/* This field is valid, since it's a checkbox, and it's checked */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-/* These fields are not valid, since they are radio inputs and none of them is checked */
+/* These field are not valid, since it's a radio, and none of them are checked. */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span> <span class="token punctuation">/></span></span>
-/* These fields are valid, since they are radio inputs and one of them is checked */
+/* These field are valid, since it's a radio, and one of them are checked. */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>option-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Option 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>foo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
 /* This select is not valid, since it does not have a selected option */
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>required<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>option-2<span class="token punctuation">"</span></span> <span class="token attr-name">selected</span><span class="token punctuation">></span></span>Option 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foo<span class="token punctuation">"</span></span> <span class="token attr-name">selected</span><span class="token punctuation">></span></span>foo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
 /* This select is valid, since it has a selected option */</code></pre>
+<p>Since it’s usually just plain value validation, if you are composing with other validations, such as <code>minlength</code>, you do not need this validation.</p>
 <h4 id="maxlength">Maxlength</h4>
-<p>Limit the maximum number of valid characters for a field.</p>
+<p>Using the <code>[maxlength=&quot;length&quot;]</code> attribute, you can limit* the maximum number of valid characters for the field:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>maxlength<span class="token punctuation">"</span></span> <span class="token attr-name">maxlength</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
-<p class="notification notification-warning">
-  Notice that in a few cases, such as when you are editing the value of an input
-  via JavaScript, the validation process can be bypassed while using the <code>maxlength</code> option, since the component does
-  not limit the field, it just validates the length of it.
-</p>
-
+<p>Please take note that the usage of maxlength itself already limits the field. But in a few cases (such as editing the value of the input via JavaScript, can bypass it). The validation component does not limit the field. Just validate the length of it.</p>
 <h4 id="minlength">Minlength</h4>
-<p>Limit the minimum number of valid characters for a field.</p>
+<p>Using the <code>[data-minlength=&quot;length&quot;]</code> attribute, you can limit* the minimum number of valid characters for the field:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>minlength<span class="token punctuation">"</span></span> <span class="token attr-name">data-minlength</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>Please take note that the usage of data-minlength will limit set a minlength to the field. You must use it along with a mask plugin.</p>
 <h4 id="email">Email</h4>
-<p>Verify email fields</p>
+<p>The <code>email</code> validation works with an email regex. The usage is straight forward:</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <h4 id="confirm">Confirm</h4>
-<p>Verify the value of a field based on the value of another field.</p>
-<p>For this validation you should add the <code>[data-confirm]</code> attribute along with the
-name of the field to be compared with.
-The goal of this validation is to handle two-way fields, such as <code>password / confirm password</code> or <code>email / confirm email</code>.</p>
+<p>The <code>confirm</code> validation relies on a <code>[data-confirm=&quot;fieldName&quot;]</code> to confirm the value of the field. The confirm field does not have to be a validation component.</p>
+<p>The objective of this validation, is to handle two-way fields, such as <code>password / confirm password</code> or <code>email / confirm email</code>.</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>foo<span class="token punctuation">"</span></span> <span class="token attr-name">data-required</span> <span class="token attr-name">data-validate</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span> <span class="token attr-name">data-confirm</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>bar<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>bar<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <h2 id="extending-validations">Extending validations</h2>
-<p>You can provide your own set of rules to the component.</p>
-<p>Check the example of a customized <code>confirm</code> validation below.</p>
+<p>You can provide your own set of rules. For example the confirm rule:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Validation <span class="token string">'src/js/components/validation'</span><span class="token punctuation">;</span>
 
 Validation<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>rules<span class="token punctuation">.</span>confirm <span class="token operator">=</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> $form<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// field is the current field being validated, and form is the form of the instance, as a jQuery object.</span>
-  <span class="token comment" spellcheck="true">// So you can check for other fields and use them for more complex validations, such as confirm itself.</span>
+  <span class="token comment" spellcheck="true">// field is the current field being validated, and form is the form of the instance, as a jQuery object. So you can check for other fields and use them for more complex validations, such as confirm itself.</span>
 
   <span class="token comment" spellcheck="true">// the return statement should be a boolean or a truthy/falsy value.</span>
   <span class="token keyword">return</span> field<span class="token punctuation">.</span>value <span class="token operator">===</span> $form<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`[name="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>field<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-confirm'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">]`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h2 id="handling-validation-events">Handling validation events</h2>
-<p>The validation component will trigger an <a href="emitter.html">emitter</a> event whenever a field is validated.
-You can use it to style the element, according to the validation result.</p>
+<h2 id="working-with-validation">Working with validation</h2>
+<p>The <code>validation</code> component will always trigger an <a href="emitter.html">emitter event</a> whenever a field is validated. You can use it to style the element:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> emitter <span class="token keyword">from</span> <span class="token string">'src/js/utils/emitter'</span><span class="token punctuation">;</span>
 
 emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:success'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// handle validation success for a field.</span>
-  <span class="token comment" spellcheck="true">// 'field' is the DOMNode.</span>
+  <span class="token comment" spellcheck="true">// handle validation success for a field. The field is the DOMNode.</span>
 
   field<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> errors<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// handle validation error for a field.</span>
-  <span class="token comment" spellcheck="true">// 'field' is the DOMNode and 'errors' is an array of errors.</span>
+  <span class="token comment" spellcheck="true">// handle validation success for a field. The field is the DOMNode. And errors is an array of errors.</span>
 
   field<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>You can use this approach to create a single validation file, and if you ever need to style a specific field, you can add another <code>emitter.on</code> function to a specific file.</p>
-<p class="notification notification-warning">
-  With this you should notice that the <code>Validation</code> component does not style the field.
-  It is only responsible for handling the validation process.
-</p>
-
-<h2 id="validating-fields-individually">Validating fields individually</h2>
-<p>The <code>validation</code> component provides a method called <code>validate()</code>, where you can
-provide any field (even if it is not inside the form instance) and returns a boolean value for its validation process.</p>
+<p>You can use this approach to create a single validation file. And if you ever need to style a specific field, you can add another <code>emitter.on</code> to a specific file.</p>
+<h3 id="validating-fields-individually">Validating fields individually</h3>
+<p>The <code>validation</code> component provides a method called <code>validate(field)</code>, where you can provide any field (Even not inside the form instance), and returns a boolean for the validation process of it:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Validation <span class="token keyword">from</span> <span class="token string">'src/js/components/validation'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> $field <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;input type="text" data-required data-validate="required" />'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -174,20 +121,58 @@ provide any field (even if it is not inside the form instance) and returns a boo
 Validation<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span>$field<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// returns a boolean, and triggers the validation event.</span></code></pre>
-<h2 id="validating-all-fields">Validating all fields</h2>
-<p>You will usually use this method to validate the whole form instance.</p>
+<h3 id="validating-all-fields">Validating all fields</h3>
+<p>You will usually look for this method to check the whole form instance:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> validation <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// in case validation of the whole form fails, prevent the submission of it:</span>
+  <span class="token comment" spellcheck="true">// in case validation of the whole form fails, prevent the submition of it:</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>validation<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'validation'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validateAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="dynamic-fields">Dynamic fields</h2>
-<p>The <code>validation</code> component handles events through <a href="http://api.jquery.com/on/">event delegation</a>
-using the provided selector, which is <code>[data-required]</code> by default.
-Thus, you can add or remove fields without having to communicate with the component instance.</p>
+<p>Please take note that the <code>Validation</code> component does not style the fields, it is only responsible to handle the pipeline of validations.</p>
+<h2 id="working-with-dynamic-fields">Working with dynamic fields</h2>
+<p>The <code>validation</code> component handle events through <a href="http://api.jquery.com/on/">event delegation</a> using the provided selector (By default <code>[data-required]</code>). So you can add/remove fields without having to communicate with the <code>Validation</code> instance.</p>
+<h2 id="options">Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>events (blur)</td>
+<td>The events to listen to. Such as blur, click, input, keypress and so on. Please take note that the event is delegated through the form of the Validation instance.</td>
+</tr>
+<tr>
+<td>selector ([data-required])</td>
+<td>The selector to be dynamic required by the Validation instance. If you change the selector, do not forget the selector option as well</td>
+</tr>
+</tbody>
+</table>
+<p>The options object is incremental, so you can change just which options you want:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  events<span class="token punctuation">:</span> <span class="token string">'blur, change'</span> <span class="token comment" spellcheck="true">// Changing the events to listen to</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// or with vanilla constructor</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Changing the default selector:</p>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">'.required'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// or with vanilla constructor</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
 Built with <span class="glyph glyph-heart"></span> by <a href="https://github.com/leroy-merlin-br" class="link" target="_blank"> Leroy Merlin Brazil team</a></div></footer><script src="https://code.jquery.com/jquery-1.12.0.min.js"></script><script src="../assets/garden.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script><script>new Clipboard('[data-copy]', {
   target: function(trigger) {
@@ -263,40 +248,12 @@ $('[data-alert-large]').on('click', () => $.fn.alert({
   size: 'large'
 }));
 
-$('[data-notification-temp-button]').on('click', () => {
-  const notificationContainer = $('[data-notification-temporary]')
-  const notification = notificationContainer.find('.notification')
-
-  notificationContainer.removeData('notification')
-  notification.remove()
-
-  notificationContainer.notification({
-    message: 'This is a temporary notification',
-    autoHide: true,
-    showIn: 500,
-    hideIn: 2000
-  });
-});
-
-$('[data-confirm]').on('click', () => $.fn.confirm((value) => value));
-
-$('[data-confirm-small]').on('click', () => $.fn.confirm((value) => value, {
-  textMessage: 'Small confirm example message',
-  size: 'small'
-}));
-
-$('[data-confirm-medium]').on('click', () => $.fn.confirm((value) => value, {
-  textMessage: 'Medium confirm example message',
-  size: 'medium'
-}));
-
-$('[data-confirm-large]').on('click', () => $.fn.confirm((value) => value, {
-  textMessage: 'Large confirm example message',
-  size: 'large'
-}));
 
 $('[data-notification-dynamic]').notification({
-  message: 'This is a dynamic notification.',
+  message: 'foo bar',
+  autoHide: true,
+  showIn: 2000,
+  hideIn: 20000,
   type: 'warning'
 });
 
@@ -311,19 +268,4 @@ $('[data-trigger="scroll"]').on('click', function() {
 
 $('.toggle').collapse();
 
-$('[data-tooltip="#top"]').tooltip();
-$('[data-tooltip="#bottom"]').tooltip({ placement: 'bottom' });
-$('[data-tooltip="#left"]').tooltip({ placement: 'left' });
-$('[data-tooltip="#right"]').tooltip({ placement: 'right' });
-
-$('[data-toggle-container]').on('click', () => {
-  const container = $('[data-container]')
-  const containerText = container.find('[data-container-text]')
-
-  container.toggleClass('example-container example-container--fluid')
-  containerText.text(container.hasClass('example-container') ? '.container' : '.container-fluid')
-})
-
-$('[data-scroll]').on('click', () => {
-  $('.footer').scroll();
-})</script></body></html>
+$('[data-tooltip]').tooltip();</script></body></html>
