@@ -7,4 +7,4 @@ coverage/
 **/.DS_Store
 .publish/
 src/css/atoms/glyph.css
-dist/
+dist/js/*.map
