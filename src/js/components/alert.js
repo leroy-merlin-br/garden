@@ -28,7 +28,11 @@ class Alert {
   }
 
   showAlert () {
-    this.modal.show()
+    const { modal } = this
+    const { triggerClose } = this.options
+
+    modal.show()
+    modal.$content.find(triggerClose).focus()
   }
 
   hideAlert () {

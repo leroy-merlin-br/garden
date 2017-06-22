@@ -47,13 +47,29 @@ describe('Alert component', () => {
   })
 
   describe('@showAlert', () => {
+    beforeEach(() => {
+      instance.modal = {
+        show () {},
+        $content: $('<div><button data-alert-button>Ok</button></div>')
+      }
+    })
+
     it('should show the alert component', sinon.test(function () {
-      instance.modal = { show () {} }
       const stub = this.stub(instance.modal, 'show')
 
       instance.showAlert()
 
       expect(stub.calledOnce).to.be.true
+    }))
+
+    it('should focus on the alert button', sinon.test(function () {
+      const button = { focus () {} }
+      const spy = this.spy(button, 'focus')
+      this.stub(instance.modal.$content, 'find').returns(button)
+
+      instance.showAlert()
+
+      expect(spy.calledOnce).to.be.true
     }))
   })
 

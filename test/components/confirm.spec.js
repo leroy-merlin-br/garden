@@ -138,6 +138,7 @@ describe('Confirm component', () => {
       expect(stub.calledOnce).to.be.true
     }))
   })
+
   describe('@onCancelClick', () => {
     it('should properly call the callback', sinon.test(function () {
       const stub = this.stub(instance, 'callback')
@@ -159,13 +160,25 @@ describe('Confirm component', () => {
   })
 
   describe('@showConfirm', () => {
-    it('should show the confirm component', sinon.test(function () {
+    beforeEach(() => {
       instance.modal = { show () {} }
+      instance.$confirmButton = { focus () {} }
+    })
+
+    it('should show the confirm component', sinon.test(function () {
       const stub = this.stub(instance.modal, 'show')
 
       instance.showConfirm()
 
       expect(stub.calledOnce).to.be.true
+    }))
+
+    it('should focus on the confirm button', sinon.test(function () {
+      const spy = this.spy(instance.$confirmButton, 'focus')
+
+      instance.showConfirm()
+
+      expect(spy.calledOnce).to.be.true
     }))
   })
 
