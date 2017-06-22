@@ -55,6 +55,7 @@ class Confirm {
 
   showConfirm () {
     this.modal.show()
+    this.$confirmButton.focus()
   }
 
   hideConfirm () {
