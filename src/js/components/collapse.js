@@ -44,7 +44,11 @@ class Collapse {
   }
 
   toggleTarget () {
-    this.isCollapsed ? this.showTarget() : this.hideTarget()
+    if (this.isCollapsed) {
+      this.showTarget()
+    } else {
+      this.hideTarget()
+    }
   }
 
   hideTarget () {
