@@ -35,7 +35,7 @@
     "block-closing-brace-newline-before": "always",
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
-    "selector-max-id": 0,
+    "selector-no-id": true,
     "selector-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": "double",
     "rule-empty-line-before": "always",
