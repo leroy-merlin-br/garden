@@ -246,6 +246,13 @@ Below is a relation of glyphs currently available. You can click on any of them 
       tools
     </div>
   </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-verified-price">
+      <div class="glyph glyph-verified-price"></div>
+      verified price
+    </div>
+  </div>
 </div>
 
 ## Customized bundle
