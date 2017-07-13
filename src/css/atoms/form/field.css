@@ -6,6 +6,7 @@
     border-radius: 1rem;
     content: " ";
     height: 1.12rem;
+    pointer-events: none;
     position: absolute;
     right: .12rem;
     top: 1rem;
