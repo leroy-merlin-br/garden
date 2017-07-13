@@ -9,6 +9,7 @@
   position: absolute;
   transition: opacity .3s ease-in-out, visibility .6s;
   visibility: hidden;
+  z-index: $index-ahead;
 
   &::after {
     border-style: solid;
