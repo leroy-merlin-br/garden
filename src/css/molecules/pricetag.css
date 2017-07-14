@@ -9,7 +9,10 @@
   border-radius: .25rem;
   color: $color-text-promotional;
   overflow: hidden;
-  padding: .3125rem;
+  padding-bottom: .5rem;
+  padding-left: .3125rem;
+  padding-right: .3125rem;
+  padding-top: .5rem;
   position: relative;
 
   .from-price {
