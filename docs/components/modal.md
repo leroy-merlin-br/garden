@@ -15,13 +15,13 @@ section: js
 </p>
 
 ## Summary
-1. [Usage](#usage)
-2. [Options](#options)
-3. [Methods](#methods)
-4. [Opening a modal](#opening-a-modal)
-5. [Modal size](#modal-size)
-6. [Static modal](#static-modal)
-7. [History option](#history-option)
+1. <a data-scroll-usage>Usage</a>
+2. <a data-scroll-options>Options</a>
+3. <a data-scroll-methods>Methods</a>
+4. <a data-scroll-opening>Opening a modal</a>
+5. <a data-scroll-size>Modal size</a>
+6. <a data-scroll-static>Static modal</a>
+7. <a data-scroll-history>History option</a>
 
 ## Usage
 
