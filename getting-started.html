@@ -73,6 +73,12 @@ $('[data-modal-large]').modal({
   size: 'large'
 });
 
+$('[data-modal-history]').modal({
+  triggerOpen: '[data-trigger-history="open"]',
+  size: 'small',
+  history: true
+});
+
 let modalStatic = $('[data-modal-static]').modal({
   triggerOpen: '[data-trigger-static="open"]',
   static: true,
