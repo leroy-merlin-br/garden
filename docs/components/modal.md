@@ -218,7 +218,21 @@ function closeModalStatic() {
 
  With the history option activated, whenever the modal is closed, either by pressing the back button, clicking outside the modal, or in the close button, the user is sent back to the current page instead of the previous page, as it would normally behave.
 
-The default value for this option is `false`, so in order to change that behavior you only need to initiate the option as `true`.
+ The default value for this option is `false`, so in order to change that behavior you only need to initiate the option as `true`.
+
+ <div class="example example-code">
+   <button class="button button-primary" data-trigger-history="open">Open History Modal</button>
+ </div>
+
+ <div data-modal-history class="hide">
+   <div class="row">
+     <div class="col-xs-12">
+       <h2>History modal</h2>
+       <p>Now if you close the modal by pressing on the back button you will be sent to the current page instead of the previous one.</p>
+     </div>
+   </div>
+ </div>
+
 
 ```js
 let modal = $('[data-modal]').modal({
