@@ -71,12 +71,12 @@ class Confirm {
               <p data-confirm-text>${textMessage}</p>
             </div>
             <div class="row">
-              <div class="col-xs-offset-2 col-xs-5 col-md-4">
+              <div class="col-xs-6 col-sm-push-1 col-sm-5 col-lg-push-2 col-lg-4">
                 <button class="button button-primary button-full" data-confirm-button>
                   ${textConfirmButton}
                 </button>
               </div>
-              <div class="col-xs-5 col-md-4">
+              <div class="col-xs-6 col-sm-push-1 col-sm-5 col-lg-push-2 col-lg-4">
                 <button class="button button-full" data-cancel-button>
                   ${textCancelButton}
                 </button>
