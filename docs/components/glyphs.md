@@ -199,6 +199,13 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-refresh">
+      <div class="glyph glyph-refresh"></div>
+      refresh
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-silhouette">
       <div class="glyph glyph-silhouette"></div>
       silhouette
