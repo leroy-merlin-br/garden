@@ -15,14 +15,14 @@ section: css
 
 ## Summary
 
-- [Breakpoints](/css/utils.html#breakpoints)
-- [Media queries](/css/utils.html#media-queries)
-- [Circular](/css/utils.html#circular)
-- [Rounded](/css/utils.html#rounded)
-- [Border](/css/utils.html#border)
-- [Border-hover](/css/utils.html#border-hover)
-- [Border-active](/css/utils.html#border-active)
-- [Border-disabled](/css/utils.html#border-disabled)
+1. [Breakpoints](#breakpoints)
+2. [Media queries](#media-queries)
+3. [Circular](#circular)
+4. [Rounded](#rounded)
+5. [Border](#border)
+6. [Border-hover](#border-hover)
+7. [Border-active](#border-active)
+8. [Border-disabled](#border-disabled)
 
 ## Breakpoints
 
