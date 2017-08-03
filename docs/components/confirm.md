@@ -15,8 +15,8 @@ section: js
 
 ## Summary
 1. [Usage](#usage)
-2. [Options](#options)
-3. [Size option](#size-option)
+1. [Options](#options)
+1. [Size option](#size-option)
 
 
 ## Usage

@@ -16,12 +16,12 @@ section: js
 
 ## Summary
 1. <a data-scroll-usage>Usage</a>
-2. <a data-scroll-options>Options</a>
-3. <a data-scroll-methods>Methods</a>
-4. <a data-scroll-opening>Opening a modal</a>
-5. <a data-scroll-size>Modal size</a>
-6. <a data-scroll-static>Static modal</a>
-7. <a data-scroll-history>History option</a>
+1. <a data-scroll-options>Options</a>
+1. <a data-scroll-methods>Methods</a>
+1. <a data-scroll-opening>Opening a modal</a>
+1. <a data-scroll-size>Modal size</a>
+1. <a data-scroll-static>Static modal</a>
+1. <a data-scroll-history>History option</a>
 
 ## Usage
 

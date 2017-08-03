@@ -15,18 +15,18 @@ section: js
 
 ## Summary
 1. [Usage](#usage)
-2. [Options](#options)
-3. [Validation names](#validation-names)  
+1. [Options](#options)
+1. [Validation names](#validation-names)  
   3.1 [required](#required)  
   3.2 [maxlength](#maxlength)  
   3.3 [minlength](#minlength)  
   3.4 [email](#email)  
   3.5 [confirm](#confirm)  
-4. [Extending validations](#extending-validations)
-5. [Handling validation events](#handling-validation-events)
-6. [Validating fields individually](#validating-fields-individually)
-7. [Validating all fields](#validating-all-fields)
-8. [Dynamic fields](#dynamic-fields)
+1. [Extending validations](#extending-validations)
+1. [Handling validation events](#handling-validation-events)
+1. [Validating fields individually](#validating-fields-individually)
+1. [Validating all fields](#validating-all-fields)
+1. [Dynamic fields](#dynamic-fields)
 
 ## Usage
 

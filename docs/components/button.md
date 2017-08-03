@@ -15,8 +15,8 @@ section: css
 
 ## Summary
 1. [Disabled](#disabled)
-2. [Hollow Buttons](#hollow-buttons)
-3. [Full width button](#full-width-button)
+1. [Hollow Buttons](#hollow-buttons)
+1. [Full width button](#full-width-button)
 
 ## Usage
 

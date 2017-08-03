@@ -16,10 +16,10 @@ section: js
 
 ## Summary
 1. [Usage](#usage)
-2. [Options](#options)
-3. [Dynamic notification](#dynamic-notification)
-4. [Non-dynamic notification](#non-dynamic-notification)
-5. [Temporary notification](#temporary-notification)
+1. [Options](#options)
+1. [Dynamic notification](#dynamic-notification)
+1. [Non-dynamic notification](#non-dynamic-notification)
+1. [Temporary notification](#temporary-notification)
 
 ## Usage
 To initiate the component you can use any valid selector, such as a class or a `[data-something]` attribute.

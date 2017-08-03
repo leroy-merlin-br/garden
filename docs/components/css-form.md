@@ -15,9 +15,9 @@ section: css
 
 ## Summary
 1. [Controls](#controls)
-2. [Molecules](#molecules)
-3. [Disabled Controls](#disabled-controls)
-4. [Validation Controls](#validation-controls)
+1. [Molecules](#molecules)
+1. [Disabled Controls](#disabled-controls)
+1. [Validation Controls](#validation-controls)
 
 ## Controls
 By default, form controls have full width and use a smooth border transition on `focus` event.

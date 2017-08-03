@@ -15,10 +15,10 @@ section: js
 
 ## Summary
 1. [Scroll](#scroll)
-2. [Debounce](#debounce)
-3. [Throttle](#throttle)
-4. [Remove from array](#remove-from-array)
-5. [TransitionEnd](#transitionend)
+1. [Debounce](#debounce)
+1. [Throttle](#throttle)
+1. [Remove from array](#remove-from-array)
+1. [TransitionEnd](#transitionend)
 
 ## Scroll
 This utility works with the help of [jump.js](http://callmecavs.com/jump.js/) and provides a function to scroll the page body into the position of the element provided.

@@ -15,10 +15,10 @@ section: js
 
 ## Summary
 1. [Usage](#usage)
-2. [Initial state](#initial-state)
-3. [Options](#options)
-4. [Methods](#methods)
-5. [Events](#events)
+1. [Initial state](#initial-state)
+1. [Options](#options)
+1. [Methods](#methods)
+1. [Events](#events)
 
 ## Usage
 
