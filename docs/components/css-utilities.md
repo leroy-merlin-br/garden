@@ -16,13 +16,13 @@ section: css
 ## Summary
 
 1. [Breakpoints](#breakpoints)
-2. [Media queries](#media-queries)
-3. [Circular](#circular)
-4. [Rounded](#rounded)
-5. [Border](#border)
-6. [Border-hover](#border-hover)
-7. [Border-active](#border-active)
-8. [Border-disabled](#border-disabled)
+1. [Media queries](#media-queries)
+1. [Circular](#circular)
+1. [Rounded](#rounded)
+1. [Border](#border)
+1. [Border-hover](#border-hover)
+1. [Border-active](#border-active)
+1. [Border-disabled](#border-disabled)
 
 ## Breakpoints
 

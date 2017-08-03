@@ -16,10 +16,10 @@ section: js
 
 ## Summary
 1. [Usage](#usage)
-2. [Attributes](#attributes)
-3. [Serving images by breakpoint](#serving-images-by-breakpoint)
-4. [Options](#options)
-5. [Destroying an instance](#destroying-an-instance)
+1. [Attributes](#attributes)
+1. [Serving images by breakpoint](#serving-images-by-breakpoint)
+1. [Options](#options)
+1. [Destroying an instance](#destroying-an-instance)
 
 ## Usage
 This component is generally used in pages filled with images, where users do not need to load all of them at once.
