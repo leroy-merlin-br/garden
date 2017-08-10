@@ -18,13 +18,24 @@ module.exports = function (config) {
         'jquery': '$'
       },
       module: {
-        preLoaders: [
-          { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-          { test: /\.js$/, include: /jump/, loader: 'babel-loader' },
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            enforce: 'pre',
+            loader: 'babel-loader'
+          },
+          {
+            test: /\.js$/,
+            include: /jump/,
+            enforce: 'pre',
+            loader: 'babel-loader'
+          },
           {
             test: /\.js$/,
             include: /src\/js/,
-            loader: 'babel-istanbul',
+            enforce: 'pre',
+            loader: 'babel-istanbul-loader',
             query: { cacheDirectory: true }
           }
         ]
