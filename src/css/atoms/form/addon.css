@@ -1,7 +1,6 @@
 .addon {
   color: $color-text;
   padding-top: .7rem;
-  pointer-events: none;
   position: absolute;
   text-align: center;
   width: 2rem;
