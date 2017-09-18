@@ -102,7 +102,7 @@
     "stylelint": "~8.1.0",
     "stylelint-order": "^0.7.0",
     "webpack-stream": "^4.0.0",
-    "yargs": "^7.1.0"
+    "yargs": "^9.0.1"
   },
   "greenkeeper": {
     "ignore": [
