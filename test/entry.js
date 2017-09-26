@@ -1,8 +1,6 @@
 const specs = require.context('.', true, /\.spec/)
 
-const sinonTest = require('sinon-test')
 sinon = require('sinon')
-
-sinon.test = sinonTest.configureTest(sinon)
+sinon.test = require('sinon-test')(sinon)
 
 specs.keys().forEach(specs)
