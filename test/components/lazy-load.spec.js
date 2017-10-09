@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import LazyLoad from '../../src/js/components/lazy-load'
 
-describe('LazyLoad spec', () => {
+describe.only('LazyLoad spec', () => {
   let instance, $fixture
 
   before(() => {
@@ -9,9 +9,9 @@ describe('LazyLoad spec', () => {
   })
 
   beforeEach(() => {
-    $fixture = $(fixture.load('lazy-load.html')[0])
+    $fixture = fixture.load('lazy-load.html')[0]
+    instance = new LazyLoad($fixture.querySelector('[data-lazy]'))
 
-    instance = new LazyLoad($fixture.find('[data-lazy]'))
   })
 
   afterEach(() => {
@@ -23,7 +23,6 @@ describe('LazyLoad spec', () => {
     it('should call bindListeners and checkVisiblePlaceholders on init', sinon.test(function () {
       this.spy(instance, 'bindListeners')
       this.spy(instance, 'checkVisiblePlaceholders')
-
       instance.init()
 
       expect(instance.bindListeners.calledOnce).to.be.true
@@ -31,12 +30,34 @@ describe('LazyLoad spec', () => {
     }))
   })
 
-  describe('bindListeners', () => {
-    it('should create onScrollHandler and bind to $(window).on(scroll)', sinon.test(function () {
+  describe.only('bindListeners', () => {
+    /*it('should create onScrollHandler and bind to $(window).on(scroll)', sinon.test(function () {
       instance.init()
 
       expect(instance.onScrollHandler).to.be.defined
-      expect($._data(window).events.scroll.length).to.equal(1)
+      expect()
+    }))
+    */
+    it('should create onScrollHandler', () => {
+      instance.bindListeners()
+
+      expect(instance.onScrollHandler).to.exist
+    })
+
+    // it('should call onScrollHandler on scroll event', sinon.test(function(){
+    //   const stub = this.stub()
+    //   window.addEventListener('scroll', stub)
+    //   const event = new Event('scroll')
+    //   window.dispatchEvent(event)
+    //   expect(stub.called).to.be.true
+    // }))
+
+    it('should call onScrollHandler', sinon.test(function () {
+      instance.bindListeners()
+      const event = new Event('scroll')
+      window.dispatchEvent(event)
+      const spy = this.spy(instance, 'onScrollHandler')
+      expect(spy.calledOnce).to.be.true
     }))
   })
 
@@ -44,7 +65,7 @@ describe('LazyLoad spec', () => {
     it('should call checkVisiblePlaceholders if there are elements to check', sinon.test(function () {
       this.spy(instance, 'checkVisiblePlaceholders')
 
-      instance.$element.length = 1
+      instance.element.length = 1
 
       instance.onScroll()
 
@@ -54,7 +75,7 @@ describe('LazyLoad spec', () => {
     it('should not call checkVisiblePlaceholders if there are no elements to check', sinon.test(function () {
       this.spy(instance, 'checkVisiblePlaceholders')
 
-      delete instance.$element.length
+      delete instance.element.length
 
       instance.onScroll()
 
@@ -68,7 +89,7 @@ describe('LazyLoad spec', () => {
       this.stub(instance, 'isPlaceholderVisible').returns(true)
       this.spy(instance, 'renderImage')
 
-      instance.checkPlaceholder(instance.$element[0])
+      instance.checkPlaceholder(instance.element)
 
       expect(instance.renderImage.calledOnce).to.be.true
     }))
@@ -88,7 +109,8 @@ describe('LazyLoad spec', () => {
       this.stub(instance, 'isPlaceholderVisible').returns(true)
       this.spy(instance, 'parseBreakpoints')
 
-      instance.checkPlaceholder(instance.$element[1])
+      console.log(instance.element)
+      instance.checkPlaceholder(instance.element)
 
       expect(instance.parseBreakpoints.calledOnce).to.be.true
     }))
