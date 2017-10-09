@@ -11,9 +11,9 @@ const DEFAULTS = {
 }
 
 class LazyLoad {
-  constructor (element, options) {
-    this.$element = $(element)
-    this.options = $.extend({}, DEFAULTS, (options || {}))
+  constructor (element, options = {}) {
+    this.element = element
+    this.options = {...DEFAULTS, ...options}
   }
 
   init () {
@@ -25,24 +25,24 @@ class LazyLoad {
 
   bindListeners () {
     this.onScrollHandler = throttle(this.onScroll.bind(this), this.options.throttle)
-    $(window).on('scroll', this.onScrollHandler)
+    window.addEventListener('scroll', this.onScrollHandler, false)
   }
 
   onScroll () {
-    return this.$element.length ? this.checkVisiblePlaceholders() : $(window).off('scroll', this.onScrollHandler)
+    return this.element.length ? this.checkVisiblePlaceholders() : window.removeEventListener('scroll', this.onScrollHandler)
   }
 
   checkVisiblePlaceholders () {
-    this.windowHeight = $(window).height()
-    this.windowWidth = $(window).width()
+    this.windowHeight = document.body.offsetHeight
+    this.windowWidth = document.body.offsetWidth
 
-    Array.prototype.forEach.call(this.$element, this.checkPlaceholder.bind(this))
+    Array.prototype.forEach.call(this.element, this.checkPlaceholder.bind(this))
   }
 
   checkPlaceholder (placeholder) {
     if (this.isPlaceholderVisible(placeholder)) {
       this.renderImage(placeholder)
-      removeFromArray(this.$element, placeholder)
+      removeFromArray(this.element, placeholder)
     }
   }
 
@@ -108,14 +108,12 @@ class LazyLoad {
   }
 
   destroy () {
-    $(window).off('scroll', this.onScrollHandler)
+    window.removeEventListener('scroll', this.onScrollHandler)
   }
 }
 
 /* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
+$.fn[NAME] = function (options = {}) {
   return this.each(function () {
     if (!$.data(this, NAME)) {
       $.data(this, NAME, new LazyLoad(this, options).init())
