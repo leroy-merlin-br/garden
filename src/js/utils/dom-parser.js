@@ -6,8 +6,9 @@ export default (str) => {
     throw new Error('invalid parameters')
   }
 
-  let domElement = document.createElement('div')
-  domElement.innerHTML = templateString
+  const container = document.createElement('div')
+  container.innerHTML = templateString
+  const domElement = container.firstElementChild
 
   return domElement
 }

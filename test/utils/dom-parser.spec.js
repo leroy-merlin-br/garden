@@ -1,6 +1,6 @@
 import domParser from '../../src/js/utils/dom-parser'
 
-describe.only('dom parser spec', () => {
+describe('domParser spec', () => {
   let elementString
 
   beforeEach(() => {
@@ -9,10 +9,10 @@ describe.only('dom parser spec', () => {
 
   it('should create a dom element', () => {
     const tempElement = domParser(elementString)
-    expect(tempElement.firstChild).to.be.an.instanceof(Element)
+    expect(tempElement).to.be.an.instanceof(Element)
   })
 
-  it('should not create a dom element', () => {
+  it('should throw a exception', () => {
     expect(domParser).to.throw(Error)
   })
 })
