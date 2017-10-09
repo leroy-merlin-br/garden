@@ -3,7 +3,7 @@ export default (str) => {
   const pattern = /<(.|\n)*?>/g
 
   if (!pattern.test(templateString)) {
-    throw new Error('invalid parameters')
+    return console.error('invalid parameters on domParser')
   }
 
   const container = document.createElement('div')
