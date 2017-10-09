@@ -9,10 +9,15 @@ describe('domParser spec', () => {
 
   it('should create a dom element', () => {
     const tempElement = domParser(elementString)
+
     expect(tempElement).to.be.an.instanceof(Element)
   })
 
-  it('should throw a exception', () => {
-    expect(domParser).to.throw(Error)
-  })
+  it('should throw a console.error', sinon.test(function () {
+    const stub = this.stub(console, 'error')
+
+    domParser('123')
+
+    expect(stub.calledWith('invalid parameters on domParser')).to.be.true
+  }))
 })
