@@ -7,17 +7,22 @@ describe('domParser spec', () => {
     elementString = '<span>sample text</span>'
   })
 
-  it('should create a dom element', () => {
-    const tempElement = domParser(elementString)
+  context('When call domParser function with correct parameters', () => {
+    it('should create a dom element', () => {
+      const tempElement = domParser(elementString)
 
-    expect(tempElement).to.be.an.instanceof(Element)
+      expect(tempElement).to.be.an.instanceof(Element)
+    })
   })
 
-  it('should throw a console.error', sinon.test(function () {
-    const stub = this.stub(console, 'error')
+  context('When call domParser function with incorrect parameters', () => {
+    it('should throw a console.error', sinon.test(function () {
+      const stub = this.stub(console, 'error')
 
-    domParser('123')
+      domParser('123')
 
-    expect(stub.calledWith('invalid parameters on domParser')).to.be.true
-  }))
+      expect(stub.calledWith('invalid parameters on domParser')).to.be.true
+    }))
+  })
+
 })
