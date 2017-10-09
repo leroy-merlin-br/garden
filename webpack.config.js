@@ -2,9 +2,15 @@ const webpack = require('webpack')
 
 module.exports = {
   devtool: 'cheap-module-source-map',
+  entry: {
+    garden: [
+      'classlist.js',
+      './src/js/entry.js'
+    ]
+  },
   output: {
     path: __dirname,
-    filename: 'garden.min.js'
+    filename: '[name].min.js'
   },
   externals: {
     'jquery': '$'
