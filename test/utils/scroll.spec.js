@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import scroll from '../../src/js/utils/scroll'
 import Jump from 'jump.js'
 
