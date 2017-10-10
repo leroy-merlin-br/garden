@@ -1,17 +1,17 @@
-import $ from 'jquery'
 import Collapse from '../../src/js/components/collapse'
+import triggerEvent from '../../src/js/utils/trigger-event'
 
 describe('collapse spec', () => {
-  var instance, $fixture
+  var instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
   })
 
   beforeEach(() => {
-    $fixture = $(fixture.load('collapse.html')[0])
+    fixtureElement = fixture.load('collapse.html')[0]
 
-    instance = new Collapse($fixture)
+    instance = new Collapse(fixtureElement)
   })
 
   afterEach(() => {
@@ -31,8 +31,7 @@ describe('collapse spec', () => {
   describe('@setInitialState', () => {
     it('should define instance.toggleHeight after timeout',
       sinon.test(function () {
-        instance.$toggle = $('')
-        instance.toggle = $('<div />')[0]
+        instance.toggle = document.createElement('div')
 
         instance.setInitialState()
         this.clock.tick(instance.options.timing)
@@ -41,10 +40,9 @@ describe('collapse spec', () => {
       })
     )
 
-    context('instance.$toggle collapsed', () => {
+    context('instance.toggle collapsed', () => {
       it('should set the instance.isCollapsed to true', () => {
-        instance.$toggle = $('')
-        instance.toggle = $('<div />')[0]
+        instance.toggle = document.createElement('div')
 
         instance.setInitialState()
 
@@ -52,10 +50,10 @@ describe('collapse spec', () => {
       })
     })
 
-    context('instance.$toggle visible', () => {
+    context('instance.toggle visible', () => {
       it('should set the instance.isCollapsed to false', () => {
-        instance.$toggle = $(`<div class="${instance.options.visibleClass}" />`)
-        instance.toggle = $('<div />')[0]
+        instance.toggle = document.createElement('div')
+        instance.toggle.classList.add(instance.options.visibleClass)
 
         instance.setInitialState()
 
@@ -65,18 +63,18 @@ describe('collapse spec', () => {
   })
 
   describe('@bindListeners', () => {
-    it('should bind @toggleTarget as a handler to instance.$element click event', sinon.test(function() {
+    it('should bind @toggleTarget as a handler to instance.element click event', sinon.test(function () {
       const stub = this.stub(instance, 'toggleTarget')
 
       instance.bindListeners()
-      instance.$element.trigger(instance.options.listener)
+      triggerEvent(instance.element, instance.options.listener)
 
       expect(stub.calledOnce).to.be.true
     }))
   })
 
   describe('@toggleTarget', () => {
-    context('instance.$toggle visible', () => {
+    context('instance.toggle visible', () => {
       it('should call @hide', sinon.test(function () {
         const stub = this.stub(instance, 'hideTarget')
 
@@ -87,7 +85,7 @@ describe('collapse spec', () => {
       }))
     })
 
-    context('instance.$toggle collapsed', () => {
+    context('instance.toggle collapsed', () => {
       it('should call @show', sinon.test(function () {
         const stub = this.stub(instance, 'showTarget')
 
@@ -101,25 +99,24 @@ describe('collapse spec', () => {
 
   describe('@show/hide target', () => {
     beforeEach(() => {
-      instance.$toggle = $('<div />')
-      instance.toggle = instance.$toggle[0]
+      instance.toggle = document.createElement('div')
     })
 
     context('hide', () => {
-      it('should remove the visibleClass from instance.$toggle', () => {
-        instance.$toggle.addClass(instance.options.visibleClass)
+      it('should remove the visibleClass from instance.toggle', () => {
+        instance.toggle.classList.add(instance.options.visibleClass)
 
         instance.hideTarget()
 
-        expect(instance.$toggle.hasClass(instance.options.visibleClass)).to.be.false
+        expect(instance.toggle.classList.contains(instance.options.visibleClass)).to.be.false
       })
     })
 
     context('show', () => {
-      it('should add the visibleClass to instance.$toggle', () => {
+      it('should add the visibleClass to instance.toggle', () => {
         instance.showTarget()
 
-        expect(instance.$toggle.hasClass(instance.options.visibleClass)).to.be.true
+        expect(instance.toggle.classList.contains(instance.options.visibleClass)).to.be.true
       })
     })
   })
