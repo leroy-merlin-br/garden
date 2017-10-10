@@ -12,14 +12,13 @@ const DEFAULTS = {
 
 class Collapse {
   constructor (element, options) {
-    this.$element = $(element)
+    this.element = element
 
-    this.options = $.extend({}, DEFAULTS, (options || {}))
+    this.options = { ...DEFAULTS, ...options }
   }
 
   init () {
-    this.$toggle = $(this.$element.attr(this.options.selector))
-    this.toggle = this.$toggle[0]
+    this.toggle = document.querySelectorAll(this.element.getAttribute(this.options.selector))[0]
 
     this.setInitialState()
     this.bindListeners()
@@ -28,7 +27,7 @@ class Collapse {
   }
 
   setInitialState () {
-    this.isCollapsed = !this.$toggle.hasClass(this.options.visibleClass)
+    this.isCollapsed = !this.toggle.classList.contains(this.options.visibleClass)
 
     setTimeout(() => {
       this.toggleHeight = this.toggle.scrollHeight
@@ -40,7 +39,7 @@ class Collapse {
   }
 
   bindListeners () {
-    this.$element.on(this.options.listener, this.toggleTarget.bind(this))
+    this.element.addEventListener(this.options.listener, this.toggleTarget.bind(this))
   }
 
   toggleTarget () {
@@ -55,20 +54,20 @@ class Collapse {
     this.isCollapsed = true
 
     this.toggle.style.maxHeight = ''
-    this.$toggle.removeClass(this.options.visibleClass)
-    this.$element.removeClass(this.options.activeClass)
+    this.toggle.classList.remove(this.options.visibleClass)
+    this.element.classList.remove(this.options.activeClass)
 
-    emitter.emit('collapse:hide', this.$element, this.$toggle)
+    emitter.emit('collapse:hide', this.element, this.toggle)
   }
 
   showTarget () {
     this.isCollapsed = false
 
     this.toggle.style.maxHeight = `${this.toggleHeight}px`
-    this.$toggle.addClass(this.options.visibleClass)
-    this.$element.addClass(this.options.activeClass)
+    this.toggle.classList.add(this.options.visibleClass)
+    this.element.classList.add(this.options.activeClass)
 
-    emitter.emit('collapse:show', this.$element, this.$toggle)
+    emitter.emit('collapse:show', this.element, this.toggle)
   }
 }
 
