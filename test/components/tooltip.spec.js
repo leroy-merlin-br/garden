@@ -10,7 +10,7 @@ describe('Tooltip spec', () => {
   })
 
   beforeEach(() => {
-    $fixture = $(fixture.load('tooltip.html')[0])
+    $fixture = fixture.load('tooltip.html')[0]
     instance = new Tooltip($fixture)
   })
 
@@ -26,14 +26,14 @@ describe('Tooltip spec', () => {
     it('should register the popper instance on the element', () => {
       instance.init()
 
-      expect(instance.$element.data('popper')).to.be.an.instanceof(Popper)
+      expect($(instance.element).data('popper')).to.be.an.instanceof(Popper)
     })
   })
 
   describe('_getTarget', () => {
     it('should return the target element described in data-tooltip', () => {
       const result = instance._getTarget()
-      expect(result.text()).to.have.string('Sample tooltip')
+      expect(result[0].innerText).to.have.string('Sample tooltip')
     })
   })
 
