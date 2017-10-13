@@ -1,6 +1,7 @@
 import $ from 'jquery'
 
 import emitter from '../utils/emitter'
+import registerEvents from '../utils/register-events'
 
 import rules from './validation/defaults'
 
@@ -12,12 +13,14 @@ const DEFAULTS = {
 
 class Validation {
   constructor (element, options) {
-    this.$element = $(element)
-    this.options = $.extend({}, DEFAULTS, (options || {}))
+    this.element = element
+
+    this.options = { ...DEFAULTS, ...options }
   }
 
   init () {
-    this._fields = this.$element.find(this.options.selector)
+    this._fields = this.element.querySelectorAll(this.options.selector)
+    this._events = this.options.events.replace(/\s/g, '').split(',')
 
     this.bindListeners()
 
@@ -29,8 +32,7 @@ class Validation {
       this.validate(e.target)
     }
 
-    this.$element.off(this.options.events, this.options.selector, this.handler)
-    this.$element.on(this.options.events, this.options.selector, this.handler)
+    registerEvents(this._fields, this._events, this.handler)
   }
 
   setPristine (field) {
@@ -45,7 +47,7 @@ class Validation {
     }
 
     rules = rules.split(' ').reduce((errors, rule) => {
-      if (!this.rules[rule].call(this, field, this.$element)) {
+      if (!this.rules[rule].call(this, field, this.element)) {
         errors.push(rule)
       }
 
@@ -65,7 +67,7 @@ class Validation {
 
   getFilteredInputs () {
     return Array.prototype.filter.call(
-      this.$element.find(this.options.selector), this.getValidInputs
+      this.element.querySelectorAll(this.options.selector), this.getValidInputs
     )
   }
 
