@@ -18,7 +18,9 @@ class Collapse {
   }
 
   init () {
-    this.toggle = document.querySelectorAll(this.element.getAttribute(this.options.selector))[0]
+    const dataTarget = this.element.getAttribute(this.options.selector)
+
+    this.toggle = document.querySelectorAll(dataTarget)[0]
 
     this.setInitialState()
     this.bindListeners()
