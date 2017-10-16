@@ -1,17 +1,16 @@
-import $ from 'jquery'
 import Form from '../../src/js/components/form'
 
 describe('form spec', () => {
-  var instance, $fixture
+  var instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
   })
 
   beforeEach(() => {
-    $fixture = $(fixture.load('form.html')[0])
+    fixtureElement = fixture.load('form.html')[0]
 
-    instance = new Form($fixture)
+    instance = new Form(fixtureElement)
   })
 
   afterEach(() => {
@@ -19,108 +18,87 @@ describe('form spec', () => {
   })
 
   describe('shouldInputBeActive', () => {
-    let $input
+    let inputElement
 
     beforeEach(() => {
-      $input = $fixture.find('.input')
+      inputElement = fixtureElement.querySelectorAll('.input')[0]
     })
 
     it('should return false if the input has no value', () => {
-      expect(Form.prototype.shouldInputBeActive($input)).to.be.false
+      expect(instance.shouldInputBeActive(inputElement)).to.be.false
     })
 
     it('should return true if the input has value', () => {
-      $input.val(true)
+      inputElement.value = true
 
-      expect(Form.prototype.shouldInputBeActive($input)).to.be.true
+      expect(instance.shouldInputBeActive(inputElement)).to.be.true
     })
 
     context('when input is select field', () => {
       beforeEach(() => {
-        $input = $fixture.find('.select')
+        inputElement = fixtureElement.querySelectorAll('.select')[0]
       })
 
       it('should return false if the option selected has no textContent', () => {
-        expect(Form.prototype.shouldInputBeActive($input)).to.be.false
+        expect(instance.shouldInputBeActive(inputElement)).to.be.false
       })
 
       it('should return true if the option selected has textContent', () => {
-        $input.find('option:selected').text('true')
+        inputElement.options[inputElement.selectedIndex].text = true
 
-        expect(Form.prototype.shouldInputBeActive($input)).to.be.true
+        expect(instance.shouldInputBeActive(inputElement)).to.be.true
       })
     })
   })
 
   describe('toggleActiveClass', () => {
-    let $field, $input
+    let fieldElement, inputElement
 
     beforeEach(() => {
-      $field = $fixture.find('.field')
-      $input = $field.find('.input')
+      fieldElement = fixtureElement.querySelectorAll('.field')[0]
+      inputElement = fieldElement.querySelectorAll('.input')[0]
     })
 
     it('should not @shouldInputBeActive if the parent hasn\'t a .field class ', sinon.test(function () {
-      this.spy(Form.prototype, 'shouldInputBeActive')
+      this.spy(instance, 'shouldInputBeActive')
 
-      $field.removeClass('field')
+      fieldElement.classList.remove('field')
 
-      Form.prototype.toggleActiveClass($input[0])
+      instance.toggleActiveClass(inputElement)
 
-      expect(Form.prototype.shouldInputBeActive.notCalled).to.be.true
+      expect(instance.shouldInputBeActive.notCalled).to.be.true
     }))
 
-    it('should not add the active class on the $field if the $input returns false for @shouldInputBeActive', () => {
-      Form.prototype.toggleActiveClass($input[0])
+    it('should not add the active class on the fieldElement if the inputElement returns false for @shouldInputBeActive', () => {
+      instance.toggleActiveClass(inputElement)
 
-      expect($field.hasClass('active')).to.be.false
+      expect(fieldElement.classList.contains('active')).to.be.false
     })
 
-    it('should add the active class on the $field if the $input returns true for @shouldInputBeActive', () => {
-      $input.val('foo')
+    it('should add the active class on the fieldElement if the inputElement returns true for @shouldInputBeActive', () => {
+      inputElement.value = true
 
-      Form.prototype.toggleActiveClass($input[0])
+      instance.toggleActiveClass(inputElement)
 
-      expect($field.hasClass('active')).to.be.true
+      expect(fieldElement.classList.contains('active')).to.be.true
     })
 
-    it('should remove the active class on the $field if the $input has the active class and returns false for @shouldInputBeActive', () => {
-      $field.addClass('active')
+    it('should remove the active class on the fieldElement if the inputElement has the active class and returns false for @shouldInputBeActive', () => {
+      fieldElement.classList.add('active')
 
-      Form.prototype.toggleActiveClass($input[0])
+      instance.toggleActiveClass(inputElement)
 
-      expect($field.hasClass('active')).to.be.false
+      expect(fieldElement.classList.contains('active')).to.be.false
     })
-  })
-
-  describe('onFieldChange', () => {
-    let $field, $input, customEvent
-
-    beforeEach(() => {
-      $field = $fixture.find('.field')
-      $input = $field.find('.input')
-
-      customEvent = {
-        target: $input[0]
-      }
-    })
-
-    it('should call @toggleActiveClass onChange event', sinon.test(function () {
-      this.spy(Form.prototype, 'toggleActiveClass')
-
-      Form.prototype.onFieldChange(customEvent)
-
-      expect(Form.prototype.toggleActiveClass.calledOnce).to.be.true
-    }))
   })
 
   describe('toggleFieldsActiveClass', () => {
-    it('should call @toggleActiveClass on each $field', sinon.test(function () {
-      this.spy(Form.prototype, 'toggleActiveClass')
+    it('should call @toggleActiveClass on each fieldElement', sinon.test(function () {
+      this.spy(instance, 'toggleActiveClass')
 
       instance.toggleFieldsActiveClass()
 
-      expect(Form.prototype.toggleActiveClass.called).to.be.true
+      expect(instance.toggleActiveClass.called).to.be.true
     }))
   })
 })
