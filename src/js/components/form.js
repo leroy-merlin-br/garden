@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import registerEvents from '../utils/register-events'
 
 const NAME = 'form'
@@ -43,6 +44,17 @@ class Form {
   toggleFieldsActiveClass () {
     Array.prototype.forEach.call(this.elements, this.toggleActiveClass.bind(this))
   }
+}
+
+/* istanbul ignore next */
+$.fn[NAME] = function (options) {
+  options = options || {}
+
+  return this.each(function () {
+    if (!$.data(this, NAME)) {
+      $.data(this, NAME, new Form(this, options))
+    }
+  })
 }
 
 export default Form
