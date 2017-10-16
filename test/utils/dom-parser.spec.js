@@ -7,7 +7,7 @@ describe('domParser spec', () => {
     elementString = '<span>sample text</span>'
   })
 
-  context('When call domParser function with correct parameters', () => {
+  context('when calling domParser function with correct parameters', () => {
     it('should create a dom element', () => {
       const tempElement = domParser(elementString)
 
@@ -15,7 +15,7 @@ describe('domParser spec', () => {
     })
   })
 
-  context('When call domParser function with incorrect parameters', () => {
+  context('when calling domParser function with incorrect parameters', () => {
     it('should throw a console.error', sinon.test(function () {
       const stub = this.stub(console, 'error')
 
@@ -24,5 +24,4 @@ describe('domParser spec', () => {
       expect(stub.calledWith('invalid parameters on domParser')).to.be.true
     }))
   })
-
 })

@@ -12,7 +12,8 @@
     "expect": true,
     "fixture": true,
     "sinon": true,
-    "history": true
+    "history": true,
+    "Element": true
   },
   "plugins": [
     "chai-friendly"
