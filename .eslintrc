@@ -6,14 +6,13 @@
   },
   "extends": "standard",
   "env": {
-    "mocha": true
+    "mocha": true,
+    "browser": true
   },
   "globals": {
     "expect": true,
     "fixture": true,
-    "sinon": true,
-    "history": true,
-    "Element": true
+    "sinon": true
   },
   "plugins": [
     "chai-friendly"
