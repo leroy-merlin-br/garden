@@ -37,7 +37,7 @@ describe('Validation spec', () => {
 
       instance.init()
 
-      triggerEvent(instance._fields[0], 'blur')
+      triggerEvent(instance.fields[0], 'blur')
 
       expect(spy.calledOnce).to.be.true
     }))
@@ -106,7 +106,7 @@ describe('Validation spec', () => {
     })
 
     it('should validate all fields and return false if there is an invalid field', () => {
-      const targetField = instance._fields[0]
+      const targetField = instance.fields[0]
 
       targetField.setAttribute('data-validate', 'required')
       targetField.setAttribute('value', '')
@@ -115,7 +115,7 @@ describe('Validation spec', () => {
     })
 
     it('should validate all fields and return true if there is no invalid field', () => {
-      Array.prototype.forEach.call(instance._fields, field => {
+      Array.prototype.forEach.call(instance.fields, field => {
         field.setAttribute('value', 'foo')
       })
 
