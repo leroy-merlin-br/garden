@@ -67,7 +67,7 @@ describe('collapse spec', () => {
       const stub = this.stub(instance, 'toggleTarget')
 
       instance.bindListeners()
-      triggerEvent(instance.element, instance.options.listener)
+      triggerEvent(instance.element, instance.options.event)
 
       expect(stub.calledOnce).to.be.true
     }))

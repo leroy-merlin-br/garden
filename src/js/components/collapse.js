@@ -4,7 +4,7 @@ import emitter from '../utils/emitter'
 const NAME = 'collapse'
 const DEFAULTS = {
   selector: 'data-target',
-  listener: 'click',
+  event: 'click',
   activeClass: 'active',
   visibleClass: 'visible',
   timing: 300
@@ -41,7 +41,7 @@ class Collapse {
   }
 
   bindListeners () {
-    this.element.addEventListener(this.options.listener, this.toggleTarget.bind(this))
+    this.element.addEventListener(this.options.event, this.toggleTarget.bind(this))
   }
 
   toggleTarget () {
@@ -53,11 +53,13 @@ class Collapse {
   }
 
   hideTarget () {
+    const { visibleClass, activeClass } = this.options
+
     this.isCollapsed = true
 
     this.toggle.style.maxHeight = ''
-    this.toggle.classList.remove(this.options.visibleClass)
-    this.element.classList.remove(this.options.activeClass)
+    this.toggle.classList.remove(visibleClass)
+    this.element.classList.remove(activeClass)
 
     emitter.emit('collapse:hide', this.element, this.toggle)
   }
