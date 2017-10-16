@@ -19,8 +19,8 @@ class Validation {
   }
 
   init () {
-    this._fields = this.element.querySelectorAll(this.options.selector)
-    this._events = this.options.events.replace(/\s/g, '').split(',')
+    this.fields = this.element.querySelectorAll(this.options.selector)
+    this.events = this.options.events.replace(/\s/g, '').split(',')
 
     this.bindListeners()
 
@@ -32,7 +32,7 @@ class Validation {
       this.validate(e.target)
     }
 
-    registerEvents(this._fields, this._events, this.handler)
+    registerEvents(this.fields, this.events, this.handler)
   }
 
   setPristine (field) {
