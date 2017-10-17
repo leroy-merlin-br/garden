@@ -1,5 +1,7 @@
 import $ from 'jquery'
+
 import emitter from '../utils/emitter'
+import domParser from '../utils/dom-parser'
 
 const NAME = 'modal'
 const HASH = '#modal-open'
@@ -23,12 +25,13 @@ const DEFAULTS = {
 
 class Modal {
   constructor (element, options) {
-    this.$element = (element instanceof $) ? element : $(element)
-    this.options = $.extend({}, DEFAULTS, (options || {}))
+    this.element = element
+    this.options = { ...DEFAULTS, ...options }
   }
 
   init () {
-    this.$container = $(this.options.container)
+    this.container = document.querySelector(this.options.container)
+
     this.createModal()
 
     return this
@@ -45,16 +48,18 @@ class Modal {
   }
 
   destroy () {
-    this.$element.removeData(NAME)
-    this.$modal.remove()
+    this.element.removeAttribute(`data-${NAME}`)
+    this.modal.remove()
   }
 
   bindListeners () {
     if (this.options.triggerClose) {
-      this.$modal.on('click', this.options.triggerClose, this.hide.bind(this))
+      const triggerClose = this.modal.querySelector(this.options.triggerClose)
+
+      triggerClose.addEventListener('click', this.hide.bind(this))
     }
 
-    this.$close.on('click', this.hide.bind(this))
+    this.close.addEventListener('click', this.hide.bind(this))
 
     this.bindKeyboardListener()
 
@@ -65,16 +70,18 @@ class Modal {
     }
   }
 
+  onEscKeyPressed (e) {
+    const { esc } = this.options.keys
+    const key = e.which
+
+    if (key === esc) {
+      this.hide()
+    }
+  }
+
   bindKeyboardListener () {
     if (this.options.keyboard) {
-      $(window).on('keyup', (e) => {
-        const { esc } = this.options.keys
-        const key = e.which
-
-        if (key === esc) {
-          this.hide()
-        }
-      })
+      window.addEventListener('keyup', this.onEscKeyPressed.bind(this))
     }
   }
 
@@ -85,7 +92,7 @@ class Modal {
   }
 
   bindHashChangeListener () {
-    $(window).on('hashchange', () => {
+    window.addEventListener('hashchange', () => {
       if (window.location.hash) {
         return
       }
@@ -102,19 +109,22 @@ class Modal {
 
   unbindListeners () {
     if (this.options.triggerClose) {
-      this.$modal.off('click', this.options.triggerClose, this.hide.bind(this))
+      const triggerClose = this.modal.querySelector(this.options.triggerClose)
+
+      triggerClose.removeEventListener('click', this.hide.bind(this))
     }
 
-    this.$close.off('click')
-    $(window).off('keyup', this.handler)
+    this.close.removeEventListener('click', this.hide.bind(this))
+    window.removeEventListener('keyup', this.onEscKeyPressed.bind(this))
   }
 
   bindTrigger () {
     if (this.options.triggerOpen) {
-      $(this.options.triggerOpen).on(
-        'click',
-        this.onTriggerOpenClick.bind(this)
-      )
+      document.querySelector(this.options.triggerOpen)
+        .addEventListener(
+          'click',
+          this.onTriggerOpenClick.bind(this)
+        )
     }
   }
 
@@ -127,16 +137,16 @@ class Modal {
     emitter.emit('modal:show')
     emitter.removeAllListeners('modal:show')
 
-    this.$modal.addClass('modal-enter')
-    this.$content.addClass('modal-content-enter')
-    this.$container.addClass('no-scroll')
+    this.modal.classList.add('modal-enter')
+    this.content.classList.add('modal-content-enter')
+    this.container.classList.add('no-scroll')
 
     window.setTimeout(() => {
-      this.$modal.addClass('modal-show')
-      this.$content.addClass('modal-content-show')
+      this.modal.classList.add('modal-show')
+      this.content.classList.add('modal-content-show')
     }, 200)
 
-    this.$modal.on('click', this.onModalClick.bind(this))
+    this.modal.addEventListener('click', this.onModalClick.bind(this))
   }
 
   hideModal () {
@@ -145,46 +155,46 @@ class Modal {
     }
     emitter.removeAllListeners('modal:hide')
 
-    this.$content
-      .removeClass('modal-content-show')
-      .addClass('modal-content-leave')
+    this.content.classList.remove('modal-content-show')
+    this.content.classList.add('modal-content-leave')
 
-    this.$modal
-      .removeClass('modal-show')
-      .addClass('modal-leave')
+    this.modal.classList.remove('modal-show')
+    this.modal.classList.add('modal-leave')
 
-    this.$container.removeClass('no-scroll')
+    this.container.classList.remove('no-scroll')
 
     window.setTimeout(() => {
-      this.$modal.removeClass('modal-enter modal-leave')
-      this.$content.removeClass('modal-content-enter modal-content-leave')
+      this.modal.classList.remove('modal-enter', 'modal-leave')
+      this.content.classList.remove('modal-content-enter', 'modal-content-leave')
     }, 200)
   }
 
   onModalClick (event) {
-    if (!this.isStaticModal() && this.$modal.is(event.target)) {
+    if (!this.isStaticModal() && this.modal === event.target) {
       this.hideModal()
     }
   }
 
   fillModal () {
-    this.$content.find('.modal-body').append(this.$element.html())
+    const modalBody = this.content.querySelector('.modal-body')
+
+    modalBody.appendChild(this.element)
   }
 
   createModal () {
-    this.$modal = $(templates.modal)
-    this.$content = $(templates.content)
-    this.$close = $(templates.close)
+    this.modal = domParser(templates.modal)
+    this.content = domParser(templates.content)
+    this.close = domParser(templates.close)
 
-    this.$content.addClass(this.setupSizeModal(this.options.size))
+    this.content.classList.add(this.setupSizeModal(this.options.size))
 
     if (!this.isStaticModal()) {
-      this.$content.append(this.$close)
+      this.content.appendChild(this.close)
     }
 
-    this.$modal.append(this.$content)
+    this.modal.appendChild(this.content)
 
-    this.$container.append(this.$modal)
+    this.container.appendChild(this.modal)
 
     this.bindTrigger()
     this.fillModal()
