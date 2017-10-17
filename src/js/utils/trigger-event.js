@@ -1,6 +1,5 @@
-export default (element, type) => {
-  const event = document.createEvent('HTMLEvents')
-  event.initEvent(type, false, true)
+export default (element, type, options = {}) => {
+  const event = new Event(type, options)
 
   return element.dispatchEvent(event)
 }
