@@ -1,48 +1,36 @@
 import Modal from '../../src/js/components/modal'
+
 import emitter from '../../src/js/utils/emitter'
-import $ from 'jquery'
+import domParser from '../../src/js/utils/dom-parser'
+import triggerEvent from '../../src/js/utils/trigger-event'
 
 describe('Modal spec', () => {
-  let instance, $fixture
+  let instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
   })
 
   beforeEach(() => {
-    $fixture = $(fixture.load('modal.html')[0])
+    fixtureElement = fixture.load('modal.html')[0]
 
-    instance = new Modal($fixture.find('[data-modal]'))
+    instance = new Modal(fixtureElement)
   })
 
   afterEach(() => {
     fixture.cleanup()
   })
 
-  describe('constructor', () => {
-    it('should return a instanceof $ if param element isn\'t', () => {
-      let newIstance = new Modal(fixture.load('modal.html')[0])
+  describe('@init', () => {
+    it('should properly set instance.container element', () => {
+      instance.container = undefined
 
-      expect(newIstance.$element).to.be.instanceof($)
-    })
-
-    it('should have a different container to append modal', () => {
-      let modal = new Modal($fixture.find('[data-modal]'), { container: '.bar' })
-
-      let newContainer = $fixture.find('.bar')
-
-      expect(newContainer.find('.modal')).to.exist
-    })
-  })
-
-  describe('init', () => {
-    it('should append modal into body', () => {
       instance.init()
 
-      expect($fixture.find('.modal')).to.exist
+      expect(instance.container).to.exist
     })
 
-    it('should call createDOM', sinon.test(function () {
+    it('should call @createModal', sinon.test(function () {
       let spy = this.spy(instance, 'createModal')
 
       instance.init()
@@ -51,99 +39,116 @@ describe('Modal spec', () => {
     }))
   })
 
-  describe('show', () => {
-    it('should call showModal', sinon.test(function () {
-      let spy = this.spy(instance, 'showModal')
-
+  describe('@show', () => {
+    beforeEach(() => {
       instance.init()
-      instance.show()
+    })
 
-      expect(spy.calledOnce).to.be.true
-    }))
-
-    it('should call bindListeners', sinon.test(function () {
+    it('should call @bindListeners', sinon.test(function () {
       let spy = this.spy(instance, 'bindListeners')
 
-      instance.init()
+      instance.show()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+
+    it('should call @showModal', sinon.test(function () {
+      let spy = this.spy(instance, 'showModal')
+
       instance.show()
 
       expect(spy.calledOnce).to.be.true
     }))
   })
 
-  describe('hide', () => {
-    it('should call hideModal', sinon.test(function () {
-      let spy = this.spy(instance, 'hideModal')
-
+  describe('@hide', () => {
+    beforeEach(() => {
       instance.init()
-      instance.hide()
+    })
 
-      expect(spy.calledOnce).to.be.true
-    }))
-
-    it('should call unbindListeners', sinon.test(function () {
+    it('should call @unbindListeners', sinon.test(function () {
       let spy = this.spy(instance, 'unbindListeners')
 
-      instance.init()
+      instance.hide()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+
+    it('should call @hideModal', sinon.test(function () {
+      let spy = this.spy(instance, 'hideModal')
+
       instance.hide()
 
       expect(spy.calledOnce).to.be.true
     }))
   })
 
-  describe('destroy', () => {
-    it('should destroy modal from DOM and instance from $element', () => {
+  describe('@destroy', () => {
+    beforeEach(() => {
       instance.init()
+    })
+
+    it('should remove data-modal attribute from instance element', () => {
+      const dataAttribute = 'data-modal'
+
+      instance.element.setAttribute(dataAttribute)
+
       instance.destroy()
 
-      expect($fixture.find('.modal').length).to.equal(0)
-      expect($fixture.find('[data-modal]').data('modal')).to.be.undefined
+      expect(instance.element.hasAttribute(dataAttribute)).to.be.false
+    })
+
+    it('should remove modal element from instance', () => {
+      const modalClass = 'modal'
+
+      instance.modal = document.createElement('div')
+      instance.modal.classList.add(modalClass)
+
+      instance.destroy()
+
+      expect(fixtureElement.querySelectorAll(`.${modalClass}`).length).to.equal(0)
     })
   })
 
-  describe('bindListeners', () => {
-    it('should hide modal when click in close', () => {
-      instance.init()
-      instance.show()
+  describe('@bindListeners', () => {
+    context('when triggerClose option is not null', () => {
+      beforeEach(() => {
+        instance.init()
+        instance.options.triggerClose = '[data-trigger="close"]'
+      })
 
-      instance.$close.trigger('click')
+      it('should register click event on triggerClose option',
+        sinon.test(function () {
+          const spy = this.spy(instance, 'hide')
+          const { triggerClose } = instance.options
+          const triggerCloseElement = instance.modal.querySelector(triggerClose)
 
-      expect(instance.$modal.hasClass('modal-show')).to.be.false
+          instance.bindListeners()
+
+          triggerEvent(triggerCloseElement, 'click')
+
+          expect(spy.called).to.be.true
+        })
+      )
     })
 
-    it('should bind triggerClose if user passes the selector as an option',
+    it('should register click event on instance.close element',
       sinon.test(function () {
-        let newInstance = new Modal($fixture.find('[data-modal]'),
-          { triggerClose: '[data-trigger="close"]' }
-        )
+        const spy = this.spy(instance, 'hide')
 
-        newInstance.init()
-        newInstance.show()
+        instance.init()
+        instance.bindListeners()
 
-        newInstance.$modal.find('[data-trigger="close"]').trigger('click')
+        triggerEvent(instance.close, 'click')
 
-        expect(newInstance.$modal.hasClass('modal-show')).to.be.false
+        expect(spy.calledOnce).to.be.true
       })
     )
 
-    it('should bind triggerOpen if user passes the selector as an option', sinon.test(function () {
-      let newInstance = new Modal($fixture.find('[data-modal]'),
-        { triggerOpen: '[data-trigger="open"]' }
-      )
-      let spy = this.spy(newInstance, 'show')
+    it('should call @bindKeyboardListener', sinon.test(function () {
+      const spy = this.spy(instance, 'bindKeyboardListener')
 
-      newInstance.init()
-
-      $('[data-trigger="open"]').trigger('click')
-
-      expect(spy.calledOnce).to.be.true
-    }))
-
-    it('should call bindKeyboardListener', sinon.test(function () {
       instance.init()
-      instance.show()
-      let spy = this.spy(instance, 'bindKeyboardListener')
-
       instance.bindListeners()
 
       expect(spy.calledOnce).to.be.true
@@ -156,7 +161,7 @@ describe('Modal spec', () => {
         instance.options.history = true
       })
 
-      it('should call bindModalShowListener', sinon.test(function () {
+      it('should call @bindModalShowListener', sinon.test(function () {
         const spy = this.spy(instance, 'bindModalShowListener')
 
         instance.bindListeners()
@@ -164,7 +169,7 @@ describe('Modal spec', () => {
         expect(spy.calledOnce).to.be.true
       }))
 
-      it('should call bindHashChangeListener', sinon.test(function () {
+      it('should call @bindHashChangeListener', sinon.test(function () {
         const spy = this.spy(instance, 'bindHashChangeListener')
 
         instance.bindListeners()
@@ -172,7 +177,7 @@ describe('Modal spec', () => {
         expect(spy.calledOnce).to.be.true
       }))
 
-      it('should call bindModalHideListener', sinon.test(function () {
+      it('should call @bindModalHideListener', sinon.test(function () {
         const spy = this.spy(instance, 'bindModalHideListener')
 
         instance.bindListeners()
@@ -182,64 +187,65 @@ describe('Modal spec', () => {
     })
   })
 
-  describe('bindKeyboardListener', () => {
+  describe('@onEscKeyPressed', () => {
+    let fakeEvent
+
+    beforeEach(() => {
+      fakeEvent = {
+        which: instance.options.keys.esc
+      }
+    })
+
+    context('when the event received has the Escape key code', () => {
+      it('should call @hide', sinon.test(function () {
+        const stub = this.stub(instance, 'hide')
+
+        instance.onEscKeyPressed(fakeEvent)
+
+        expect(stub.calledOnce).to.be.true
+      }))
+    })
+  })
+
+  describe('@bindKeyboardListener', () => {
     context('when keyboard option is set to true', () => {
       beforeEach(() => {
         instance.options.keyboard = true
       })
 
-      it('should call hide if escape key is pressed', sinon.test(function () {
-        let spy = this.spy(instance, 'hide')
+      it('should register keyup event on window element', sinon.test(function () {
+        let spy = this.spy(instance, 'onEscKeyPressed')
 
         instance.init()
         instance.bindKeyboardListener()
 
-        $(window).trigger({
-          type: 'keyup',
-          which: 27
-        })
+        triggerEvent(window, 'keyup')
 
         expect(spy.calledOnce).to.be.true
       }))
-
-      it('should not call hide with user press other key instead of escape',
-        sinon.test(function () {
-          let spy = this.spy(instance, 'hide')
-
-          instance.init()
-          instance.bindKeyboardListener()
-
-          $(window).trigger({
-            type: 'keyup',
-            which: 22
-          })
-
-          expect(spy.notCalled).to.be.true
-        })
-      )
     })
 
     context('when keyboard option is set to false', () => {
-      it('should not call hide if escape key is pressed',
+      beforeEach(() => {
+        instance.options.keyboard = false
+      })
+
+      it('should not register keyup event on window element',
         sinon.test(function () {
-          let spy = this.spy(instance, 'hide')
-          instance.options.keyboard = false
+          let spy = this.spy(instance, 'onEscKeyPressed')
 
           instance.init()
           instance.bindKeyboardListener()
 
-          $(window).trigger({
-            type: 'keyup',
-            which: 27
-          })
+          triggerEvent(window, 'keyup')
 
-          expect(spy.calledOnce).to.be.false
+          expect(spy.called).to.be.false
         })
       )
     })
   })
 
-  describe('bindModalShowListener', () => {
+  describe('@bindModalShowListener', () => {
     it('should change location hash when `modal:show` is emitted', () => {
       const hash = '#modal-open'
       instance.options.history = true
@@ -250,7 +256,7 @@ describe('Modal spec', () => {
     })
   })
 
-  describe('bindHashChangeListener', () => {
+  describe('@bindHashChangeListener', () => {
     context('when there is not a location hash', () => {
       it('should hide modal', sinon.test(function () {
         const spy = this.spy(instance, 'hide')
@@ -260,9 +266,7 @@ describe('Modal spec', () => {
 
         history.pushState(null, null, window.location.pathname)
 
-        $(window).trigger({
-          type: 'hashchange'
-        })
+        triggerEvent(window, 'hashchange')
 
         expect(spy.called).to.be.true
       }))
@@ -278,16 +282,14 @@ describe('Modal spec', () => {
 
         window.location.hash = hash
 
-        $(window).trigger({
-          type: 'hashchange'
-        })
+        triggerEvent(window, 'hashchange')
 
         expect(spy.called).to.be.false
       }))
     })
   })
 
-  describe('bindModalHideListener', () => {
+  describe('@bindModalHideListener', () => {
     it('should call `history.back` when `modal:hide` is emitted',
       sinon.test(function () {
         const spy = this.spy(history, 'back')
@@ -302,57 +304,55 @@ describe('Modal spec', () => {
     )
   })
 
-  describe('unbindListeners', () => {
-    it('should not call hide if close is clicked', sinon.test(function () {
+  describe('@unbindListeners', () => {
+    it('should not call @hide if close icon is clicked', sinon.test(function () {
       let spy = this.spy(instance, 'hide')
 
       instance.init()
-      instance.show()
       instance.unbindListeners()
 
-      instance.$close.trigger('click')
+      triggerEvent(instance.close, 'click')
 
-      expect(spy.notCalled).to.be.true
+      expect(spy.called).to.be.false
     }))
 
-    it('should not call hide if escape key is clicked', sinon.test(function () {
-      let spy = this.spy(instance, 'hide')
+    it('should not call @onEscKeyPressed on keyup event', sinon.test(function () {
+      let spy = this.spy(instance, 'onEscKeyPressed')
 
       instance.init()
-      instance.show()
       instance.unbindListeners()
 
-      $(window).trigger({
-        type: 'keyup',
-        which: 27
-      })
+      triggerEvent(window, 'keyup')
 
-      expect(spy.notCalled).to.be.true
+      expect(spy.called).to.be.false
     }))
   })
 
-  describe('bindTrigger', () => {
+  describe('@bindTrigger', () => {
     context('when instance.options.triggerOpen is setted', () => {
       beforeEach(() => {
-        const $triggerOpen = $('[data-trigger="open"]')
-        instance.options.triggerOpen = $triggerOpen
+        instance.init()
+        instance.options.triggerOpen = '[data-trigger="open"]'
       })
 
-      it('should call onTriggerOpenClick if the trigger is clicked', sinon.test(function () {
-        const stub = this.stub(instance, 'onTriggerOpenClick')
+      it('should call @onTriggerOpenClick if the trigger is clicked',
+        sinon.test(function () {
+          const stub = this.stub(instance, 'onTriggerOpenClick')
+          const { triggerOpen } = instance.options
+          const triggerOpenElement = document.querySelector(triggerOpen)
 
-        instance.init()
-        instance.bindTrigger()
+          instance.bindTrigger()
 
-        $(instance.options.triggerOpen).trigger('click')
+          triggerEvent(triggerOpenElement, 'click')
 
-        expect(stub.called).to.be.true
-      }))
+          expect(stub.called).to.be.true
+        })
+      )
     })
   })
 
-  describe('onTriggerOpenClick', () => {
-    it('should call preventDefault on the event', sinon.test(function () {
+  describe('@onTriggerOpenClick', () => {
+    it('should call @preventDefault on the event', sinon.test(function () {
       const fakeEvent = { preventDefault: () => {} }
       const preventDefault = this.stub(fakeEvent, 'preventDefault')
 
@@ -362,7 +362,7 @@ describe('Modal spec', () => {
       expect(preventDefault.calledOnce).to.be.true
     }))
 
-    it('should call instance.show()', sinon.test(function () {
+    it('should call @show', sinon.test(function () {
       const fakeEvent = { preventDefault: () => {} }
       const show = this.stub(instance, 'show')
 
@@ -373,8 +373,8 @@ describe('Modal spec', () => {
     }))
   })
 
-  describe('showModal', () => {
-    it('should emit `modal:show`', sinon.test(function () {
+  describe('@showModal', () => {
+    it('should emit modal:show event', sinon.test(function () {
       const stub = this.stub(emitter, 'emit')
 
       instance.init()
@@ -383,7 +383,7 @@ describe('Modal spec', () => {
       expect(stub.calledWith('modal:show'))
     }))
 
-    it('should remove `modal:show` listener from emitter',
+    it('should remove modal:show listener from emitter',
       sinon.test(function () {
         const stub = this.stub(emitter, 'removeAllListeners')
 
@@ -400,8 +400,8 @@ describe('Modal spec', () => {
 
       this.clock.tick(200)
 
-      expect(instance.$modal.hasClass('modal-enter modal-show')).to.be.true
-      expect(instance.$content.hasClass('modal-content-enter modal-content-show')).to.be.true
+      expect(instance.modal.classList.contains('modal-enter', 'modal-show')).to.be.true
+      expect(instance.content.classList.contains('modal-content-enter', 'modal-content-show')).to.be.true
     }))
 
     context('when a click is done outside the modal\'s content', () => {
@@ -411,14 +411,14 @@ describe('Modal spec', () => {
         instance.init()
         instance.show()
 
-        instance.$modal.trigger('click')
+        triggerEvent(instance.modal, 'click')
 
         expect(spy.calledOnce).to.be.true
       }))
     })
   })
 
-  describe('hideModal', () => {
+  describe('@hideModal', () => {
     context('when there is a hash in the location path', () => {
       it('should emit `modal:hide`', sinon.test(function () {
         const spy = this.spy(emitter, 'emit')
@@ -462,8 +462,8 @@ describe('Modal spec', () => {
       instance.showModal()
       instance.hideModal()
 
-      expect(instance.$modal.hasClass('modal-leave')).to.be.true
-      expect(instance.$content.hasClass('modal-content-leave')).to.be.true
+      expect(instance.modal.classList.contains('modal-leave')).to.be.true
+      expect(instance.content.classList.contains('modal-content-leave')).to.be.true
     })
 
     it('should remove animation class from modal and content', sinon.test(function () {
@@ -473,24 +473,24 @@ describe('Modal spec', () => {
 
       this.clock.tick(200)
 
-      expect(!instance.$modal.hasClass('modal-leave')).to.be.true
-      expect(!instance.$modal.hasClass('modal-content-leave')).to.be.true
+      expect(!instance.modal.classList.contains('modal-leave')).to.be.true
+      expect(!instance.modal.classList.contains('modal-content-leave')).to.be.true
     }))
   })
 
-  describe('onModalClick', () => {
+  describe('@onModalClick', () => {
     let fakeEvent
 
     beforeEach(() => {
-      const modal = $('<div></div>')
-      instance.$modal = modal
+      const modal = document.createElement('div')
+      instance.modal = modal
 
       fakeEvent = {
         target: modal
       }
     })
 
-    context('when event target is the $modal on a static modal', () => {
+    context('when event target is the modal on a static modal', () => {
       it('should not hide modal', sinon.test(function () {
         let stub = this.stub(instance, 'hideModal')
         instance.options.static = true
@@ -501,7 +501,7 @@ describe('Modal spec', () => {
       }))
     })
 
-    context('when event target is the $modal on a non static modal', () => {
+    context('when event target is the modal on a non static modal', () => {
       it('should hide modal', sinon.test(function () {
         let stub = this.stub(instance, 'hideModal')
         instance.options.static = false
@@ -512,12 +512,12 @@ describe('Modal spec', () => {
       }))
     })
 
-    context('when event target is different from $modal', () => {
+    context('when event target is different from modal', () => {
       beforeEach(() => {
-        instance.$modal = $('<div></div>')
+        instance.modal = document.createElement('div')
 
         fakeEvent = {
-          target: $('<div></div>')
+          target: document.createElement('div')
         }
       })
 
@@ -531,73 +531,76 @@ describe('Modal spec', () => {
     })
   })
 
-  describe('fillModal', () => {
-    it('should append html to $content', () => {
-      let html = '<div>Element</div>'
-      instance.$content = $('<div><div class="modal-body"></div></div>')
-      instance.$element = $(html)
+  describe('@fillModal', () => {
+    it('should append html to content element', () => {
+      instance.element = document.createElement('div')
+      instance.element.innerText = 'Element'
+      instance.content = document.createElement('div')
+      instance.content.innerHTML = '<div class="modal-body"></div>'
 
       instance.fillModal()
 
-      expect(instance.$content.find('.modal-body').html()).to.equal('Element')
+      expect(
+        instance.content.querySelector('.modal-body').innerText
+      ).to.equal('Element')
     })
   })
 
-  describe('createModal', () => {
+  describe('@createModal', () => {
     beforeEach(() => {
-      instance.$container = $('<div></div>')
+      instance.container = document.createElement('div')
       instance.options.static = false
     })
 
-    it('should set $modal', () => {
-      instance.$modal = undefined
+    it('should set modal', () => {
+      instance.modal = undefined
 
       instance.createModal()
 
-      expect(instance.$modal).to.not.be.undefined
+      expect(instance.modal).to.not.be.undefined
     })
 
-    it('should set $content', () => {
-      instance.$content = undefined
+    it('should set content', () => {
+      instance.content = undefined
 
       instance.createModal()
 
-      expect(instance.$content).to.not.be.undefined
+      expect(instance.content).to.not.be.undefined
     })
 
-    it('should set $close', () => {
-      instance.$close = undefined
+    it('should set close', () => {
+      instance.close = undefined
 
       instance.createModal()
 
-      expect(instance.$close).to.not.be.undefined
+      expect(instance.close).to.not.be.undefined
     })
 
-    it('should add the size class to $content', () => {
+    it('should add the size class to content', () => {
       const size = instance.setupSizeModal(instance.options.size)
 
       instance.createModal()
 
-      expect(instance.$content.hasClass(size)).to.be.true
+      expect(instance.content.classList.contains(size)).to.be.true
     })
 
-    it('should append $close in $content', () => {
+    it('should append close element to content element', () => {
       instance.createModal()
 
       expect(
-        instance.$content.html()
-      ).to.have.string(instance.$close.get(0).outerHTML)
+        instance.content.innerHTML
+      ).to.have.string(instance.close.outerHTML)
     })
 
-    it('should append $content in $modal', () => {
+    it('should append content element to modal element', () => {
       instance.createModal()
 
       expect(
-        instance.$modal.html()
-      ).to.have.string(instance.$content.html())
+        instance.modal.innerHTML
+      ).to.have.string(instance.content.outerHTML)
     })
 
-    it('should call bindTrigger', sinon.test(function () {
+    it('should call @bindTrigger', sinon.test(function () {
       let stub = this.stub(instance, 'bindTrigger')
 
       instance.createModal()
@@ -605,7 +608,7 @@ describe('Modal spec', () => {
       expect(stub.calledOnce).to.be.true
     }))
 
-    it('should call fillModal', sinon.test(function () {
+    it('should call @fillModal', sinon.test(function () {
       let stub = this.stub(instance, 'fillModal')
 
       instance.createModal()
@@ -614,19 +617,19 @@ describe('Modal spec', () => {
     }))
 
     context('when static option is set to true', () => {
-      it('should not append $close to $content', () => {
+      it('should not append close element to content element', () => {
         instance.options.static = true
 
         instance.createModal()
 
         expect(
-          instance.$content.html()
-        ).to.not.have.string(instance.$close.get(0).outerHTML)
+          instance.content.innerHTML
+        ).to.not.have.string(instance.close.outerHTML)
       })
     })
   })
 
-  describe('isStaticModal', () => {
+  describe('@isStaticModal', () => {
     context('when static option was set to true', () => {
       it('returns true', () => {
         instance.options.static = true
@@ -644,7 +647,7 @@ describe('Modal spec', () => {
     })
   })
 
-  describe('setupSizeModal', () => {
+  describe('@setupSizeModal', () => {
     context('when the size is small', () => {
       it('should return the modal-content-sm class ', () => {
         instance.options.size = 'small'
