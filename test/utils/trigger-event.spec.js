@@ -8,11 +8,9 @@ describe('triggerEvent util', () => {
   })
 
   it('should trigger the event passed as parameter', sinon.test(function () {
-    const spy = this.stub(element, 'dispatchEvent')
-    const eventObject = document.createEvent('HTMLEvents')
+    const spy = this.spy(element, 'dispatchEvent')
     const eventName = 'click'
-
-    eventObject.initEvent(eventName, false, true)
+    const eventObject = new Event(eventName)
 
     triggerEvent(element, eventName)
 
