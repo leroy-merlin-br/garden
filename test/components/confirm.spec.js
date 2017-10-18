@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import { Confirm } from '../../src/js/components/confirm'
 
 import triggerEvent from '../../src/js/utils/trigger-event'
