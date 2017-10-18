@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import { Confirm } from '../../src/js/components/confirm'
 
+import triggerEvent from '../../src/js/utils/trigger-event'
+
 describe('Confirm component', () => {
   let instance
 
@@ -55,12 +57,12 @@ describe('Confirm component', () => {
   })
 
   describe('@setupConfirm', () => {
-    it('should properly assign $element', () => {
-      instance.$element = undefined
+    it('should properly assign instance.element', () => {
+      instance.element = undefined
 
       instance.setupConfirm()
 
-      expect(instance.$element).to.exist
+      expect(instance.element).to.exist
     })
 
     it('should properly assign modal', () => {
@@ -77,20 +79,20 @@ describe('Confirm component', () => {
       instance.setupConfirm()
     })
 
-    it('should properly assign $confirmButton', () => {
-      instance.$confirmButton = undefined
+    it('should properly assign confirmButton element', () => {
+      instance.confirmButton = undefined
 
       instance.setupElements()
 
-      expect(instance.$confirmButton).to.exist
+      expect(instance.confirmButton).to.exist
     })
 
-    it('should properly assign $cancelButton', () => {
-      instance.$cancelButton = undefined
+    it('should properly assign cancelButton element', () => {
+      instance.cancelButton = undefined
 
       instance.setupElements()
 
-      expect(instance.$cancelButton).to.exist
+      expect(instance.cancelButton).to.exist
     })
   })
 
@@ -100,20 +102,20 @@ describe('Confirm component', () => {
       instance.setupElements()
     })
 
-    it('should bind @onConfirmClick as a handler to $confirmButton click event', sinon.test(function() {
+    it('should bind @onConfirmClick as a handler to confirmButton click event', sinon.test(function() {
       const stub = this.stub(instance, 'onConfirmClick')
 
       instance.bindListeners()
-      instance.$confirmButton.trigger('click')
+      triggerEvent(instance.confirmButton, 'click')
 
       expect(stub.calledOnce).to.be.true
     }))
 
-    it('should bind @onCancelClick as a handler to $cancelButton click event', sinon.test(function() {
+    it('should bind @onCancelClick as a handler to cancelButton click event', sinon.test(function() {
       const stub = this.stub(instance, 'onCancelClick')
 
       instance.bindListeners()
-      instance.$cancelButton.trigger('click')
+      triggerEvent(instance.cancelButton, 'click')
 
       expect(stub.calledOnce).to.be.true
     }))
@@ -162,7 +164,7 @@ describe('Confirm component', () => {
   describe('@showConfirm', () => {
     beforeEach(() => {
       instance.modal = { show () {} }
-      instance.$confirmButton = { focus () {} }
+      instance.confirmButton = { focus () {} }
     })
 
     it('should show the confirm component', sinon.test(function () {
@@ -174,7 +176,7 @@ describe('Confirm component', () => {
     }))
 
     it('should focus on the confirm button', sinon.test(function () {
-      const spy = this.spy(instance.$confirmButton, 'focus')
+      const spy = this.spy(instance.confirmButton, 'focus')
 
       instance.showConfirm()
 
