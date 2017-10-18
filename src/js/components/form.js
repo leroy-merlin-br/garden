@@ -3,8 +3,8 @@ import registerEvents from '../utils/register-events'
 
 const NAME = 'form'
 const DEFAULTS = {
-  events: ['change'],
-  selectors: ['.input', 'select', '.select', '.textarea']
+  events: 'change',
+  selectors: '.input, select, .select, .textarea'
 }
 
 class Form {
@@ -17,8 +17,8 @@ class Form {
   }
 
   bindListeners () {
-    const { events, selectors } = this.options
-    this.elements = this.element.querySelectorAll(selectors)
+    const events = this.options.events.replace(/\s/g, '').split(',')
+    this.elements = this.element.querySelectorAll(this.options.selectors)
 
     registerEvents(this.elements, events, ({ target }) => this.toggleActiveClass(target))
   }
