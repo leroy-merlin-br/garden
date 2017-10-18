@@ -53,17 +53,19 @@ class Modal {
   }
 
   bindListeners () {
-    if (this.options.triggerClose) {
-      const triggerClose = this.modal.querySelector(this.options.triggerClose)
+    const { triggerClose, history } = this.options
 
-      triggerClose.addEventListener('click', this.hide.bind(this))
+    if (triggerClose) {
+      const triggerCloseElement = this.modal.querySelector(triggerClose)
+
+      triggerCloseElement.addEventListener('click', this.hide.bind(this))
     }
 
     this.close.addEventListener('click', this.hide.bind(this))
 
     this.bindKeyboardListener()
 
-    if (this.options.history) {
+    if (history) {
       this.bindModalShowListener()
       this.bindHashChangeListener()
       this.bindModalHideListener()
