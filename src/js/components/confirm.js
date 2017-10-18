@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import Modal from './modal'
 
+import domParser from '../utils/dom-parser'
+
 const NAME = 'confirm'
 
 const DEFAULTS = {
@@ -15,7 +17,7 @@ const DEFAULTS = {
 
 class Confirm {
   constructor (callback, options = {}) {
-    this.options = $.extend({}, DEFAULTS, options)
+    this.options = { ...DEFAULTS, ...options }
     this.callback = callback
   }
 
@@ -27,20 +29,22 @@ class Confirm {
   }
 
   setupConfirm () {
-    this.$element = $(this.buildHtml(this.options))
+    this.element = domParser(this.buildHtml(this.options))
 
-    this.modal = this.$element.modal(this.options).data('modal')
+    this.modal = new Modal(this.element, this.options).init()
+    this.modal.element.setAttribute('data-modal', '')
   }
 
   setupElements () {
-    const { $content } = this.modal
-    this.$confirmButton = $content.find(this.options.triggerConfirm)
-    this.$cancelButton = $content.find(this.options.triggerCancel)
+    const { content } = this.modal
+
+    this.confirmButton = content.querySelector(this.options.triggerConfirm)
+    this.cancelButton = content.querySelector(this.options.triggerCancel)
   }
 
   bindListeners () {
-    this.$confirmButton.on('click', this.onConfirmClick.bind(this))
-    this.$cancelButton.on('click', this.onCancelClick.bind(this))
+    this.confirmButton.addEventListener('click', this.onConfirmClick.bind(this))
+    this.cancelButton.addEventListener('click', this.onCancelClick.bind(this))
   }
 
   onConfirmClick () {
@@ -55,7 +59,7 @@ class Confirm {
 
   showConfirm () {
     this.modal.show()
-    this.$confirmButton.focus()
+    this.confirmButton.focus()
   }
 
   hideConfirm () {
