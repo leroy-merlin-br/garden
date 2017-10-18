@@ -101,23 +101,27 @@ describe('Confirm component', () => {
       instance.setupElements()
     })
 
-    it('should bind @onConfirmClick as a handler to confirmButton click event', sinon.test(function() {
-      const stub = this.stub(instance, 'onConfirmClick')
+    it('should bind @onConfirmClick as a handler to confirmButton click event',
+      sinon.test(function() {
+        const stub = this.stub(instance, 'onConfirmClick')
 
-      instance.bindListeners()
-      triggerEvent(instance.confirmButton, 'click')
+        instance.bindListeners()
+        triggerEvent(instance.confirmButton, 'click')
 
-      expect(stub.calledOnce).to.be.true
-    }))
+        expect(stub.calledOnce).to.be.true
+      })
+    )
 
-    it('should bind @onCancelClick as a handler to cancelButton click event', sinon.test(function() {
-      const stub = this.stub(instance, 'onCancelClick')
+    it('should bind @onCancelClick as a handler to cancelButton click event',
+      sinon.test(function() {
+        const stub = this.stub(instance, 'onCancelClick')
 
-      instance.bindListeners()
-      triggerEvent(instance.cancelButton, 'click')
+        instance.bindListeners()
+        triggerEvent(instance.cancelButton, 'click')
 
-      expect(stub.calledOnce).to.be.true
-    }))
+        expect(stub.calledOnce).to.be.true
+      })
+    )
   })
 
   describe('@onConfirmClick', () => {

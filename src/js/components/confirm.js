@@ -29,11 +29,9 @@ class Confirm {
   }
 
   setupConfirm () {
-    const { options } = this
+    this.element = domParser(this.buildHtml(this.options))
 
-    this.element = domParser(this.buildHtml(options))
-
-    this.modal = new Modal(this.element, options).init()
+    this.modal = new Modal(this.element, this.options).init()
     this.modal.element.setAttribute('data-modal', '')
   }
 
