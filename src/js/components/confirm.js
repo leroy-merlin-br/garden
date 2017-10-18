@@ -16,7 +16,7 @@ const DEFAULTS = {
 }
 
 class Confirm {
-  constructor (callback, options = {}) {
+  constructor (callback, options) {
     this.options = { ...DEFAULTS, ...options }
     this.callback = callback
   }
@@ -29,17 +29,20 @@ class Confirm {
   }
 
   setupConfirm () {
-    this.element = domParser(this.buildHtml(this.options))
+    const { options } = this
 
-    this.modal = new Modal(this.element, this.options).init()
+    this.element = domParser(this.buildHtml(options))
+
+    this.modal = new Modal(this.element, options).init()
     this.modal.element.setAttribute('data-modal', '')
   }
 
   setupElements () {
     const { content } = this.modal
+    const { triggerConfirm, triggerCancel } = this.options
 
-    this.confirmButton = content.querySelector(this.options.triggerConfirm)
-    this.cancelButton = content.querySelector(this.options.triggerCancel)
+    this.confirmButton = content.querySelector(triggerConfirm)
+    this.cancelButton = content.querySelector(triggerCancel)
   }
 
   bindListeners () {
