@@ -1,7 +1,4 @@
 import Popper from 'popper.js'
-import $ from 'jquery'
-
-const NAME = 'tooltip'
 
 const DEFAULTS = {
   placement: 'top'
@@ -10,42 +7,31 @@ const DEFAULTS = {
 class Tooltip {
   constructor (element, options = {}) {
     this.element = element
-    this.target = this._getTarget()
+    this.target = this.getTarget()
     this.options = { ...DEFAULTS, ...options }
   }
 
   init () {
-    this._registerPopper()
+    this.registerComponent()
 
     return this
   }
 
-  _getTarget () {
+  getTarget () {
     const targetName = this.element.getAttribute('data-tooltip')
 
     return this.element.querySelectorAll(targetName)
   }
 
-  _buildPopper () {
+  buildPopper () {
     return new Popper(this.element, this.target[0], this.options)
   }
 
-  _registerPopper () {
-    const popper = this._buildPopper()
+  registerComponent () {
+    const popper = this.buildPopper()
 
-    $(this.element).data('popper', popper)
+    this.element.attributes.component = popper
   }
-}
-
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Tooltip(this, options).init())
-    }
-  })
 }
 
 export default Tooltip
