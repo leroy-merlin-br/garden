@@ -4,6 +4,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai', 'sinon', 'fixture'],
     files: [
       'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/element-closest/element-closest.js',
       'test/fixture/**/*.html',
       'test/entry.js'
     ],

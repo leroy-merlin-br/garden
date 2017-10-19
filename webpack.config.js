@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     garden: [
       'classlist.js',
+      'element-closest',
       './src/js/entry.js'
     ]
   },
