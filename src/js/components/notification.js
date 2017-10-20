@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import transitionEnd from '../utils/transitionend'
+import domParser from '../utils/dom-parser'
 
 const NAME = 'notification'
 
@@ -28,8 +29,8 @@ const templates = {
 
 class Notification {
   constructor (element, options) {
-    this.$element = (element instanceof $) ? element : $(element)
-    this.options = $.extend({}, DEFAULTS, options)
+    this.element = element
+    this.options = { ...DEFAULTS, ...options }
   }
 
   /**
@@ -37,16 +38,14 @@ class Notification {
    * show notifiction based on showIn config
    */
   init () {
-    this._createNotification()
+    const { dynamic, showIn } = this.options
+
+    this.createNotification()
     this.bindListeners()
 
-    if (!this.options.dynamic) {
-      return this
+    if (dynamic) {
+      window.setTimeout(this.show.bind(this), showIn)
     }
-
-    window.setTimeout(() => {
-      this.show()
-    }, this.options.showIn)
 
     return this
   }
@@ -55,25 +54,21 @@ class Notification {
    * Bind close button
    */
   bindListeners () {
-    this.$closeHandler = () => {
-      this.hide()
-    }
-
-    this.$close.on('click', this.$closeHandler)
+    this.close.addEventListener('click', this.hide.bind(this))
   }
 
   /**
    * show notification, if autoHide is true, hide box after hideIn timing config
    */
   show () {
-    this.$box
-      .addClass(classNames.show)
-      .removeClass(classNames.hide)
+    const { show, hide } = classNames
+    const { autoHide, hideIn } = this.options
 
-    if (this.options.autoHide) {
-      window.setTimeout(() => {
-        this.hide()
-      }, this.options.hideIn)
+    this.box.classList.add(show)
+    this.box.classList.remove(hide)
+
+    if (autoHide) {
+      window.setTimeout(this.hide.bind(this), hideIn)
     }
   }
 
@@ -81,15 +76,14 @@ class Notification {
    * hide notification and after hide animation finish, add display: none to element
    */
   hide () {
-    this.$box
-      .removeClass(classNames.show)
-      .addClass(classNames.leave)
+    const { show, hide, enter, leave } = classNames
 
-    this.$box.on(transitionEnd(), () => {
-      this.$box
-        .addClass(classNames.hide)
-        .removeClass(classNames.enter)
-        .removeClass(classNames.leave)
+    this.box.classList.remove(show)
+    this.box.classList.add(leave)
+
+    this.box.addEventListener(transitionEnd(), () => {
+      this.box.classList.add(hide)
+      this.box.classList.remove(enter, leave)
     })
   }
 
@@ -97,43 +91,42 @@ class Notification {
    * Remove data from $element, unbind close button and remove box from DOM
    */
   destroy () {
-    this.$element.removeData(NAME)
-    this.$close.off('click', this.$closeHandler)
-    this.$box.remove()
+    this.element.removeAttribute(`data-${NAME}`)
+    this.close.removeEventListener('click', this.hide.bind(this))
+    this.box.remove()
   }
 
   /**
    * Add notification class, append close button and message
    */
-  _createNotification () {
-    if (!this.options.dynamic) {
-      this.$box = this.$element
-      this._createCloseButton()
+  createNotification () {
+    const { dynamic, message, type } = this.options
 
-      return
+    if (!dynamic) {
+      this.box = this.element
+      return this.createCloseButton()
     }
 
-    if (!this.options.message) {
-      return
+    if (message) {
+      this.box = domParser(templates.box)
+      this.box.classList.add(`${NAME}-${type}`)
+      this.box.innerHTML = message
+
+      this.createCloseButton()
+      this.element.appendChild(this.box)
     }
-
-    this.$box = $(templates.box)
-    this.$box.addClass(`${NAME}-${this.options.type}`)
-    this.$box.html(this.options.message)
-
-    this._createCloseButton()
-    this.$element.append(this.$box)
   }
 
-  _createCloseButton () {
-    if (!this.options.dynamic) {
-      this.$close = this.$box.find(this.options.closeButton)
+  createCloseButton () {
+    const { dynamic, closeButton } = this.options
 
-      return this.$close
+    if (!dynamic) {
+      this.close = this.box.querySelector(closeButton)
+      return this.close
     }
 
-    this.$close = $(templates.close)
-    this.$box.append(this.$close)
+    this.close = domParser(templates.close)
+    this.box.appendChild(this.close)
   }
 }
 
