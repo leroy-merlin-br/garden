@@ -22,12 +22,12 @@ A front end library to help you make *​your*​ grass greener than the other s
 You can manually [download our latest release](#latest-release-link), or install with npm/Bower:
 
 ### NPM
-```
+```sh
 npm install garden
 ```
 
 ### Bower
-```
+```sh
 bower install garden
 ```
 
@@ -35,13 +35,13 @@ bower install garden
 
 CSS
 
-```
+```html
 <link href="https://unpkg.com/garden/dist/css/garden.min.css" rel="stylesheet">
 ```
 
 JavaScript
 
-```
+```html
 <script scr="https://unpkg.com/garden/dist/js/garden.min.js"></script>
 ```
 
