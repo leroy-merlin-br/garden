@@ -1,11 +1,12 @@
-import $ from 'jquery'
 import { Alert } from '../../src/js/components/alert'
+
+import domParser from '../../src/js/utils/dom-parser'
 
 describe('Alert component', () => {
   let instance
 
   beforeEach(() => {
-    instance = new Alert($('<div />'))
+    instance = new Alert()
   })
 
   describe('@init', () => {
@@ -29,28 +30,31 @@ describe('Alert component', () => {
   })
 
   describe('@setupAlert', () => {
-    it('should properly assign $element', () => {
-      instance.$element = undefined
+    it('should properly assign instance.element', () => {
+      instance.element = undefined
 
       instance.setupAlert()
 
-      expect(instance.$element).to.not.be.undefined
+      expect(instance.element).to.exist
     })
 
-    it('should properly assign modal', () => {
+    it('should properly assign instance.modal', () => {
       instance.modal = undefined
 
       instance.setupAlert()
 
-      expect(instance.modal).to.not.be.undefined
+      expect(instance.modal).to.exist
     })
   })
 
   describe('@showAlert', () => {
     beforeEach(() => {
+      const content = document.createElement('div')
+      content.innerHTML = '<button data-alert-button>Ok</button>'
+
       instance.modal = {
         show () {},
-        $content: $('<div><button data-alert-button>Ok</button></div>')
+        content
       }
     })
 
@@ -65,7 +69,8 @@ describe('Alert component', () => {
     it('should focus on the alert button', sinon.test(function () {
       const button = { focus () {} }
       const spy = this.spy(button, 'focus')
-      this.stub(instance.modal.$content, 'find').returns(button)
+
+      this.stub(instance.modal.content, 'querySelector').returns(button)
 
       instance.showAlert()
 
@@ -85,16 +90,18 @@ describe('Alert component', () => {
   })
 
   describe('@buildHtml', () => {
-    it('should have the data-alert-text', () => {
-      const html = instance.buildHtml('string', 'string')
+    let html
 
-      expect($(html).find('[data-alert-text]')).to.not.be.undefined
+    beforeEach(() => {
+      html = domParser(instance.buildHtml('string', 'string'))
+    })
+
+    it('should have the data-alert-text', () => {
+      expect(html.querySelector('[data-alert-text]')).to.exist
     })
 
     it('should have the data-alert-button', () => {
-      const html = instance.buildHtml('string', 'string')
-
-      expect($(html).find('[data-alert-button]')).to.not.be.undefined
+      expect(html.querySelector('[data-alert-button]')).to.exist
     })
   })
 })

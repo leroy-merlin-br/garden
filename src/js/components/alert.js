@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import Modal from './modal'
 
+import domParser from '../utils/dom-parser'
+
 const NAME = 'alert'
 
 const DEFAULTS = {
@@ -11,8 +13,8 @@ const DEFAULTS = {
 }
 
 class Alert {
-  constructor (options = {}) {
-    this.options = $.extend({}, DEFAULTS, options)
+  constructor (options) {
+    this.options = { ...DEFAULTS, ...options }
   }
 
   init () {
@@ -22,17 +24,18 @@ class Alert {
 
   setupAlert () {
     const { textMessage, textButton, size, triggerClose } = this.options
-    this.$element = $(this.buildHtml(textMessage, textButton))
 
-    this.modal = $(this.$element).modal({ triggerClose, size }).data('modal')
+    this.element = domParser(this.buildHtml(textMessage, textButton))
+
+    this.modal = new Modal(this.element, { triggerClose, size }).init()
+    this.modal.element.setAttribute('data-modal', '')
   }
 
   showAlert () {
-    const { modal } = this
     const { triggerClose } = this.options
 
-    modal.show()
-    modal.$content.find(triggerClose).focus()
+    this.modal.show()
+    this.modal.content.querySelector(triggerClose).focus()
   }
 
   hideAlert () {
