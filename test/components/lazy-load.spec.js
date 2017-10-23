@@ -1,9 +1,7 @@
-import $ from 'jquery'
 import LazyLoad from '../../src/js/components/lazy-load'
-
 import triggerEvent from '../../src/js/utils/trigger-event'
 
-describe.only('LazyLoad spec', () => {
+describe('LazyLoad spec', () => {
   let instance, fixtureElement
 
   before(() => {
@@ -12,7 +10,7 @@ describe.only('LazyLoad spec', () => {
 
   beforeEach(() => {
     fixtureElement = fixture.load('lazy-load.html')[0]
-    instance = new LazyLoad(fixtureElement.querySelector('[data-lazy]'))
+    instance = new LazyLoad(fixtureElement.querySelectorAll('[data-lazy]'))
   })
 
   afterEach(() => {
@@ -21,109 +19,162 @@ describe.only('LazyLoad spec', () => {
   })
 
   describe('constructor', () => {
-    it('should call bindListeners and checkVisiblePlaceholders on init', sinon.test(function () {
-      this.spy(instance, 'bindListeners')
-      this.spy(instance, 'checkVisiblePlaceholders')
-      instance.init()
-
-      expect(instance.bindListeners.calledOnce).to.be.true
-      expect(instance.checkVisiblePlaceholders.calledOnce).to.be.true
-    }))
-  })
-
-  describe.only('bindListeners', () => {
-    /*it('should create onScrollHandler and bind to $(window).on(scroll)', sinon.test(function () {
-      instance.init()
-
-      expect(instance.onScrollHandler).to.be.defined
-      expect()
-    }))
-    */
-    it('should create onScrollHandler', () => {
-      instance.bindListeners()
-
-      expect(instance.onScrollHandler).to.exist
+    it('should create instance.element', () => {
+      expect(instance.element).to.exist
     })
 
-    // it('should call onScrollHandler on scroll event', sinon.test(function(){
-    //   const stub = this.stub()
-    //   window.addEventListener('scroll', stub)
-    //   const event = new Event('scroll')
-    //   window.dispatchEvent(event)
-    //   expect(stub.called).to.be.true
-    // }))
+    it('should create instance.options', () => {
+      expect(instance.options).to.exist
+    })
+  })
 
-    it('should call onScrollHandler', sinon.test(function () {
-      const stub = this.stub(instance, 'onScrollHandler')
+  describe('@init', () => {
+    it('should call @bindListeners', sinon.test(function () {
+      const stub = this.stub(instance, 'bindListeners')
+      this.stub(instance, 'checkVisiblePlaceholders')
+
+      instance.init()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+
+    it('shoudl call @checkVisiblePlaceholders', sinon.test(function () {
+      const stub = this.stub(instance, 'checkVisiblePlaceholders')
+      this.stub(instance, 'bindListeners')
+
+      instance.init()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+  })
+
+  describe('@bindListeners', () => {
+    it('should call window.addEventListener', sinon.test(function () {
+      const stub = this.stub(window, 'addEventListener')
 
       instance.bindListeners()
-      triggerEvent(window, 'scroll')
 
-      expect(stub.called).to.be.true
+      expect(stub.calledOnce).to.be.true
     }))
+
+    context('when scroll event is triggered', () => {
+      it('should call @onScrollHandler', sinon.test(function () {
+        const stub = this.stub(instance, 'onScrollHandler')
+
+        instance.bindListeners()
+        triggerEvent(window, 'scroll')
+
+        expect(stub.calledOnce).to.be.true
+      }))
+    })
   })
 
-  describe('onScroll', () => {
-    it('should call checkVisiblePlaceholders if there are elements to check', sinon.test(function () {
-      this.spy(instance, 'checkVisiblePlaceholders')
+  // describe('@onScrollHandler', () => {
+  //   it('should call @onScroll', sinon.test(function () {
+  //     const stub = this.spy(instance, 'onScroll')
 
-      instance.element.length = 1
+  //     instance.onScrollHandler()
+  //     this.clock.tick(instance.options.throttle)
 
-      instance.onScroll()
+  //     console.log(instance.options.throttle)
 
-      expect(instance.checkVisiblePlaceholders.calledOnce).to.be.true
-    }))
+  //     expect(stub.calledOnce).to.be.true
+  //   }))
+  // })
 
-    it('should not call checkVisiblePlaceholders if there are no elements to check', sinon.test(function () {
-      this.spy(instance, 'checkVisiblePlaceholders')
+  describe('@onScroll', () => {
+    context('if element has length', () => {
+      it('should call @checkVisiblePlaceholders', sinon.test(function (){
+        const stub = this.stub(instance, 'checkVisiblePlaceholders')
 
-      delete instance.element.length
+        instance.onScroll()
 
-      instance.onScroll()
+        expect(stub.calledOnce).to.be.true
+      }))
+    })
+    context('if element dont have length', () => {
+      it('should remove scroll event from of window', sinon.test(function () {
+        const stub = this.stub(instance, 'onScrollHandler')
 
-      expect(instance.checkVisiblePlaceholders.notCalled).to.be.true
-      expect($._data(window).events).to.not.be.defined
-    }))
+        instance.element = ''
+        instance.onScroll()
+
+        triggerEvent(window, 'scroll')
+
+        expect(stub.calledOnce).to.be.not.true
+      }))
+    })
   })
 
-  describe('checkPlaceholder', () => {
-    it('should call renderImage and if placeholder is visible', sinon.test(function () {
-      this.stub(instance, 'isPlaceholderVisible').returns(true)
-      this.spy(instance, 'renderImage')
+  describe('@checkVisiblePlaceholders', () => {
 
-      instance.checkPlaceholder(instance.element)
+    it('should have a windowHeight property', () => {
 
-      expect(instance.renderImage.calledOnce).to.be.true
+      instance.checkVisiblePlaceholders()
+
+      expect(instance).to.have.property('windowHeight')
+
+    })
+
+    it('should have a windowWidth property', () => {
+
+      instance.checkVisiblePlaceholders()
+
+      expect(instance).to.have.property('windowWidth')
+
+    })
+
+    it('should call @checkPlaceholder', sinon.test(function() {
+
+      const spy = this.spy(instance, 'isPlaceholderVisible')
+
+      instance.checkVisiblePlaceholders()
+
+      expect(spy.calledWith(instance.element[0])).to.be.true
+
     }))
 
-    it('should not call renderImage and if placeholder is not visible', sinon.test(function () {
-      this.stub(instance, 'isPlaceholderVisible').returns(false)
-      this.spy(instance, 'renderImage')
-
-      instance.checkPlaceholder()
-
-      expect(instance.renderImage.notCalled).to.be.true
-    }))
   })
 
-  describe('renderImage', () => {
-    it('should call parseBreakpoints if the image is a srcset image', sinon.test(function () {
-      this.stub(instance, 'isPlaceholderVisible').returns(true)
-      this.spy(instance, 'parseBreakpoints')
+  describe('@isPlaceholderVisible', () =>{
+    context('when placeholder parameter', () =>{
+      it('is valid', sinon.test(function(){
 
-      console.log(instance.element)
-      instance.checkPlaceholder(instance.element)
+        const spy = this.spy(instance, 'isPlaceholderVisible')
 
-      expect(instance.parseBreakpoints.calledOnce).to.be.true
-    }))
+        expect(spy.calledWith(instance.element[0])).to.be.truthy
+
+      }))
+
+      it('if not valid', sinon.test(function() {
+
+        const spy = this.stub(instance, 'isPlaceholderVisible')
+
+        expect(spy.calledWith('not valid value')).to.equal(false)
+      }))
+
+    })
   })
 
-  describe('parseBreakpoints', () => {
-    it('should set the [src] attr based on the window width', sinon.test(function () {
-      instance.windowWidth = 1000
+  describe('@renderImage', () => {
 
-      expect(instance.parseBreakpoints(document.createElement('div'), 'src/0 0, src/100 100, src/1000 1000').src)
-        .to.contain('1000')
-    }))
+    context('when call @renderImage', () => {
+
+      it('if don\'t send placeholder parameter', sinon.test(function(){
+        const spy = this.spy(instance, 'renderImage')
+
+        expect(spy.calledOnce).to.be.false
+      }))
+
+      it('should call @createImage', sinon.test(function() {
+        const spy =  this.spy(instance, 'createImage')
+
+        instance.renderImage(instance.element[0])
+
+        expect(spy.calledOnce).to.be.true
+      }))
+
+    })
   })
+
 })
