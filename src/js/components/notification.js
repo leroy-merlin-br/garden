@@ -31,6 +31,7 @@ class Notification {
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
+    this.hideEvent = this.hide.bind(this)
   }
 
   /**
@@ -54,7 +55,9 @@ class Notification {
    * Bind close button
    */
   bindListeners () {
-    this.close.addEventListener('click', this.hide.bind(this))
+    if (this.close) {
+      this.close.addEventListener('click', this.hideEvent)
+    }
   }
 
   /**
@@ -68,7 +71,7 @@ class Notification {
     this.box.classList.remove(hide)
 
     if (autoHide) {
-      window.setTimeout(this.hide.bind(this), hideIn)
+      window.setTimeout(this.hideEvent, hideIn)
     }
   }
 
@@ -92,7 +95,11 @@ class Notification {
    */
   destroy () {
     this.element.removeAttribute(`data-${NAME}`)
-    this.close.removeEventListener('click', this.hide.bind(this))
+
+    if (this.close) {
+      this.close.removeEventListener('click', this.hideEvent)
+    }
+
     this.box.remove()
   }
 
