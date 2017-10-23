@@ -1,17 +1,18 @@
 import $ from 'jquery'
 import LazyLoad from '../../src/js/components/lazy-load'
 
+import triggerEvent from '../../src/js/utils/trigger-event'
+
 describe.only('LazyLoad spec', () => {
-  let instance, $fixture
+  let instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
   })
 
   beforeEach(() => {
-    $fixture = fixture.load('lazy-load.html')[0]
-    instance = new LazyLoad($fixture.querySelector('[data-lazy]'))
-
+    fixtureElement = fixture.load('lazy-load.html')[0]
+    instance = new LazyLoad(fixtureElement.querySelector('[data-lazy]'))
   })
 
   afterEach(() => {
@@ -53,11 +54,12 @@ describe.only('LazyLoad spec', () => {
     // }))
 
     it('should call onScrollHandler', sinon.test(function () {
+      const stub = this.stub(instance, 'onScrollHandler')
+
       instance.bindListeners()
-      const event = new Event('scroll')
-      window.dispatchEvent(event)
-      const spy = this.spy(instance, 'onScrollHandler')
-      expect(spy.calledOnce).to.be.true
+      triggerEvent(window, 'scroll')
+
+      expect(stub.called).to.be.true
     }))
   })
 
