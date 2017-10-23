@@ -28,11 +28,13 @@ class LazyLoad {
   }
 
   onScrollHandler () {
-    return throttle(this.onScroll.bind(this), this.options.throttle)
+    throttle(this.onScroll.bind(this), this.options.throttle)
   }
 
   onScroll () {
-    return this.element.length ? this.checkVisiblePlaceholders() : window.removeEventListener('scroll', this.onScrollHandler)
+    return this.element.length ?
+      this.checkVisiblePlaceholders() :
+      window.removeEventListener('scroll', this.onScrollHandler)
   }
 
   checkVisiblePlaceholders () {
@@ -50,6 +52,9 @@ class LazyLoad {
   }
 
   isPlaceholderVisible (placeholder) {
+    if (typeof placeholder !== 'object'){
+      return false
+    }
     return placeholder.getBoundingClientRect().top <= (this.windowHeight + this.options.offset)
   }
 
@@ -66,12 +71,10 @@ class LazyLoad {
 
     if (placeholder.getAttribute('data-srcset')) {
       this.parseBreakpoints(image, placeholder.getAttribute('data-srcset'))
-
       return image
     }
 
     image.src = placeholder.getAttribute('data-src')
-
     return image
   }
 
