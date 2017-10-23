@@ -11,9 +11,9 @@ const DEFAULTS = {
 }
 
 class LazyLoad {
-  constructor (element, options = {}) {
+  constructor (element, options) {
     this.element = element
-    this.options = {...DEFAULTS, ...options}
+    this.options = { ...DEFAULTS, ...options }
   }
 
   init () {
@@ -24,8 +24,11 @@ class LazyLoad {
   }
 
   bindListeners () {
-    this.onScrollHandler = throttle(this.onScroll.bind(this), this.options.throttle)
-    window.addEventListener('scroll', this.onScrollHandler, false)
+    window.addEventListener('scroll', this.onScrollHandler.bind(this))
+  }
+
+  onScrollHandler () {
+    return throttle(this.onScroll.bind(this), this.options.throttle)
   }
 
   onScroll () {
@@ -92,8 +95,7 @@ class LazyLoad {
         src: breakpoint[0],
         width: breakpoint[1]
       }
-    })
-    .sort((a, b) => b.width - a.width)
+    }).sort((a, b) => b.width - a.width)
 
     for (let i = 0; i < breakpoints.length; i++) {
       let breakpoint = breakpoints[i]
