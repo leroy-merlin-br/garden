@@ -18,11 +18,11 @@ class Alert {
   }
 
   init () {
-    this.setupAlert()
-    this.showAlert()
+    this.setupElement()
+    this.show()
   }
 
-  setupAlert () {
+  setupElement () {
     const { textMessage, textButton, size, triggerClose } = this.options
 
     this.element = domParser(this.buildHtml(textMessage, textButton))
@@ -31,14 +31,14 @@ class Alert {
     this.modal.element.setAttribute('data-modal', '')
   }
 
-  showAlert () {
+  show () {
     const { triggerClose } = this.options
 
     this.modal.show()
     this.modal.content.querySelector(triggerClose).focus()
   }
 
-  hideAlert () {
+  hide () {
     this.modal.hide()
   }
 

@@ -10,18 +10,18 @@ describe('Alert component', () => {
   })
 
   describe('@init', () => {
-    it('should call @setupAlert', sinon.test(function () {
-      const stub = this.stub(instance, 'setupAlert')
-      this.stub(instance, 'showAlert')
+    it('should call @setupElement', sinon.test(function () {
+      const stub = this.stub(instance, 'setupElement')
+      this.stub(instance, 'show')
 
       instance.init()
 
       expect(stub.calledOnce).to.be.true
     }))
 
-    it('should call @showAlert', sinon.test(function () {
-      const stub = this.stub(instance, 'showAlert')
-      this.stub(instance, 'setupAlert')
+    it('should call @show', sinon.test(function () {
+      const stub = this.stub(instance, 'show')
+      this.stub(instance, 'setupElement')
 
       instance.init()
 
@@ -29,11 +29,11 @@ describe('Alert component', () => {
     }))
   })
 
-  describe('@setupAlert', () => {
+  describe('@setupElement', () => {
     it('should properly assign instance.element', () => {
       instance.element = undefined
 
-      instance.setupAlert()
+      instance.setupElement()
 
       expect(instance.element).to.exist
     })
@@ -41,13 +41,13 @@ describe('Alert component', () => {
     it('should properly assign instance.modal', () => {
       instance.modal = undefined
 
-      instance.setupAlert()
+      instance.setupElement()
 
       expect(instance.modal).to.exist
     })
   })
 
-  describe('@showAlert', () => {
+  describe('@show', () => {
     beforeEach(() => {
       const content = document.createElement('div')
       content.innerHTML = '<button data-alert-button>Ok</button>'
@@ -61,7 +61,7 @@ describe('Alert component', () => {
     it('should show the alert component', sinon.test(function () {
       const stub = this.stub(instance.modal, 'show')
 
-      instance.showAlert()
+      instance.show()
 
       expect(stub.calledOnce).to.be.true
     }))
@@ -72,18 +72,18 @@ describe('Alert component', () => {
 
       this.stub(instance.modal.content, 'querySelector').returns(button)
 
-      instance.showAlert()
+      instance.show()
 
       expect(spy.calledOnce).to.be.true
     }))
   })
 
-  describe('@hideAlert', () => {
+  describe('@hide', () => {
     it('should hide the alert component', sinon.test(function () {
       instance.modal = { hide () {} }
       const stub = this.stub(instance.modal, 'hide')
 
-      instance.hideAlert()
+      instance.hide()
 
       expect(stub.calledOnce).to.be.true
     }))
