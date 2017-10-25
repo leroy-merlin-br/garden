@@ -24,7 +24,7 @@ describe('Notification spec', () => {
   })
 
   describe('@init', () => {
-    it('should create notification in DOM', sinon.test(function () {
+    it('should call @createNotification', sinon.test(function () {
       const spy = this.spy(instance, 'createNotification')
 
       instance.init()
@@ -40,15 +40,33 @@ describe('Notification spec', () => {
       expect(spy.calledOnce).to.be.true
     }))
 
-    it('should show notification when @init based on showIn timer', sinon.test(function () {
-      const spy = this.spy(instance, 'show')
+    context('when the dynamic option is set to true', () => {
+      it('should call @show after duration specified in showIn option',
+        sinon.test(function () {
+          const spy = this.spy(instance, 'show')
+          instance.options.dynamic = true
 
-      instance.init()
+          instance.init()
 
-      this.clock.tick(instance.options.showIn)
+          this.clock.tick(instance.options.showIn)
 
-      expect(spy.calledOnce).to.be.true
-    }))
+          expect(spy.calledOnce).to.be.true
+        })
+      )
+    })
+
+    context('when the dynamic option is set to false', () => {
+      it('should not call @show', sinon.test(function () {
+        const spy = this.spy(instance, 'show')
+        instance.options.dynamic = false
+
+        instance.init()
+
+        this.clock.tick(instance.options.showIn)
+
+        expect(spy.called).to.be.false
+      }))
+    })
   })
 
   describe('@bindListeners', () => {
