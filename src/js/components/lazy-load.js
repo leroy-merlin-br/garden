@@ -32,9 +32,7 @@ class LazyLoad {
   }
 
   onScroll () {
-    return this.element.length ?
-      this.checkVisiblePlaceholders() :
-      window.removeEventListener('scroll', this.onScrollHandler)
+    return this.element.length ? this.checkVisiblePlaceholders() : window.removeEventListener('scroll', this.onScrollHandler)
   }
 
   checkVisiblePlaceholders () {
@@ -52,7 +50,7 @@ class LazyLoad {
   }
 
   isPlaceholderVisible (placeholder) {
-    if (typeof placeholder !== 'object'){
+    if (typeof placeholder !== 'object') {
       return false
     }
     return placeholder.getBoundingClientRect().top <= (this.windowHeight + this.options.offset)
