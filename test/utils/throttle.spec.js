@@ -1,6 +1,6 @@
 import throttle from '../../src/js/utils/throttle'
 
-describe('throttle spec', () => {
+describe('throttle util', () => {
   it('should execute the throttled function based on the provided timer', sinon.test(function () {
     let spy = this.spy()
     let timer = 100

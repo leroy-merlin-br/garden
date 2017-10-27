@@ -1,6 +1,6 @@
 import domParser from '../../src/js/utils/dom-parser'
 
-describe('domParser spec', () => {
+describe('domParser util', () => {
   let elementString
 
   beforeEach(() => {

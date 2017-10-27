@@ -1,7 +1,7 @@
 import Collapse from '../../src/js/components/collapse'
 import triggerEvent from '../../src/js/utils/trigger-event'
 
-describe('collapse spec', () => {
+describe('Collapse component', () => {
   var instance, fixtureElement
 
   before(() => {

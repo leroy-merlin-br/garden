@@ -4,7 +4,7 @@ import Validation from '../../src/js/components/validation'
 import emitter from '../../src/js/utils/emitter'
 import triggerEvent from '../../src/js/utils/trigger-event'
 
-describe('Validation spec', () => {
+describe('Validation component', () => {
   var instance, fixtureElement
 
   before(() => {
@@ -21,7 +21,7 @@ describe('Validation spec', () => {
     fixture.cleanup()
   })
 
-  describe('init spec', () => {
+  describe('@init', () => {
     it('should call bindListeners', sinon.test(function () {
       let spy = this.spy(instance, 'bindListeners')
 
@@ -31,7 +31,7 @@ describe('Validation spec', () => {
     }))
   })
 
-  describe('bindListeners', () => {
+  describe('@bindListeners', () => {
     it('should set validate as a handler for options.events', sinon.test(function () {
       let spy = this.spy(instance, 'validate')
 
@@ -53,7 +53,7 @@ describe('Validation spec', () => {
     }))
   })
 
-  describe('validate', () => {
+  describe('@validate', () => {
     let field
 
     beforeEach(() => {
@@ -100,7 +100,7 @@ describe('Validation spec', () => {
     }))
   })
 
-  describe('validateAll', () => {
+  describe('@validateAll', () => {
     beforeEach(() => {
       instance.init()
     })

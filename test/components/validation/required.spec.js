@@ -1,6 +1,6 @@
 import required from '../../../src/js/components/validation/required'
 
-describe('validation:required', () => {
+describe('Validation@required', () => {
   it('should return true if the field has value', () => {
     let field = {
       value: 'foo'

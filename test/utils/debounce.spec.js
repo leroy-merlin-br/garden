@@ -1,6 +1,6 @@
 import debounce from '../../src/js/utils/debounce'
 
-describe('debounce spec', () => {
+describe('debounce util', () => {
   it('should execute the provided function only once', sinon.test(function () {
     let spy = this.spy()
     let timer = 700

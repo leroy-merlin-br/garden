@@ -1,6 +1,6 @@
 import maxlength from '../../../src/js/components/validation/maxlength'
 
-describe('validation:maxlength', () => {
+describe('Validation@maxlength', () => {
   it('should return true if the field has maxlength lower than the required', () => {
     let field = {
       value: 'foo',

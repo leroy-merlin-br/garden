@@ -1,6 +1,6 @@
 import minlength from '../../../src/js/components/validation/minlength'
 
-describe('validation:minlength', () => {
+describe('Validation@minlength', () => {
   it('should return true if the field has minlength greater than the required', () => {
     let field = {
       value: 'foo',

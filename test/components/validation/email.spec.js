@@ -1,6 +1,6 @@
 import email from '../../../src/js/components/validation/email'
 
-describe('validation:email', () => {
+describe('Validation@email', () => {
   it('should return true if the field value is a valid email', () => {
     let field = {
       value: 'foo@foo.com'
