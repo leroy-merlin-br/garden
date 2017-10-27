@@ -13,7 +13,7 @@
 - [Merging](#mergin)
 - [Code Guideline](#code-guideline)
 
-This is our commits messages standard. We use these standard to easily identify and differentiate which type of commit is. This pattern is to have a better and understandable messages.
+This is the standard for our commits messages. We use this standard to easily identify and differentiate each type of commit. This pattern is aimed at writing better and more understandable messages.
 
 ## Message Format
 
@@ -46,25 +46,27 @@ These are the types of commits we can use.
 
 ## Message Scope
 
-Scope is what you're pretending to change, ex:
+The message scope refers to the part of the code you're intending to change, for instance:
 
 ```
 git commit -m 'feat(form): add new radio button component
 ```
 
+In the example above the changes are related to our `Form` component.
+
 ## Message Subject
-The subject contains succinct description of the change:
+The subject contains a brief description of the changes:
 
 - use the imperative, present tense: "change" not "changed" nor "changes"
 - no dot (.) at the end
 
 ## Message Body
 
-Just as in the subject, use the imperative, present tense: "change" not "changed" nor "changes". The body should include the motivation for the change and contrast this with previous behavior.
+Just as in the subject, use the imperative, present tense: "change" not "changed" nor "changes". The body should include the motivation for the changes and contrast this with previous behavior.
 
 ## Branches
 
-Always work inside a feature branch. Branch name should be based on our types, ex:
+Always work inside a feature branch. Branch name should be based on our types, for example:
 
 ```
 git checkout -b feat/new-radio-component
@@ -88,9 +90,9 @@ New pull requests should follow this structure:
 1. Work on a fork
 2. Create a new branch based on the [branch guideline](#branches)
 3. Write the code based on our [code guideline](#code-guideline)
-4. If the feature involves JS, be sure to unit test the feature.
+4. If the feature involves JavaScript, be sure to unit test the feature.
 5. The coverage should not be lowered.  
-6. Be sure to rebase your branch with the origin/master.
+6. Be sure to rebase your branch with the origin/master branch.
 7. If the feature involves directly layout, be sure to provide some visual info of it.
 8. The name of the pull request should match the name of the branch.
 
@@ -108,8 +110,8 @@ git rebase -i origin/develop
 # We need to use -f because we did a rebase
 git push origin feat/new-radio-component -f
 
-# move to develop
-git checkout develop
+# move to master branch
+git checkout master
 
 # use --ff-only to remove automatic merge message
 git merge --ff-only feat/new-radio-component
@@ -118,8 +120,28 @@ git merge --ff-only feat/new-radio-component
 
 ## Code Guideline
 
-### JS
+### JavaScript
 Check our [.eslintrc file](https://github.com/leroy-merlin-br/garden/blob/master/.eslintrc) for more info on our rules
+
+#### Testing
+You should write your tests following the structure below:
+
+```javascript
+describe('ComponentName', () => {
+  describe('@instanceMethod', () => {
+    context('when something happens ', () => {
+      // Note that contexts are not always necessary
+      it('should do something', () => {})
+    })
+  })
+})
+```
+
+Note that we use `@` to describe instance methods and the words `when` and `should` to describe contexts and examples, respectively.  
+
+You should try to always write tests in a descriptive manner, so everyone that reads them does not need to check the implementation for that method in order to understand what is its responsibility.
+
+Also, it is important to note that all use cases must be tested. For instance, if you have a logic that depends on a boolean value you should verify what the method is doing when that value is true and also when that same value is false.
 
 ### CSS
 
@@ -127,7 +149,7 @@ Check our [.stylelintrc file](https://github.com/leroy-merlin-br/garden/blob/mas
 
 --
 
-Commit Guidelines is based in:
+Our commit guidelines are based on:
 
 > - [Angular commit pattern](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit).
 > - [Thoughtbot Git Guide](https://github.com/thoughtbot/guides/tree/master/protocol/git)
