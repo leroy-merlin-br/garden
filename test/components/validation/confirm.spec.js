@@ -1,6 +1,6 @@
 import confirm from '../../../src/js/components/validation/confirm'
 
-describe('validation:confirm', () => {
+describe('Validation@confirm', () => {
   it('should return true if the field value matches the confirm field value', () => {
     let field = {
       value: 'foo',

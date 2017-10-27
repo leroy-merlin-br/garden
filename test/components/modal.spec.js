@@ -4,7 +4,7 @@ import emitter from '../../src/js/utils/emitter'
 import domParser from '../../src/js/utils/dom-parser'
 import triggerEvent from '../../src/js/utils/trigger-event'
 
-describe('Modal spec', () => {
+describe('Modal component', () => {
   let instance, fixtureElement
 
   before(() => {

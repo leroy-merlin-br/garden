@@ -73,7 +73,7 @@ describe('Confirm component', () => {
     })
   })
 
-  describe('setupElements', () => {
+  describe('@setupElements', () => {
     beforeEach(() => {
       instance.setupConfirm()
     })
@@ -95,7 +95,7 @@ describe('Confirm component', () => {
     })
   })
 
-  describe('bindListeners', () => {
+  describe('@bindListeners', () => {
     beforeEach(() => {
       instance.setupConfirm()
       instance.setupElements()

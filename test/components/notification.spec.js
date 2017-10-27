@@ -2,7 +2,7 @@ import Notification from '../../src/js/components/notification'
 import transitionEnd from '../../src/js/utils/transitionend'
 import triggerEvent from '../../src/js/utils/trigger-event'
 
-describe('Notification spec', () => {
+describe('Notification component', () => {
   let instance, fixtureElement, options
 
   before(() => {

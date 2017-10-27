@@ -1,6 +1,6 @@
 import Form from '../../src/js/components/form'
 
-describe('form spec', () => {
+describe('Form component', () => {
   var instance, fixtureElement
 
   before(() => {
@@ -17,7 +17,7 @@ describe('form spec', () => {
     fixture.cleanup()
   })
 
-  describe('shouldInputBeActive', () => {
+  describe('@shouldInputBeActive', () => {
     let inputElement
 
     beforeEach(() => {
@@ -51,7 +51,7 @@ describe('form spec', () => {
     })
   })
 
-  describe('toggleActiveClass', () => {
+  describe('@toggleActiveClass', () => {
     let fieldElement, inputElement
 
     beforeEach(() => {
@@ -92,7 +92,7 @@ describe('form spec', () => {
     })
   })
 
-  describe('toggleFieldsActiveClass', () => {
+  describe('@toggleFieldsActiveClass', () => {
     it('should call @toggleActiveClass on each fieldElement', sinon.test(function () {
       this.spy(instance, 'toggleActiveClass')
 
