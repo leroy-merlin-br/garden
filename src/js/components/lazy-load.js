@@ -32,7 +32,10 @@ class LazyLoad {
   }
 
   onScroll () {
-    return this.element.length ? this.checkVisiblePlaceholders() : window.removeEventListener('scroll', this.onScrollHandler)
+    if (this.element.length) {
+      return this.checkVisiblePlaceholders()
+    }
+    return window.removeEventListener('scroll', this.onScrollHandler)
   }
 
   checkVisiblePlaceholders () {

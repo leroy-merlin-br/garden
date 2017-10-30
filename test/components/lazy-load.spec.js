@@ -126,9 +126,11 @@ describe('LazyLoad spec', () => {
       }))
 
       it('if not valid', sinon.test(function () {
-        const spy = this.stub(instance, 'isPlaceholderVisible')
+        const spy = this.spy(instance, 'isPlaceholderVisible')
 
-        expect(spy.calledWith('not valid value')).to.equal(false)
+        instance.isPlaceholderVisible('abc123')
+
+        expect(spy.returned(false)).to.be.true
       }))
     })
   })
