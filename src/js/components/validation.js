@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 import emitter from '../utils/emitter'
 import registerEvents from '../utils/register-events'
 
@@ -23,6 +21,7 @@ class Validation {
     this.events = this.options.events.replace(/\s/g, '').split(',')
 
     this.bindListeners()
+    this.registerComponent()
 
     return this
   }
@@ -74,19 +73,12 @@ class Validation {
   getValidInputs (input) {
     return input.hasAttribute('data-validate')
   }
+
+  registerComponent () {
+    this.element.attributes.component = new Validation(this, this.options)
+  }
 }
 
 Validation.prototype.rules = rules
-
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Validation(this, options).init())
-    }
-  })
-}
 
 export default Validation

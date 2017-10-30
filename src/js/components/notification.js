@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import transitionEnd from '../utils/transitionend'
 import domParser from '../utils/dom-parser'
 
@@ -43,6 +42,7 @@ class Notification {
 
     this.createNotification()
     this.bindListeners()
+    this.registerComponent()
 
     if (dynamic) {
       window.setTimeout(this.show.bind(this), showIn)
@@ -135,17 +135,10 @@ class Notification {
     this.close = domParser(templates.close)
     this.box.appendChild(this.close)
   }
-}
 
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Notification(this, options).init())
-    }
-  })
+  registerComponent () {
+    this.element.attributes.component = new Notification(this, this.options)
+  }
 }
 
 export default Notification

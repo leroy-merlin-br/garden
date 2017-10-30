@@ -40,6 +40,14 @@ describe('Notification component', () => {
       expect(spy.calledOnce).to.be.true
     }))
 
+    it('should call @registerComponent', sinon.test(function () {
+      const spy = this.spy(instance, 'registerComponent')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+
     context('when the dynamic option is set to true', () => {
       it('should call @show after duration specified in showIn option',
         sinon.test(function () {
@@ -93,8 +101,8 @@ describe('Notification component', () => {
     it('should hide if autoHide config is true', sinon.test(function () {
       options.autoHide = true
 
-      const newInstance = new Notification(fixtureElement, options),
-        spy = this.spy(newInstance, 'hideEvent')
+      const newInstance = new Notification(fixtureElement, options)
+      const spy = this.spy(newInstance, 'hideEvent')
 
       newInstance.createNotification()
       newInstance.show()
@@ -107,7 +115,6 @@ describe('Notification component', () => {
 
   describe('@hide', () => {
     it('should hide notification', sinon.test(function () {
-
       instance.createNotification()
       instance.show()
       instance.hide()
@@ -191,6 +198,17 @@ describe('Notification component', () => {
       instance.init()
 
       expect(instance.box.querySelector('.notification-close')).to.exist
+    })
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Notification)
     })
   })
 })

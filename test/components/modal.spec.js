@@ -37,6 +37,14 @@ describe('Modal component', () => {
 
       expect(spy.calledOnce).to.be.true
     }))
+
+    it('should call @registerComponent', sinon.test(function () {
+      const spy = this.spy(instance, 'registerComponent')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
+    }))
   })
 
   describe('@show', () => {
@@ -672,6 +680,17 @@ describe('Modal component', () => {
 
         expect(classSize).to.be.equal('modal-content-lg')
       })
+    })
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Modal)
     })
   })
 })

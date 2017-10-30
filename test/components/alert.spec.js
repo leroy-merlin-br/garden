@@ -13,6 +13,7 @@ describe('Alert component', () => {
     it('should call @setupElement', sinon.test(function () {
       const stub = this.stub(instance, 'setupElement')
       this.stub(instance, 'show')
+      this.stub(instance, 'registerComponent')
 
       instance.init()
 
@@ -21,6 +22,17 @@ describe('Alert component', () => {
 
     it('should call @show', sinon.test(function () {
       const stub = this.stub(instance, 'show')
+      this.stub(instance, 'setupElement')
+      this.stub(instance, 'registerComponent')
+
+      instance.init()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+
+    it('should call @registerComponent', sinon.test(function () {
+      const stub = this.stub(instance, 'registerComponent')
+      this.stub(instance, 'show')
       this.stub(instance, 'setupElement')
 
       instance.init()
@@ -102,6 +114,17 @@ describe('Alert component', () => {
 
     it('should have the data-alert-button', () => {
       expect(html.querySelector('[data-alert-button]')).to.exist
+    })
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Alert)
     })
   })
 })

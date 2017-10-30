@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import registerEvents from '../utils/register-events'
 
 const NAME = 'form'
@@ -11,9 +10,12 @@ class Form {
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
+  }
 
+  init () {
     this.bindListeners()
     this.toggleFieldsActiveClass()
+    this.registerComponent()
   }
 
   bindListeners () {
@@ -44,17 +46,10 @@ class Form {
   toggleFieldsActiveClass () {
     Array.prototype.forEach.call(this.elements, this.toggleActiveClass.bind(this))
   }
-}
 
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Form(this, options))
-    }
-  })
+  registerComponent () {
+    this.element.attributes.component = new Form(this, this.options)
+  }
 }
 
 export default Form

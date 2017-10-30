@@ -17,6 +17,32 @@ describe('Form component', () => {
     fixture.cleanup()
   })
 
+  describe('@init', () => {
+    it('should call @bindListeners', sinon.test(function () {
+      const spy = this.spy(instance, 'bindListeners')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+
+    it('should call @toggleFieldsActiveClass', sinon.test(function () {
+      const spy = this.spy(instance, 'toggleFieldsActiveClass')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+
+    it('should call @registerComponent', sinon.test(function () {
+      const spy = this.spy(instance, 'registerComponent')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+  })
+
   describe('@shouldInputBeActive', () => {
     let inputElement
 
@@ -96,9 +122,21 @@ describe('Form component', () => {
     it('should call @toggleActiveClass on each fieldElement', sinon.test(function () {
       this.spy(instance, 'toggleActiveClass')
 
+      instance.init()
       instance.toggleFieldsActiveClass()
 
       expect(instance.toggleActiveClass.called).to.be.true
     }))
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Form)
+    })
   })
 })

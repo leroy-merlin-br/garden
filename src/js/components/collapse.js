@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import emitter from '../utils/emitter'
 
 const NAME = 'collapse'
@@ -24,6 +23,7 @@ class Collapse {
 
     this.setInitialState()
     this.bindListeners()
+    this.registerComponent()
 
     return this
   }
@@ -73,17 +73,10 @@ class Collapse {
 
     emitter.emit('collapse:show', this.element, this.toggle)
   }
-}
 
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Collapse(this, options).init())
-    }
-  })
+  registerComponent () {
+    this.element.attributes.component = new Collapse(this, this.options)
+  }
 }
 
 export default Collapse

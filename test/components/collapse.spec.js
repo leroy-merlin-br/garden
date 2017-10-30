@@ -20,11 +20,19 @@ describe('Collapse component', () => {
 
   describe('@init', () => {
     it('should call @bindListeners', sinon.test(function () {
-      const stub = this.stub(instance, 'bindListeners')
+      const spy = this.spy(instance, 'bindListeners')
 
       instance.init()
 
-      expect(stub.calledOnce).to.be.true
+      expect(spy.calledOnce).to.be.true
+    }))
+
+    it('should call @registerComponent', sinon.test(function () {
+      const spy = this.spy(instance, 'registerComponent')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
     }))
   })
 
@@ -118,6 +126,17 @@ describe('Collapse component', () => {
 
         expect(instance.toggle.classList.contains(instance.options.visibleClass)).to.be.true
       })
+    })
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Collapse)
     })
   })
 })

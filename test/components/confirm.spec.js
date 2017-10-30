@@ -1,6 +1,7 @@
 import { Confirm } from '../../src/js/components/confirm'
 
 import triggerEvent from '../../src/js/utils/trigger-event'
+import domParser from '../../src/js/utils/dom-parser'
 
 describe('Confirm component', () => {
   let instance
@@ -15,6 +16,7 @@ describe('Confirm component', () => {
       this.stub(instance, 'setupElements')
       this.stub(instance, 'bindListeners')
       this.stub(instance, 'showConfirm')
+      this.stub(instance, 'registerComponent')
 
       instance.init()
 
@@ -26,6 +28,7 @@ describe('Confirm component', () => {
       this.stub(instance, 'setupConfirm')
       this.stub(instance, 'bindListeners')
       this.stub(instance, 'showConfirm')
+      this.stub(instance, 'registerComponent')
 
       instance.init()
 
@@ -37,6 +40,7 @@ describe('Confirm component', () => {
       this.stub(instance, 'setupConfirm')
       this.stub(instance, 'setupElements')
       this.stub(instance, 'showConfirm')
+      this.stub(instance, 'registerComponent')
 
       instance.init()
 
@@ -48,6 +52,19 @@ describe('Confirm component', () => {
       this.stub(instance, 'setupConfirm')
       this.stub(instance, 'setupElements')
       this.stub(instance, 'bindListeners')
+      this.stub(instance, 'registerComponent')
+
+      instance.init()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+
+    it('should call @registerComponent', sinon.test(function () {
+      const stub = this.stub(instance, 'registerComponent')
+      this.stub(instance, 'setupConfirm')
+      this.stub(instance, 'setupElements')
+      this.stub(instance, 'bindListeners')
+      this.stub(instance, 'showConfirm')
 
       instance.init()
 
@@ -102,7 +119,7 @@ describe('Confirm component', () => {
     })
 
     it('should bind @onConfirmClick as a handler to confirmButton click event',
-      sinon.test(function() {
+      sinon.test(function () {
         const stub = this.stub(instance, 'onConfirmClick')
 
         instance.bindListeners()
@@ -113,7 +130,7 @@ describe('Confirm component', () => {
     )
 
     it('should bind @onCancelClick as a handler to cancelButton click event',
-      sinon.test(function() {
+      sinon.test(function () {
         const stub = this.stub(instance, 'onCancelClick')
 
         instance.bindListeners()
@@ -200,21 +217,32 @@ describe('Confirm component', () => {
 
   describe('@buildHtml', () => {
     it('should have the data-confirm-text attribute', () => {
-      const html = instance.buildHtml('string', 'string')
+      const html = domParser(instance.buildHtml('string', 'string'))
 
-      expect($(html).find('[data-confirm-text]')).to.exist
+      expect(html.querySelector('[data-confirm-text]')).to.exist
     })
 
     it('should have the data-confirm-button attribute', () => {
-      const html = instance.buildHtml('string', 'string')
+      const html = domParser(instance.buildHtml('string', 'string'))
 
-      expect($(html).find('[data-confirm-button]')).to.exist
+      expect(html.querySelector('[data-confirm-button]')).to.exist
     })
 
     it('should have the data-cancel-button attribute', () => {
-      const html = instance.buildHtml('string', 'string')
+      const html = domParser(instance.buildHtml('string', 'string'))
 
-      expect($(html).find('[data-cancel-button]')).to.exist
+      expect(html.querySelector('[data-cancel-button]')).to.exist
+    })
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Confirm)
     })
   })
 })
