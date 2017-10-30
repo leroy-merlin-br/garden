@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import Modal from './modal'
 
 import domParser from '../utils/dom-parser'
@@ -20,6 +19,7 @@ class Alert {
   init () {
     this.setupElement()
     this.show()
+    this.registerComponent()
   }
 
   setupElement () {
@@ -62,11 +62,10 @@ class Alert {
       </div>
     `)
   }
-}
 
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  return $.data(this, NAME, new Alert(options).init())
+  registerComponent () {
+    this.element.attributes.component = new Alert(this.options)
+  }
 }
 
 /* istanbul ignore next */

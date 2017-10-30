@@ -23,7 +23,7 @@ describe('Tooltip component', () => {
       expect(instance.init()).to.be.equal(instance)
     })
 
-    it('should call instance.registerComponent', sinon.test(function () {
+    it('should call @registerComponent', sinon.test(function () {
       const stub = this.stub(instance, 'registerComponent')
 
       instance.init()
@@ -47,7 +47,7 @@ describe('Tooltip component', () => {
     })
   })
 
-  describe('registerComponent', () => {
+  describe('@registerComponent', () => {
     it('should save popper instance in instance.element.attributes', () => {
       instance
         .init()

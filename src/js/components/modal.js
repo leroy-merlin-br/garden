@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 import emitter from '../utils/emitter'
 import domParser from '../utils/dom-parser'
 
@@ -33,6 +31,7 @@ class Modal {
     this.container = document.querySelector(this.options.container)
 
     this.createModal()
+    this.registerComponent()
 
     return this
   }
@@ -215,17 +214,10 @@ class Modal {
 
     return sizes[size]
   }
-}
 
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
-
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new Modal(this, options).init())
-    }
-  })
+  registerComponent () {
+    this.element.attributes.component = new Modal(this, this.options)
+  }
 }
 
 export default Modal

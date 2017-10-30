@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import Modal from './modal'
 
 import domParser from '../utils/dom-parser'
@@ -25,6 +24,7 @@ class Confirm {
     this.setupConfirm()
     this.setupElements()
     this.bindListeners()
+    this.registerComponent()
     this.showConfirm()
   }
 
@@ -92,11 +92,10 @@ class Confirm {
       </div>
     `)
   }
-}
 
-/* istanbul ignore next */
-$.fn[NAME] = function (callback, options) {
-  return $.data(this, NAME, new Confirm(callback, options).init())
+  registerComponent () {
+    this.element.attributes.component = new Confirm(this.callback, this.options)
+  }
 }
 
 /* istanbul ignore next */

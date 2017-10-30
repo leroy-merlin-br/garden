@@ -23,7 +23,15 @@ describe('Validation component', () => {
 
   describe('@init', () => {
     it('should call bindListeners', sinon.test(function () {
-      let spy = this.spy(instance, 'bindListeners')
+      const spy = this.spy(instance, 'bindListeners')
+
+      instance.init()
+
+      expect(spy.calledOnce).to.be.true
+    }))
+
+    it('should call @registerComponent', sinon.test(function () {
+      const spy = this.spy(instance, 'registerComponent')
 
       instance.init()
 
@@ -157,6 +165,17 @@ describe('Validation component', () => {
 
         expect(hasTargetInput).to.be.truthy
       })
+    })
+  })
+
+  describe('@registerComponent', () => {
+    it('should save component instance in instance.element.attributes', () => {
+      instance.init()
+      instance.registerComponent()
+
+      const { component } = instance.element.attributes
+
+      expect(component).to.be.an.instanceof(Validation)
     })
   })
 })
