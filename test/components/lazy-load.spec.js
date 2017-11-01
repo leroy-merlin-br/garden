@@ -288,7 +288,6 @@ describe('LazyLoad spec', () => {
     }))
   })
 
-  //<div data-lazy data-src class="image"></div>
   describe('@parseAttributes', () => {
     let image, divAttributes
 
@@ -297,27 +296,27 @@ describe('LazyLoad spec', () => {
       divAttributes = instance.element[1].attributes
     })
 
-    context('contexto?', () => {
+    context('when attribute is equal to one of the default attributes', () => {
       it('should not set [data-lazy] to <image />', () => {
         expect(
           instance.parseAttributes(image, divAttributes).attributes
         ).to.not.have.property('data-lazy')
       })
 
-      it('should not set [data-lazy] to <image />', () => {
-        expect(
-          instance.parseAttributes(image, divAttributes).attributes
-        ).to.not.have.property('data-srcset')
-      })
-
-      it('should not set [data-lazy] to <image />', () => {
+      it('should not set [data-src] to <image />', () => {
         expect(
           instance.parseAttributes(image, divAttributes).attributes
         ).to.not.have.property('data-src')
       })
+
+      it('should not set [data-srcset] to <image />', () => {
+        expect(
+          instance.parseAttributes(image, divAttributes).attributes
+        ).to.not.have.property('data-srcset')
+      })
     })
 
-    context('contexto?', () => {
+    context('when attribute is not equal to one of the default attributes', () => {
       it('should set class to <image />', () => {
         expect(
           instance.parseAttributes(image, divAttributes).attributes

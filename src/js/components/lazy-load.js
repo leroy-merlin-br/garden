@@ -85,7 +85,7 @@ class LazyLoad {
 
   parseAttributes (image, attributes) {
     Array.from(attributes, (attr) => {
-      if (!this.checkDefaultAttributes(attr.name)) {
+      if (!this.isDefaultAttribute(attr.name)) {
         image.setAttribute(attr.name, attr.value)
       }
     })
@@ -93,7 +93,7 @@ class LazyLoad {
     return image
   }
 
-  checkDefaultAttributes (name) {
+  isDefaultAttribute (name) {
     return name.match(/^(data-lazy|data-srcset|data-src)$/)
   }
 
