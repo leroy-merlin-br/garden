@@ -147,11 +147,27 @@ describe('LazyLoad spec', () => {
   })
 
   describe('@renderImage', () => {
-    it('should call @createImage', sinon.test(function () {
-      const spy =  this.spy(instance, 'createImage')
-      instance.renderImage(instance.element[0])
+    let placeholder
 
-      expect(spy.calledOnce).to.be.true
+    beforeEach(() => {
+      placeholder = instance.element[0]
+      placeholder.parentNode.replaceChild = () => {}
+    })
+
+    it('should call replaceChild from placeholder.parentNode', sinon.test(function () {
+      const stub = this.stub(placeholder.parentNode, 'replaceChild')
+
+      instance.renderImage(placeholder)
+
+      expect(stub.called).to.be.true
+    }))
+
+    it('should call @createImage', sinon.test(function () {
+      const stub = this.stub(instance, 'createImage')
+
+      instance.renderImage(placeholder)
+
+      expect(stub.called).to.be.true
     }))
   })
 })
