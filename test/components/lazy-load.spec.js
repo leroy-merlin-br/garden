@@ -127,6 +127,73 @@ describe('LazyLoad spec', () => {
     }))
   })
 
+  describe('@createImage', () => {
+    let fakePlaceholder, fakeImage
+
+    beforeEach(() => {
+      fakePlaceholder = document.createElement('div')
+      fakeImage = document.createElement('img')
+    })
+
+    it('should call @parseAttributes with the placeholder attributes',
+      sinon.test(function () {
+        const spy = this.spy(instance, 'parseAttributes')
+
+        fakeImage = instance.createImage(fakePlaceholder)
+
+        expect(spy.calledWith(
+          fakeImage,
+          fakePlaceholder.attributes
+        )).to.be.true
+      })
+    )
+
+    it('should return an image without the data-lazy attribute', () => {
+      fakeImage = instance.createImage(fakePlaceholder)
+
+      expect(fakeImage.hasAttribute('data-lazy')).to.be.false
+    })
+
+    context('when placeholder has a data-srcset attribute', () => {
+      it('should call @parseBreakpoints with the data-srcset attribute value',
+        sinon.test(function () {
+          const spy = this.spy(instance, 'parseBreakpoints')
+          const expectedValue = 'test'
+
+          fakePlaceholder.setAttribute('data-srcset', expectedValue)
+          fakeImage = instance.createImage(fakePlaceholder)
+
+          expect(spy.calledWith(
+            fakeImage,
+            expectedValue
+          )).to.be.true
+        })
+      )
+    })
+
+    context('when placeholder does not have a data-srcset attribute', () => {
+      it('should not call @parseBreakpoints', sinon.test(function () {
+        const spy = this.spy(instance, 'parseBreakpoints')
+
+        fakePlaceholder.removeAttribute('data-srcset')
+        fakeImage = instance.createImage(fakePlaceholder)
+
+        expect(spy.called).to.be.false
+      }))
+
+      it('should return image with source equal to placeholder data-src attribute value',
+        () => {
+          const expectedValue = 'test'
+
+          fakePlaceholder.setAttribute('data-src', expectedValue)
+          fakeImage = instance.createImage(fakePlaceholder)
+
+          expect(fakeImage.getAttribute('src')).to.equal(expectedValue)
+        }
+      )
+    })
+  })
+
   describe('@isPlaceholderVisible', () => {
     context('when placeholder parameter is valid', () => {
       it('should call placeholder.getBoundingClientRect', sinon.test(function () {

@@ -76,10 +76,10 @@ class LazyLoad {
 
     if (placeholder.getAttribute('data-srcset')) {
       this.parseBreakpoints(image, placeholder.getAttribute('data-srcset'))
-      return image
+    } else {
+      image.src = placeholder.getAttribute('data-src')
     }
 
-    image.src = placeholder.getAttribute('data-src')
     return image
   }
 
