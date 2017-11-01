@@ -332,4 +332,19 @@ describe('LazyLoad spec', () => {
       })
     })
   })
+
+  describe('@destroy', () => {
+    it('should remove scroll listener from window object',
+      sinon.test(function () {
+        const spy = this.spy(instance, 'onScrollHandler')
+
+        instance.bindListeners()
+        instance.destroy()
+
+        triggerEvent(window, 'scroll')
+
+        expect(spy.called).to.be.false
+      })
+    )
+  })
 })
