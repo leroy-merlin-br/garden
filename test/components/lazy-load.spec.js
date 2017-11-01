@@ -128,15 +128,20 @@ describe('LazyLoad spec', () => {
   })
 
   describe('@isPlaceholderVisible', () => {
-    context('when placeholder parameter', () => {
-      it('is valid', sinon.test(function () {
+    context('when placeholder parameter is valid', () => {
+      it('should call placeholder.getBoundingClientRect', sinon.test(function () {
+        const placeholder = instance.element[0]
+        const fakeTop = { top: 100 }
+        const stub = this.stub(placeholder, 'getBoundingClientRect').returns({ top: 1 })
 
-        const spy = this.spy(instance, 'isPlaceholderVisible')
+        instance.isPlaceholderVisible(placeholder)
 
-        expect(spy.calledWith(instance.element[0])).to.be.truthy
+        expect(stub.called).to.be.true
       }))
+    })
 
-      it('if not valid', sinon.test(function () {
+    context('when placeholder parameter is not valid', () => {
+      it('should return false', sinon.test(function () {
         const spy = this.spy(instance, 'isPlaceholderVisible')
 
         instance.isPlaceholderVisible('abc123')
@@ -147,15 +152,8 @@ describe('LazyLoad spec', () => {
   })
 
   describe('@renderImage', () => {
-    it('should return false if don\'t send placeholder parameter', sinon.test(function () {
-      const spy = this.spy(instance, 'renderImage')
-
-      expect(spy.calledOnce).to.be.false
-    }))
-
     it('should call @createImage', sinon.test(function () {
       const spy =  this.spy(instance, 'createImage')
-
       instance.renderImage(instance.element[0])
 
       expect(spy.calledOnce).to.be.true
