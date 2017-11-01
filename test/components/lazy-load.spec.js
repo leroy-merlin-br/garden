@@ -119,11 +119,11 @@ describe('LazyLoad spec', () => {
     })
 
     it('should call @checkPlaceholder', sinon.test(function () {
-      const spy = this.spy(instance, 'isPlaceholderVisible')
+      const stub = this.stub(instance, 'checkPlaceholder')
 
       instance.checkVisiblePlaceholders()
 
-      expect(spy.calledWith(instance.element[0])).to.be.true
+      expect(stub.called).to.be.true
     }))
   })
 
