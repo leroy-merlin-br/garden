@@ -14,6 +14,10 @@ class LazyLoad {
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
+
+    this.onScrollHandler = this.onScrollHandler.bind(this)
+    this.onScroll = this.onScroll.bind(this)
+    this.checkPlaceholder = this.checkPlaceholder.bind(this)
   }
 
   init () {
@@ -24,11 +28,11 @@ class LazyLoad {
   }
 
   bindListeners () {
-    window.addEventListener('scroll', this.onScrollHandler.bind(this))
+    window.addEventListener('scroll', this.onScrollHandler)
   }
 
   onScrollHandler () {
-    throttle(this.onScroll.bind(this), this.options.throttle)
+    throttle(this.onScroll, this.options.throttle)
   }
 
   onScroll () {
@@ -45,7 +49,7 @@ class LazyLoad {
     this.windowHeight = offsetHeight
     this.windowWidth = offsetWidth
 
-    Array.prototype.forEach.call(this.element, this.checkPlaceholder.bind(this))
+    Array.prototype.forEach.call(this.element, this.checkPlaceholder)
   }
 
   checkPlaceholder (placeholder) {
