@@ -106,13 +106,13 @@ describe('LazyLoad spec', () => {
   })
 
   describe('@checkVisiblePlaceholders', () => {
-    it('should have a windowHeight property', () => {
+    it('should add a windowHeight property to instance object', () => {
       instance.checkVisiblePlaceholders()
 
       expect(instance).to.have.property('windowHeight')
     })
 
-    it('should have a windowWidth property', () => {
+    it('should add a windowWidth property to instance object', () => {
       instance.checkVisiblePlaceholders()
 
       expect(instance).to.have.property('windowWidth')
