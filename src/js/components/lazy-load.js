@@ -56,6 +56,7 @@ class LazyLoad {
     if (typeof placeholder !== 'object') {
       return false
     }
+
     return placeholder.getBoundingClientRect().top <= (this.windowHeight + this.options.offset)
   }
 
