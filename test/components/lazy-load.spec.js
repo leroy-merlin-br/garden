@@ -287,4 +287,50 @@ describe('LazyLoad spec', () => {
       expect(stub.called).to.be.true
     }))
   })
+
+  //<div data-lazy data-src class="image"></div>
+  describe('@parseAttributes', () => {
+    let image, divAttributes
+
+    beforeEach(() => {
+      image = document.createElement('img')
+      divAttributes = instance.element[1].attributes
+    })
+
+    context('contexto?', () => {
+      it('should not set [data-lazy] to <image />', () => {
+        expect(
+          instance.parseAttributes(image, divAttributes).attributes
+        ).to.not.have.property('data-lazy')
+      })
+
+      it('should not set [data-lazy] to <image />', () => {
+        expect(
+          instance.parseAttributes(image, divAttributes).attributes
+        ).to.not.have.property('data-srcset')
+      })
+
+      it('should not set [data-lazy] to <image />', () => {
+        expect(
+          instance.parseAttributes(image, divAttributes).attributes
+        ).to.not.have.property('data-src')
+      })
+    })
+
+    context('contexto?', () => {
+      it('should set class to <image />', () => {
+        expect(
+          instance.parseAttributes(image, divAttributes).attributes
+        ).to.have.property('class')
+      })
+
+      it('should set any attribute to <image /> from <div data-lazy>', () => {
+        instance.element[1].setAttribute('data-foo', 'foo')
+
+        expect(
+          instance.parseAttributes(image, divAttributes).attributes
+        ).to.have.property('data-foo')
+      })
+    })
+  })
 })
