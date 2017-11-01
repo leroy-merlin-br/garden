@@ -91,7 +91,7 @@ describe('LazyLoad spec', () => {
       }))
     })
 
-    context('when element doesn\'t have length', () => {
+    context('when element does not have length', () => {
       it('should remove scroll event from window', sinon.test(function () {
         const stub = this.stub(instance, 'onScrollHandler')
 
