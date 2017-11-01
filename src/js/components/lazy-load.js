@@ -84,13 +84,17 @@ class LazyLoad {
   }
 
   parseAttributes (image, attributes) {
-    Array.prototype.forEach.call(attributes, (attr) => {
-      if (attr.name !== this.options.selector || attr.name !== 'data-srcset' || attr.name !== 'data-src') {
+    Array.from(attributes, (attr) => {
+      if (!this.checkDefaultAttributes(attr.name)) {
         image.setAttribute(attr.name, attr.value)
       }
     })
 
     return image
+  }
+
+  checkDefaultAttributes (name) {
+    return name.match(/^(data-lazy|data-srcset|data-src)$/)
   }
 
   parseBreakpoints (image, breakpoints) {
