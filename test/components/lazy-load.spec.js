@@ -1,6 +1,7 @@
 import LazyLoad from '../../src/js/components/lazy-load'
 import * as throttle from '../../src/js/utils/throttle'
 import triggerEvent from '../../src/js/utils/trigger-event'
+import * as removeFromArray from '../../src/js/utils/remove-array-like'
 
 describe('LazyLoad spec', () => {
   let instance, fixtureElement
@@ -125,6 +126,55 @@ describe('LazyLoad spec', () => {
 
       expect(stub.called).to.be.true
     }))
+  })
+
+  describe('@checkPlaceholder', () => {
+    let fakePlaceholder
+
+    beforeEach(() => {
+      fakePlaceholder = instance.element[0]
+      fakePlaceholder.parentNode.replaceChild = () => {}
+    })
+
+    context('when placeholder is visible', () => {
+      it('should call @renderImage', sinon.test(function () {
+        const spy = this.spy(instance, 'renderImage')
+        this.stub(instance, 'isPlaceholderVisible').returns(true)
+
+        instance.checkPlaceholder(fakePlaceholder)
+
+        expect(spy.calledOnce).to.be.true
+      }))
+
+      it('should call removeFromArray', sinon.test(function () {
+        const spy = this.spy(removeFromArray, 'default')
+        this.stub(instance, 'isPlaceholderVisible').returns(true)
+
+        instance.checkPlaceholder(fakePlaceholder)
+
+        expect(spy.calledOnce).to.be.true
+      }))
+    })
+
+    context('when placeholder is not visible', () => {
+      it('should not call @renderImage', sinon.test(function () {
+        const spy = this.spy(instance, 'renderImage')
+        this.stub(instance, 'isPlaceholderVisible').returns(false)
+
+        instance.checkPlaceholder(fakePlaceholder)
+
+        expect(spy.called).to.be.false
+      }))
+
+      it('should not call removeFromArray', sinon.test(function () {
+        const spy = this.spy(removeFromArray, 'default')
+        this.stub(instance, 'isPlaceholderVisible').returns(false)
+
+        instance.checkPlaceholder(fakePlaceholder)
+
+        expect(spy.called).to.be.false
+      }))
+    })
   })
 
   describe('@createImage', () => {
