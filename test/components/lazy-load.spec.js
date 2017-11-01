@@ -131,7 +131,6 @@ describe('LazyLoad spec', () => {
     context('when placeholder parameter is valid', () => {
       it('should call placeholder.getBoundingClientRect', sinon.test(function () {
         const placeholder = instance.element[0]
-        const fakeTop = { top: 100 }
         const stub = this.stub(placeholder, 'getBoundingClientRect').returns({ top: 1 })
 
         instance.isPlaceholderVisible(placeholder)
