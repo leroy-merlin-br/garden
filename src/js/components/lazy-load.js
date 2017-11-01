@@ -40,8 +40,10 @@ class LazyLoad {
   }
 
   checkVisiblePlaceholders () {
-    this.windowHeight = document.body.offsetHeight
-    this.windowWidth = document.body.offsetWidth
+    const { offsetHeight, offsetWidth } = document.body
+
+    this.windowHeight = offsetHeight
+    this.windowWidth = offsetWidth
 
     Array.prototype.forEach.call(this.element, this.checkPlaceholder.bind(this))
   }
