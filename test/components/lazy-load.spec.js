@@ -1,4 +1,5 @@
 import LazyLoad from '../../src/js/components/lazy-load'
+import * as throttle from '../../src/js/utils/throttle'
 import triggerEvent from '../../src/js/utils/trigger-event'
 
 describe('LazyLoad spec', () => {
@@ -43,6 +44,16 @@ describe('LazyLoad spec', () => {
       this.stub(instance, 'bindListeners')
 
       instance.init()
+
+      expect(stub.calledOnce).to.be.true
+    }))
+  })
+
+  describe('@onScrollHandler', () => {
+    it('should call throttle util', sinon.test(function () {
+      const stub = this.stub(throttle, 'default')
+
+      instance.onScrollHandler()
 
       expect(stub.calledOnce).to.be.true
     }))
