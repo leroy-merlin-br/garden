@@ -142,11 +142,7 @@ describe('LazyLoad spec', () => {
 
     context('when placeholder parameter is not valid', () => {
       it('should return false', sinon.test(function () {
-        const spy = this.spy(instance, 'isPlaceholderVisible')
-
-        instance.isPlaceholderVisible('abc123')
-
-        expect(spy.returned(false)).to.be.true
+        expect(instance.isPlaceholderVisible('abc123')).to.be.false
       }))
     })
   })
