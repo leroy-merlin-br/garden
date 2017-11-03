@@ -21,26 +21,19 @@ section: js
 1. [TransitionEnd](#transitionend)
 
 ## Scroll
-This utility works with the help of [jump.js](http://callmecavs.com/jump.js/) and provides a function to scroll the page body into the position of the element provided.
+This component works with the help of [jump.js](http://callmecavs.com/jump.js/) and provides a function to scroll the page body into the position of the element provided.
 
-You can use it as a jQuery plugin:
-
-```js
-$('.heading-1').scroll();
-```
-
-Or as a vanilla constructor:
+You can use it as a vanilla constructor:
 
 ```js
- import scroll from 'src/js/utils/scroll';
+ import Scroll from 'garden/src/js/components/scroll';
 
- let element = document.querySelector('div');
-
- let options = {
+ const element = document.querySelector('div')
+ const options = {
    // all the options available from jump.js
  }
 
- scroll(element, options)
+ new Scroll(element, options)
 ```
 #### Options
 You can use all the options available from [jump.js](http://callmecavs.com/jump.js/). The options described below are the default ones when you use this utility as a jQuery plugin.
