@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 import throttle from '../utils/throttle'
 import removeFromArray from '../utils/remove-array-like'
 
@@ -222,15 +220,6 @@ class LazyLoad {
   destroy () {
     window.removeEventListener('scroll', this.onScrollHandler)
   }
-}
-
-/* istanbul ignore next */
-$.fn[NAME] = function (options = {}) {
-  return this.each(function () {
-    if (!$.data(this, NAME)) {
-      $.data(this, NAME, new LazyLoad(this, options).init())
-    }
-  })
 }
 
 export default LazyLoad
