@@ -11,6 +11,13 @@ const DEFAULTS = {
 }
 
 class LazyLoad {
+  /**
+   * Create a lazy load component
+   * Set base methods references and props (element and options)
+   *
+   * @param  {[DOM]} element
+   * @param  {[Object]} options
+   */
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
@@ -20,6 +27,11 @@ class LazyLoad {
     this.checkPlaceholder = this.checkPlaceholder.bind(this)
   }
 
+  /**
+   * Set event listeners and check placeholder visibility
+   *
+   * @return {[Class]}
+   */
   init () {
     this.bindListeners()
     this.checkVisiblePlaceholders()
@@ -34,10 +46,19 @@ class LazyLoad {
     window.addEventListener('scroll', this.onScrollHandler)
   }
 
+  /**
+   * Prevent @onScroll to be called multiple times using throttle
+   */
   onScrollHandler () {
     throttle(this.onScroll, this.options.throttle)
   }
 
+
+  /**
+   * Check if exist at least on [data-lazy] and check visibility
+   * If don't have any [data-lazy] remove scroll event to prevent
+   * handler been called unnecessarily
+   */
   onScroll () {
     if (this.element.length) {
       return this.checkVisiblePlaceholders()
@@ -46,15 +67,25 @@ class LazyLoad {
     return window.removeEventListener('scroll', this.onScrollHandler)
   }
 
+  /**
+   * Set body offsetHeight and offsetWidth as props
+   * and check placeholder visibility
+   */
   checkVisiblePlaceholders () {
     const { offsetHeight, offsetWidth } = document.body
 
     this.windowHeight = offsetHeight
     this.windowWidth = offsetWidth
 
-    Array.prototype.forEach.call(this.element, this.checkPlaceholder)
+    Array.from(this.element).forEach(this.checkPlaceholder)
   }
 
+  /**
+   * Check if placeholder is visible, if it's true render imagem
+   * and remove this element from this.element Array
+   *
+   * @param  {[DOM]} placeholder
+   */
   checkPlaceholder (placeholder) {
     if (this.isPlaceholderVisible(placeholder)) {
       this.renderImage(placeholder)
@@ -62,6 +93,12 @@ class LazyLoad {
     }
   }
 
+  /**
+   * Check if placeholder position in window
+   *
+   * @param  {[DOM]}  placeholder
+   * @return {Boolean}
+   */
   isPlaceholderVisible (placeholder) {
     if (typeof placeholder !== 'object') {
       return false
@@ -70,10 +107,21 @@ class LazyLoad {
     return placeholder.getBoundingClientRect().top <= (this.windowHeight + this.options.offset)
   }
 
+  /**
+   * Replace placeholder to created image
+   *
+   * @param  {[DOM]} placeholder
+   */
   renderImage (placeholder) {
     placeholder.parentNode.replaceChild(this.createImage(placeholder), placeholder)
   }
 
+  /**
+   * Create a image base on [data-lazy] options
+   *
+   * @param  {[DOM]} placeholder
+   * @return {[DOM]} - imagem with src based on lazy-load options
+   */
   createImage (placeholder) {
     let image = document.createElement('img')
 
@@ -91,11 +139,12 @@ class LazyLoad {
   }
 
   /**
-   * [parseAttributes description]
+   * Parse all data-attr from [data-lazy] to <image />
+   * but prevent [data-lazy], [data-srcset] and [data-src] to be setted in img
    *
-   * @param  {[Node]} image      [description]
-   * @param  {[type]} attributes [description]
-   * @return {[type]}            [description]
+   * @param  {[DOM]} image
+   * @param  {[NamedNodeMap]} attributes - any html attribute from [data-lazy]
+   * @return {[DOM]} image with attributes from [data-lazy]
    */
   parseAttributes (image, attributes) {
     Array.from(attributes, (attr) => {
@@ -108,15 +157,23 @@ class LazyLoad {
   }
 
   /**
-   * [isDefaultAttribute description]
+   * Check if string has any of data-attr
    *
-   * @param  {[String]}  name [description]
-   * @return {Boolean}      [description]
+   * @param  {[String]} name
+   * @return {Boolean}
    */
   isDefaultAttribute (name) {
-    return name.match(/^(data-lazy|data-srcset|data-src)$/)
+    return name.match(/^data-(lazy|srcset|src)$/)
   }
 
+  /**
+   * Check breakpoints variation and return an imagem with source
+   * based on breakpoints
+   *
+   * @param  {[DOM]} image
+   * @param  {[String]} breakpoints
+   * @return {[DOM]}
+   */
   checkBreakpointsSource (image, breakpoints) {
     breakpoints = this.parseBreakpoints(breakpoints)
 
@@ -135,7 +192,8 @@ class LazyLoad {
   }
 
   /**
-   * [parseBreakpoints description]
+   * Parse string with breakpoint size and image sorce
+   * convert each breakpoint into an object.
    *
    * @param  {[String]} breakpoints [breakpoints separated by comma]
    * @return {[Array]}             [description]
