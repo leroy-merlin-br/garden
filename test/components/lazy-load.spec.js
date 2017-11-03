@@ -207,7 +207,7 @@ describe('LazyLoad spec', () => {
     context('when placeholder has a data-srcset attribute', () => {
       it('should call @parseBreakpoints with the data-srcset attribute value',
         sinon.test(function () {
-          const spy = this.spy(instance, 'parseBreakpoints')
+          const spy = this.spy(instance, 'checkBreakpointsSource')
           const expectedValue = 'test'
 
           fakePlaceholder.setAttribute('data-srcset', expectedValue)
@@ -330,6 +330,56 @@ describe('LazyLoad spec', () => {
           instance.parseAttributes(image, divAttributes).attributes
         ).to.have.property('data-foo')
       })
+    })
+  })
+
+  describe('@parseBreakpoints', () => {
+    it('should parse breakpoints from string', () => {
+      const breakpoints = '320.png 320, 480.png 480'
+      const parsedBreakpoints = [
+        {
+          src: '320.png',
+          width: '320'
+        },
+        {
+          src: '480.png',
+          width: '480'
+        }
+      ]
+
+      expect(
+        instance.parseBreakpoints(breakpoints)
+      ).to.deep.equal(parsedBreakpoints)
+    })
+  })
+
+  describe('@sortBreakpoints', () => {
+    it('should sort array from greater to lower', () => {
+      const breakpoints = [
+        {
+          src: '320.png',
+          width: '320'
+        },
+        {
+          src: '480.png',
+          width: '480'
+        }
+      ]
+
+      const sortedBreakpoints = [
+        {
+          src: '480.png',
+          width: '480'
+        },
+        {
+          src: '320.png',
+          width: '320'
+        }
+      ]
+
+      expect(
+        instance.sortBreakpoints(breakpoints)
+      ).to.deep.equal(sortedBreakpoints)
     })
   })
 
