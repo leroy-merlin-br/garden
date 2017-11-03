@@ -27,6 +27,9 @@ class LazyLoad {
     return this
   }
 
+  /**
+   * Add scroll event to window and attach @onScrollHandler to event
+   */
   bindListeners () {
     window.addEventListener('scroll', this.onScrollHandler)
   }
@@ -79,7 +82,7 @@ class LazyLoad {
     image.removeAttribute('data-lazy')
 
     if (placeholder.getAttribute('data-srcset')) {
-      this.parseBreakpoints(image, placeholder.getAttribute('data-srcset'))
+      this.checkBreakpointsSource(image, placeholder.getAttribute('data-srcset'))
     } else {
       image.src = placeholder.getAttribute('data-src')
     }
@@ -87,6 +90,13 @@ class LazyLoad {
     return image
   }
 
+  /**
+   * [parseAttributes description]
+   *
+   * @param  {[Node]} image      [description]
+   * @param  {[type]} attributes [description]
+   * @return {[type]}            [description]
+   */
   parseAttributes (image, attributes) {
     Array.from(attributes, (attr) => {
       if (!this.isDefaultAttribute(attr.name)) {
@@ -97,21 +107,20 @@ class LazyLoad {
     return image
   }
 
+  /**
+   * [isDefaultAttribute description]
+   *
+   * @param  {[String]}  name [description]
+   * @return {Boolean}      [description]
+   */
   isDefaultAttribute (name) {
     return name.match(/^(data-lazy|data-srcset|data-src)$/)
   }
 
-  parseBreakpoints (image, breakpoints) {
-    image.removeAttribute('data-srcset')
+  checkBreakpointsSource (image, breakpoints) {
+    breakpoints = this.parseBreakpoints(breakpoints)
 
-    breakpoints = breakpoints.split(/,\s+/g).map(breakpoint => {
-      breakpoint = breakpoint.trim().split(/\s+/)
-
-      return {
-        src: breakpoint[0],
-        width: breakpoint[1]
-      }
-    }).sort((a, b) => b.width - a.width)
+    this.sortBreakpoints(breakpoints)
 
     for (let i = 0; i < breakpoints.length; i++) {
       let breakpoint = breakpoints[i]
@@ -125,6 +134,33 @@ class LazyLoad {
     return image
   }
 
+  /**
+   * [parseBreakpoints description]
+   *
+   * @param  {[String]} breakpoints [breakpoints separated by comma]
+   * @return {[Array]}             [description]
+   */
+  parseBreakpoints (breakpoints) {
+    return breakpoints.split(/,\s+/g).map(breakpoint => {
+      const [ src, width ] = breakpoint.trim().split(/\s+/)
+
+      return { src, width }
+    })
+  }
+
+  /**
+   * Sort breakpoint array to greater to lower
+   *
+   * @param  {[Array]} breakpoints [Array of objects. Ex: [{ src: '', width: ''}]]
+   * @return {[Array]}             [Sorted array of objects]
+   */
+  sortBreakpoints (breakpoints) {
+    return breakpoints.sort((a, b) => b.width - a.width)
+  }
+
+  /**
+   * Remove scroll event from window
+   */
   destroy () {
     window.removeEventListener('scroll', this.onScrollHandler)
   }
