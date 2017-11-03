@@ -51,7 +51,6 @@ class LazyLoad {
     throttle(this.onScroll, this.options.throttle)
   }
 
-
   /**
    * Check if exist at least on [data-lazy] and check visibility
    * If don't have any [data-lazy] remove scroll event to prevent
