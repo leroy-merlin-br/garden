@@ -333,6 +333,52 @@ describe('LazyLoad spec', () => {
     })
   })
 
+  describe('@checkBreakpointsSource', () => {
+    let image
+
+    beforeEach(() => {
+      image = document.createElement('img')
+      image.setAttribute('data-srcset', '480.png 480')
+    })
+
+    context('when breakpoint.width is greater than instance.windowWidth', () => {
+      it('should return <image /> without src prop', () => {
+        instance.windowWidth = 479
+
+        expect(
+          instance.checkBreakpointsSource(
+            image,
+            image.getAttribute('data-srcset')
+          ).attributes
+        ).to.not.have.property('src')
+      })
+    })
+
+    context('when breakpoint.width is lower than instance.windowWidth', () => {
+      it('should return <image /> with src prop', () => {
+        instance.windowWidth = 481
+
+        expect(
+          instance.checkBreakpointsSource(
+            image,
+            image.getAttribute('data-srcset')
+          ).attributes
+        ).to.have.property('src')
+      })
+
+      it('should return <image /> with breakpoint src file', () => {
+        instance.windowWidth = 481
+
+        expect(
+          instance.checkBreakpointsSource(
+            image,
+            image.getAttribute('data-srcset')
+          ).getAttribute('src')
+        ).to.be.equal('480.png')
+      })
+    })
+  })
+
   describe('@parseBreakpoints', () => {
     it('should parse breakpoints from string', () => {
       const breakpoints = '320.png 320, 480.png 480'
