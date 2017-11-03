@@ -1,25 +1,30 @@
-/**
- * Scroll component. There is no need to create a new instance to it, since it won't listen to events,
- * nor anything dynamic.
- */
-import $ from 'jquery'
-import scroll from '../utils/scroll'
+import Jump from 'jump.js'
 
 const NAME = 'scroll'
-
 const DEFAULTS = {
   duration: 500,
   offset: -30
 }
 
-/* istanbul ignore next */
-$.fn[NAME] = function (options) {
-  options = options || {}
+class Scroll {
+  constructor (element, options) {
+    this.element = element
+    this.options = { ...DEFAULTS, ...options }
+  }
 
-  return this.each(function () {
-    scroll(
-      this,
-      $.extend({}, DEFAULTS, (options || {}))
-    )
-  })
+  init () {
+    this.jumpElement()
+    this.registerComponent()
+  }
+
+  jumpElement () {
+    this.scroll = new Jump(this.element, this.options)
+  }
+
+  registerComponent () {
+    this.element.attributes.component = new Scroll(this.element, this.options)
+  }
 }
+
+export default (element, options) => new Scroll(element, options).init()
+export { Scroll }
