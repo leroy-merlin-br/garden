@@ -1,4 +1,4 @@
-import Jump from 'jump.js'
+import jump from 'jump.js'
 
 const NAME = 'scroll'
 const DEFAULTS = {
@@ -13,12 +13,12 @@ class Scroll {
   }
 
   init () {
-    this.jumpElement()
+    this.scrollToElement()
     this.registerComponent()
   }
 
-  jumpElement () {
-    this.scroll = new Jump(this.element, this.options)
+  scrollToElement () {
+    this.scroll = jump(this.element, this.options)
   }
 
   registerComponent () {

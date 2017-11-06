@@ -1,16 +1,16 @@
-import Jump from 'jump.js'
+import * as jump from 'jump.js'
 import { Scroll } from '../../src/js/components/scroll'
 
 describe('Scroll component', () => {
-  let instance, $fixture
+  let instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
   })
 
   beforeEach(() => {
-    $fixture = fixture.load('scroll.html')[0]
-    instance = new Scroll($fixture)
+    fixtureElement = fixture.load('scroll.html')[0]
+    instance = new Scroll(fixtureElement)
   })
 
   afterEach(() => {
@@ -18,12 +18,12 @@ describe('Scroll component', () => {
   })
 
   beforeEach(() => {
-    instance = new Scroll($fixture)
+    instance = new Scroll(fixtureElement)
   })
 
   describe('@init', () => {
-    it('should call instance.jumpElement', sinon.test(function () {
-      const stub = this.stub(instance, 'jumpElement')
+    it('should call instance.scrollToElement', sinon.test(function () {
+      const stub = this.stub(instance, 'scrollToElement')
 
       instance.init()
 
@@ -39,13 +39,22 @@ describe('Scroll component', () => {
     }))
   })
 
-  describe('@jumpElement', () => {
-    it('should instance Jump.js', () => {
-      instance.jumpElement()
+  describe('@scrollToElement', () => {
+    it('should call jump.js plugin', sinon.test(function () {
+      const stub = this.stub(jump, 'default')
 
-      const { scroll } = instance
+      instance.scrollToElement()
 
-      expect(scroll).to.be.instanceof(Jump)
-    })
+      expect(stub.calledOnce).to.be.true
+    }))
+
+    it('should pass element and options to jump.js', sinon.test(function () {
+      const stub = this.stub(jump, 'default')
+      const { element, options } = instance
+
+      instance.scrollToElement()
+
+      expect(stub.calledWith(element, options)).to.be.true
+    }))
   })
 })
