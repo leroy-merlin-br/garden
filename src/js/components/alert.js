@@ -12,16 +12,27 @@ const DEFAULTS = {
 }
 
 class Alert {
+  /**
+   * Create an Alert component
+   *
+   * @param {Object} options Options used to customize the component.
+   */
   constructor (options) {
     this.options = { ...DEFAULTS, ...options }
   }
 
+  /**
+   * Initiliaze alert element by setting up required elements and showing it to user.
+   */
   init () {
     this.setupElement()
     this.show()
     this.registerComponent()
   }
 
+  /**
+   * Set up Modal element, since the Alert component depends on it.
+   */
   setupElement () {
     const { textMessage, textButton, size, triggerClose } = this.options
 
@@ -31,6 +42,9 @@ class Alert {
     this.modal.element.setAttribute('data-modal', '')
   }
 
+  /**
+   * Show alert window to user and add element that triggers the close action in the modal instance.
+   */
   show () {
     const { triggerClose } = this.options
 
@@ -38,10 +52,20 @@ class Alert {
     this.modal.content.querySelector(triggerClose).focus()
   }
 
+  /**
+   * Hide alert window.
+   */
   hide () {
     this.modal.hide()
   }
 
+  /**
+   * Build the HTML markup that will be used to create the alert element.
+   *
+   * @param  {String} textMessage  Text content for the alert window.
+   * @param  {String} textButton   Text content for the alert button.
+   * @return {String}              The Alert HTML markup with the provided text included.
+   */
   buildHtml (textMessage, textButton) {
     return (`
       <div>
@@ -63,6 +87,9 @@ class Alert {
     `)
   }
 
+  /**
+   * Add Alert instance to the element attributes object.
+   */
   registerComponent () {
     this.element.attributes.component = new Alert(this.options)
   }
