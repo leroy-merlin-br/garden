@@ -14,38 +14,10 @@ section: js
 </p>
 
 ## Summary
-1. [Scroll](#scroll)
 1. [Debounce](#debounce)
 1. [Throttle](#throttle)
 1. [Remove from array](#remove-from-array)
 1. [TransitionEnd](#transitionend)
-
-## Scroll
-This component works with the help of [jump.js](http://callmecavs.com/jump.js/) and provides a function to scroll the page body into the position of the element provided.
-
-You can use it as a vanilla constructor:
-
-```js
- import Scroll from 'garden/src/js/components/scroll';
-
- const element = document.querySelector('div')
- const options = {
-   // all the options available from jump.js
- }
-
- new Scroll(element, options)
-```
-#### Options
-You can use all the options available from [jump.js](http://callmecavs.com/jump.js/). The options described below are the default ones when you use this utility as a jQuery plugin.
-
-| Option            | Default | Description |
-|-------------------|-------------|
-| duration | 500  | The scroll duration (ms) |
-| offset | -30 | The offset from the provided element |
-
-You can click on the button below to see how it works.
-
-<button class="button button-primary" data-scroll>Scroll to footer</button>
 
 ## Debounce
 A utility to help restrain the execution of the provided function until a certain amount of time has passed without it being called.
