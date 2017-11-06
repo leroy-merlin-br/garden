@@ -14,12 +14,17 @@ const DEFAULTS = {
   triggerConfirm: '[data-confirm-button]'
 }
 
+/** Class representing the Confirm component */
 class Confirm {
   constructor (callback, options) {
     this.options = { ...DEFAULTS, ...options }
     this.callback = callback
   }
 
+  /**
+   * Initialize the component by setting up its required elements, adding
+   * propper listeners, and showing it to user.
+   */
   init () {
     this.setupConfirm()
     this.setupElements()
@@ -28,6 +33,9 @@ class Confirm {
     this.showConfirm()
   }
 
+  /**
+   * Set up Modal element since Confirm depends on it.
+   */
   setupConfirm () {
     this.element = domParser(this.buildHtml(this.options))
 
@@ -35,6 +43,9 @@ class Confirm {
     this.modal.element.setAttribute('data-modal', '')
   }
 
+  /**
+   * Set up the confirm and cancel buttons for the component.
+   */
   setupElements () {
     const { content } = this.modal
     const { triggerConfirm, triggerCancel } = this.options
@@ -43,30 +54,54 @@ class Confirm {
     this.cancelButton = content.querySelector(triggerCancel)
   }
 
+  /**
+   * Add listeners for click actions on confirm and cancel buttons.
+   */
   bindListeners () {
     this.confirmButton.addEventListener('click', this.onConfirmClick.bind(this))
     this.cancelButton.addEventListener('click', this.onCancelClick.bind(this))
   }
 
+  /**
+   * Trigger instance callback passing true as parameter and hide the confirm window.
+   */
   onConfirmClick () {
     this.callback(true)
     this.hideConfirm()
   }
 
+  /**
+   * Trigger instance callback passing false as parameter and hide the confirm window.
+   */
   onCancelClick () {
     this.callback(false)
     this.hideConfirm()
   }
 
+  /**
+   * Show confirm window and focus actions on the confirm button.
+   */
   showConfirm () {
     this.modal.show()
     this.confirmButton.focus()
   }
 
+  /**
+   * Hide the confirm window.
+   */
   hideConfirm () {
     this.modal.hide()
   }
 
+  /**
+   * Build the HTML markup that will be used to create the confirm element.
+   *
+   * @param {object} object                   Object containing the text content
+   *                                          for the confirm element.
+   * @param {string} object.textMessage       Message for confirm window.
+   * @param {string} object.textConfirmButton Text for the confirm button.
+   * @param {string} object.textCancelButton  Text for the cancel button.
+   */
   buildHtml ({ textMessage, textConfirmButton, textCancelButton }) {
     return (`
       <div>
@@ -93,6 +128,9 @@ class Confirm {
     `)
   }
 
+  /**
+   * Add Confirm instance to the element attributes object.
+   */
   registerComponent () {
     this.element.attributes.component = new Confirm(this.callback, this.options)
   }
