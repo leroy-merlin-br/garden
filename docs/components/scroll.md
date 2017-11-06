@@ -10,7 +10,7 @@ section: js
 
 # Scroll
 <p class="lead">
-  The Scroll component jump the page to the specific element position
+  The Scroll component is responsible for scrolling the page to a specific element position.
 </p>
 
 ## Summary
@@ -36,7 +36,7 @@ new Scroll(element, options)
 
 ## Options
 You can use all the options available from [jump.js](http://callmecavs.com/jump.js/). 
-The options described below are the default ones when you use this utility as a jQuery plugin.
+Below are the default options for this component.
 
 | Option            | Default | Description |
 |-------------------|-------------|
