@@ -10,12 +10,23 @@ const DEFAULTS = {
 }
 
 class Collapse {
+  /**
+   * Create a new Collapse instance.
+   *
+   * @param  {Element} element Element to be used as the collapse component.
+   * @param  {Object}  options Options used to customize the component.
+   */
   constructor (element, options) {
     this.element = element
 
     this.options = { ...DEFAULTS, ...options }
   }
 
+  /**
+   * Set initial component state, listeners and target.
+   *
+   * @return {Collapse} An instance of the Collapse class
+   */
   init () {
     const dataTarget = this.element.getAttribute(this.options.selector)
 
@@ -28,6 +39,11 @@ class Collapse {
     return this
   }
 
+  /**
+   * Check if component is opened or closed by default and set `isCollapsed` flag,
+   * get target `scrollHeight` and set as `toggleHeight` property and
+   * if `isCollapsed` flag is false, set target `maxHeight` based on `toggleHeight`.
+   */
   setInitialState () {
     this.isCollapsed = !this.toggle.classList.contains(this.options.visibleClass)
 
@@ -40,10 +56,16 @@ class Collapse {
     }
   }
 
+  /**
+   * Add @toggleTarget as listener for the events registered in options.
+   */
   bindListeners () {
     this.element.addEventListener(this.options.event, this.toggleTarget.bind(this))
   }
 
+  /**
+   * Toggle component state to hidden or visible.
+   */
   toggleTarget () {
     if (this.isCollapsed) {
       this.showTarget()
@@ -52,6 +74,11 @@ class Collapse {
     }
   }
 
+  /**
+   * Set `isCollapsed` flag to true, set target `maxHeight` to 0,
+   * remove visible and active class from target and element and
+   * emit `collapse:hide` event.
+   */
   hideTarget () {
     const { visibleClass, activeClass } = this.options
 
@@ -64,6 +91,11 @@ class Collapse {
     emitter.emit('collapse:hide', this.element, this.toggle)
   }
 
+  /**
+   * Set `isCollapsed` flag to false,
+   * set `maxHeight` to component based on `toggleHeight` property and
+   * add visible and active class to Elements and emit `collapse:show` event.
+   */
   showTarget () {
     this.isCollapsed = false
 
