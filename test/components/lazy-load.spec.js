@@ -3,7 +3,7 @@ import * as throttle from '../../src/js/utils/throttle'
 import triggerEvent from '../../src/js/utils/trigger-event'
 import * as removeFromArray from '../../src/js/utils/remove-array-like'
 
-describe('LazyLoad spec', () => {
+describe('LazyLoad component', () => {
   let instance, fixtureElement
 
   before(() => {
