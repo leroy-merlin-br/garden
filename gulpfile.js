@@ -8,6 +8,7 @@ gulp.task('stylelint', require('./tasks/stylelint'))
 gulp.task('styles', require('./tasks/styles'))
 gulp.task('styles:docs', require('./tasks/styles-docs'))
 gulp.task('scripts', require('./tasks/scripts'))
+gulp.task('copy-js-to-docs', require('./tasks/copy-js-to-docs'))
 gulp.task('metalsmith', require('./tasks/metalsmith'))
 gulp.task('server', require('./tasks/server'))
 gulp.task('ghpages', require('./tasks/ghpages'))
@@ -27,7 +28,8 @@ gulp.task('build',
       'styles',
       'eslint'
     ),
-    'scripts'
+    'scripts',
+    'copy-js-to-docs'
   )
 )
 
