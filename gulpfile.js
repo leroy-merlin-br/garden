@@ -25,9 +25,9 @@ gulp.task('build',
     gulp.parallel(
       'stylelint',
       'styles',
-      'eslint',
-      'scripts'
-    )
+      'eslint'
+    ),
+    'scripts'
   )
 )
 
