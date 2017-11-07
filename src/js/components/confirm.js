@@ -14,8 +14,18 @@ const DEFAULTS = {
   triggerConfirm: '[data-confirm-button]'
 }
 
-/** Class representing the Confirm component */
 class Confirm {
+  /**
+   * Instantiate a new Confirm component passing a callback of type described
+   * below.
+   *
+   * @callback confirmCallback
+   * @param {Boolean} option Set to true if the confirm button is clicked and
+   *                         false if the cancel button is clicked.
+   *
+   * @param {confirmCallback} callback Function to report user's choice.
+   * @param {Object}          options  Options used to customize the component.
+   */
   constructor (callback, options) {
     this.options = { ...DEFAULTS, ...options }
     this.callback = callback
@@ -96,11 +106,11 @@ class Confirm {
   /**
    * Build the HTML markup that will be used to create the confirm element.
    *
-   * @param {object} object                   Object containing the text content
+   * @param {Object} object                   Object containing the text content
    *                                          for the confirm element.
-   * @param {string} object.textMessage       Message for confirm window.
-   * @param {string} object.textConfirmButton Text for the confirm button.
-   * @param {string} object.textCancelButton  Text for the cancel button.
+   * @param {String} object.textMessage       Message for confirm window.
+   * @param {String} object.textConfirmButton Text for the confirm button.
+   * @param {String} object.textCancelButton  Text for the cancel button.
    */
   buildHtml ({ textMessage, textConfirmButton, textCancelButton }) {
     return (`
