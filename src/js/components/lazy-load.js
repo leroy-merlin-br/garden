@@ -11,10 +11,10 @@ const DEFAULTS = {
 class LazyLoad {
   /**
    * Create a lazy load component
-   * Set base methods references and props (element and options)
+   * Set base methods references and properties (element and options).
    *
-   * @param  {[DOM]} element
-   * @param  {[Object]} options
+   * @param  {Element}  element
+   * @param  {Object}   options
    */
   constructor (element, options) {
     this.element = element
@@ -26,9 +26,9 @@ class LazyLoad {
   }
 
   /**
-   * Set event listeners and check placeholder visibility
+   * Set event listeners and check placeholder visibility.
    *
-   * @return {[Class]}
+   * @return {LazyLoad}
    */
   init () {
     this.bindListeners()
@@ -38,23 +38,24 @@ class LazyLoad {
   }
 
   /**
-   * Add scroll event to window and attach @onScrollHandler to event
+   * Add @onScrollHandler as listener for the scroll event in window.
    */
   bindListeners () {
     window.addEventListener('scroll', this.onScrollHandler)
   }
 
   /**
-   * Prevent @onScroll to be called multiple times using throttle
+   * Prevent @onScroll to be called multiple times using throttle.
    */
   onScrollHandler () {
     throttle(this.onScroll, this.options.throttle)
   }
 
   /**
-   * Check if exist at least on [data-lazy] and check visibility
-   * If don't have any [data-lazy] remove scroll event to prevent
-   * handler been called unnecessarily
+   * Check placeholders visibility if there is at least
+   * one registered in the element instance.
+   * If there are not placeholders to be checked,
+   * then the scroll event handler will be removed.
    */
   onScroll () {
     if (this.element.length) {
@@ -65,8 +66,8 @@ class LazyLoad {
   }
 
   /**
-   * Set body offsetHeight and offsetWidth as props
-   * and check placeholder visibility
+   * Set body offsetHeight and offsetWidth as instance properties
+   * and check placeholder visibility.
    */
   checkVisiblePlaceholders () {
     const { offsetHeight, offsetWidth } = document.body
@@ -78,10 +79,10 @@ class LazyLoad {
   }
 
   /**
-   * Check if placeholder is visible, if it's true render imagem
-   * and remove this element from this.element Array
+   * Check placeholder in order to render linked image
+   * if that placeholder is currently visible.
    *
-   * @param  {[DOM]} placeholder
+   * @param  {Element} placeholder
    */
   checkPlaceholder (placeholder) {
     if (this.isPlaceholderVisible(placeholder)) {
@@ -91,9 +92,10 @@ class LazyLoad {
   }
 
   /**
-   * Check if placeholder position in window
+   * Check if placeholder is currently visible
+   * by comparing its position with the window position.
    *
-   * @param  {[DOM]}  placeholder
+   * @param  {Element}  placeholder
    * @return {Boolean}
    */
   isPlaceholderVisible (placeholder) {
@@ -105,19 +107,19 @@ class LazyLoad {
   }
 
   /**
-   * Replace placeholder to created image
+   * Replace placeholder with created image.
    *
-   * @param  {[DOM]} placeholder
+   * @param  {Element} placeholder
    */
   renderImage (placeholder) {
     placeholder.parentNode.replaceChild(this.createImage(placeholder), placeholder)
   }
 
   /**
-   * Create a image base on [data-lazy] options
+   * Create an image based on [data-lazy] options.
    *
-   * @param  {[DOM]} placeholder
-   * @return {[DOM]} - imagem with src based on lazy-load options
+   * @param  {Element} placeholder
+   * @return {Element} image with src based on lazy-load options
    */
   createImage (placeholder) {
     let image = document.createElement('img')
@@ -136,12 +138,12 @@ class LazyLoad {
   }
 
   /**
-   * Parse all data-attr from [data-lazy] to <image />
-   * but prevent [data-lazy], [data-srcset] and [data-src] to be setted in img
+   * Check the list of attributes passed and add to the image element
+   * only those with a name different from data-lazy, data-srcset, and data-src.
    *
-   * @param  {[DOM]} image
-   * @param  {[NamedNodeMap]} attributes - any html attribute from [data-lazy]
-   * @return {[DOM]} image with attributes from [data-lazy]
+   * @param  {Element}      image
+   * @param  {NamedNodeMap} attributes any html attribute from [data-lazy]
+   * @return {Element} image with attributes from [data-lazy]
    */
   parseAttributes (image, attributes) {
     Array.from(attributes, (attr) => {
@@ -154,9 +156,10 @@ class LazyLoad {
   }
 
   /**
-   * Check if string has any of data-attr
+   * Check if string passed as parameter
+   * matches any of the default data attributes.
    *
-   * @param  {[String]} name
+   * @param  {String} name
    * @return {Boolean}
    */
   isDefaultAttribute (name) {
@@ -165,11 +168,11 @@ class LazyLoad {
 
   /**
    * Check breakpoints variation and return an imagem with source
-   * based on breakpoints
+   * based on breakpoints.
    *
-   * @param  {[DOM]} image
-   * @param  {[String]} breakpoints
-   * @return {[DOM]}
+   * @param  {Element}  image
+   * @param  {String}   breakpoints
+   * @return {Element}
    */
   checkBreakpointsSource (image, breakpoints) {
     breakpoints = this.parseBreakpoints(breakpoints)
@@ -189,11 +192,11 @@ class LazyLoad {
   }
 
   /**
-   * Parse string with breakpoint size and image sorce
-   * convert each breakpoint into an object.
+   * Parse string with breakpoint size and image source
+   * in order to convert each breakpoint into an object.
    *
-   * @param  {[String]} breakpoints [breakpoints separated by comma]
-   * @return {[Array]}             [description]
+   * @param  {String} breakpoints breakpoints separated by comma
+   * @return {Array}
    */
   parseBreakpoints (breakpoints) {
     return breakpoints.split(/,\s+/g).map(breakpoint => {
@@ -204,17 +207,17 @@ class LazyLoad {
   }
 
   /**
-   * Sort breakpoint array to greater to lower
+   * Sort breakpoint array to greater to lower.
    *
-   * @param  {[Array]} breakpoints [Array of objects. Ex: [{ src: '', width: ''}]]
-   * @return {[Array]}             [Sorted array of objects]
+   * @param  {Array} breakpoints Array of objects. Ex: [{ src: '', width: ''}]]
+   * @return {Array}             Sorted array of objects
    */
   sortBreakpoints (breakpoints) {
     return breakpoints.sort((a, b) => b.width - a.width)
   }
 
   /**
-   * Remove scroll event from window
+   * Remove scroll event from window.
    */
   destroy () {
     window.removeEventListener('scroll', this.onScrollHandler)
