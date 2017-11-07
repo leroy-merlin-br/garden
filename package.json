@@ -5,7 +5,7 @@
   "main": "dist/js/garden.min.js",
   "scripts": {
     "start": "gulp",
-    "gulp": "gulp",
+    "build": "gulp build --production",
     "test": "karma start",
     "test:ci": "karma start --single-run --reporters dots,coverage -R spec",
     "report-coverage": "codecov"
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/leroy-merlin-br/garden.git"
   },
-  "author": "Fernando Fleury",
+  "author": "Leroy Merlin Brasil",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/leroy-merlin-br/garden/issues"
@@ -57,6 +57,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylelint-console-reporter": "0.1.1",
@@ -105,6 +106,7 @@
     "sinon-test": "^2.1.1",
     "stylelint": "~8.2.0",
     "stylelint-order": "^0.7.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.6.0",
     "webpack-stream": "^4.0.0",
     "yargs": "^9.0.1"
