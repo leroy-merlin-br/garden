@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+const UglifyJS = require('uglifyjs-webpack-plugin')
+const join = require('path').join
 
 module.exports = {
   entry: {
@@ -9,16 +11,24 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname,
+    path: join(__dirname, '/dist/js/'),
     filename: '[name].min.js'
   },
   externals: {
     'jquery': '$'
   },
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.js$/, include: /jump/, loader: 'babel-loader' }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.js$/,
+        include: /jump/,
+        use: ['babel-loader']
+      }
     ]
   },
   plugins: [
@@ -27,7 +37,10 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new UglifyJS({
+      uglifyOptions: {
+        warnings: true
+      }
+    })
   ]
 }

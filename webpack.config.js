@@ -1,4 +1,6 @@
 const webpack = require('webpack')
+const UglifyJS = require('uglifyjs-webpack-plugin')
+const join = require('path').join
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -10,22 +12,31 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname,
+    path: join(__dirname, '/dist/js/'),
     filename: '[name].min.js'
   },
   externals: {
     'jquery': '$'
   },
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.js$/, include: /jump|popper/, loader: 'babel-loader' }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+      {
+        test: /\.js$/,
+        include: /jump|popper/,
+        use: ['babel-loader']
+      }
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
+    new UglifyJS({
+      uglifyOptions: {
+        sourceMap: true,
+        warnings: true
       }
     })
   ]
