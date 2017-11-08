@@ -10,12 +10,23 @@ const DEFAULTS = {
 }
 
 class Validation {
+  /**
+   * Create a new Validation component.
+   *
+   * @param {Element} element Element to be used as the form component.
+   * @param {Object}  options Options used to customize the component.
+   */
   constructor (element, options) {
     this.element = element
 
     this.options = { ...DEFAULTS, ...options }
   }
 
+  /**
+   * Initialize validation element by binding listeners on registered events.
+   *
+   * @return {Validation} An instance for the validation component.
+   */
   init () {
     this.fields = this.element.querySelectorAll(this.options.selector)
     this.events = this.options.events.replace(/\s/g, '').split(',')
@@ -26,6 +37,9 @@ class Validation {
     return this
   }
 
+  /**
+   * Bind required listeners based on events registered on instance.
+   */
   bindListeners () {
     this.handler = (e) => {
       this.validate(e.target)
@@ -34,10 +48,19 @@ class Validation {
     registerEvents(this.fields, this.events, this.handler)
   }
 
+  /**
+   * Emit `validation:pristine` event passing the correspondent field.
+   * Usually used to clean/reset form values and validations.
+   */
   setPristine (field) {
     emitter.emit('validation:pristine', field)
   }
 
+  /**
+   * Validate individual field according to rule(s) associated with it.
+   *
+   * @return {Boolean} True if some error has occurred, false otherwise.
+   */
   validate (field) {
     let rules = field.getAttribute('data-validate')
 
@@ -58,22 +81,43 @@ class Validation {
     return !rules.length
   }
 
+  /**
+   * Validate filtered inputs.
+   *
+   * @return {Array} Array of validated inputs.
+   */
   validateAll () {
     return Array.prototype.map.call(
       this.getFilteredInputs(), this.validate, this
     ).every(validation => validation)
   }
 
+  /**
+   * Filter inputs based on which ones should be validate.
+   *
+   * @return {Array} Array of elements to be validated.
+   */
   getFilteredInputs () {
     return Array.prototype.filter.call(
-      this.element.querySelectorAll(this.options.selector), this.getValidInputs
+      this.element.querySelectorAll(this.options.selector),
+      this.shouldValidateInput
     )
   }
 
-  getValidInputs (input) {
+  /**
+   * Checker whether the input passed should be validated or not based on the
+   * `data-validate` attribute.
+   *
+   * @return {Boolean} Set to true if the input has the data-validate, false
+   *                   otherwise.
+   */
+  shouldValidateInput (input) {
     return input.hasAttribute('data-validate')
   }
 
+  /**
+   * Add Validation instance to the element attributes object.
+   */
   registerComponent () {
     this.element.attributes.component = new Validation(this, this.options)
   }

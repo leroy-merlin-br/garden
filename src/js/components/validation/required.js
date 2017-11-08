@@ -1,3 +1,6 @@
+/**
+ * Check if a field of type checkbox or radio is checked.
+ */
 export default (field, $form) => {
   if (field.type === 'checkbox') {
     return field.checked
