@@ -104,13 +104,13 @@ class Confirm {
   }
 
   /**
-   * Build the HTML markup that will be used to create the confirm element.
+   * Build the HTML markup that will be used to create the confirm element. The
+   * parameter passed is an object that will be destructured in order to extract
+   * the textMessage, textConfirmButton, and textCancelButton parameters.
    *
-   * @param {Object} object                   Object containing the text content
-   *                                          for the confirm element.
-   * @param {String} object.textMessage       Message for confirm window.
-   * @param {String} object.textConfirmButton Text for the confirm button.
-   * @param {String} object.textCancelButton  Text for the cancel button.
+   * @param {String} textMessage       Message for confirm window.
+   * @param {String} textConfirmButton Text for the confirm button.
+   * @param {String} textCancelButton  Text for the cancel button.
    */
   buildHtml ({ textMessage, textConfirmButton, textCancelButton }) {
     return (`
