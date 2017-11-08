@@ -168,6 +168,30 @@ describe('Validation component', () => {
     })
   })
 
+  describe('@shouldValidateInput', () => {
+    let fakeInput
+
+    beforeEach(() => {
+      fakeInput = document.createElement('input')
+    })
+
+    context('when input has the data-validate attribute', () => {
+      it('should return true', () => {
+        fakeInput.setAttribute('data-validate', '')
+
+        expect(instance.shouldValidateInput(fakeInput)).to.be.true
+      })
+    })
+
+    context('when input does not have the data-validate attribute', () => {
+      it('should return false', () => {
+        fakeInput.removeAttribute('data-validate')
+
+        expect(instance.shouldValidateInput(fakeInput)).to.be.false
+      })
+    })
+  })
+
   describe('@registerComponent', () => {
     it('should save component instance in instance.element.attributes', () => {
       instance.init()
