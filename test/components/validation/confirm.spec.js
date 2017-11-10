@@ -21,7 +21,7 @@ describe('Validation@confirm', () => {
   })
 
   it('should return false if the field value does not matches the confirm field value', () => {
-    field.value = 'foo'
+    field.setAttribute('value', 'foo')
 
     expect(confirm(field, form)).to.be.false
   })

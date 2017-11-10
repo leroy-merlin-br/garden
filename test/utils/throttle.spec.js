@@ -2,10 +2,10 @@ import throttle from '../../src/js/utils/throttle'
 
 describe('throttle util', () => {
   it('should execute the throttled function based on the provided timer', sinon.test(function () {
-    let spy = this.spy()
-    let timer = 100
-    let ref = throttle(spy, timer)
-    let interval = setInterval(ref, 50)
+    const spy = this.spy()
+    const timer = 100
+    const ref = throttle(spy, timer)
+    const interval = setInterval(ref, 50)
 
     this.clock.tick(150)
 
@@ -15,8 +15,8 @@ describe('throttle util', () => {
   }))
 
   it('should executed the throttled function with the provided arguments', sinon.test(function () {
-    let spy = this.spy()
-    let timer = 100
+    const spy = this.spy()
+    const timer = 100
 
     throttle(spy, timer)('foo')
 

@@ -31,7 +31,7 @@ describe('Modal component', () => {
     })
 
     it('should call @createModal', sinon.test(function () {
-      let spy = this.spy(instance, 'createModal')
+      const spy = this.spy(instance, 'createModal')
 
       instance.init()
 
@@ -53,7 +53,7 @@ describe('Modal component', () => {
     })
 
     it('should call @bindListeners', sinon.test(function () {
-      let spy = this.spy(instance, 'bindListeners')
+      const spy = this.spy(instance, 'bindListeners')
 
       instance.show()
 
@@ -61,7 +61,7 @@ describe('Modal component', () => {
     }))
 
     it('should call @showModal', sinon.test(function () {
-      let spy = this.spy(instance, 'showModal')
+      const spy = this.spy(instance, 'showModal')
 
       instance.show()
 
@@ -75,7 +75,7 @@ describe('Modal component', () => {
     })
 
     it('should call @unbindListeners', sinon.test(function () {
-      let spy = this.spy(instance, 'unbindListeners')
+      const spy = this.spy(instance, 'unbindListeners')
 
       instance.hide()
 
@@ -83,7 +83,7 @@ describe('Modal component', () => {
     }))
 
     it('should call @hideModal', sinon.test(function () {
-      let spy = this.spy(instance, 'hideModal')
+      const spy = this.spy(instance, 'hideModal')
 
       instance.hide()
 
@@ -222,7 +222,7 @@ describe('Modal component', () => {
       })
 
       it('should register keyup event on window element', sinon.test(function () {
-        let spy = this.spy(instance, 'onEscKeyPressed')
+        const spy = this.spy(instance, 'onEscKeyPressed')
 
         instance.init()
         instance.bindKeyboardListener()
@@ -240,7 +240,7 @@ describe('Modal component', () => {
 
       it('should not register keyup event on window element',
         sinon.test(function () {
-          let spy = this.spy(instance, 'onEscKeyPressed')
+          const spy = this.spy(instance, 'onEscKeyPressed')
 
           instance.init()
           instance.bindKeyboardListener()
@@ -314,7 +314,7 @@ describe('Modal component', () => {
 
   describe('@unbindListeners', () => {
     it('should not call @hide if close icon is clicked', sinon.test(function () {
-      let spy = this.spy(instance, 'hide')
+      const spy = this.spy(instance, 'hide')
 
       instance.init()
       instance.unbindListeners()
@@ -325,7 +325,7 @@ describe('Modal component', () => {
     }))
 
     it('should not call @onEscKeyPressed on keyup event', sinon.test(function () {
-      let spy = this.spy(instance, 'onEscKeyPressed')
+      const spy = this.spy(instance, 'onEscKeyPressed')
 
       instance.init()
       instance.unbindListeners()
@@ -414,7 +414,7 @@ describe('Modal component', () => {
 
     context('when a click is done outside the modal\'s content', () => {
       it('should hide the modal', sinon.test(function () {
-        let spy = this.spy(instance, 'hideModal')
+        const spy = this.spy(instance, 'hideModal')
 
         instance.init()
         instance.show()
@@ -500,7 +500,7 @@ describe('Modal component', () => {
 
     context('when event target is the modal on a static modal', () => {
       it('should not hide modal', sinon.test(function () {
-        let stub = this.stub(instance, 'hideModal')
+        const stub = this.stub(instance, 'hideModal')
         instance.options.static = true
 
         instance.onModalClick(fakeEvent)
@@ -511,7 +511,7 @@ describe('Modal component', () => {
 
     context('when event target is the modal on a non static modal', () => {
       it('should hide modal', sinon.test(function () {
-        let stub = this.stub(instance, 'hideModal')
+        const stub = this.stub(instance, 'hideModal')
         instance.options.static = false
 
         instance.onModalClick(fakeEvent)
@@ -530,7 +530,7 @@ describe('Modal component', () => {
       })
 
       it('should not hide modal', sinon.test(function () {
-        let stub = this.stub(instance, 'hideModal')
+        const stub = this.stub(instance, 'hideModal')
 
         instance.onModalClick(fakeEvent)
 
@@ -609,7 +609,7 @@ describe('Modal component', () => {
     })
 
     it('should call @bindTrigger', sinon.test(function () {
-      let stub = this.stub(instance, 'bindTrigger')
+      const stub = this.stub(instance, 'bindTrigger')
 
       instance.createModal()
 
@@ -617,7 +617,7 @@ describe('Modal component', () => {
     }))
 
     it('should call @fillModal', sinon.test(function () {
-      let stub = this.stub(instance, 'fillModal')
+      const stub = this.stub(instance, 'fillModal')
 
       instance.createModal()
 

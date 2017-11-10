@@ -1,7 +1,7 @@
 import Form from '../../src/js/components/form'
 
 describe('Form component', () => {
-  var instance, fixtureElement
+  let instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
