@@ -31,6 +31,11 @@ class Modal {
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
+
+    this.hide = this.hide.bind(this)
+    this.onEscKeyPressed = this.onEscKeyPressed.bind(this)
+    this.onTriggerOpenClick = this.onTriggerOpenClick.bind(this)
+    this.onModalClick = this.onModalClick.bind(this)
   }
 
   /**
@@ -81,10 +86,10 @@ class Modal {
     if (triggerClose) {
       const triggerCloseElement = this.modal.querySelector(triggerClose)
 
-      triggerCloseElement.addEventListener('click', this.hide.bind(this))
+      triggerCloseElement.addEventListener('click', this.hide)
     }
 
-    this.close.addEventListener('click', this.hide.bind(this))
+    this.close.addEventListener('click', this.hide)
 
     this.bindKeyboardListener()
 
@@ -115,7 +120,7 @@ class Modal {
    */
   bindKeyboardListener () {
     if (this.options.keyboard) {
-      window.addEventListener('keyup', this.onEscKeyPressed.bind(this))
+      window.addEventListener('keyup', this.onEscKeyPressed)
     }
   }
 
@@ -161,11 +166,11 @@ class Modal {
     if (this.options.triggerClose) {
       const triggerClose = this.modal.querySelector(this.options.triggerClose)
 
-      triggerClose.removeEventListener('click', this.hide.bind(this))
+      triggerClose.removeEventListener('click', this.hide)
     }
 
-    this.close.removeEventListener('click', this.hide.bind(this))
-    window.removeEventListener('keyup', this.onEscKeyPressed.bind(this))
+    this.close.removeEventListener('click', this.hide)
+    window.removeEventListener('keyup', this.onEscKeyPressed)
   }
 
   /**
@@ -176,7 +181,7 @@ class Modal {
       document.querySelector(this.options.triggerOpen)
         .addEventListener(
           'click',
-          this.onTriggerOpenClick.bind(this)
+          this.onTriggerOpenClick
         )
     }
   }
@@ -208,7 +213,7 @@ class Modal {
       this.content.classList.add('modal-content-show')
     }, 200)
 
-    this.modal.addEventListener('click', this.onModalClick.bind(this))
+    this.modal.addEventListener('click', this.onModalClick)
   }
 
   /**

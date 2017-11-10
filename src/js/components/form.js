@@ -16,6 +16,8 @@ class Form {
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
+
+    this.toggleActiveClass = this.toggleActiveClass.bind(this)
   }
 
   /**
@@ -72,7 +74,7 @@ class Form {
    * Add Modal instance to the element attributes object.
    */
   toggleFieldsActiveClass () {
-    Array.prototype.forEach.call(this.elements, this.toggleActiveClass.bind(this))
+    Array.prototype.forEach.call(this.elements, this.toggleActiveClass)
   }
 
   /**

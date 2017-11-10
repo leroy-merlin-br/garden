@@ -29,6 +29,9 @@ class Confirm {
   constructor (callback, options) {
     this.options = { ...DEFAULTS, ...options }
     this.callback = callback
+
+    this.onConfirmClick = this.onConfirmClick.bind(this)
+    this.onCancelClick = this.onCancelClick.bind(this)
   }
 
   /**
@@ -68,8 +71,8 @@ class Confirm {
    * Add listeners for click actions on confirm and cancel buttons.
    */
   bindListeners () {
-    this.confirmButton.addEventListener('click', this.onConfirmClick.bind(this))
-    this.cancelButton.addEventListener('click', this.onCancelClick.bind(this))
+    this.confirmButton.addEventListener('click', this.onConfirmClick)
+    this.cancelButton.addEventListener('click', this.onCancelClick)
   }
 
   /**

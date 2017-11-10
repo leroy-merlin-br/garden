@@ -37,7 +37,9 @@ class Notification {
   constructor (element, options) {
     this.element = element
     this.options = { ...DEFAULTS, ...options }
+
     this.hideEvent = this.hide.bind(this)
+    this.show = this.show.bind(this)
   }
 
   /**
@@ -54,7 +56,7 @@ class Notification {
     this.registerComponent()
 
     if (dynamic) {
-      window.setTimeout(this.show.bind(this), showIn)
+      window.setTimeout(this.show, showIn)
     }
 
     return this
