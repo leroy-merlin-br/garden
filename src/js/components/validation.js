@@ -87,9 +87,9 @@ class Validation {
    * @return {Array} Array of validated inputs.
    */
   validateAll () {
-    return Array.prototype.map.call(
-      this.getFilteredInputs(), this.validate, this
-    ).every(validation => validation)
+    return Array.from(this.getFilteredInputs())
+      .map(this.validate, this)
+      .every(validation => validation)
   }
 
   /**
@@ -98,10 +98,9 @@ class Validation {
    * @return {Array} Array of elements to be validated.
    */
   getFilteredInputs () {
-    return Array.prototype.filter.call(
-      this.element.querySelectorAll(this.options.selector),
-      this.shouldValidateInput
-    )
+    return Array.from(
+      this.element.querySelectorAll(this.options.selector)
+    ).filter(this.shouldValidateInput)
   }
 
   /**

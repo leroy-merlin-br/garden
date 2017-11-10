@@ -1,3 +1,3 @@
 export default (arr, item) => {
-  Array.prototype.splice.call(arr, Array.prototype.indexOf.call(arr, item))
+  Array.from(arr).splice(Array.from(arr).indexOf(item))
 }

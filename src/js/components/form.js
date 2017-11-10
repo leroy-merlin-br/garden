@@ -74,7 +74,7 @@ class Form {
    * Add Modal instance to the element attributes object.
    */
   toggleFieldsActiveClass () {
-    Array.prototype.forEach.call(this.elements, this.toggleActiveClass)
+    Array.from(this.elements).forEach(this.toggleActiveClass)
   }
 
   /**
