@@ -5,7 +5,7 @@ import emitter from '../../src/js/utils/emitter'
 import triggerEvent from '../../src/js/utils/trigger-event'
 
 describe('Validation component', () => {
-  var instance, fixtureElement
+  let instance, fixtureElement
 
   before(() => {
     fixture.setBase('test/fixture')
@@ -41,7 +41,7 @@ describe('Validation component', () => {
 
   describe('@bindListeners', () => {
     it('should set validate as a handler for options.events', sinon.test(function () {
-      let spy = this.spy(instance, 'validate')
+      const spy = this.spy(instance, 'validate')
 
       instance.init()
 
@@ -86,7 +86,7 @@ describe('Validation component', () => {
     })
 
     it('should trigger an emitter event validation:error with validation errors', sinon.test(function () {
-      let spy = this.spy(emitter, 'emit')
+      const spy = this.spy(emitter, 'emit')
 
       field.setAttribute('data-validate', 'required minlength')
       field.setAttribute('data-minlength', '5')
@@ -97,7 +97,7 @@ describe('Validation component', () => {
     }))
 
     it('should trigger an emitter event validation:success with no validation errors', sinon.test(function () {
-      let spy = this.spy(emitter, 'emit')
+      const spy = this.spy(emitter, 'emit')
 
       field.setAttribute('data-validate', 'required')
       field.setAttribute('value', 'foo')
