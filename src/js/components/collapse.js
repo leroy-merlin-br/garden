@@ -36,6 +36,8 @@ class Collapse {
     this.bindListeners()
     this.registerComponent()
 
+    this.toggleTarget = this.toggleTarget.bind(this)
+
     return this
   }
 
@@ -60,7 +62,7 @@ class Collapse {
    * Add @toggleTarget as listener for the events registered in options.
    */
   bindListeners () {
-    this.element.addEventListener(this.options.event, this.toggleTarget.bind(this))
+    this.element.addEventListener(this.options.event, this.toggleTarget)
   }
 
   /**
