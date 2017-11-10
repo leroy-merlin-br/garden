@@ -1,5 +1,5 @@
 export default (elements, events, handler) => {
-  Array.prototype.forEach.call(elements, element => {
+  Array.from(elements).forEach(element => {
     events.forEach(event => {
       element.addEventListener(event, handler)
     })

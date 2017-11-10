@@ -123,7 +123,7 @@ describe('Validation component', () => {
     })
 
     it('should validate all fields and return true if there is no invalid field', () => {
-      Array.prototype.forEach.call(instance.fields, field => {
+      Array.from(instance.fields).forEach(field => {
         field.setAttribute('value', 'foo')
       })
 
