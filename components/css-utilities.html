@@ -4,16 +4,16 @@
 </p>
 
 <h2 id="summary">Summary</h2>
-<ul>
-<li><a href="/css/utils.html#breakpoints">Breakpoints</a></li>
-<li><a href="/css/utils.html#media-queries">Media queries</a></li>
-<li><a href="/css/utils.html#circular">Circular</a></li>
-<li><a href="/css/utils.html#rounded">Rounded</a></li>
-<li><a href="/css/utils.html#border">Border</a></li>
-<li><a href="/css/utils.html#border-hover">Border-hover</a></li>
-<li><a href="/css/utils.html#border-active">Border-active</a></li>
-<li><a href="/css/utils.html#border-disabled">Border-disabled</a></li>
-</ul>
+<ol>
+<li><a href="#breakpoints">Breakpoints</a></li>
+<li><a href="#media-queries">Media queries</a></li>
+<li><a href="#circular">Circular</a></li>
+<li><a href="#rounded">Rounded</a></li>
+<li><a href="#border">Border</a></li>
+<li><a href="#border-hover">Border-hover</a></li>
+<li><a href="#border-active">Border-active</a></li>
+<li><a href="#border-disabled">Border-disabled</a></li>
+</ol>
 <h2 id="breakpoints">Breakpoints</h2>
 <p>Garden provides five breakpoints variables, which are defined
 in the <a href="/css/scaffolding.html#overriding-default-variables">defaults.json</a> file.</p>
@@ -276,4 +276,8 @@ $('[data-scroll-static]').on('click', () => {
 
 $('[data-scroll-history]').on('click', () => {
   $('#history-option').scroll();
+})
+
+emitter.on('moda:hide', function () {
+  alert('jardim')
 })</script></body></html>

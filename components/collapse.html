@@ -132,11 +132,11 @@
 
 <span class="token comment" spellcheck="true">// the first argument is the instance.$element (the trigger)</span>
 <span class="token comment" spellcheck="true">// the second argument is the instance.$target (the element to be toggled)</span>
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'collapse:show'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>$element<span class="token punctuation">,</span> $target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'collapse:show'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>$element<span class="token punctuation">,</span> $target<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   $element<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token string">'Close content'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'collapse:hide'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>$element<span class="token punctuation">,</span> $target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'collapse:hide'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>$element<span class="token punctuation">,</span> $target<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   $element<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token string">'Hide content'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
@@ -311,4 +311,8 @@ $('[data-scroll-static]').on('click', () => {
 
 $('[data-scroll-history]').on('click', () => {
   $('#history-option').scroll();
+})
+
+emitter.on('moda:hide', function () {
+  alert('jardim')
 })</script></body></html>

@@ -88,7 +88,7 @@
 <p>A <code>transitionend</code> event is fired whenever a CSS transition finishes. However, each browser has a different name for this event, so this utility helps at checking which <code>transitionend</code> event name is supported in the current browser.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> transitionEnd <span class="token keyword">from</span> <span class="token string">'src/js/utils/transitionend'</span><span class="token punctuation">;</span>
 
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token function">transitionEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token function">transitionEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Transition has finished'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
@@ -263,4 +263,8 @@ $('[data-scroll-static]').on('click', () => {
 
 $('[data-scroll-history]').on('click', () => {
   $('#history-option').scroll();
+})
+
+emitter.on('moda:hide', function () {
+  alert('jardim')
 })</script></body></html>

@@ -9,14 +9,14 @@
 <p>To register an event you can use the <code>emitter.on()</code> function, passing the event name and a handler as parameters.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> emitter <span class="token keyword">from</span> <span class="token string">'src/utils/emitter'</span><span class="token punctuation">;</span>
 
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'eventName'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'eventName'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// Here you can handle the event.</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h3 id="passing-arguments">Passing arguments</h3>
 <p>It is possible to pass arguments to a listener while emitting an event with the <code>emitter.emit()</code> function.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> emitter <span class="token keyword">from</span> <span class="token string">'src/utils/emitter'</span><span class="token punctuation">;</span>
 
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'event'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// Here you can work with the received data.</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -30,7 +30,7 @@ emitter<span class="token punctuation">.</span><span class="token function">emit
 <p>For example, the <a href="validation.html">validation</a> component emits an event whenever a field is validated, either for success or error.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> emitter <span class="token keyword">from</span> <span class="token string">'src/utils/emitter'</span><span class="token punctuation">;</span>
 
-emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> errors<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> errors<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// Here you can handle the error event, emitted by the validation component.</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </div></div></main><footer class="footer"> <div class="container"> <hr>Copyright Leroy Merlin 2016 <br>
@@ -205,4 +205,8 @@ $('[data-scroll-static]').on('click', () => {
 
 $('[data-scroll-history]').on('click', () => {
   $('#history-option').scroll();
+})
+
+emitter.on('moda:hide', function () {
+  alert('jardim')
 })</script></body></html>
