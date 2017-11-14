@@ -96,7 +96,9 @@ class Modal {
 
   bindModalHideListener () {
     emitter.on('modal:hide', () => {
-      history.back()
+      if (window.location.hash) {
+        return history.back()
+      }
     })
   }
 
@@ -140,9 +142,7 @@ class Modal {
   }
 
   hideModal () {
-    if (window.location.hash) {
-      emitter.emit('modal:hide')
-    }
+    emitter.emit('modal:hide')
     emitter.removeAllListeners('modal:hide')
 
     this.$content

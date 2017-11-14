@@ -288,18 +288,33 @@ describe('Modal spec', () => {
   })
 
   describe('bindModalHideListener', () => {
-    it('should call `history.back` when `modal:hide` is emitted',
-      sinon.test(function () {
-        const spy = this.spy(history, 'back')
-        instance.init()
-        instance.options.history = true
-        instance.show()
+    context('when modal:hide event is emitted', () => {
+      context('when window.location has hash', () => {
+        it('should call history.back', sinon.test(function () {
+          const spy = this.spy(history, 'back')
 
-        emitter.emit('modal:hide')
+          window.location.hash = '#modal-open'
 
-        expect(spy.calledOnce).to.be.true
+          instance.bindModalHideListener()
+
+          emitter.emit('modal:hide')
+
+          expect(spy.calledOnce).to.be.true
+        }))
       })
-    )
+
+      context('when window.location has no hash', () => {
+        it('should not call history.back', sinon.test(function () {
+          const spy = this.spy(history, 'back')
+
+          instance.bindModalHideListener()
+
+          emitter.emit('modal:hiden')
+
+          expect(spy.notCalled).to.be.true
+        }))
+      })
+    })
   })
 
   describe('unbindListeners', () => {
@@ -419,32 +434,14 @@ describe('Modal spec', () => {
   })
 
   describe('hideModal', () => {
-    context('when there is a hash in the location path', () => {
-      it('should emit `modal:hide`', sinon.test(function () {
-        const spy = this.spy(emitter, 'emit')
-        const hash = '#modal-open'
+    it('should emit `modal:hide`', sinon.test(function () {
+      const spy = this.spy(emitter, 'emit')
 
-        window.location.hash = hash
+      instance.init()
+      instance.hideModal()
 
-        instance.init()
-        instance.hideModal()
-
-        expect(spy.calledWith('modal:hide')).to.be.true
-      }))
-    })
-
-    context('when there is not a hash in the location path', () => {
-      it('should not emit `modal:hide`', sinon.test(function () {
-        const spy = this.spy(emitter, 'emit')
-
-        window.location.hash = ''
-
-        instance.init()
-        instance.hideModal()
-
-        expect(spy.calledWith('modal:hide')).to.be.false
-      }))
-    })
+      expect(spy.calledWith('modal:hide')).to.be.true
+    }))
 
     it('should remove `modal:hide` listener from emitter',
       sinon.test(function () {
