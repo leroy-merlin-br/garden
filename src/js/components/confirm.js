@@ -150,5 +150,5 @@ class Confirm {
 }
 
 /* istanbul ignore next */
-export default (callback, options) => new Confirm(callback, options).init()
+export default Confirm
 export { Confirm }

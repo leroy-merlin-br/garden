@@ -41,5 +41,6 @@ class Scroll {
   }
 }
 
-export default (element, options) => new Scroll(element, options).init()
+/* istanbul ignore next */
+export default Scroll
 export { Scroll }

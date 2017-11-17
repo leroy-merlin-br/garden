@@ -85,4 +85,6 @@ class Form {
   }
 }
 
+/* istanbul ignore next */
 export default Form
+export { Form }
