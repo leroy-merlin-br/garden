@@ -9,7 +9,7 @@ section: js
 ---
 
 # Modal
-<p class="lead">
+<p class="lead" data-modal-page>
   A modal is used as a dialog box that blocks the main view until the
   information or action required is provided.
 </p>
@@ -28,20 +28,13 @@ section: js
 The modal height varies according to its content, but it is limited to a `max-height` of `90%`.  
 You can use a data attribute or a class name as the modal selector, as described in the example below.
 
-You can initiate it as a jQuery plugin:
-
-```js
-// using any selector
-$('any-selector').modal(options);
-```
-
-or a vanilla constructor:
-
 ```js
 import Modal from 'garden/src/js/components/modal';
 
+const options = {};
+
 // using [data-modal] as the selector
-new Modal(document.querySelectorAll('[data-modal]'), options);
+new Modal(document.querySelectorAll('[data-modal]'), options).init();
 ```
 
 Here is a snippet of a modal block that uses a data attribute as its selector.
@@ -79,7 +72,7 @@ Modal provides some customizable options such as: `container`, `size`, `triggerC
 Below is an example on how you can pass those options to the modal component.
 
 ```js
-let options = {
+const options = {
   container: '.wrapper',
   size: 'small',
   triggerClose: '[data-anything]',
@@ -87,15 +80,9 @@ let options = {
   static: false,
   keyboard: true,
   history: true
-}
+};
 
-// as a jquery plugin
-$('[data-modal]').modal(options);
-
-// or
-
-// as a vanilla constructor
-new Modal(document.querySelectorAll('[data-modal]'), options);
+new Modal(document.querySelectorAll('[data-modal]'), options).init();
 ```
 
 ### Methods
@@ -114,10 +101,12 @@ By default, the modal component does not provide any opening trigger element. To
 </div>
 
 ```js
-let modal = $('[data-modal-trigger]').modal().data('modal');
-let trigger = $('[data-trigger]');
+const modal = new Modal(document.querySelector('[data-modal-trigger]')).init();
+const trigger = document.querySelector('[data-trigger]');
 
-trigger.on('click', () => {
+modal.setAttribute('data-modal', '');
+
+trigger.addEventListener('click', () => {
   modal.show();
 });
 ```
@@ -133,10 +122,10 @@ trigger.on('click', () => {
  To setup a default opening and closing button, you can use the `triggerOpen` and `triggerClose` options. With that, the  modal will register a `click` event to those selectors and call `show()` or `hide()` when the click event is fired.
 
 ```js
-$('[data-modal]').modal({
+new Modal(document.querySelector('[data-modal]'), {
   triggerClose: '.any-selector',
   triggerOpen: '[data-trigger="open"]'
-});
+}).init();
 ```
 
 ### Modal size
@@ -151,7 +140,9 @@ Click in each button below to check each modal size.
 </div>
 
 ```js
-$('[data-modal]').modal({ size: 'small|medium|large' });
+new Modal(document.querySelector('[data-modal]'), {
+  size: 'small | medium | large'
+}).init();
 ```
 
 <div data-modal-small class="hide">
@@ -191,10 +182,12 @@ With that, users would have to interact with the modal before closing it.
 </div>
 
 ```js
-let modalStatic = $('[data-modal-static]').modal({
+const modalStatic = new Modal(document.querySelector('[data-modal-static]'), {
   static: true,
   keyboard: false
-}).data('modal');
+}).init();
+
+modalStatic.setAttribute('data-modal', '');
 
 function closeModalStatic() {
   modalStatic.hide();
@@ -233,9 +226,8 @@ function closeModalStatic() {
    </div>
  </div>
 
-
 ```js
-let modal = $('[data-modal]').modal({
+new Modal(document.querySelector('[data-modal]'), {
   history: true
-})
+}).init();
 ```

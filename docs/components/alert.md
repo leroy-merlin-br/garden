@@ -9,7 +9,7 @@ section: js
 ---
 
 # Alert
-<p class="lead">
+<p class="lead" data-alert-page>
   An alert is used to present feedback messages to users' actions.
 </p>
 
@@ -25,14 +25,10 @@ response, other than the acknowledgement of the message.
 
 To initialize the component you can use any valid selector.
 
-You can either use it as a jQuery plugin:
-```js
-$('any-selector').on('click', () => $.fn.alert(options));
-```
-
-Or as a vanilla constructor:
 ```js
 import Alert from 'garden/src/js/components/alert';
+
+const options = {};
 
 new Alert(options);
 ```
@@ -49,7 +45,9 @@ either by clicking on the close icon, on the `OK` button, or by pressing the `ES
 ```
 
 ```js
-let alert = $('[data-alert]').on('click', () => $.fn.alert());
+const alertElement = document.querySelector('[data-alert]');
+
+alertElement.addEventListener('click', () => new Alert().init());
 ```
 
 ### Options
@@ -64,16 +62,12 @@ These are the options provided with the alert component, along with their defaul
 
 Below is an example on how to initialize the component passing customized options.
 ```js
-let options = {
+const options = {
   textMessage: 'This is an alert box',
   textButton: 'Confirm',
   triggerClose: '.any-selector'
 }
 
-// as a jquery plugin
-$('[data-alert]').on('click', () => $.fn.alert(options));
-
-// as a vanilla constructor
 new Alert(options);
 ```
 
@@ -94,5 +88,9 @@ You can click on the buttons below to check each size option.
 </div>
 
 ```js
-$('[data-alert]').on('click', () => $.fn.alert({ size: 'small|medium|large' }));
+const alertElement = document.querySelector('[data-alert]');
+
+alertElement.addEventListener('click', () => new Alert({
+  size: 'small | medium | large'
+}).init());
 ```

@@ -93,36 +93,24 @@ These are the options you can pass to the component while initializing it.
 |-------------------|-------------|
 | throttle | 1000ms     | The amount of time (in milliseconds) that the verification process must wait before being triggered again. This prevents execution overload, since this process is bound to the `scroll` event of the window. |
 | offset | 200px       | The allowed offset (in pixel) before the image actually reaches the viewport. This is aimed at making the image renderization process a little bit softer. You can remove it by setting it to 0. |
-| selector | `[data-lazy]` | The selector used to identify a Lazy Load component. You can customize it by providing any valid jQuery selector. |
+| selector | `[data-lazy]` | The selector used to identify a Lazy Load component. |
 
 Below is how you can customize the component using the options provided.
 
 ```js
-let options = {
+const options = {
   throttle: 4000, // Increasing the throttle waiting time
   selector: '.lazy-image' // Changing the default selector
 };
 
-// Initializing it as a jQuery plugin
-$('[data-lazy]').lazyload(options);
-
-// Or as a vanilla constructor
 new LazyLoad(document.querySelectorAll('[data-lazy]'), options);
 ```
 
 ### Destroying an instance
-By default, when the Lazy Load component does not find a `[data-lazy]` attribute in the page, it automatically removes the listener on the `$(window).scroll` event, but you can also do it manually by using the `destroy()` method.
+By default, when the Lazy Load component does not find a `[data-lazy]` attribute in the page, it automatically removes the listener for the `scroll` event, but you can also do it manually by using the `destroy()` method.
 
 ```js
-// With a jQuery plugin
-$('[data-lazy]').lazyload();
-
-$('[data-lazy]').data('lazy-load').destroy();
-```
-
-```js
-// With a vanilla constructor
-let lazyLoad = new LazyLoad(document.querySelectorAll('[data-lazy]'));
+const lazyLoad = new LazyLoad(document.querySelectorAll('[data-lazy]')).init();
 
 lazyLoad.destroy();
 ```
