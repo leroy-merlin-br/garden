@@ -96,5 +96,5 @@ class Alert {
 }
 
 /* istanbul ignore next */
-export default (options) => new Alert(options).init()
+export default Alert
 export { Alert }
