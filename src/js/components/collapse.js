@@ -31,12 +31,11 @@ class Collapse {
     const dataTarget = this.element.getAttribute(this.options.selector)
 
     this.toggle = document.querySelectorAll(dataTarget)[0]
+    this.toggleTarget = this.toggleTarget.bind(this)
 
     this.setInitialState()
     this.bindListeners()
     this.registerComponent()
-
-    this.toggleTarget = this.toggleTarget.bind(this)
 
     return this
   }
@@ -113,4 +112,6 @@ class Collapse {
   }
 }
 
+/* istanbul ignore next */
 export default Collapse
+export { Collapse }

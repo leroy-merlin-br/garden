@@ -318,4 +318,6 @@ class Modal {
   }
 }
 
+/* istanbul ignore next */
 export default Modal
+export { Modal }

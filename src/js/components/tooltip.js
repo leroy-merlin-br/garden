@@ -58,4 +58,6 @@ class Tooltip {
   }
 }
 
+/* istanbul ignore next */
 export default Tooltip
+export { Tooltip }

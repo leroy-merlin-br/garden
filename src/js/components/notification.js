@@ -161,4 +161,6 @@ class Notification {
   }
 }
 
+/* istanbul ignore next */
 export default Notification
+export { Notification }

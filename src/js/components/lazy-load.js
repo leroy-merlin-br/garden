@@ -224,4 +224,6 @@ class LazyLoad {
   }
 }
 
+/* istanbul ignore next */
 export default LazyLoad
+export { LazyLoad }
