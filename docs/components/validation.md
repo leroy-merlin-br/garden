@@ -30,14 +30,11 @@ section: js
 
 ## Usage
 
-To get a simple validation component you can use a jQuery plugin:
-```js
-$('[data-form]').validation();
-```
+To validate a form or a input you can simply create an instance of the
+Validation component passing the element that should be validated.
 
-Or a vanilla constructor:
 ```js
-new Validation($('[data-form]'));
+new Validation(document.querySelector('[data-form]')).init();
 ```
 
 After that, you have to create the markup for the fields you want to validate.
@@ -71,16 +68,12 @@ These are the options you can use to customize the component.
 
 Changing the default events and selector:
 ```js
-let options = {
+const options = {
   events: 'blur, change',
   selector: '.required'
 };
 
-//  Using it as a jQuery plugin
-$('[data-form]').validation(options);
-
-// or as a vanilla constructor
-new Validation(document.querySelectorAll('[data-form]'), options);
+new Validation(document.querySelectorAll('[data-form]'), options).init();
 ```
 
 ## Validation names
@@ -175,12 +168,12 @@ Check the example of a customized `confirm` validation below.
 ```js
 import Validation 'src/js/components/validation';
 
-Validation.prototype.rules.confirm = (field, $form) => {
-  // field is the current field being validated, and form is the form of the instance, as a jQuery object.
+Validation.prototype.rules.confirm = (field, form) => {
+  // field is the current field being validated, and form is the container for that field.
   // So you can check for other fields and use them for more complex validations, such as confirm itself.
 
-  // the return statement should be a boolean or a truthy/falsy value.
-  return field.value === $form.find(`[name="${field.getAttribute('data-confirm')}]`).val();
+  // The return statement should be a boolean or a truthy/falsy value.
+  return field.value === form.find(`[name="${field.getAttribute('data-confirm')}]`).val();
 };
 ```
 
@@ -220,10 +213,13 @@ provide any field (even if it is not inside the form instance) and returns a boo
 ```js
 import Validation from 'src/js/components/validation';
 
-let $field = $('<input type="text" data-required data-validate="required" />');
+const field = documen.createElement('input');
 
-Validation.prototype.validate($field);
+field.setAttribute('type', 'text');
+field.setAttribute('data-required', '');
+field.setAttribute('data-validate', 'required');
 
+Validation.prototype.validate(field);
 // returns a boolean, and triggers the validation event.
 ```
 
@@ -231,17 +227,18 @@ Validation.prototype.validate($field);
 You will usually use this method to validate the whole form instance.
 
 ```js
-let validation = $('[data-form]').validation();
+const validationElement = document.querySelector('[data-form]');
+const validation = new Validation(validationElement).init();
 
-$('[data-form]').on('submit', (e) => {
+validationElement.addEventListener('submit', (e) => {
   // in case validation of the whole form fails, prevent the submission of it:
-  if (!validation.data('validation').validateAll()) {
+  if (!validation.validateAll()) {
     e.preventDefault();
   }
 });
 ```
 
 ## Dynamic fields
-The `validation` component handles events through [event delegation](http://api.jquery.com/on/)
+The `validation` component handles events through [event delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_delegation)
 using the provided selector, which is `[data-required]` by default.
 Thus, you can add or remove fields without having to communicate with the component instance.

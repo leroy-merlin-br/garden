@@ -9,7 +9,7 @@ section: js
 ---
 
 # Confirm
-<p class="lead">
+<p class="lead" data-confirm-page>
   A confirm is used to present confirmation messages according to users' actions.
 </p>
 
@@ -22,18 +22,10 @@ section: js
 ## Usage
 The confirm component is an empty container where you can add a message that will be presented to users so they can confirm or not the execution of an specific action.
 
-You can initiate the component as a jQuery plugin:
-```js
-// using any selector
-$('any-selector').on('click', () => $.fn.confirm(callback, options));
-```
-
-Or as a vanilla constructor:
-
 ```js
 import Confirm from 'garden/src/js/components/confirm';
 
-new Confirm(callback, options);
+new Confirm(callback, options).init();
 ```
 
 The component takes a callback in the first argument and the options in the second argument.
@@ -57,7 +49,7 @@ These are the options provided with the confirm component, along with their defa
 
 Below is an example on how to initialize the component passing customized options.
 ```js
-let options = {
+const options = {
   textMessage: 'This is an example message',
   textConfirmButton: 'Ok',
   textCancelButton: 'Cancel'
@@ -65,11 +57,7 @@ let options = {
 
 const callback = (value) => value
 
-// as a jquery plugin
-$('[data-confirm]').on('click', () => $.fn.confirm(callback, options));
-
-// as a vanilla constructor
-new Confirm(callback, options);
+new Confirm(callback, options).init();
 ```
 
 ### Size option
@@ -84,5 +72,11 @@ You can click on the buttons below to check each size option.
 </div>
 
 ```js
-$('[data-confirm]').on('click', () => $.fn.confirm((value) => value, { size: 'small|medium|large' }));
+const confirmElement = document.querySelector('[data-confirm]');
+
+confirmElement.addEventListener('click', () => {
+  new Confirm((value) => value, {
+    size: 'small | medium | large'
+  }).init();
+});
 ```

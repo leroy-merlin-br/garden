@@ -9,7 +9,7 @@ section: js
 ---
 
 # Tooltip
-<p class="lead">
+<p class="lead" data-tooltip-page>
   The tooltip component is used to display a short description when the mouse is over a specific element.
 </p>
 
@@ -62,22 +62,14 @@ The selector used can either be a class name, a data attribute, or an ID, as in 
   Note that to style the tooltip element you should add the `.tooltip` class to it.
 </p>
 
-You can use the component as a jQuery plugin:
-
 ```js
-$('[data-tooltip]').tooltip();
-```
+ import Tooltip from 'garden/src/js/components/tooltip';
 
-Or as a vanilla constructor:
-
-```js
- import Tooltip from 'garden/src/js/components/tooltip'
-
- let options = {
+ const options = {
    placement: 'bottom'
- }
+ };
 
- new Tooltip(document.querySelector('.some-selector'), options)
+ new Tooltip(document.querySelector('.some-selector'), options).init();
 ```
 
 As you noticed in the example above, the `Tooltip` constructor receives two parameters. The first one is the target element, and the second is an object with the options described below. You can also use the available options from [popper.js](https://popper.js.org/documentation.html#new_Popper) \*.

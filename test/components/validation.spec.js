@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import Validation from '../../src/js/components/validation'
 
 import emitter from '../../src/js/utils/emitter'

@@ -9,7 +9,7 @@ section: js
 ---
 
 # Collapse
-<p class="lead">
+<p class="lead" data-collapse-page>
   A collapse is responsible for toggling the visibility of an element.
 </p>
 
@@ -48,18 +48,10 @@ You can set an element to be toggled by adding the `[data-target="selector"]` to
   Also, you should avoid styling it, since the component relies on `scrollHeight` to retrieve the target element height.
 </p>
 
-After that you can initiate the component as a jQuery plugin:
-
-```js
-$('.toggle').collapse();
-```
-
-Or as a vanilla constructor:
-
 ```js
 import Collapse from 'garden/src/js/components/collapse';
 
-new Collapse(document.querySelector('.toggle'));
+new Collapse(document.querySelector('.toggle')).init();
 ```
 
 If the target provided is visible, the component element will receive the
@@ -89,10 +81,6 @@ To set the initial state of the component, you have to add the `.active` and `.v
   </div>
 ```
 
-```js
-$('.toggle').collapse();
-```
-
 ### Options
 
 | Option            | Description |
@@ -105,18 +93,14 @@ $('.toggle').collapse();
 Below is how you can pass options to the component.
 
 ```js
-let options = {
+const options = {
   selector: '[data-something]',
   listener: 'change',
   activeClass: 'button-active',
   visibleClass: 'not-hidden',
 }
 
-// as a jquery plugin
-$('[data-collapse]').collapse(options);
-
-// as a vanilla constructor
-new Collapse(document.querySelectorAll('[data-collapse]'), options);
+new Collapse(document.querySelectorAll('[data-collapse]'), options).init();
 ```
 
 ### Methods
@@ -134,13 +118,13 @@ You can also listen to toggle state changes using the [emitter](emitter.html) co
 ```js
 import emitter from 'garden/src/js/utils/emitter';
 
-// the first argument is the instance.$element (the trigger)
-// the second argument is the instance.$target (the element to be toggled)
-emitter.on('collapse:show', ($element, $target) => {
-  $element.text('Close content');
+// the first argument is the instance.element (the trigger)
+// the second argument is the instance.target (the element to be toggled)
+emitter.on('collapse:show', (element, target) => {
+  element.text('Close content');
 });
 
-emitter.on('collapse:hide', ($element, $target) => {
-  $element.text('Hide content');
+emitter.on('collapse:hide', (element, target) => {
+  element.text('Hide content');
 });
 ```

@@ -1,17 +1,16 @@
 import Tooltip from '../../src/js/components/tooltip'
 import Popper from 'popper.js'
-import $ from 'jquery'
 
 describe('Tooltip component', () => {
-  let instance, $fixture, options
+  let instance, fixtureElement, options
 
   before(() => {
     fixture.setBase('test/fixture')
   })
 
   beforeEach(() => {
-    $fixture = fixture.load('tooltip.html')[0]
-    instance = new Tooltip($fixture)
+    fixtureElement = fixture.load('tooltip.html')[0]
+    instance = new Tooltip(fixtureElement)
   })
 
   afterEach(() => {

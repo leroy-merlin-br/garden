@@ -45,7 +45,6 @@ html(lang="pt-BR")
 
     include _partials/footer.jade
 
-    script(src="https://code.jquery.com/jquery-1.12.0.min.js")
     script(src=root('assets/garden.min.js'))
     script(src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js")
     script.
@@ -55,7 +54,7 @@ html(lang="pt-BR")
         }
       });
 
-      var text = new Clipboard('[data-clipboard-text]');
+      const text = new Clipboard('[data-clipboard-text]');
 
       text.on('success', function(e) {
         if (e.trigger.classList) {
@@ -67,157 +66,239 @@ html(lang="pt-BR")
         }
       });
 
-      $('.docs').form();
-
-      $('[data-modal]').modal({
-        triggerClose: '[data-trigger="close"]',
-        triggerOpen: '[data-trigger="open"]'
-      });
-
-      $('[data-modal-small]').modal({
-        triggerOpen: '[data-trigger-small="open"]',
-        size: 'small'
-      });
-
-      $('[data-modal-medium]').modal({
-        triggerOpen: '[data-trigger-medium="open"]',
-        size: 'medium'
-      });
-
-      $('[data-modal-large]').modal({
-        triggerOpen: '[data-trigger-large="open"]',
-        size: 'large'
-      });
+      //- Modal page
+      const modalPage = document.querySelector('[data-modal-page]')
+      const defaultModalElement = document.querySelector('[data-modal-trigger]');
+      const smallModalElement = document.querySelector('[data-modal-small]');
+      const mediumModalElement = document.querySelector('[data-modal-medium]');
+      const largeModalElement = document.querySelector('[data-modal-large]');
+      const historyModalElement = document.querySelector('[data-modal-history]');
+      const staticModalElement = document.querySelector('[data-modal-static]');
       
-      $('[data-modal-history]').modal({
-        triggerOpen: '[data-trigger-history="open"]',
-        size: 'small',
-        history: true
-      });
+      if (modalPage) {
+        const defaultModal = new Modal(defaultModalElement, {
+          triggerOpen: '[data-trigger]'
+        }).init();
+        defaultModal.element.setAttribute('data-modal', '');
+        
+        new Modal(smallModalElement, {
+          triggerOpen: '[data-trigger-small="open"]',
+          size: 'small'
+        }).init();
+          
+        new Modal(mediumModalElement, {
+          triggerOpen: '[data-trigger-medium="open"]',
+          size: 'medium'
+        }).init();
+          
+        new Modal(largeModalElement, {
+          triggerOpen: '[data-trigger-large="open"]',
+          size: 'large'
+        }).init();
+        
+        new Modal(historyModalElement, {
+          triggerOpen: '[data-trigger-history="open"]',
+          size: 'small',
+          history: true
+        }).init();
+        
+        const staticModal = new Modal(staticModalElement, {
+          triggerOpen: '[data-trigger-static="open"]',
+          static: true,
+          keyboard: false
+        }).init();
+        
+        staticModal.element.setAttribute('data-modal', '');
+        
+        function closeModalStatic() {
+          return staticModal.hide();
+        }
+        
+        //- Scroll to options
+        const scrollToUsage = document.querySelector('[data-scroll-usage]');
+        const scrollToOptions = document.querySelector('[data-scroll-options]');
+        const scrollToMethods = document.querySelector('[data-scroll-methods]');
+        const scrollToOpening = document.querySelector('[data-scroll-opening]');
+        const scrollToSize = document.querySelector('[data-scroll-size]');
+        const scrollToStaticModal = document.querySelector('[data-scroll-static]');
+        const scrollToHistoryOption = document.querySelector('[data-scroll-history]');
+        
+        scrollToUsage.addEventListener('click', () => {
+          new Scroll(document.querySelector('#usage')).init();
+        });
+        
+        scrollToOptions.addEventListener('click', () => {
+          new Scroll(document.querySelector('#options')).init();
+        });
+        
+        scrollToMethods.addEventListener('click', () => {
+          new Scroll(document.querySelector('#methods')).init();
+        });
+        
+        scrollToOpening.addEventListener('click', () => {
+          new Scroll(document.querySelector('#opening-a-modal')).init();
+        });
+        
+        scrollToSize.addEventListener('click', () => {
+          new Scroll(document.querySelector('#modal-size')).init();
+        });
+        
+        scrollToStaticModal.addEventListener('click', () => {
+          new Scroll(document.querySelector('#static-modal')).init();
+        });
+        
+        scrollToHistoryOption.addEventListener('click', () => {
+          new Scroll(document.querySelector('#history-option')).init();
+        });
+      }
+      
+      //- Alert page
+      const alertPage = document.querySelector('[data-alert-page]');
+      const defaultAlert = document.querySelector('[data-alert]');
+      const smallAlert = document.querySelector('[data-alert-small]');
+      const mediumAlert = document.querySelector('[data-alert-medium]');
+      const largeAlert = document.querySelector('[data-alert-large]');
+      
+      if (alertPage) {
+        defaultAlert.addEventListener('click', () => new Alert().init());
+        
+        smallAlert.addEventListener('click', () => new Alert({
+          textMessage: 'Small alert example message',
+          size: 'small'
+        }).init());
+          
+        mediumAlert.addEventListener('click', () => new Alert({
+          textMessage: 'Medium alert example message',
+          size: 'medium'
+        }).init());
+            
+        largeAlert.addEventListener('click', () => new Alert({
+          textMessage: 'Large alert example message',
+          size: 'large'
+        }).init());
+      }
+      
+      //- Notification page
+      const notificationPage = document.querySelector('[data-notification-page]')
+      const notificationButton = document.querySelector('[data-notification-temp-button]');
+      const dynamicNotification = document.querySelector('[data-notification-dynamic]');
+      const nonDynamicNotification = document.querySelector('[data-notification]');
+      
+      if (notificationPage) {
+        notificationButton.addEventListener('click', () => {
+          const notificationContainer = document.querySelector('[data-notification-temporary]');
+          const notification = notificationContainer.querySelector('.notification');
+        
+          notificationContainer.removeAttribute('data-notification');
 
-      let modalStatic = $('[data-modal-static]').modal({
-        triggerOpen: '[data-trigger-static="open"]',
-        static: true,
-        keyboard: false
-      }).data('modal');
-
-      function closeModalStatic() {
-        return modalStatic.hide();
+          if (notification) {
+            notification.remove();
+          }
+        
+          new Notification(notificationContainer, {
+            message: 'This is a temporary notification',
+            autoHide: true,
+            showIn: 500,
+            hideIn: 2000
+          }).init();
+        });
+        
+        new Notification(dynamicNotification, {
+          message: 'This is a dynamic notification.',
+          type: 'warning'
+        }).init();
+        
+        new Notification(nonDynamicNotification, {
+          closeButton: '[data-close="notification"]',  
+          dynamic: false
+        }).init();
       }
 
-      let modalTrigger = $('[data-modal-trigger]').modal().data('modal')
-      let trigger = $('[data-trigger]');
-
-      trigger.on('click', function() {
-        modalTrigger.show();
-      });
-
-      $('[data-alert]').on('click', () => $.fn.alert());
-
-      $('[data-alert-small]').on('click', () => $.fn.alert({
-        textMessage: 'Small alert example message',
-        size: 'small'
-      }));
-
-      $('[data-alert-medium]').on('click', () => $.fn.alert({
-        textMessage: 'Medium alert example message',
-        size: 'medium'
-      }));
-
-      $('[data-alert-large]').on('click', () => $.fn.alert({
-        textMessage: 'Large alert example message',
-        size: 'large'
-      }));
-
-      $('[data-notification-temp-button]').on('click', () => {
-        const notificationContainer = $('[data-notification-temporary]')
-        const notification = notificationContainer.find('.notification')
-
-        notificationContainer.removeData('notification')
-        notification.remove()
-
-        notificationContainer.notification({
-          message: 'This is a temporary notification',
-          autoHide: true,
-          showIn: 500,
-          hideIn: 2000
+      //- Confirm page
+      const confirmPage = document.querySelector('[data-confirm-page]')
+      const defaultConfirmElement = document.querySelector('[data-confirm]')
+      const smallConfirmElement = document.querySelector('[data-confirm-small]')
+      const mediumConfirmElement = document.querySelector('[data-confirm-medium]')
+      const largeConfirmElement = document.querySelector('[data-confirm-large]')
+      const callback = (value) => value;
+      
+      if (confirmPage) {
+        defaultConfirmElement.addEventListener('click', () => {
+          new Confirm(callback).init();
         });
-      });
+        
+        smallConfirmElement.addEventListener('click', () => {
+          new Confirm(callback, {
+            textMessage: 'Small confirm example message',
+            size: 'small'    
+          }).init();
+        });
+        
+        mediumConfirmElement.addEventListener('click', () => {
+          new Confirm(callback, {
+            textMessage: 'Medium confirm example message',
+            size: 'medium'
+          }).init();
+        });
+        
+        largeConfirmElement.addEventListener('click', () => {
+          new Confirm(callback, {
+            textMessage: 'Large confirm example message',
+            size: 'large'
+          }).init();
+        });
+      }
 
-      $('[data-confirm]').on('click', () => $.fn.confirm((value) => value));
+      //- Collapse page
+      const collapsePage = document.querySelector('[data-collapse-page]');
+      const collapseElements = document.querySelectorAll('.toggle');
+      
+      if (collapsePage) {
+        collapseElements.forEach((element) => new Collapse(element).init());
+      }
+      
+      //- Tooltip page
+      const tooltipPage = document.querySelector('[data-tooltip-page]');
+      const tooltipTop = document.querySelector('[data-tooltip="#top"]');
+      const tooltipBottom = document.querySelector('[data-tooltip="#bottom"]');
+      const tooltipLeft = document.querySelector('[data-tooltip="#left"]');
+      const tooltipRight = document.querySelector('[data-tooltip="#right"]');
+      
+      if (tooltipPage) {
+        new Tooltip(tooltipTop).init();
+        
+        new Tooltip(tooltipBottom, { placement: 'bottom' }).init();
+        
+        new Tooltip(tooltipLeft, { placement: 'left' }).init();
+        
+        new Tooltip(tooltipRight, { placement: 'right' }).init();
+      }
+      
+      //- Scroll page
+      const scrollPage = document.querySelector('[data-scroll-page]');
+      const scrollElement = document.querySelector('[data-scroll]');
+      const footerElement = document.querySelector('header');
+      
+      if (scrollPage) {
+        scrollElement.addEventListener('click', () => new Scroll(footerElement).init());
+      }
+      
+      //- Grid page
+      const gridPage = document.querySelector('[data-grid-page]');
+      const toggleContainer = document.querySelector('[data-toggle-container]');
+      
+      if (gridPage) {
+        toggleContainer.addEventListener('click', () => {
+            const container = document.querySelector('[data-container]');
+            let containerText = container.querySelector('[data-container-text]');
 
-      $('[data-confirm-small]').on('click', () => $.fn.confirm((value) => value, {
-        textMessage: 'Small confirm example message',
-        size: 'small'
-      }));
-
-      $('[data-confirm-medium]').on('click', () => $.fn.confirm((value) => value, {
-        textMessage: 'Medium confirm example message',
-        size: 'medium'
-      }));
-
-      $('[data-confirm-large]').on('click', () => $.fn.confirm((value) => value, {
-        textMessage: 'Large confirm example message',
-        size: 'large'
-      }));
-
-      $('[data-notification-dynamic]').notification({
-        message: 'This is a dynamic notification.',
-        type: 'warning'
-      });
-
-      $('[data-notification]').notification({
-        dynamic: false,
-        closeButton: '[data-close="notification"]'
-      });
-
-      $('[data-trigger="scroll"]').on('click', function() {
-        $('#scroll').scroll();
-      });
-
-      $('.toggle').collapse();
-
-      $('[data-tooltip="#top"]').tooltip();
-      $('[data-tooltip="#bottom"]').tooltip({ placement: 'bottom' });
-      $('[data-tooltip="#left"]').tooltip({ placement: 'left' });
-      $('[data-tooltip="#right"]').tooltip({ placement: 'right' });
-
-      $('[data-toggle-container]').on('click', () => {
-        const container = $('[data-container]')
-        const containerText = container.find('[data-container-text]')
-
-        container.toggleClass('example-container example-container--fluid')
-        containerText.text(container.hasClass('example-container') ? '.container' : '.container-fluid')
-      })
-
-      $('[data-scroll]').on('click', () => {
-        $('.footer').scroll();
-      })
-
-      $('[data-scroll-usage]').on('click', () => {
-        $('#usage').scroll();
-      })
-
-      $('[data-scroll-options]').on('click', () => {
-        $('#options').scroll();
-      })
-
-      $('[data-scroll-methods]').on('click', () => {
-        $('#methods').scroll();
-      })
-
-      $('[data-scroll-opening]').on('click', () => {
-        $('#opening-a-modal').scroll();
-      })
-
-      $('[data-scroll-size]').on('click', () => {
-        $('#modal-size').scroll();
-      })
-
-      $('[data-scroll-static]').on('click', () => {
-        $('#static-modal').scroll();
-      })
-
-      $('[data-scroll-history]').on('click', () => {
-        $('#history-option').scroll();
-      })
+            container.classList.toggle('example-container');
+            container.classList.toggle('example-container--fluid');
+            
+            if (container.classList.contains('example-container')) {
+              containerText.innerHTML = '.container';
+            } else {
+              containerText.innerHTML = '.container-fluid';
+            }
+        });
+      }
