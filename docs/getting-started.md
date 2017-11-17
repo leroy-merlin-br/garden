@@ -57,8 +57,4 @@ We use [Webpack](https://webpack.github.io/) with [Babel-loader](https://github.
 import file from 'garden/src/js/file';
 ```
 
-<p class="notification notification-warning">
-  JavaScript components rely on jQuery to work, most of the time, so it is important to note that `garden.min.js` *does not* come with jQuery. You have to add your own version of it.
-</p>
-
 ##### Checkout the **<a href="https://github.com/leroy-merlin-br/garden" target="_blank" title="Garden Readme">README</a>** of the project to know how to build the project locally.

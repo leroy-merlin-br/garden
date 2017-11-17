@@ -9,7 +9,7 @@ section: js
 ---
 
 # Notifications
-<p class="lead">
+<p class="lead" data-notification-page>
   This is an extension of the [notification atom](/components/css-notifications.html)
   and can be used to add some interactivity to notifications.
 </p>
@@ -24,16 +24,10 @@ section: js
 ## Usage
 To initiate the component you can use any valid selector, such as a class or a `[data-something]` attribute.
 
-You can use it as a jQuery plugin:
-```js
-$('.any-selector').notification();
-```
-
-Or as a vanilla constructor:
 ```js
 import Notification from 'garden/src/js/components/notification';
 
-new Notification(document.querySelector('[data-notification]'));
+new Notification(document.querySelector('[data-notification]')).init();
 ```
 
 ### Options
@@ -52,7 +46,9 @@ These are the options provided with the component, along with their default valu
 Below is an example on how to initialize the component using customized options.
 
 ```js
-let options = {
+import Notification from 'garden/src/js/components/notification';
+
+const options = {
   message: 'This is an interactive notification',
   autoHide: true,
   showIn: 2000,
@@ -60,15 +56,8 @@ let options = {
   type: 'warning'
 }
 
-// Using it as a jQuery plugin
-$(`.any-selector`).notification(options);
-
-// Using it as a vanilla constructor
-import Notification from 'garden/src/js/components/notification';
-
-new Notification(document.querySelector('.any-selector'), options);
+new Notification(document.querySelector('.any-selector'), options).init();
 ```
-
 
 ### Dynamic notification
 By default, a notification is dynamic, which means that its markup will be
@@ -81,18 +70,14 @@ generated via JavaScript and appended to the selector used.
 ```
 
 ```js
-let options = {
+import Notification from 'garden/src/js/components/notification';
+
+const options = {
   message: 'This is a dynamic notification',
   type: 'warning'
 }
 
-// As a jQuery plugin
-$('[data-notification-dynamic]').notification(options);
-
-// As a vanilla constructor
-import Notification from 'garden/src/js/components/notification';
-
-new Notification(document.querySelector('[data-notification-dynamic]'), options);
+new Notification(document.querySelector('[data-notification-dynamic]'), options).init();
 ```
 
 ### Non-dynamic notification
@@ -110,31 +95,14 @@ When using a non-dynamic notification, you need to add all the markup in your vi
 </div>
 ```
 
-As a jQuery plugin:
-
-```js
-// using selector as data-*
-$('[data-notification]').notification({
-  dynamic: false,
-  closeButton: '[data-close="notification"]'
-});
-
-// using as a class
-$('.any-class').notification({
-  dynamic: false
-});
-```
-
-Using as vanilla constructor :
-
 ```js
 import Notification from 'garden/src/js/components/notification';
 
-let options = {
+const options = {
   dynamic: false
 }
 
-new Notification(document.querySelector('[data-notification]'), options);
+new Notification(document.querySelector('[data-notification]'), options).init();
 ```
 
 ### Temporary notification
@@ -153,7 +121,9 @@ You can click on the button below to show an example of a temporary notification
 ```
 
 ```js
-let options = {
+import Notification from 'garden/src/js/components/notification';
+
+const options = {
   message: 'This is a dynamic notification',
   autoHide: true,
   showIn: 2000,
@@ -161,11 +131,5 @@ let options = {
   type: 'warning'
 }
 
-// As a jQuery plugin
-$('[data-notification-temporary]').notification(options);
-
-// As a vanilla constructor
-import Notification from 'garden/src/js/components/notification';
-
-new Notification(document.querySelector('[data-notification-temporary]'), options);
+new Notification(document.querySelector('[data-notification-temporary]'), options).init();
 ```

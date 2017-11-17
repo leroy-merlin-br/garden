@@ -10,20 +10,22 @@ section: js
 
 # Form
 <p class="lead">
-  The form component is built as a jQuery plugin responsible for handling the state of input elements.
+  The form component is responsible for handling the state of input elements.
 </p>
 
 ### How to use
 By passing an object as a parameter to the `form` function, you can define the `event` that will trigger the component's action, as well as list the `selectors` attached to that event.
+
 ```js
 // accepted options
-var options = {
+const options = {
   events: 'change',
   selectors: '.input, select, .select, .textarea'
 };
 
-$('[data-form]').form(options);
+new Form (document.querySelector('[data-form]'), options).init();
 ```
+
 <p class="notification notification-warning">
   Notice that the strings used in the example above are the default values.
 </p>

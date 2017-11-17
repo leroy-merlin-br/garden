@@ -9,7 +9,7 @@ section: css
 ---
 
 # Grid
-<p class="lead">
+<p class="lead" data-grid-page>
   The grid component is responsible for basic element alignment.
 </p>
 

@@ -14,8 +14,6 @@ Stack wise, Garden was built using [PostCSS](https://github.com/postcss/postcss)
 
 As for JavaScript components, they are primarily written on ES2015 (using [Babel](https://babeljs.io)) and bundled to ES5 UMD components with [Webpack](https://webpack.github.io/).
 
-Garden also relies on jQuery to provide API standards for it's components. Please take note Garden does not comes with jQuery, allowing you to use your own version based on your needs. You can opt for Zepto, for example. Or a custom build of jQuery as well.
-
 ## Browser Support
 Garden CSS/JS components targets all major browsers, including IE9+. CSS prefixors are added through [Autoprefixer](https://github.com/postcss/autoprefixer).
 

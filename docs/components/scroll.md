@@ -9,7 +9,7 @@ section: js
 ---
 
 # Scroll
-<p class="lead">
+<p class="lead" data-scroll-page>
   The Scroll component is responsible for scrolling the page to a specific element position.
 </p>
 
@@ -18,24 +18,25 @@ section: js
 1. [Options](#options)
 
 ## Usage
-This component works with the help of [jump.js](http://callmecavs.com/jump.js/) and 
-provides a function to scroll the page body into the position of the element provided.
+This component works with the help of [jump.js](http://callmecavs.com/jump.js/)
+and provides a function to scroll the page body into the position of the element
+provided.
 
 You can use it as a vanilla constructor:
 
 ```js
 import Scroll from 'garden/src/js/components/scroll';
 
-const element = document.querySelector('div')
+const element = document.querySelector('div');
 const options = {
   // all the options available from jump.js
-}
+};
 
-new Scroll(element, options)
+new Scroll(element, options).init();
 ```
 
 ## Options
-You can use all the options available from [jump.js](http://callmecavs.com/jump.js/). 
+You can use all the options available from [jump.js](http://callmecavs.com/jump.js/).  
 Below are the default options for this component.
 
 | Option            | Default | Description |
@@ -45,4 +46,4 @@ Below are the default options for this component.
 
 You can click on the button below to see how it works.
 
-<button class="button button-primary" data-scroll>Scroll to footer</button>
+<button class="button button-primary" data-scroll>Scroll to top</button>
