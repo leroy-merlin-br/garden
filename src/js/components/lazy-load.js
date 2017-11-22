@@ -1,5 +1,5 @@
 import throttle from '../utils/throttle'
-import removeFromArray from '../utils/remove-array-like'
+import removeArrayLike from '../utils/remove-array-like'
 
 const NAME = 'lazyload'
 const DEFAULTS = {
@@ -87,7 +87,7 @@ class LazyLoad {
   checkPlaceholder (placeholder) {
     if (this.isPlaceholderVisible(placeholder)) {
       this.renderImage(placeholder)
-      removeFromArray(this.element, placeholder)
+      this.element = removeArrayLike(this.element, placeholder)
     }
   }
 

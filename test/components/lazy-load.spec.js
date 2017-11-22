@@ -1,7 +1,7 @@
 import LazyLoad from '../../src/js/components/lazy-load'
 import * as throttle from '../../src/js/utils/throttle'
 import triggerEvent from '../../src/js/utils/trigger-event'
-import * as removeFromArray from '../../src/js/utils/remove-array-like'
+import * as removeArrayLike from '../../src/js/utils/remove-array-like'
 
 describe('LazyLoad component', () => {
   let instance, fixtureElement
@@ -146,8 +146,8 @@ describe('LazyLoad component', () => {
         expect(spy.calledOnce).to.be.true
       }))
 
-      it('should call removeFromArray', sinon.test(function () {
-        const spy = this.spy(removeFromArray, 'default')
+      it('should call removeArrayLike', sinon.test(function () {
+        const spy = this.spy(removeArrayLike, 'default')
         this.stub(instance, 'isPlaceholderVisible').returns(true)
 
         instance.checkPlaceholder(fakePlaceholder)
@@ -166,8 +166,8 @@ describe('LazyLoad component', () => {
         expect(spy.called).to.be.false
       }))
 
-      it('should not call removeFromArray', sinon.test(function () {
-        const spy = this.spy(removeFromArray, 'default')
+      it('should not call removeArrayLike', sinon.test(function () {
+        const spy = this.spy(removeArrayLike, 'default')
         this.stub(instance, 'isPlaceholderVisible').returns(false)
 
         instance.checkPlaceholder(fakePlaceholder)

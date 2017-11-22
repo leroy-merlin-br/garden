@@ -1,3 +1,14 @@
-export default (arr, item) => {
-  Array.from(arr).splice(Array.from(arr).indexOf(item))
+const removeArrayLike = (arr, item) => {
+  const newArray = Array.from(arr)
+  const itemIndex = newArray.indexOf(item)
+
+  if (itemIndex >= 0) {
+    newArray.splice(itemIndex, 1)
+  }
+
+  return newArray
 }
+
+/* istanbul ignore next */
+export default removeArrayLike
+export { removeArrayLike }
