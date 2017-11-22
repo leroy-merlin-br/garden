@@ -8,5 +8,9 @@ module.exports = {
   ...require('./components/notification'),
   ...require('./components/scroll'),
   ...require('./components/tooltip'),
-  ...require('./components/validation')
+  ...require('./components/validation'),
+  ...require('./utils/debounce'),
+  ...require('./utils/throttle'),
+  ...require('./utils/remove-array-like'),
+  ...require('./utils/transitionend')
 }
