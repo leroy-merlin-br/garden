@@ -1,4 +1,4 @@
-export default () => {
+const transitionEnd = () => {
   const eventNames = {
     WebkitTransition: 'webkitTransitionEnd',
     MozTransition: 'transitionend',
@@ -15,3 +15,7 @@ export default () => {
     }
   }
 }
+
+/* istanbul ignore next */
+export default transitionEnd
+export { transitionEnd }

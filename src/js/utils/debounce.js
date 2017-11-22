@@ -1,4 +1,4 @@
-export default (fn, timer) => {
+const debounce = (fn, timer) => {
   let timeout
 
   return function (...args) {
@@ -9,3 +9,7 @@ export default (fn, timer) => {
     }, timer)
   }
 }
+
+/* istanbul ignore next */
+export default debounce
+export { debounce }
