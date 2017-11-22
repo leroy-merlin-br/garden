@@ -1,4 +1,4 @@
-export default (fn, timer) => {
+const throttle = (fn, timer) => {
   let wait = true
 
   return function (...args) {
@@ -14,3 +14,7 @@ export default (fn, timer) => {
     }
   }
 }
+
+/* istanbul ignore next */
+export default throttle
+export { throttle }
