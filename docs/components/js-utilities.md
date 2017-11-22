@@ -16,7 +16,7 @@ section: js
 ## Summary
 1. [Debounce](#debounce)
 1. [Throttle](#throttle)
-1. [Remove from array](#remove-from-array)
+1. [Remove array like](#remove-array-like)
 1. [TransitionEnd](#transitionend)
 
 ## Debounce
@@ -49,15 +49,15 @@ A utility to help restrain the execution of the provided function multiple times
  // the handler will be called only once within 500ms, even if the user inputs again.
 ```
 
-## Remove from array
-A function to remove elements from an [array-like](http://www.2ality.com/2013/05/quirk-array-like-objects.html) object.
+## Remove array like
+A function to remove elements from an [array-like](http://www.2ality.com/2013/05/quirk-array-like-objects.html) object. The object returned corresponds to an array without the element passed as a parameter.
 
 ```js
- import removeFromArray from 'src/js/utils/remove-from-array';
+ import removeArrayLike from 'src/js/utils/remove-array-like';
 
  let nodes = document.querySelectorAll('.image');
 
- removeFromArray(nodes, nodes[2]);
+ nodes = removeArrayLike(nodes, nodes[2]);
 ```
 <p class="notification notification-warning">
   Under the hood, this utility executes the `indexOf` and `splice` methods on the array and item provided.
