@@ -8,7 +8,7 @@ const DEFAULTS = {
   selector: 'data-lazy'
 }
 
-class LazyLoad {
+export default class LazyLoad {
   /**
    * Create a lazy load component
    * Set base methods references and properties (element and options).
@@ -225,5 +225,4 @@ class LazyLoad {
 }
 
 /* istanbul ignore next */
-export default LazyLoad
 export { LazyLoad }

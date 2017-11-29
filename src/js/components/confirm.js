@@ -14,7 +14,7 @@ const DEFAULTS = {
   triggerConfirm: '[data-confirm-button]'
 }
 
-class Confirm {
+export default class Confirm {
   /**
    * Instantiate a new Confirm component passing a callback of type described
    * below.
@@ -150,5 +150,4 @@ class Confirm {
 }
 
 /* istanbul ignore next */
-export default Confirm
 export { Confirm }

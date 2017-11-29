@@ -4,7 +4,7 @@ const DEFAULTS = {
   placement: 'top'
 }
 
-class Tooltip {
+export default class Tooltip {
   /**
    * Create a new Tooltip instance.
    *
@@ -59,5 +59,4 @@ class Tooltip {
 }
 
 /* istanbul ignore next */
-export default Tooltip
 export { Tooltip }
