@@ -27,7 +27,7 @@ const templates = {
 }
 
 /** Class representing the Notification component. */
-class Notification {
+export default class Notification {
   /**
    * Create a notification.
    *
@@ -162,5 +162,4 @@ class Notification {
 }
 
 /* istanbul ignore next */
-export default Notification
 export { Notification }

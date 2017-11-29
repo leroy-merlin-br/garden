@@ -9,7 +9,7 @@ const DEFAULTS = {
   selector: '[data-required]'
 }
 
-class Validation {
+export default class Validation {
   /**
    * Create a new Validation component.
    *
@@ -125,5 +125,4 @@ class Validation {
 Validation.prototype.rules = rules
 
 /* istanbul ignore next */
-export default Validation
 export { Validation }
