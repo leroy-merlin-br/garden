@@ -6,7 +6,7 @@ const DEFAULTS = {
   selectors: '.input, select, .select, .textarea'
 }
 
-class Form {
+export default class Form {
   /**
    * Create a new Form instance.
    *
@@ -86,5 +86,4 @@ class Form {
 }
 
 /* istanbul ignore next */
-export default Form
 export { Form }

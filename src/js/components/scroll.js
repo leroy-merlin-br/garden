@@ -6,7 +6,7 @@ const DEFAULTS = {
   offset: -30
 }
 
-class Scroll {
+export default class Scroll {
   /**
    * Instantiate a new Scroll component.
    *
@@ -42,5 +42,4 @@ class Scroll {
 }
 
 /* istanbul ignore next */
-export default Scroll
 export { Scroll }

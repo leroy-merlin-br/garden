@@ -9,7 +9,7 @@ const DEFAULTS = {
   timing: 300
 }
 
-class Collapse {
+export default class Collapse {
   /**
    * Create a new Collapse instance.
    *
@@ -113,5 +113,4 @@ class Collapse {
 }
 
 /* istanbul ignore next */
-export default Collapse
 export { Collapse }

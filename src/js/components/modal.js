@@ -21,7 +21,7 @@ const DEFAULTS = {
   triggerOpen: null
 }
 
-class Modal {
+export default class Modal {
   /**
    * Create a new Modal instance.
    *
@@ -319,5 +319,4 @@ class Modal {
 }
 
 /* istanbul ignore next */
-export default Modal
 export { Modal }

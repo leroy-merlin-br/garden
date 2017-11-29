@@ -11,7 +11,7 @@ const DEFAULTS = {
   triggerClose: '[data-alert-button]'
 }
 
-class Alert {
+export default class Alert {
   /**
    * Create an Alert component
    *
@@ -96,5 +96,4 @@ class Alert {
 }
 
 /* istanbul ignore next */
-export default Alert
 export { Alert }
