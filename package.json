@@ -107,6 +107,7 @@
   "greenkeeper": {
     "ignore": [
       "metalsmith-collections",
+      "metalsmith-layouts",
       "normalize.css"
     ]
   }
