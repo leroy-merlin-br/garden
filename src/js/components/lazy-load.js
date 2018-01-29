@@ -93,7 +93,7 @@ class LazyLoad {
         width: breakpoint[1]
       }
     })
-    .sort((a, b) => b.width - a.width)
+      .sort((a, b) => b.width - a.width)
 
     for (let i = 0; i < breakpoints.length; i++) {
       let breakpoint = breakpoints[i]
