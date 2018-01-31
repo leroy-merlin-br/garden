@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="300px" height="300px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
-<g>
-	<g>
-		<g>
-			<path d="M151.783,226.281c5.603,0,10.548,1.607,14.55,4.375L172.398,1h-41.919l6.073,230.045
-				C140.725,228.037,145.926,226.281,151.783,226.281z"/>
-		</g>
-		<path d="M125.215,273.354c0-15.901,10.744-27.073,25.785-27.073c15.041,0,25.355,11.173,25.355,27.073
-			c0,15.042-9.884,26.646-25.785,26.646C135.529,300,125.215,288.396,125.215,273.354z"/>
-	</g>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 300 300" xml:space="preserve">
+<g id="XMLID_1625_">
+	<path id="XMLID_1626_" fill="#231F20" d="M150.998,271.785c-6.906,0-12.739-2.446-17.498-7.322
+		c-4.764-4.878-7.144-11.01-7.144-18.393c0-7.616,2.38-13.929,7.144-18.928c4.759-5.002,10.592-7.5,17.498-7.5
+		s12.734,2.498,17.503,7.5c4.759,4.999,7.144,11.312,7.144,18.928c0,7.384-2.385,13.515-7.144,18.393
+		C163.732,269.338,157.904,271.785,150.998,271.785z M138.501,192.856L133.5,66.428l-1.074-38.214h37.504l-1.43,38.214
+		l-5.002,126.428H138.501z"/>
 </g>
 </svg>
