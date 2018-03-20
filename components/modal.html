@@ -17,12 +17,12 @@
 <h2 id="usage">Usage</h2>
 <p>The modal height varies according to its content, but it is limited to a <code>max-height</code> of <code>90%</code>.<br>You can use a data attribute or a class name as the modal selector, as described in the example below.</p>
 <p>You can initiate it as a jQuery plugin:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using any selector</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment">// using any selector</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'any-selector'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>or a vanilla constructor:</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Modal <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/modal'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// using [data-modal] as the selector</span>
+<span class="token comment">// using [data-modal] as the selector</span>
 <span class="token keyword">new</span> <span class="token class-name">Modal</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Here is a snippet of a modal block that uses a data attribute as its selector.</p>
 <pre class="language-html"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-modal</span><span class="token punctuation">></span></span>
@@ -97,12 +97,12 @@
   history<span class="token punctuation">:</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// as a jquery plugin</span>
+<span class="token comment">// as a jquery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">modal</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// or</span>
+<span class="token comment">// or</span>
 
-<span class="token comment" spellcheck="true">// as a vanilla constructor</span>
+<span class="token comment">// as a vanilla constructor</span>
 <span class="token keyword">new</span> <span class="token class-name">Modal</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-modal]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h3 id="methods">Methods</h3>
 <table>

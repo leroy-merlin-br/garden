@@ -62,10 +62,10 @@ emitter<span class="token punctuation">.</span><span class="token function">on</
   selector<span class="token punctuation">:</span> <span class="token string">'.required'</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">//  Using it as a jQuery plugin</span>
+<span class="token comment">//  Using it as a jQuery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// or as a vanilla constructor</span>
+<span class="token comment">// or as a vanilla constructor</span>
 <span class="token keyword">new</span> <span class="token class-name">Validation</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h2 id="validation-names">Validation names</h2>
 <p>To validate a field you must add the desired validation name to it.
@@ -134,10 +134,10 @@ The goal of this validation is to handle two-way fields, such as <code>password 
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> Validation <span class="token string">'src/js/components/validation'</span><span class="token punctuation">;</span>
 
 Validation<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>rules<span class="token punctuation">.</span><span class="token function-variable function">confirm</span> <span class="token operator">=</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> $form<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// field is the current field being validated, and form is the form of the instance, as a jQuery object.</span>
-  <span class="token comment" spellcheck="true">// So you can check for other fields and use them for more complex validations, such as confirm itself.</span>
+  <span class="token comment">// field is the current field being validated, and form is the form of the instance, as a jQuery object.</span>
+  <span class="token comment">// So you can check for other fields and use them for more complex validations, such as confirm itself.</span>
 
-  <span class="token comment" spellcheck="true">// the return statement should be a boolean or a truthy/falsy value.</span>
+  <span class="token comment">// the return statement should be a boolean or a truthy/falsy value.</span>
   <span class="token keyword">return</span> field<span class="token punctuation">.</span>value <span class="token operator">===</span> $form<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`[name="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>field<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-confirm'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">]`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <h2 id="handling-validation-events">Handling validation events</h2>
@@ -146,15 +146,15 @@ You can use it to style the element, according to the validation result.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> emitter <span class="token keyword">from</span> <span class="token string">'src/js/utils/emitter'</span><span class="token punctuation">;</span>
 
 emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:success'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// handle validation success for a field.</span>
-  <span class="token comment" spellcheck="true">// 'field' is the DOMNode.</span>
+  <span class="token comment">// handle validation success for a field.</span>
+  <span class="token comment">// 'field' is the DOMNode.</span>
 
   field<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'validation:error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> errors<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// handle validation error for a field.</span>
-  <span class="token comment" spellcheck="true">// 'field' is the DOMNode and 'errors' is an array of errors.</span>
+  <span class="token comment">// handle validation error for a field.</span>
+  <span class="token comment">// 'field' is the DOMNode and 'errors' is an array of errors.</span>
 
   field<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'invalid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -173,13 +173,13 @@ provide any field (even if it is not inside the form instance) and returns a boo
 
 Validation<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span>$field<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// returns a boolean, and triggers the validation event.</span></code></pre>
+<span class="token comment">// returns a boolean, and triggers the validation event.</span></code></pre>
 <h2 id="validating-all-fields">Validating all fields</h2>
 <p>You will usually use this method to validate the whole form instance.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> validation <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-form]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// in case validation of the whole form fails, prevent the submission of it:</span>
+  <span class="token comment">// in case validation of the whole form fails, prevent the submission of it:</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>validation<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'validation'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validateAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>

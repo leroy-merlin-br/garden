@@ -16,16 +16,16 @@ As an alternative, you can manually download the source code for our <a href="ht
 <p>Garden main files are located on <code>dist/garden.min.css</code> and <code>dist/garden.min.js</code> (It comes with all of the JS components bundled together). If you want to use components individually, you will have to build them as well.</p>
 <h5 id="css">CSS</h5>
 <p>We rely on <a href="https://github.com/postcss/postcss">PostCSS</a> to process our CSS files. By using the <a href="https://github.com/postcss/postcss-import">PostCSS import plugin</a> it is possible to import a specific file, as shown below.</p>
-<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token comment" spellcheck="true">/* css files are located at: garden/src/css/ */</span>
+<pre class="language-scss"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-scss"><span class="token comment">/* css files are located at: garden/src/css/ */</span>
 
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"garden/src/atoms/button"</span><span class="token punctuation">;</span></span>
 
-<span class="token comment" spellcheck="true">/* PostCSS import resolves bower_components/node_modules folder automatically */</span></code></pre>
+<span class="token comment">/* PostCSS import resolves bower_components/node_modules folder automatically */</span></code></pre>
 <h5 id="javascript">JavaScript</h5>
 <p>We use <a href="https://webpack.github.io/">Webpack</a> with <a href="https://github.com/babel/babel-loader">Babel-loader</a> to handle the ES2015 to ES5 transpiling/bundling process. Since it’s plain ES2015, you can use any transpiler along with any bundler as well:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// ES2015 import syntax:</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment">// ES2015 import syntax:</span>
 
-<span class="token comment" spellcheck="true">// You will have to point to your bundler where to resolve garden imports, or use directly from node_modules/bower_components:</span>
+<span class="token comment">// You will have to point to your bundler where to resolve garden imports, or use directly from node_modules/bower_components:</span>
 <span class="token keyword">import</span> file <span class="token keyword">from</span> <span class="token string">'garden/src/js/file'</span><span class="token punctuation">;</span></code></pre>
 <p class="notification notification-warning">
   JavaScript components rely on jQuery to work, most of the time, so it is important to note that <code>garden.min.js</code> <em>does not</em> come with jQuery. You have to add your own version of it.

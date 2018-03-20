@@ -98,10 +98,10 @@
   visibleClass<span class="token punctuation">:</span> <span class="token string">'not-hidden'</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// as a jquery plugin</span>
+<span class="token comment">// as a jquery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-collapse]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">collapse</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// as a vanilla constructor</span>
+<span class="token comment">// as a vanilla constructor</span>
 <span class="token keyword">new</span> <span class="token class-name">Collapse</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-collapse]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h3 id="methods">Methods</h3>
 <table>
@@ -130,8 +130,8 @@
 <p>You can also listen to toggle state changes using the <a href="emitter.html">emitter</a> component, as described below.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">import</span> emitter <span class="token keyword">from</span> <span class="token string">'garden/src/js/utils/emitter'</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// the first argument is the instance.$element (the trigger)</span>
-<span class="token comment" spellcheck="true">// the second argument is the instance.$target (the element to be toggled)</span>
+<span class="token comment">// the first argument is the instance.$element (the trigger)</span>
+<span class="token comment">// the second argument is the instance.$target (the element to be toggled)</span>
 emitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'collapse:show'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>$element<span class="token punctuation">,</span> $target<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   $element<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token string">'Close content'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

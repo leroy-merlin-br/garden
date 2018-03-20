@@ -77,10 +77,10 @@
   type<span class="token punctuation">:</span> <span class="token string">'warning'</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// Using it as a jQuery plugin</span>
+<span class="token comment">// Using it as a jQuery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`.any-selector`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Using it as a vanilla constructor</span>
+<span class="token comment">// Using it as a vanilla constructor</span>
 <span class="token keyword">import</span> Notification <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/notification'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">new</span> <span class="token class-name">Notification</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.any-selector'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -95,10 +95,10 @@ generated via JavaScript and appended to the selector used.</p>
   type<span class="token punctuation">:</span> <span class="token string">'warning'</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// As a jQuery plugin</span>
+<span class="token comment">// As a jQuery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-notification-dynamic]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// As a vanilla constructor</span>
+<span class="token comment">// As a vanilla constructor</span>
 <span class="token keyword">import</span> Notification <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/notification'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">new</span> <span class="token class-name">Notification</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'[data-notification-dynamic]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -114,13 +114,13 @@ generated via JavaScript and appended to the selector used.</p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>notification-close glyph glyph-x<span class="token punctuation">"</span></span> <span class="token attr-name">data-close</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>notification<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>As a jQuery plugin:</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// using selector as data-*</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment">// using selector as data-*</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-notification]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   dynamic<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   closeButton<span class="token punctuation">:</span> <span class="token string">'[data-close="notification"]'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// using as a class</span>
+<span class="token comment">// using as a class</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.any-class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   dynamic<span class="token punctuation">:</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
@@ -150,10 +150,10 @@ generated via JavaScript and appended to the selector used.</p>
   type<span class="token punctuation">:</span> <span class="token string">'warning'</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// As a jQuery plugin</span>
+<span class="token comment">// As a jQuery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-notification-temporary]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">notification</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// As a vanilla constructor</span>
+<span class="token comment">// As a vanilla constructor</span>
 <span class="token keyword">import</span> Notification <span class="token keyword">from</span> <span class="token string">'garden/src/js/components/notification'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">new</span> <span class="token class-name">Notification</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'[data-notification-temporary]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>

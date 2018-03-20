@@ -89,22 +89,22 @@ is the image source and the second is the window <code>min-width</code>.</p>
 </table>
 <p>Below is how you can customize the component using the options provided.</p>
 <pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token keyword">let</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
-  throttle<span class="token punctuation">:</span> <span class="token number">4000</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// Increasing the throttle waiting time</span>
-  selector<span class="token punctuation">:</span> <span class="token string">'.lazy-image'</span> <span class="token comment" spellcheck="true">// Changing the default selector</span>
+  throttle<span class="token punctuation">:</span> <span class="token number">4000</span><span class="token punctuation">,</span> <span class="token comment">// Increasing the throttle waiting time</span>
+  selector<span class="token punctuation">:</span> <span class="token string">'.lazy-image'</span> <span class="token comment">// Changing the default selector</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Initializing it as a jQuery plugin</span>
+<span class="token comment">// Initializing it as a jQuery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lazyload</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Or as a vanilla constructor</span>
+<span class="token comment">// Or as a vanilla constructor</span>
 <span class="token keyword">new</span> <span class="token class-name">LazyLoad</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h3 id="destroying-an-instance">Destroying an instance</h3>
 <p>By default, when the Lazy Load component does not find a <code>[data-lazy]</code> attribute in the page, it automatically removes the listener on the <code>$(window).scroll</code> event, but you can also do it manually by using the <code>destroy()</code> method.</p>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// With a jQuery plugin</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment">// With a jQuery plugin</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lazyload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'lazy-load'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment" spellcheck="true">// With a vanilla constructor</span>
+<pre class="language-js"><button class="button button-primary uppercase" data-copy>Copy</button><code class="language-js"><span class="token comment">// With a vanilla constructor</span>
 <span class="token keyword">let</span> lazyLoad <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyLoad</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 lazyLoad<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
