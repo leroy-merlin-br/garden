@@ -171,9 +171,23 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-lock">
+      <div class="glyph glyph-lock"></div>
+      lock
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-magnifier">
       <div class="glyph glyph-magnifier"></div>
       magnifier
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-order">
+      <div class="glyph glyph-order"></div>
+      order
     </div>
   </div>
 
@@ -192,6 +206,13 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-projects">
+      <div class="glyph glyph-projects"></div>
+      projects
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-question-mark">
       <div class="glyph glyph-question-mark"></div>
       question-mark
@@ -206,23 +227,16 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-signout">
+      <div class="glyph glyph-signout"></div>
+      signout
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-silhouette">
       <div class="glyph glyph-silhouette"></div>
       silhouette
-    </div>
-  </div>
-
-  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    <div class="glyph-container" data-clipboard-text=".glyph-trash-can">
-      <div class="glyph glyph-trash-can"></div>
-      trash-can
-    </div>
-  </div>
-
-  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    <div class="glyph-container" data-clipboard-text=".glyph-x">
-      <div class="glyph glyph-x"></div>
-      x
     </div>
   </div>
 
@@ -234,16 +248,9 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    <div class="glyph-container" data-clipboard-text=".glyph-signout">
-      <div class="glyph glyph-signout"></div>
-      signout
-    </div>
-  </div>
-
-  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    <div class="glyph-container" data-clipboard-text=".glyph-order">
-      <div class="glyph glyph-order"></div>
-      order
+    <div class="glyph-container" data-clipboard-text=".glyph-trash-can">
+      <div class="glyph glyph-trash-can"></div>
+      trash-can
     </div>
   </div>
 
@@ -262,6 +269,13 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-unlock">
+      <div class="glyph glyph-unlock"></div>
+      unlock
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     <div class="glyph-container" data-clipboard-text=".glyph-verified-price">
       <div class="glyph glyph-verified-price"></div>
       verified price
@@ -269,9 +283,9 @@ Below is a relation of glyphs currently available. You can click on any of them 
   </div>
 
   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    <div class="glyph-container" data-clipboard-text=".glyph-projects">
-      <div class="glyph glyph-projects"></div>
-      projects
+    <div class="glyph-container" data-clipboard-text=".glyph-x">
+      <div class="glyph glyph-x"></div>
+      x
     </div>
   </div>
 </div>
