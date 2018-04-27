@@ -64,3 +64,5 @@
 @import "molecules/steps";
 
 @import "molecules/panel";
+
+@import "flexboxgrid/src/css/flexboxgrid.css";
