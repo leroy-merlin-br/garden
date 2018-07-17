@@ -101,7 +101,7 @@
     "sinon-test": "^2.1.1",
     "stylelint": "~8.4.0",
     "stylelint-order": "^0.8.0",
-    "webpack-stream": "^4.0.0",
+    "webpack-stream": "^5.0.0",
     "yargs": "^11.0.0"
   },
   "greenkeeper": {
