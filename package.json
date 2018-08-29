@@ -39,7 +39,7 @@
     "cssnano": "^3.4.0",
     "del": "^3.0.0",
     "eslint": "^4.0.0",
-    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-chai-friendly": "^0.4.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-node": "^5.0.0",
