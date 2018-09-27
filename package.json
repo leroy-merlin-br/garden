@@ -28,7 +28,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-cli": "^6.4.0",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-istanbul-loader": "0.1.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.3.13",
