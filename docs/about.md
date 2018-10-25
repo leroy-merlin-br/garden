@@ -22,4 +22,4 @@ Garden CSS/JS components targets all major browsers, including IE9+. CSS prefixo
 ## Getting Started
 Be sure to checkout the [Getting Started section](getting-started.html) for more info on how to use Garden.
 
-##### A huge shoutout to the [Primer project](https://primercss.io), which heavily inspired the layout and the documentation approach of this library.
+##### A huge shoutout to the [Primer project](https://primer.style), which heavily inspired the layout and the documentation approach of this library.

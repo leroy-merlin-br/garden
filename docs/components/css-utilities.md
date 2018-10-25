@@ -38,7 +38,7 @@ in the [defaults.json](/css/scaffolding.html#overriding-default-variables) file.
 | $breakpoint-xl | 1280px |
 
 <p class="notification notification-warning">
-   Check out the [Scaffolding](/css/scaffolding.html) page to learn how to overwrite these values.
+   Check out the [Scaffolding](/components/scaffolding.html) page to learn how to overwrite these values.
 </p>
 
 
