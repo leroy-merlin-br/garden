@@ -79,7 +79,7 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-jade": "^2.0.2",
     "metalsmith-layouts": "^1.4.2",
-    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-markdown": "^1.1.0",
     "metalsmith-relative": "^1.0.3",
     "mocha": "^5.0.0",
     "phantomjs-prebuilt": "^2.1.7",
