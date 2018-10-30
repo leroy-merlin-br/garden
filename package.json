@@ -103,12 +103,5 @@
     "stylelint-order": "^0.8.0",
     "webpack-stream": "^4.0.0",
     "yargs": "^11.0.0"
-  },
-  "greenkeeper": {
-    "ignore": [
-      "metalsmith-collections",
-      "metalsmith-layouts",
-      "normalize.css"
-    ]
   }
 }
