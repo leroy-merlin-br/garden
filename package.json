@@ -51,7 +51,7 @@
     "gulp-iconfont": "^9.0.0",
     "gulp-if": "^2.0.0",
     "gulp-notify": "^3.0.0",
-    "gulp-plumber": "^1.1.0",
+    "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^7.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-size": "^3.0.0",
