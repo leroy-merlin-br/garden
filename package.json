@@ -14,11 +14,28 @@
     "type": "git",
     "url": "git+https://github.com/leroy-merlin-br/garden.git"
   },
-  "author": "Leroy Merlin Brasil",
+  "author": "Leandro Grillo <leandrocesar.grillo@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/leroy-merlin-br/garden/issues"
   },
+  "contributors": [
+    {
+      "name": "Leandro Grillo",
+      "email": "leandrocesar.grillo@gmail.com",
+      "url": "https://github.com/leandrogrillo"
+    },
+    {
+      "name": "Andre Carneiro",
+      "email": "acarneiro@leroymerlin.com.br",
+      "url": "https://github.com/andreolvr"
+    },
+    {
+      "name": "Thiago",
+      "email": "thiagonevesporto@hotmail.com",
+      "url": "https://github.com/ThiagoNP"
+    }
+  ],
   "homepage": "http://styleguide.leroymerlin.com.br",
   "dependencies": {
     "jump.js": "^1.0.2",
