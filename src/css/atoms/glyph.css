@@ -157,81 +157,87 @@
 .glyph-pencil::before {
     content: "\EA18"
 }
-@define-mixin printer {
+@define-mixin plus {
     content: "\EA19"
+}
+.glyph-plus::before {
+    content: "\EA19"
+}
+@define-mixin printer {
+    content: "\EA1A"
 }
 .glyph-printer::before {
-    content: "\EA19"
+    content: "\EA1A"
 }
 @define-mixin projects {
-    content: "\EA1A"
+    content: "\EA1B"
 }
 .glyph-projects::before {
-    content: "\EA1A"
+    content: "\EA1B"
 }
 @define-mixin question-mark {
-    content: "\EA1B"
+    content: "\EA1C"
 }
 .glyph-question-mark::before {
-    content: "\EA1B"
+    content: "\EA1C"
 }
 @define-mixin refresh {
-    content: "\EA1C"
+    content: "\EA1D"
 }
 .glyph-refresh::before {
-    content: "\EA1C"
+    content: "\EA1D"
 }
 @define-mixin settings {
-    content: "\EA1D"
+    content: "\EA1E"
 }
 .glyph-settings::before {
-    content: "\EA1D"
+    content: "\EA1E"
 }
 @define-mixin signout {
-    content: "\EA1E"
+    content: "\EA1F"
 }
 .glyph-signout::before {
-    content: "\EA1E"
+    content: "\EA1F"
 }
 @define-mixin silhouette {
-    content: "\EA1F"
+    content: "\EA20"
 }
 .glyph-silhouette::before {
-    content: "\EA1F"
+    content: "\EA20"
 }
 @define-mixin tag {
-    content: "\EA20"
+    content: "\EA21"
 }
 .glyph-tag::before {
-    content: "\EA20"
+    content: "\EA21"
 }
 @define-mixin tools {
-    content: "\EA21"
+    content: "\EA22"
 }
 .glyph-tools::before {
-    content: "\EA21"
+    content: "\EA22"
 }
 @define-mixin trash-can {
-    content: "\EA22"
+    content: "\EA23"
 }
 .glyph-trash-can::before {
-    content: "\EA22"
+    content: "\EA23"
 }
 @define-mixin unlock {
-    content: "\EA23"
+    content: "\EA24"
 }
 .glyph-unlock::before {
-    content: "\EA23"
+    content: "\EA24"
 }
 @define-mixin verified-price {
-    content: "\EA24"
+    content: "\EA25"
 }
 .glyph-verified-price::before {
-    content: "\EA24"
+    content: "\EA25"
 }
 @define-mixin x {
-    content: "\EA25"
+    content: "\EA26"
 }
 .glyph-x::before {
-    content: "\EA25"
+    content: "\EA26"
 }
