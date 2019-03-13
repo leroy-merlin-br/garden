@@ -288,6 +288,13 @@ Below is a relation of glyphs currently available. You can click on any of them 
       x
     </div>
   </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="glyph-container" data-clipboard-text=".glyph-plus">
+      <div class="glyph glyph-plus"></div>
+      +
+    </div>
+  </div>
 </div>
 
 ## Customized bundle
