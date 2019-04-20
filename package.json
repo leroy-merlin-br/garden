@@ -87,7 +87,7 @@
     "karma-notify-reporter": "^1.0.1",
     "karma-nyan-reporter": "^0.2.3",
     "karma-phantomjs-launcher": "^1.0.0",
-    "karma-sinon": "^1.0.4",
+    "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "marked": "^0.3.5",
