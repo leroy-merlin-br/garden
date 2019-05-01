@@ -76,7 +76,7 @@
     "gulp-stylelint-console-reporter": "0.1.1",
     "gulp-uglify": "^2.1.2",
     "gulp-webserver": "^0.9.1",
-    "jquery": "^3.1.0",
+    "jquery": "^3.4.1",
     "karma": "^2.0.0",
     "karma-babel-preprocessor": "^7.0.0",
     "karma-chai": "^0.1.0",
