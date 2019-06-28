@@ -63,7 +63,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "gulp": "github:gulpjs/gulp#v4.0.0",
-    "gulp-eslint": "^4.0.1",
+    "gulp-eslint": "^6.0.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-iconfont": "^10.0.2",
     "gulp-if": "^2.0.0",
