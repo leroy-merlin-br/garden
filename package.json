@@ -55,7 +55,7 @@
     "codecov": "^3.0.0",
     "cssnano": "^3.4.0",
     "del": "^3.0.0",
-    "eslint": "^4.0.0",
+    "eslint": "^6.2.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-chai-friendly": "^0.4.0",
     "eslint-plugin-import": "^2.3.0",
