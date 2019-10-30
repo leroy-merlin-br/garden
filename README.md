@@ -18,7 +18,7 @@ A front end library to help you make *​your*​ grass greener than the other s
 - [License](#license)
 
 ## Install
-You can manually [download our latest release](#latest-release-link), or install with npm/Bower:
+You can manually [download our latest release](#latest-release-link), or install with npm:
 
 ### NPM
 ```sh
