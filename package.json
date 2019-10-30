@@ -1,6 +1,6 @@
 {
   "name": "garden",
-  "version": "0.48.0",
+  "version": "0.52.0",
   "description": "A styleguide based on Leroy Merlin needs",
   "main": "dist/js/garden.min.js",
   "scripts": {
@@ -14,11 +14,28 @@
     "type": "git",
     "url": "git+https://github.com/leroy-merlin-br/garden.git"
   },
-  "author": "Leroy Merlin Brasil",
+  "author": "Leandro Grillo <leandrocesar.grillo@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/leroy-merlin-br/garden/issues"
   },
+  "contributors": [
+    {
+      "name": "Leandro Grillo",
+      "email": "leandrocesar.grillo@gmail.com",
+      "url": "https://github.com/leandrogrillo"
+    },
+    {
+      "name": "André Carneiro",
+      "email": "andreolvr0@gmail.com",
+      "url": "https://github.com/andreolvr"
+    },
+    {
+      "name": "Thiago",
+      "email": "thiagonevesporto@hotmail.com",
+      "url": "https://github.com/ThiagoNP"
+    }
+  ],
   "homepage": "http://styleguide.leroymerlin.com.br",
   "dependencies": {
     "jump.js": "^1.0.2",
@@ -45,10 +62,10 @@
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "github:gulpjs/gulp#v4.0.0",
     "gulp-eslint": "^4.0.1",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-iconfont": "^9.0.0",
+    "gulp-iconfont": "^10.0.2",
     "gulp-if": "^2.0.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
