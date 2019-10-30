@@ -108,7 +108,7 @@
     "postcss-font-magician": "^2.0.0",
     "postcss-for": "^2.1.1",
     "postcss-import": "^11.0.0",
-    "postcss-mixins": "^6.0.1",
+    "postcss-mixins": "^6.2.3",
     "postcss-nested": "^3.0.0",
     "postcss-reporter": "^5.0.0",
     "postcss-simple-vars": "^4.0.0",
