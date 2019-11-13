@@ -105,7 +105,7 @@
     "postcss-conditionals": "^2.1.0",
     "postcss-custom-media": "^6.0.0",
     "postcss-each": "^0.10.0",
-    "postcss-font-magician": "^2.0.0",
+    "postcss-font-magician": "^2.3.1",
     "postcss-for": "^2.1.1",
     "postcss-import": "^11.0.0",
     "postcss-mixins": "^6.0.1",
